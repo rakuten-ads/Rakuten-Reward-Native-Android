@@ -1,0 +1,80 @@
+Rakuten Rewards Software Development Kit License Agreement
+These terms and conditions (the “Terms”) describes your rights and responsibilities in relation to your use of the Rakuten Rewards Software Development Kit (the “SDK”). By downloading, installing, using or otherwise accessing the SDK, you are agreeing that these Terms govern your relationship with us in relation to your use of the SDK, and that these Terms form a legally binding agreement between us. Your use of the SDK is conditional on your acceptance of these terms, and may be subject to other terms separately made between us. 
+楽天リワードSDK使用許諾規約（以下「本規約」といいます。）は、利用者の、楽天リワードSDK（以下「本SDK」といいます。）の使用にかかる権利及び義務を定めるものです。本SDKをダウンロード、インストール、使用その他の方法でアクセスした時点で、利用者は本SDKの使用について、本規約が当社と利用者との間で法的拘束力のある規約として適用されることに同意したものとみなします。本SDKの使用をする場合、利用者は本規約に同意をしなければなりません。また、利用者と当社との間で別途定める事項がある場合、利用者は当該事項にも従うものとします。
+The SDK is provided by Rakuten Asia Pte. Ltd, Singapore (“Rakuten”). Any reference to “we”, “our”, or “us” in these Term shall refer to Rakuten. If you are using the SDK on behalf of a legal entity, you represent that: you has the legal right, power and authority to enter into this agreement and that the entity is able to perform its obligations hereunder. Any other references to “you” in these Terms shall refer to the legal entity represented. 
+本SDKは、Rakuten Asia Pte. Ltd.（以下「当社」といいます。）により提供されます。利用者が法人の代理人として本SDKを使用する場合、利用者は本規約に基づく契約（以下「本契約」といいます。）を締結する法的権限を有し、当該法人が本規約に定める義務を履行できることを保証するものとします。本規約における「利用者」は、利用者が代理する法人をさすものとします。
+
+1	Use of our SDK　（本SDKの使用）
+1.1	License. Subject to Our Restrictions set out below, we grant you a non-assignable, non-exclusive, non-sub licensable, limited license to use the SDK in Japan solely to implement the SDK to its application and let its users benefit from the use of the SDK. 
+使用許諾　当社は、利用者に対して、本プラットフォームについて利用者に譲渡不能 、非独占的な使用許諾を行うものとします。利用者は、本規約に基づいて、日本国内において本 プラットフォームを自己のアプリに実装し、アプリユーザーに対して使用させること ができるものとします。
+1.2	Your content. We do not acquire any ownership or rights in the content that you submit to our SDK, save that we may use the content for the sole purpose of securing and improving our SDK. Before you submit content to our SDK, you will ensure that you have any necessary rights to do so.
+利用者のコンテンツ　当社は、利用者が本SDKに対して提供するコンテンツに対して何らの所有権または使用権を得るものではありません。ただし、当社は利用者のコンテンツを本SDKの運用および改善の目的に限り利用することができるものとします。本SDKにコンテンツを提供するに先立ち、利用者は、当社による前述の利用について必要な権利処理を行うものとします。
+2	Our restrictions　（禁止行為）
+2.1	You are strictly prohibited from:  
+利用者は、以下の各号に該当する行為または該当する行為をしては ならないものとします。
+a.	Redistribute, resell, or provide access of our stand-alone SDK to third parties, 
+本SDKを再配布、再販その他第三者にアクセスできる状態にする行為
+b.	Create or provide any applications, platforms, SDK or service that functions substantially the same as our SDK to third parties. 
+第三者に対して本SDKと同等の機能をもつアプリ、プラットフォーム、SDKその他サービスを制作しまたは提供する行為
+c.	Performing any activity that would result in “virus” or other computer software routines intentionally designed to disrupt functions or,  permit unauthorized access or damage to Rakuten or its partners and affiliates’ computer systems, networks, services, properties, etc.  
+コンピュータウィルスを埋め込む等コンピューターソフトウェア回路を使用し、故意に当社、当社のパートナーまたは当社のグループ会社のコンピューターシステム、ネットワーク、サービス、資産等の機能を中断させ、不正なアクセスを許容しまたは危害を加える行為
+d.	Promote or facilitate any illegal activity 
+違法行為を助長しまたは促進させる行為
+e.	Reverse engineer or attempt to extract the source code from any SDK or related software. 
+リバースエンジニアリングその他の方法により、本SDKまたは本SDKにかかるソフトウェアのソースコードの取得をこころみる行為
+f.	Using or associating our name or brand in any press or media release in relation to the SDK, our Services or these Terms without our consent.
+当社の承諾なく、本SDK、当社のサービスまたは本規約にかかるプレスリリースその他の媒体での公表において、当社の商号またはブランドを使用しまたは掲載する行為
+2.2	Our Intellectual Property. The SDK, and all software, documentation, information, hardware, equipment, devices, templates, tools, documents, processes, methodologies, know-how, websites, copyrights, trademarks, patents, trade secrets and any other proprietary rights inherent therein and related thereto and any additional intellectual or other property used by or on behalf of Rakuten and our affiliated entities will be and remain the sole and exclusive property of Rakuten. Using our Services does not give you ownership of any intellectual property rights in our Services or the content generated. Unless as specifically provided for in these Terms, no other ownership interest in intellectual property or other rights is assigned or otherwise transferred under these Terms, and there are no implied rights or licenses.
+知的財産権　当社または当社のグループ会社またはそれらの代理人により使用される、本SDKおよびすべてのソフトウェア、資料、情報、ハードウェア、機材、デバイス、テンプレート、ツール、ドキュメンテーション、手続き、手法、ノウハウ、ウェブサイト、著作権（著作権法第２７条および第２８条に規定する権利を 含みます。）その他知的財産または所有物にかかる権利は、すべて当社が独占的に保有するものとします。当社のサービスの利用は、利用者に対して、当社のサービスまたは当社のサービスから生成されるコンテンツについて何ら知的財産権を付与するものでもありません。本規約に別途の規定のない限り、いかなる知的財産権の持分その他の権利も譲渡はされず、黙示の権利付与や許諾もないものとします。
+2.3	Modifications. We reserve the right to modify the SDK and these terms in any way without prior notice, save that we will notify you promptly after such changes. If you continue to use the SDK after such notice, you are deemed to have accepted the modified terms.
+本規約の変更　当社は、事前の利用者への通知なく本規約を任意に変更できるものとします。当社は、本規約を変更した場合には、遅滞なく利用者に当該変更内容を通知するものとし、当該変更内容の通 知後、利用者が本SDKを利用した場合には、利用者は、本規約の変更に 同意したものとみなします。
+2.4	Open Source Software. Some of the software packages, libraries, or components required by or included in the SDK are or may become licensed under an open source software license (“Open Source Components”). To the extent that the Open Source Component license expressly supersedes the Terms, your use, reproduction and distribution of any such Open Source Components shall be governed by the applicable terms of the relevant open source software license.
+Open Source Software：本SDKに含まれる、または本SDKの利用に必要な一部のソフトウェアパッケージ、ライブラリ、構成要素は、Open Source Software（以下「OSS」といいます。）により許諾されます。当該OSSの許諾条件が本規約に明示的に優先する範囲で、利用者はOpen Source Softwareで提供されるコンテンツの利用、再作成または頒布にあたり、当該OSSの許諾条件に従うものとします。
+2.5	Permitted Downtime. We will use commercially reasonable means to provide 48 hours notice before if our SDK will not be available due to:  
+a.	planned maintenance
+b.	unavailability of the data to us
+c.	interruptions that are outside of our reasonable control
+中断：当社は、商業的に合理的な方法により、以下の各号に定める事由により本SDKの提供を中断する場合、利用者に対して、当該中断の48時間前までに通知します。
+a.	予定された点検・メンテナンスを実施する場合
+b.	当社がデータにアクセスできなくなる場合
+c.	当社の合理的な制御を超える事由により本SDKの提供が中断される場合
+3	Termination　（本SDK使用の終了）
+3.1	You may stop using our SDK or Services by giving at least one (1) month prior notice to Rakuten. We reserve the right to terminate our SDK or Services immediately in our sole discretion by giving you notice for such termination, in particular if you are determined in our sole discretion to be misusing our services fraudulently or in any way that breaches these Terms.
+利用者は、当社に対して使用終了希望日の1か月前までの通知することにより、本SDKの使用を終了させることができるものとします。当社は、利用者に通知することにより、本SDKおよび当社サービスの提供を任意に、即時停止することができるものとします。特に、当社は、利用者による本SDKあるいは当社サービスの不正利用や本規約違反に 対して本SDKおよび本サービスの提供を停止する裁量を持つものとします。
+3.2	Upon termination of these Terms, you will immediately stop using the SDK and delete any cache or stored content. 
+本契約の終了に伴い、利用者は直ちに本SDKの使用を停止し、キャッシュその他本SDK上に保存したコンテンツを削除するものとします。
+3.3	Any provision of these Terms that imposes an obligation on either party after the termination or expiration shall survive termination or expiration.
+本規約の規定のうち、本契約の終了後に当社または利用者に対して義務を課すものは、本契約の終了後も引き続き効力をもつものとします。
+4	Confidentiality（秘密保持）
+4.1	Parties acknowledge the likely disclosure of information of the other Party which is marked confidential or which is by its very nature ought to be known to the other Party as confidential (“Confidential Information”). Each Party agrees not to use such Confidential Information other than in furtherance of theses Terms & the Services (the “Purpose”), nor to disclose such information to any third parties (excluding the sub-contractors of Rakuten and each parties’ affiliates who need to know such Confidential information for the Purpose) without the prior written consent of the other Party. Each of the Parties shall use at least the same procedures and degree of care that it uses to prevent the disclosure of its own confidential information of like importance to prevent the disclosure of Confidential Information disclosed to it by the other Party under this Agreement, but in no event less than reasonable care. All Confidential Information shall remain the exclusive property of the disclosing Party.	This clause shall survive termination. 
+当社および利用者は、本契約に関連して、秘密である旨明示し、または当該情報の性質により合理的に秘密であると相手方に認められる情報（以下「秘密情報」といいます。）を相互に開示する可能性があることを確認します。当社および利用者は、秘密情報を本契約の履行または当社サービスの提供の目的でのみ使用し、事前に相手方の書面による同意なくして第三者（楽天の業務委託先および本契約の目的達成に必要な双方の関連会社を除きます。）にこれを開示または漏洩してはならないものとします。当社および利用者は、相手方から開示された秘密情報の漏洩防止のため、自らの秘密情報の管理に関する手続きや注意の程度と同程度の、但し
+いかなる場合であっても合理的な注意及び保護により、管理をするものとします。当社および利用者は、秘密情報の所有権は開示した当事者に留保されます。本条の規定は本契約の終了後も有効に存続するものとします。
+
+5	Liability （損害賠償）
+5.1	The Services provided by Rakuten are hereby provided on an “as is” basis and you use the Services at your own risk. Except as otherwise specifically provided herein, Rakuten does not make and hereby disclaims any and all other express and/or implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, non-infringement and title, and any warranties arising from a course of dealing, usage, or trade practice. Rakuten does not warrant that use of the Services or its deliverables will be uninterrupted, error-free or completely secure. 
+当社のサービスは現状有姿で提供され、利用者は自らの責任において当社のサービスを利用するものとします。当社は、利用者に対して、本規約に規定された場合を除き、商品性、特定目的適合性、第三者の権利侵害をしていないことその他利用者との取引、利用者の本SDKの利用または商習慣から発生するいかなる明示的または黙示の保証もしません。当社が、利用者による当社の提供するサービスまたは成果物の利用が中断されず、エラーがなく、完全に安全である旨を保証することはありません。
+5.2	In no event will Rakuten be liable for any indirect, consequential, punitive, special or incidental damages (including but not limited to loss of goodwill, loss of business, loss of anticipated profits or savings and all other pure economic loss) arising out of or in connection with these Terms. 
+いかなる場合であっても、当社が、本規約に基づきまたは関連して発生するあらゆる間接的、結果的、懲罰的、特別なまたは偶発的な損害（営業上の信用の損失、営業損失、機会利益や貯蓄の損失その他すべての純粋な経済上の損失を含みますがこれに限られません。）について責任を負うことはありません。
+5.3	Under no circumstances will our total liability exceed the total revenue share amount paid by Rakuten to you or the SDK license fee you paid to Rakuten under these Terms, whichever higher, during the month preceding the date of the action or claim, regardless of forum or basis of the action. Any unpaid amounts due and payable to us will be deducted from any liability amount payable by us to you under these terms. 
+当社が利用者に賠償する損害額は、当該損害額に対する訴えの理由を問わず、当該請求のあった月に本規約に基づき当社が利用者に対して支払ったレベニューシェア額または利用者が楽天に対して支払ったSDK利用料のうちいずれか高い金額を上限とします。当社は、利用者から支払を受けるべき金銭債権を有するときは、当社が本規約に基づき利用者に対して支払うべき損害賠償額と当該金銭債権とを相殺することができるものとします。
+
+5.4	If you are a legal entity using our SDK for business or commercial purposes, you agree to defend and indemnify us, our affiliates, directors, officers, employees and users against any liability, loss, damage, charge, cost and/or expense (including all reasonable legal fees) in relation to any allegation or proceedings made by third parties as a result of your or your third parties misuse of the Services in breach of these Terms. 
+利用者が本SDKを職業用、商用の目的で利用する法人である場合、利用者または第三者が当社サービスを本規約に違反するような方法で利用したことに起因する、損失、損害、罰則、費用および/または経費（合理的な弁護士費用も含みます。）についての第三者からの申し立、訴訟について、当社、当社の関連会社、役員、従業員、顧客を保護し賠償することに同意するものとします。
+
+6	General（一般条項）
+6.1	Non-Waiver. The failure of either Party at any time to require performance by the other Party will not act to amend or negate the rights of the non-faulting Party except with the express written consent of the non-faulting Party. The waiver by either Party of a breach of any provision hereof shall not be taken or held to be a waiver of any subsequent breach, default or the provision itself.
+権利不放棄：当事者のいずれか一方権利者が、相手方による本契約のいずれかの規定の履行を要求しないことは、権利者の明示的な書面による承諾がない限り、いかなる時点においても当該規定に定める権利者の権利の変更や否定をするものではない。当事者のいずれか一方が相手方による本規約の規定の違反に対する権利を放棄しても、その後の同じ規定の違反に対する権利を当該当事者が放棄したと見なされないものとする。
+6.2	Independence. Nothing contained in these Terms shall in any way constitute any association, partnership or joint venture between the us or be construed to evidence such intention. 
+独立した当事者：本規約上のいかなる規定も、当事者間に提携、パートナーシップまたはジョイントベンチャーを構成する者でもなく、また、その意図を証するものでもない。
+6.3	Competing products. You acknowledge that Rakuten may develop competing or similar products or services to your Application(s). 
+競合製品：申込者は、楽天が申込者のアプリと競合しまたは類似する製品またはサービスを開発することを承諾します。
+6.4	Entire Agreement. These Terms, constitutes the entire agreement between us with respect to the subject matter hereof and supersedes any prior agreements between us, whether written or oral, relating to the same subject matter. No amendments or variation of these Terms shall be effective unless made in writing and signed by us hereto.
+完全合意：本規約に基づく契約は、本件に関する申込者および楽天の全ての合意を網羅しており、本件に関する申込者と楽天との間の従前の一切の合意（書面によるか口頭によるかは問いません）に優先します。本規約の変更または改定は、当事者の書面によるものを除き、無効とします。
+6.5	Assignment. All the terms and provisions of the Terms shall be binding upon and inure to the benefit of the parties to the Terms and to their respective heirs, successors, permitted assigns and legal representatives. Rakuten shall be permitted to assign these Terms without notice to or consent from you. You may not assign or otherwise transfer the Terms, or any of its rights or obligations hereunder, to any third party without Rakuten’s prior written consent, to be given or withheld in Rakuten’s sole discretion.
+本規約の譲渡：本規約のすべての規定および条項は、本規約の当事者間および当事者の承継人、後任者、許諾を受けた被譲渡人および法的代理人の間を法的に拘束し、当事者間の利益のために効力を生じるものとします。楽天は、申込者への通知または承諾なく本規約を譲渡できるものとします。申込者は、楽天の事前の書面による承諾を得ることなく、本契約に基づく権利、義務その他契約上の地位を第三者に譲渡しまたは担保に供してはならなりません。
+6.6	Governing Law & Forum. These Terms shall be governed by and construed in accordance with the laws of Japan notwithstanding any Conflict of Law principles. Parties agree that any disputes arising out of or in connection with these Terms, the Services or the SDK shall be settled at the Tokyo Summary Court or the Tokyo District Court, which shall assume exclusive jurisdiction as the court of first instance, according to the amount of the suit. 
+準拠法および管轄地：本契約の準拠法は日本法とし、本契約に関し紛争が生じたときは、訴額に応じて東京簡易裁判所または東京地方裁判所を第一審の専属的合意管轄裁判所とします
+6.7	Severance. Any determined invalidity or unenforceability of any provision of these Terms shall not affect the validity or enforceability of any other provision. Any invalid or unenforceable provision shall be deemed severed to the extent of its invalidity or unenforceability, and shall be construed and enforced as if these Terms did not contain that provision to the extent of its invalidity or unenforceability.
+分離可能性：管轄権を有する裁判所によって、本規約のいずれかの規定を無効または執行力がないと判断された場合、本契約の残る部分は完全な効力を有するものとします。無効または執行力がないと判断された条項は、当該無効または執行不能の範囲で分離されるものとし、本規約に当該範囲の規定がなかったものとみなされるものとします。
+6.8	Language. These Terms are made in two (2) languages (English and Japanese). In case of discrepancy between English and Japanese versions, English version shall prevail.
+言語：本規約は二ヶ国語（英語および日本語）で作成されたものです。英語版と日本語版とで相違がある場合は、英語 版を優先することとする。
