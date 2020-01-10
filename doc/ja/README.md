@@ -49,7 +49,7 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:0.1.0'
+  implementation 'com.rakuten.android.ads:rewardsdknative:0.1.1'
 ```
 
 ## 使用方法の説明
