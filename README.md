@@ -20,7 +20,7 @@
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
-|0.1.1|16(4.1)|28 (9.0)|
+|0.1.2|16(4.1)|28 (9.0)|
 
 * Developers can ingegrate SDK 4.x but SDK function does not work under Android 5
 

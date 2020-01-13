@@ -45,7 +45,7 @@ RakutenRewardListener is Rakuten Reward SDK basic function status change listene
 | fun onUnclaimedAchievement(achievement : MissionAchievementData) | When the user achieved the mission
 | fun onUserUpdated(user : RakutenRewardUser) | When the user data is updated
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | When the SDK status changed
-| fun onSDKClaimClosed() | When the claim UI closed
+| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed
 
 For usage, please take a look sample application codes.
 
@@ -107,6 +107,14 @@ RakutenRewardAPIError enum class
 | SDKNOTACTIVE | SDK is not initialized yet
 | TOKENEXPIRE |  Access token expired to access API-C <br> Need to refresh this access token
 | UNKNOWN | Unknown error, basically not happen
+
+## RakutenRewardClaimStatus
+
+| Enum | Description
+| --- | --- 
+| NOTYET | Not claim yet (start)
+| SUCCESS | Succeed to claim
+| FAIL | Failed to claim
 
 ## How to support custom view after mission achievement
 Use RakutenRewardListener to receive mission achievement callback

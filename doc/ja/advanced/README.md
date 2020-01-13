@@ -45,7 +45,7 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onUnclaimedAchievement(achievement : MissionAchievementData) | ユーザーがミッションを達成した　
 | fun onUserUpdated(user : RakutenRewardUser) | ユーザーデータが更新された
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | SDKの状態が変更された
-| fun onSDKClaimClosed() | クレイムUIが閉じた
+| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた
 
 ## API Data
 
@@ -104,7 +104,15 @@ RakutenRewardAPIError は enum になります
 | TOKENEXPIRE |  アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください
 | UNKNOWN | 不明なエラー(基本的には起こりません)
 
-## How to support custom view after mission achievement
+## RakutenRewardClaimStatus
+
+| Enum | 説明
+| --- | --- 
+| NOTYET | まだクレイムしていない
+| SUCCESS | クレイム成功
+| FAIL | クレイム失敗
+
+## ミッション達成後のカスタムUIの作り方
 SDKのイベントリスナー RakutenRewardListener を使ってミッションの達成イベントを受け取ります　
 
 ```kotlin
