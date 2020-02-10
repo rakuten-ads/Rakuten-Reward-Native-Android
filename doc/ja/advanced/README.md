@@ -14,8 +14,9 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | RakutenReward.openPrivacyPage()
 | ミッションリストを取得する | ミッションリストを取得する | RakutenReward.getMissions( { missions -> <br> // Get Missions <br> }, { // Failed<br> })
 | ポイント履歴を取得する | 3ヶ月前までのポイント履歴を取得する | RakutenReward.getPointHistory({ pointHistory -> <br> // Get Point History <br> }, { <br> // Failed <br>})
-| アクションを送信する | ミッションを達成するためにアクションを送信する | RakutenReward.logAction("xxxxxx")
+| アクションを送信する | ミッションを達成するためにアクションを送信する | RakutenReward.logAction("xxxxxx", { <br> // Success <br>}, { <br> // Failed <br>})
 | 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | RakutenReward.getUnclaimedItems({ missions -> <br> // Unclaim Mission List <br> }, { <br>// Error <br>})
+| 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | RakutenReward.lastFailed
 
 ## RakutenRewardConfig
 RakutenRewardConfig　はユーザー設定を管理するクラスです
@@ -46,6 +47,15 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onUserUpdated(user : RakutenRewardUser) | ユーザーデータが更新された
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | SDKの状態が変更された
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた
+
+### RakutenRewardSDKStatus
+RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです  
+| Name | Description
+| --- | ---
+| ONLINE | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
+| OFFLINE | SDKの初期化が未完了または失敗
+| APPCODEINVALID | アプリケーションキーが間違っている
+| TOKENEXPIRED | トークンの期限切れ |
 
 ## API Data
 
@@ -103,6 +113,22 @@ RakutenRewardAPIError は enum になります
 | SDKNOTACTIVE | SDKが初期化されていません
 | TOKENEXPIRE |  アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください
 | UNKNOWN | 不明なエラー(基本的には起こりません)
+
+## Last Failed Method
+RakutenRewardAPILastCalled class has API information and parameters
+RakutenRewardAPI is enum class
+SDKはアプリケーションでエラーを処理できるようにAPIが失敗した場合にその詳細を提供します
+RakutenReward.lastFailed はダイナミックAPIが失敗した時にそのAPIの情報(RakutenRewardAPILastCalled)とパラメータを提供いたします
+
+| Name | Description(method name)
+| --- | --- 
+| MEMBERINFO | memberInfo
+| LOGACTION | logAction
+| GETUNCLAIM | getUnclaimedItems
+| POINTHISTORY | getPointHistory
+| CLAIM | claim (MissionAchievementData)
+| GETMISSIONLIST | getMissions
+
 
 ## RakutenRewardClaimStatus
 

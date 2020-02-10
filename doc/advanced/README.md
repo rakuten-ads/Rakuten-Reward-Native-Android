@@ -14,8 +14,9 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | RakutenReward.openPrivacyPage()
 | Get Missions | Get missions | RakutenReward.getMissions( { missions -> <br> // Get Missions <br> }, { // Failed<br> })
 | Get Point history | Get 3 month user's point history | RakutenReward.getPointHistory({ pointHistory -> <br> // Get Point History <br> }, { <br> // Failed <br>})
-| Log Action | Post user action | RakutenReward.logAction("xxxxxx")
+| Log Action | Post user action | RakutenReward.logAction("xxxxxx", { <br> // Success <br>}, { <br> // Failed <br>})
 | Get Unclaimed Items | Get Unclaim item list | RakutenReward.getUnclaimedItems({ missions -> <br> // Unclaim Mission List <br> }, { <br>// Error <br>})
+| Last failed method | Get last failed method | RakutenReward.lastFailed
 
 ## RakutenRewardConfig
 RakutenRewardConfig is user setting class.
@@ -48,6 +49,16 @@ RakutenRewardListener is Rakuten Reward SDK basic function status change listene
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed
 
 For usage, please take a look sample application codes.
+
+
+### RakutenRewardSDKStatus
+RakutenRewardSDKStatus is Reward SDK Status  
+| Name | Description
+| --- | ---
+| ONLINE | SDK is ready. SDK Member Information(get point, unclaimed number correctly)
+| OFFLINE | SDK is not ready. And initialization API is failed
+| APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)
+| TOKENEXPIRED | APIs returns Token Expired |
 
 ## API Data
 We provide some API which supports to create own custom UI for Reward SDK
@@ -102,11 +113,25 @@ RakutenRewardAPIError enum class
 | Enum | Description
 | --- | --- 
 | NETWORKERROR | Network connection error
-| APIRESPONSEERROR | Failed API response was collapsed, not happen basically
+| INVALIDREQUEST | Parameter is invalid  
 | TOKENEMPTY | 	Access token is not set
 | SDKNOTACTIVE | SDK is not initialized yet
-| TOKENEXPIRE |  Access token expired to access API-C <br> Need to refresh this access token
+| TOKENEXPIRE |  Access token expired to access API <br> Need to refresh this access token
 | UNKNOWN | Unknown error, basically not happen
+
+## Last Failed Method
+SDK provides information about Failed method to handle error easily.
+RakutenRewardAPILastCalled class has API information and parameters
+RakutenRewardAPI is enum class
+
+| Name | Description(method name)
+| --- | --- 
+| MEMBERINFO | memberInfo
+| LOGACTION | logAction
+| GETUNCLAIM | getUnclaimedItems
+| POINTHISTORY | getPointHistory
+| CLAIM | claim (MissionAchievementData)
+| GETMISSIONLIST | getMissions
 
 ## RakutenRewardClaimStatus
 
@@ -131,7 +156,7 @@ To claim point using API, please call claim API provided by MissionAchievementDa
 After show UI, we need to handle claim for user
 
 ```kotlin
-achievement.claim()
+achievement.claim({}, {})
 ```
 For detail, please check sample application implementation
 
