@@ -20,7 +20,7 @@
 
 | バージョン        | OS           | コンパイル OS
 --- | --- | ---
-|0.1.2|16(4.1)|28 (9.0)|
+|0.2.0|16(4.1)|28 (9.0)|
 
 * アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
 
@@ -49,28 +49,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:0.1.1'
+  implementation 'com.rakuten.android.ads:rewardsdknative:0.2.0'
 ```
 
 ## 使用方法の説明
 [基本ガイド](./basic/README.md)  
 [応用ガイド](./advanced/README.md)
-
-## Proguard の設定
-```
-############ Reward SDK ##################
--keepattributes *Annotation*
--keepattributes Signature
--keep class com.rakuten.android.ads.core.** { *; }
--keep class com.rakuten.gap.ads.rakutenrewardnative.ui.** { *; }
--keep class com.rakuten.gap.ads.rakutenrewardnative.api.** { *; }
--keep public enum com.rakuten.gap.ads.rakutenrewardnative.api.status.** {
- **[] $VALUES;
- public *;
-}
-```
-
----
 
 ---
 言語 :
