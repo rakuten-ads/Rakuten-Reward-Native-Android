@@ -21,6 +21,8 @@
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
 |0.2.0|16(4.1)|28 (9.0)|
+|1.0.0|16(4.1)|28 (9.0)|
+|1.1.0|16(4.1)|28 (9.0)|
 
 * Developers can ingegrate SDK 4.x but SDK function does not work under Android 5
 
@@ -49,7 +51,7 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:0.2.0'
+  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
 ```
 
 ## Usage

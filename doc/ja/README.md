@@ -21,6 +21,9 @@
 | バージョン        | OS           | コンパイル OS
 --- | --- | ---
 |0.2.0|16(4.1)|28 (9.0)|
+|1.0.0|16(4.1)|28 (9.0)|
+|1.1.0|16(4.1)|28 (9.0)|
+
 
 * アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
 
@@ -49,7 +52,7 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:0.2.0'
+  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
 ```
 
 ## 使用方法の説明
@@ -58,7 +61,7 @@ allprojects {
 
 ---
 言語 :
-> [![jp](../lang/en.png)](../../README.md)
+> [![en](../lang/en.png)](../../README.md)
 
 
 

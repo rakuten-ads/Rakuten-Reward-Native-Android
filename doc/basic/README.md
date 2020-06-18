@@ -16,7 +16,6 @@ RakutenReward.appCode = "<AppCode>"  // Example anAuY28ucmFrdXRlbi5yZXdhcmQuYW5k
 | appCode | Application Key (This is from Rakuten Reward Developer Portal) 
 | token | Access token to access Reward SDK API-C API |
 
-
 Session starts in OnStart method in Activity  
 To initialize SDK, SDK provides several ways  
 
@@ -67,6 +66,9 @@ To use this way, your Activity support LifecycleOwner.
 3. Set access token to Reward SDK
 4. Initialize Reward SDK
 
+We have options to use User SDK in Rakuten(2020/06), more details  
+Please ask SDK team.
+
 ---
 # Mission Achievement 
 To achieve mission, developers need to call post action API.  
@@ -74,7 +76,7 @@ After avhieving the mission, notification will be shown.
 
 ## Post Action
 ```kotlin
-RakutenReward.logAction("<actionCode>")
+RakutenReward.logAction("<actionCode>", {}, {})
 ```
 actionCode is provided by Reward SDK Developer Portal.  
 

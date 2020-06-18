@@ -16,11 +16,9 @@ RakutenReward.appCode = "<AppCode>"  // Example anAuY28ucmFrdXRlbi5yZXdhcmQuYW5k
 | appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得) 
 | token | API-C アクセストークン(楽天リワードSDK APIへの接続用) |
 
-Session starts in OnStart method in Activity  
-To initialize SDK, SDK provides several ways  
-
 セッションは Activity onStart メソッドで開始されます  
 SDKを初期化するにはいくつかの方法があります
+
 
 ### 1 RakutenRewardLightBaseActivity を拡張した Activity クラスを作る
 ```kotlin
@@ -71,6 +69,9 @@ class YourActivity : AppCompatActivity() {
 
 このSDKを利用するにはID SDKの利用が必須です(2020/01)
 
+このSDKではUser SDKでのログインもサポートしております(2020/06)。  
+詳細に関しましては、SDKの担当にお問い合わせください。
+
 ---
 # ミッションの達成
 ミッションを達成するには、開発者はアクションAPIをコールします  
@@ -78,7 +79,7 @@ class YourActivity : AppCompatActivity() {
 
 ## アクションを送信する
 ```kotlin
-RakutenReward.logAction("<actionCode>")
+RakutenReward.logAction("<actionCode>", {}, {})
 ```
 actionCode は開発者ポータルより取得します
 
