@@ -39,12 +39,8 @@ Gradleの依存設定でアプリにインポートすることが出来ます�
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://github.com/rakuten-ads/rakuten-ads-android/raw/master/maven"
-        }
-        maven { 
-            url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
-        }
+        maven { url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' }
+        maven { url 'https://raw.github.com/rakuten-ads/rakuten-reward-native-android/master/maven' }
     }
 }
 ```
@@ -52,7 +48,7 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
+  implementation 'com.rakuten.android:rewardsdknative:1.1.0'
 ```
 
 ## 使用方法の説明
