@@ -38,11 +38,11 @@ Apps can import Reward SDK modules with a Gradle dependency. In order to use tha
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://github.com/rakuten-ads/rakuten-ads-android/raw/master/maven"
-        }
         maven { 
             url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
+        }
+        maven {
+            url "https://raw.github.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
         }
     }
 }
@@ -51,12 +51,12 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android.ads:mission-core:2.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:2.0.0'
 ```
 
 If you need to use under 2.0.0, Plesae use following
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
+  implementation 'com.rakuten.android:rewardsdknative:1.1.0'
 ```
 
 ## Usage
