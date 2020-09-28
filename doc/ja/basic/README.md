@@ -15,7 +15,7 @@ RakutenReward.appCode = "<AppCode>"  // Example anAuY28ucmFrdXRlbi5yZXdhcmQuYW5k
 | --- | --- 
 | appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得) 
 | token | API-C アクセストークン(楽天リワードSDK APIへの接続用) |
-
+  
 セッションは Activity onStart メソッドで開始されます  
 SDKを初期化するにはいくつかの方法があります
 
@@ -61,16 +61,95 @@ class YourActivity : AppCompatActivity() {
 
 この方法で行うためには Activity に LifecycleOwner を実装する必要があります
 
-## IDSDKを使う
-1. ID SDKを使ってログインをする
-2. Get Access token from CAT API　CATよりアクセストークンを取得する
-3. リワードSDKに上記のアクセストークンをセットする
-4. SDK初期化する
+---
+# ログイン
 
-このSDKを利用するにはID SDKの利用が必須です(2020/01)
+### 1. ログインページを表示する　`RakutenAuth.openLoginPage()`
+```kotlin
+RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
+```
 
-このSDKではUser SDKでのログインもサポートしております(2020/06)。  
-詳細に関しましては、SDKの担当にお問い合わせください。
+![Login](Login.jpg)
+
+
+### 2.  ログイン終了の結果を受け取る `onActivityResult()`
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
+            if (resultCode == RESULT_OK) {
+                handleActivityResult(data)
+            } else {
+                // ユーザーがログインをキャンセルした
+            }
+        }
+    }
+```
+
+### 3. ログインの最終的なプロセスを受け取る `RakutenAuth.handleActivityResult()`
+```kotlin
+private fun handleActivityResult(data: Intent?) {
+        RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+            override fun loginSuccess() {
+                //✅ ログイン成功
+            }
+
+            override fun loginFailed(e: RakutenRewardAPIError) {
+                //⛔ ログイン失敗
+            }
+        })
+    }
+```
+
+ログインの画面終了後、APIへのアクセスに必要なデータ処理を行います。楽天へのログインは2で終了しておりますが、　　  
+データ処理をを受け取るにはこちらのようなコールバックを待っていただく必要があります
+
+---
+# ログアウト
+`RakutenAuth.logout()`
+```kotlin
+private fun logout() {
+    RakutenAuth.logout(object : LogoutResultCallback {
+            override fun logoutSuccess() {
+                //ログアウト 完了
+            }
+
+            override fun logoutFailed(e: RakutenRewardAPIError) {
+                //ログアウト失敗
+            }
+        })
+}
+```
+
+---
+# ユーザー情報を取得する
+
+こちらは楽天会員情報を取得するAPIになっております
+
+## ユーザーがログインしているかどうか
+```kotlin
+RakutenAuth.hasUserSignedIn(): Boolean
+```
+
+## ユーザーの名前を取得する　
+```kotlin
+RakutenAuth.getUserName(context: Context): String
+```
+
+##  ユーザーの会員ランク楽天ポイントを取得する
+```kotlin
+RakutenAuth.getUserInfo(
+    success = { userInfo ->
+        // ポイント　
+        userInfo.points
+        
+        // ランク
+        userInfo.rank
+    }, 
+    failed = {
+        // 取得に失敗
+    }
+)
+```
 
 ---
 # ミッションの達成

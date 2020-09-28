@@ -38,6 +38,22 @@ RakutenRewardUser is user data class.
 | point | Point the user get from Reward Service
 | achievementList | Mission list (not use)
 
+## RakutenAuthUserInfo
+User info available for Rakuten Auth
+| Parameter | Description
+| --- | ---
+| points | Total Rakuten points of an user
+| rank | User's Rakuten account rank
+
+### Rank
+| rank | Description |
+| --- | ---
+| 1 | Regular |
+| 2 | Silver |
+| 3 | Gold |
+| 4 | Platinum |
+| 5 | Diamond |
+
 ## RakutenRewardListener
 RakutenRewardListener is Rakuten Reward SDK basic function status change listener
 
@@ -53,12 +69,41 @@ For usage, please take a look sample application codes.
 
 ### RakutenRewardSDKStatus
 RakutenRewardSDKStatus is Reward SDK Status  
+
 | Name | Description
 | --- | ---
 | ONLINE | SDK is ready. SDK Member Information(get point, unclaimed number correctly)
 | OFFLINE | SDK is not ready. And initialization API is failed
 | APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)
-| TOKENEXPIRED | APIs returns Token Expired |
+| TOKENEXPIRED | APIs returns Token Expired
+
+## RakutenAuth
+RakutenAuth class provides login and logout functions and access to basic user information.
+
+| API Name | Description | Example
+| --- | --- | ---
+| Open Login Page |  Start and show login page | RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)
+| Handle Activity Result | Parse activity result from login page  | RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)
+| Logout | Log user out from Rakuten Auth | RakutenAuth.logout(callback: LogoutResultCallback)
+| Has User Logged In | Check if user has logged in with Rakuten Auth | RakutenAuth.hasUserSignedIn(): Boolean
+| Get User Name | Get Rakuten Auth user's full name | RakutenAuth.getUserName(context: Context): String
+| Get User Info | Get user's points and rank | RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)
+
+## LoginResultCallback
+Login result callback for RakutenAuth login
+
+| Name | Description
+| --- | ---
+| fun loginSuccess() | Login completed
+| fun loginFailed(e: RakutenRewardAPIError) | Login failed with error
+
+## LogoutResultCallback
+Logout result callback for RakutenAuth
+
+| Name | Description
+| --- | ---
+| fun logoutSuccess() | Logout completed
+| fun logoutFailed(e: RakutenRewardAPIError) | Logout failed with error
 
 ## API Data
 We provide some API which supports to create own custom UI for Reward SDK
@@ -120,8 +165,8 @@ RakutenRewardAPIError enum class
 | UNKNOWN | Unknown error, basically not happen
 
 ## Last Failed Method
-SDK provides information about Failed method to handle error easily.
-RakutenRewardAPILastCalled class has API information and parameters
+SDK provides information about Failed method to handle error easily.  
+RakutenRewardAPILastCalled class has API information and parameters  
 RakutenRewardAPI is enum class
 
 | Name | Description(method name)

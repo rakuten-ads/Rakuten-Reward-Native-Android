@@ -36,12 +36,30 @@ RakutenRewardUser ユーザデータのクラスです
 | unclaimed | 未獲得ミッションの数
 | signin | 　ユーザーがサインインしているかどうか？
 | point | リワードサービスで取得したポイント
-| achievementList | ミッションリスト(使用していない)
+| achievementList | ミッションリスト(使用していない)  
+
+
+## RakutenAuthUserInfo
+楽天会員情報  
+
+| パラメータ名 | 説明 |
+| --- | ---
+| points | 楽天ポイント合計
+| rank | 楽天会員ランク
+
+### 会員ランク
+| rank | 説明 |
+| --- | ---
+| 1 | レギュラー会員 |
+| 2 | シルバー会員 |
+| 3 | ゴールド会員 |
+| 4 | プラチナ会員 |
+| 5 | ダイヤモンド会員 |
 
 ## RakutenRewardListener
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです
 
-| パラメータ名 | 説明
+| 名前 | 説明 |
 | --- | ---
 | fun onUnclaimedAchievement(achievement : MissionAchievementData) | ユーザーがミッションを達成した　
 | fun onUserUpdated(user : RakutenRewardUser) | ユーザーデータが更新された
@@ -50,12 +68,42 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 
 ### RakutenRewardSDKStatus
 RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです  
-| Name | Description
+
+| 名前 | 説明　|
 | --- | ---
 | ONLINE | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
 | OFFLINE | SDKの初期化が未完了または失敗
 | APPCODEINVALID | アプリケーションキーが間違っている
 | TOKENEXPIRED | トークンの期限切れ |
+
+## RakutenAuth
+RakutenAuth は　楽天のログインに関するAPIを提供しております
+
+| 名前 | 説明 | 例
+| --- | --- | ---
+| Open Login Page |  Start and show login page | RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)
+| Handle Activity Result | Parse activity result from login page  | RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)
+| Logout | Log user out from Rakuten Auth | RakutenAuth.logout(callback: LogoutResultCallback)
+| Has User Logged In | Check if user has logged in with Rakuten Auth | RakutenAuth.hasUserSignedIn(): Boolean
+| Get User Name | Get Rakuten Auth user's full name | RakutenAuth.getUserName(context: Context): String
+| Get User Info | Get user's points and rank | RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)
+
+## LoginResultCallback
+ログインのコールバックになります
+
+| 名前 | 説明
+| --- | ---
+| fun loginSuccess() | ログインが成功した　
+| fun loginFailed(e: RakutenRewardAPIError) | ログインが成功した
+
+## LogoutResultCallback
+ログアウトのコールバックになります
+
+| 名前 | 説明
+| --- | ---
+| fun logoutSuccess() | ログアウトが成功した
+| fun logoutFailed(e: RakutenRewardAPIError) | ログアウトが失敗した
+
 
 ## API Data
 
@@ -117,10 +165,10 @@ RakutenRewardAPIError は enum になります
 ## Last Failed Method
 RakutenRewardAPILastCalled class has API information and parameters
 RakutenRewardAPI is enum class
-SDKはアプリケーションでエラーを処理できるようにAPIが失敗した場合にその詳細を提供します
-RakutenReward.lastFailed はダイナミックAPIが失敗した時にそのAPIの情報(RakutenRewardAPILastCalled)とパラメータを提供いたします
+SDKはアプリケーションでエラーを処理できるようにAPIが失敗した場合にその詳細を提供します  
+RakutenReward.lastFailed はダイナミックAPIが失敗した時にそのAPIの情報  (RakutenRewardAPILastCalled)とパラメータを提供いたします  
 
-| Name | Description(method name)
+| 名前 | 説明(関数名)
 | --- | --- 
 | MEMBERINFO | memberInfo
 | LOGACTION | logAction

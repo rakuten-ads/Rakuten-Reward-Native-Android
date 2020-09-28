@@ -2,29 +2,31 @@
 
 ---
 # Initialize SDK
-To use Reward SDK, need to establish SDK session at first (to collect SDK user's basic information)  
-Before start session, need to set following information in RakutenReward class.  
-
+### Initialize SDK in your Application class with your `App Code`.
 ```kotlin
-RakutenReward.token = "<accesstoken>"
-RakutenReward.appCode = "<AppCode>"  // Example anAuY28ucmFrdXRlbi5yZXdhcmQuYW5kcm9pZC1sRUdqNEhETS1pdXNZbWRLT2JVRGFLVV9fQ0ZLd2lacg==
+class App: Application() {
 
+    override fun onCreate() {
+        super.onCreate()
+        //init sdk with your App Code
+        RakutenReward.init(this, "<AppCode>")
+    }
+}
 ```
 
 | Parameter name        | Description           
 | --- | --- 
-| appCode | Application Key (This is from Rakuten Reward Developer Portal) 
-| token | Access token to access Reward SDK API-C API |
+| AppCode | Application Key (This is from Rakuten Reward Developer Portal)
 
-Session starts in OnStart method in Activity  
-To initialize SDK, SDK provides several ways  
+<br><br/>
+### To start SDK in your Activity, we provide several ways:
 
-### 1 Extends RakutenRewardLightBaseActivity
+### Option 1. Extends RakutenRewardBaseActivity
 ```kotlin
-class YourActivity : RakutenRewardBaseActivity {}
+class YourActivity : RakutenRewardBaseActivity() {}
 ```
-
-### 2 Call Lifecycle Method in each Android Lifecycle
+(If you are not able to extend RakutenRewardBaseActivity, use method 2 and 3)
+### Option 2. Call Lifecycle Method in each Android Lifecycle
 ```kotlin
 class YourActivity : Activity() {
 
@@ -45,8 +47,7 @@ class YourActivity : Activity() {
 }
 ```
 
-
-### 3 Call AndroidX base lifecycle method
+### Option 3. Call AndroidX base lifecycle method
 ```kotlin
 class YourActivity : AppCompatActivity() {
 
@@ -54,21 +55,94 @@ class YourActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         RakutenRewardManager.bindRakutenRewardIn(this, this)
     }
-
 }
 ```
 
-To use this way, your Activity support LifecycleOwner.
+---
+# Login
 
-## Initialization Flow with IDSDK
-1. Login with ID SDK
-2. Get Access token from CAT API 
-3. Set access token to Reward SDK
-4. Initialize Reward SDK
+### 1. Start and display login page with `RakutenAuth.openLoginPage()`
+```kotlin
+RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
+```
 
-We have options to use User SDK in Rakuten(2020/06), more details  
-Please ask SDK team.
+![Login](Login.jpg)
 
+### 2. Get result from `onActivityResult()`
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
+            if (resultCode == RESULT_OK) {
+                handleActivityResult(data)
+            } else {
+                //login canceled by user
+            }
+        }
+    }
+```
+
+### 3. Process result intent to complete login flow by calling `RakutenAuth.handleActivityResult()`
+```kotlin
+private fun handleActivityResult(data: Intent?) {
+        RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+            override fun loginSuccess() {
+                //✅ login completed
+            }
+
+            override fun loginFailed(e: RakutenRewardAPIError) {
+                //⛔ login failed
+            }
+        })
+    }
+```
+
+---
+# Logout
+Log user out by calling `RakutenAuth.logout()`
+```kotlin
+private fun logout() {
+    RakutenAuth.logout(object : LogoutResultCallback {
+            override fun logoutSuccess() {
+                //logout completed
+            }
+
+            override fun logoutFailed(e: RakutenRewardAPIError) {
+                //login failed
+            }
+        })
+}
+```
+
+---
+# Get User Info
+
+List of available api to retrieve user information
+
+## Check if user is signed in
+```kotlin
+RakutenAuth.hasUserSignedIn(): Boolean
+```
+
+## Get user's full name
+```kotlin
+RakutenAuth.getUserName(context: Context): String
+```
+
+## Get user's current point and rank
+```kotlin
+RakutenAuth.getUserInfo(
+    success = { userInfo ->
+        //get point
+        userInfo.points
+        
+        //get rank
+        userInfo.rank
+    }, 
+    failed = {
+        //fail to get user info
+    }
+)
+```
 ---
 # Mission Achievement 
 To achieve mission, developers need to call post action API.  

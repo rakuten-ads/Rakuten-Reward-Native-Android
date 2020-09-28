@@ -16,15 +16,15 @@
 * Use Android Studio 1.0 or higher
 * Target Android API level 16 or higher
 * Support Android X
-* This SDK works with Rakuten ID SDK
+* Use Rakuten IDSDK or Use built-in Login
 
-| Version        | Minimum OS           | Compile OS
+| Version        | Minimum SDK           | Compile SDK
 --- | --- | ---
-|0.2.0|16(4.1)|28 (9.0)|
-|1.0.0|16(4.1)|28 (9.0)|
-|1.1.0|16(4.1)|28 (9.0)|
+|1.0.0|API16 (4.1)|API 29|
+|1.1.0|API16 (4.1)|API 29|
+|2.0.0|API 16|API 29|
 
-* Developers can ingegrate SDK 4.x but SDK function does not work under Android 5
+* SDK functions only work with API 21 and above
 
 <div id="import_sdk"></div>
 
@@ -38,8 +38,12 @@ Apps can import Reward SDK modules with a Gradle dependency. In order to use tha
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' }
-        maven { url 'https://raw.github.com/rakuten-ads/rakuten-reward-native-android/master/maven' }
+        maven {
+            url "https://github.com/rakuten-ads/rakuten-ads-android/raw/master/maven"
+        }
+        maven { 
+            url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
+        }
     }
 }
 ```
@@ -47,7 +51,12 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative:1.1.0'
+  implementation 'com.rakuten.android.ads:mission-core:2.0.0'
+```
+
+If you need to use under 2.0.0, Plesae use following
+```groovy
+  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
 ```
 
 ## Usage
