@@ -81,12 +81,12 @@ RakutenAuth は　楽天のログインに関するAPIを提供しておりま�
 
 | 名前 | 説明 | 例
 | --- | --- | ---
-| Open Login Page |  Start and show login page | RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)
-| Handle Activity Result | Parse activity result from login page  | RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)
-| Logout | Log user out from Rakuten Auth | RakutenAuth.logout(callback: LogoutResultCallback)
-| Has User Logged In | Check if user has logged in with Rakuten Auth | RakutenAuth.hasUserSignedIn(): Boolean
-| Get User Name | Get Rakuten Auth user's full name | RakutenAuth.getUserName(context: Context): String
-| Get User Info | Get user's points and rank | RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)
+| ログインページ表示 | ログインページを表示する | RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)
+| ログインの結果処理 | ログインの結果を処理  | RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)
+| ログアウト | ログアウトする | RakutenAuth.logout(callback: LogoutResultCallback)
+| ログインチェック | ログインの状態を確認する | RakutenAuth.hasUserSignedIn(): Boolean
+| ユーザー名取得　 | 楽天会員の名前を取得 | RakutenAuth.getUserName(context: Context): String
+| ユーザー情報取得 | ユーザーの楽天ポイントメンバーシップランクを取得する | RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)
 
 ## LoginResultCallback
 ログインのコールバックになります
