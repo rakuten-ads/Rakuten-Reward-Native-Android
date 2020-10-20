@@ -22,6 +22,7 @@
 --- | --- | ---
 |1.0.0|API16 (4.1)|API 29|
 |1.1.0|API16 (4.1)|API 29|
+|1.1.1|API16 (4.1)|API 29|
 |2.0.0|API16 (4.1)|API 29|
 
 
@@ -57,7 +58,7 @@ allprojects {
 
 バージョン2.0以下をご利用の場合以下のようになります。
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.0'
+  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.1'
 ```
 
 
