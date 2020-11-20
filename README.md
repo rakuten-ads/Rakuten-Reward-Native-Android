@@ -23,6 +23,7 @@
 |1.0.0|API16 (4.1)|API 29|
 |1.1.0|API16 (4.1)|API 29|
 |1.1.1|API16 (4.1)|API 29|
+|1.1.2|API16 (4.1)|API 29|
 |2.0.0|API 16|API 29|
 
 * SDK functions only work with API 21 and above
@@ -57,7 +58,7 @@ Next, open the app-level `build.gradle` file for your app, and look for a "depen
 
 If you need to use under 2.0.0, Plesae use following
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative:1.1.1'
+  implementation 'com.rakuten.android:rewardsdknative:1.1.2'
 ```
 
 ## Usage

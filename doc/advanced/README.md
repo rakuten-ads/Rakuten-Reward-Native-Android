@@ -115,7 +115,6 @@ API list are in RakutenReward class
 | --- | --- | ---
 | name | Mission name | Mission A
 | actionCode | Action code | ZIJCjBeQBHac8nJa
-| type | Mission type (DAILY, WEEKLY, MONTHLY, CUSTOM) | DAILY
 | iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | Mission Instruction | 1日1回プレイする
 | condition | Mission condition | 毎日10回達成可能
