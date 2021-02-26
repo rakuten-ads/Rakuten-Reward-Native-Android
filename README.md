@@ -24,7 +24,8 @@
 |1.1.0|API16 (4.1)|API 29|
 |1.1.1|API16 (4.1)|API 29|
 |1.1.2|API16 (4.1)|API 29|
-|2.0.0|API 16|API 29|
+|2.0.0|API16 (4.1)|API 29|
+|2.1.0|API16 (4.1)|API 29|
 
 * SDK functions only work with API 21 and above
 
@@ -53,7 +54,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:2.0.0'
+  implementation 'com.rakuten.android.ads:rewardsdknative-ui:2.1.0'
+```
+If you don't use our built-in ui, you can skip "rewardsdknative-ui"
+```groovy
+  implementation 'com.rakuten.android:rewardsdknative-core:2.1.0'
 ```
 
 If you need to use under 2.0.0, Plesae use following
@@ -63,7 +68,10 @@ If you need to use under 2.0.0, Plesae use following
 
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
-[Advanced Guide](./doc/advanced/README.md)
+[API Reference](./doc/APIReference/README.md)
+
+## Version History
+[Version History](./doc/history/README.md)
 
 ---
 LANGUAGE :

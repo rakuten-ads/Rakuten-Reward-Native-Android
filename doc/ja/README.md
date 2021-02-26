@@ -25,6 +25,7 @@
 |1.1.1|API16 (4.1)|API 29|
 |1.1.2|API16 (4.1)|API 29|
 |2.0.0|API16 (4.1)|API 29|
+|2.1.0|API16 (4.1)|API 29|
 
 
 * アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
@@ -54,7 +55,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:mission-core:2.0.0'
+  implementation 'com.rakuten.android.ads:mission-ui:2.1.0'
+```
+
+こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
+```groovy
+  implementation 'com.rakuten.android:rewardsdknative-core:2.1.0'
 ```
 
 バージョン2.0以下をご利用の場合以下のようになります。
@@ -65,7 +71,10 @@ allprojects {
 
 ## 使用方法の説明
 [基本ガイド](./basic/README.md)  
-[応用ガイド](./advanced/README.md)
+[APIガイド](./APIReference/README.md)
+
+## 更新履歴
+[更新履歴](./history/README.md)
 
 ---
 言語 :
