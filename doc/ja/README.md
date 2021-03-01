@@ -55,7 +55,7 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android.ads:mission-ui:2.1.0'
+  implementation 'com.rakuten.android:mission-ui:2.1.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
@@ -65,7 +65,7 @@ allprojects {
 
 バージョン2.0以下をご利用の場合以下のようになります。
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.2'
+  implementation 'com.rakuten.android:rewardsdknative:1.1.2'
 ```
 
 

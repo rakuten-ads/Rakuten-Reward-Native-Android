@@ -54,7 +54,7 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative-ui:2.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:2.1.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy

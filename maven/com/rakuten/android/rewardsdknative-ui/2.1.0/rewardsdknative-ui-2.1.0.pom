@@ -50,7 +50,7 @@
     </dependency>
     <dependency>
       <groupId>androidx.media</groupId>
-      <artifactId>1.0.0</artifactId>
+      <artifactId>media</artifactId>
       <version>1.0.0</version>
       <scope>compile</scope>
     </dependency>
