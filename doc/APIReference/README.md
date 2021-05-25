@@ -23,7 +23,9 @@ Table of Contents
 * [RakutenRewardClaimStatus](#rakutenrewardclaimstatus)<br>
 * [Get current user action status](#get-current-user-action-status)<br>
 * [RakutenRewardAdConfiguration](#rakutenrewardadconfiguration)<br>
-* [How to create custom mission UI](#how-to-create-custom-mission-ui)<br><br>
+* [How to create custom mission UI](#how-to-create-custom-mission-ui)<br>
+* [Set Rakuten cookie](#set-rakuten-cookie)<br>
+* [Close Claim UI by back button](#close-claim-ui-by-back-button)<br><br>
 
 # API Reference
 ## RakutenReward
@@ -42,6 +44,10 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Log Action | Post user action | `RakutenReward.logAction("xxxxxx", { <br> // Success <br>}, { <br> // Failed <br>})`
 | Get Unclaimed Items | Get Unclaim item list | `RakutenReward.getUnclaimedItems({ missions -> <br> // Unclaim Mission List <br> }, { <br>// Error <br>})`
 | Last failed method | Get last failed method | `RakutenReward.lastFailed`
+| Close Claim flow UI | Close Claim flow UI forcibly | `RakutenReward.forceClaimClose()`
+| Set Rp cookie | Set Rp cookie from App |  `RakutenReward.setRp(rp: String)`
+| Set Rz cookie | Set Rz cookie from App |  `RakutenReward.setRz(rz: String)`
+
 
 ## RakutenAuth
 ---
@@ -302,6 +308,33 @@ After show UI, we need to handle claim for user
 achievement.claim({}, {})
 ```
 For detail, please check sample application implementation
+
+## Set Rakuten cookie 
+This function can be used from SDK v2.2.0
+This function is mainly for Rakuten App and use cookies which app keeps in App  
+If you use default login option(RakutenRewardTokentype.RAKUTEN_AUTH), cookie is set by SDK.  
+If you use other options, can override cookie using this API  
+
+### Set Rp cookie
+```kotlin
+RakutenReward.setRp("cookie")
+```
+
+### Set Rz cookie
+```kotlin
+RakutenReward.setRz("cookie")
+```
+
+## Close Claim UI by back button
+By default, claim UI does not close by Android back button  
+So, if the user press Android back button, only Activity is closed  
+If you use RakutenRewardBaseActivity, already implement this function by default.  
+In other cases, SDK Provide API to close Claim UI.  
+
+```kotlin
+RakutenReward.forceClaimClose()
+```
+Please call this API by application
 
 ---
 LANGUAGE :

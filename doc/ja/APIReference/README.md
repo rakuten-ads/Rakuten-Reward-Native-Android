@@ -23,8 +23,9 @@
 * [RakutenRewardClaimStatus](#rakutenrewardclaimstatus)<br>
 * [ミッションのリストを取得する](#ミッションのリストを取得する)<br>
 * [RakutenRewardAdConfiguration](#rakutenrewardadconfiguration)<br>
-* [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br><br>
-
+* [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br>
+* [クッキーをセットする](#クッキーをセットする)<br>
+* [クレイムユーザーインターフェースを強制的にクローズする](#クレイムユーザーインターフェースを強制的にクローズする)<br><br>
 
 # APIガイド
 ## RakutenReward
@@ -43,6 +44,9 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | アクションを送信する | ミッションを達成するためにアクションを送信する | `RakutenReward.logAction("xxxxxx", { <br> // Success <br>}, { <br> // Failed <br>})`
 | 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | `RakutenReward.getUnclaimedItems({ missions -> <br> // Unclaim Mission List <br> }, { <br>// Error <br>})`
 | 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | `RakutenReward.lastFailed`
+| Rp クッキーをセット | Rp クッキーをセットする |  `RakutenReward.setRp(rp: String)`
+| Rz クッキーをセット | Rz クッキーをセットする |  `RakutenReward.setRz(rz: String)`
+
 
 ## RakutenAuth
 ---
@@ -299,6 +303,32 @@ override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
 achievement.claim()
 ```
 詳しくは、サンプルアプリケーションの実装などをご覧ください
+
+## クッキーをセットする
+この機能はSDK v2.2.0　からサポートしています。  
+この機能は楽天のアプリケーションですでに広告のためのクッキーを取得している場合に推奨される機能となります。  
+もし、デフォルトのログインオプション(RakutenRewardTokentype.RAKUTEN_AUTH)をご使用の場合にはこちらの処理はSDKで行いますので、実装する必要はありません。
+If you use other options, can override cookie using this API  
+
+### Rpクッキーをセットする
+```kotlin
+RakutenReward.setRp("cookie")
+```
+
+### Rzクッキーをセットする
+```kotlin
+RakutenReward.setRz("cookie")
+```
+
+## クレイムユーザーインターフェースを強制的にクローズする
+ポイントクレイムのユーザーインターフェースはクローズボタンを押すことで閉じることが可能です。  
+Android のバックボタンをご使用の場合デフォルトではこのユーザーインターフェースを閉じることはできません。
+その場合、SDKでは強制的に閉じるためのAPIを提供しております。  
+RakutenRewardBaseActivityをご利用の場合は、バックボタンで閉じる機能を提供しております。
+
+```kotlin
+RakutenReward.forceClaimClose()
+```
 
 ---
 言語 :
