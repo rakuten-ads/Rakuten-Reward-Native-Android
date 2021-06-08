@@ -1,5 +1,11 @@
 # Update History
 
+### Version 2.2.1
+<hr/>
+Release Date : 2021/06/08
+
+* Fix wall advertisement show logic problem
+
 ### Version 2.2.0
 <hr/>
 Release Date : 2021/05/27

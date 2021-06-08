@@ -27,6 +27,7 @@
 |2.0.0|API16 (4.1)|API 29|
 |2.1.0|API16 (4.1)|API 29|
 |2.2.0|API16 (4.1)|API 29|
+|2.2.1|API16 (4.1)|API 29|
 
 * SDK functions only work with API 21 and above
 
@@ -55,11 +56,23 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:2.2.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:2.2.1'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:2.2.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:2.2.1'
+```
+※ rewardsdknative-ui module uses viewbinding and databinding.  
+If your app does not use both, please add following to build.gradle
+```groovy
+buildFeatures {
+        viewBinding true
+        dataBinding true
+}
+```
+※ And if your app supports under Android 5, add vectorDrawable support (Can integrate Android 4 but all functions are available over Android 5)
+```groovy
+vectorDrawables.useSupportLibrary = true
 ```
 
 If you need to use under 2.0.0, Plesae use following
