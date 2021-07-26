@@ -1,5 +1,11 @@
 # Update History
 
+### Version 2.2.2
+<hr/>
+Release Date : 2021/07/26
+
+* Fix Android 5 Login Issue
+
 ### Version 2.2.1
 <hr/>
 Release Date : 2021/06/08
