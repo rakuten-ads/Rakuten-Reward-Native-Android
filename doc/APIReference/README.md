@@ -286,7 +286,7 @@ RakutenRewardAdConfiguration.propertyname
 | Method | Description | Example 
 | --- | --- | ---
 | addBlockCategory | Append block category string to bcat array<br>Format: IAB(Number)-(Number).| addBlockCategory(str: "IAB7-17")
-| addBlockDomain | Append domain string to badv array. | addBlockCategory(str: "www.example.com")
+| addBlockDomain | Append domain string to badv array. | addBlockDomain(str: "www.example.com")
 | addKeywords | Append keyword string to keywords array. | addKeywords(str: "productivity")
 <br>
 

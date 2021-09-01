@@ -1,5 +1,12 @@
 # Update History
 
+### Version 1.1.3
+<hr/>
+Release Date : 2021/08/31
+
+* Upgrade Android Development Environment(gradle)
+* Upgrade sdk core library
+
 ### Version 2.2.2
 <hr/>
 Release Date : 2021/07/26

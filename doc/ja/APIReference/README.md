@@ -281,7 +281,7 @@ RakutenRewardAdConfiguration.propertyname
 | メソッド | 説明 | 例 
 | --- | --- | ---
 | addBlockCategory | 広告のコンテンツブロックの対象を追加する<br>フォーマット: IAB(Number)-(Number) | addBlockCategory(str: "IAB7-17")
-| addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | addBlockCategory(str: "www.example.com")
+| addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | addBlockDomain(str: "www.example.com")
 | addKeywords | 広告キーワードを追加する | addKeywords(str: "製品")
 <br>
 
