@@ -1,5 +1,13 @@
 # Update History
 
+### Version 2.3.0
+<hr/>
+Release Date : 2021/09/21
+
+* Fix Wall Advertisement issues
+* Upgrade Android Development Environment(gradle)
+* Add Notification limitaion to show (on SDK Portal)
+
 ### Version 1.1.3
 <hr/>
 Release Date : 2021/08/31
