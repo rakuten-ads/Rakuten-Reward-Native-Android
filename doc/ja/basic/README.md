@@ -181,6 +181,10 @@ class YourActivity : Activity() {
         RakutenRewardLifecycle.onStart(this)
     }
 
+    override fun onResume() {
+        RakutenRewardLifecycle.onResume(this)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         RakutenRewardLifecycle.onDestroy()

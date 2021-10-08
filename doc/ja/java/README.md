@@ -146,6 +146,22 @@ RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
         });
 ```
 
+### MissionAchievementData
+#### claimJava()
+```java
+missionAchievementData.claimJava(new CustomClaimCallback() {
+            @Override
+            public void success(@NonNull MissionAchievementData missionData) {
+                
+            }
+
+            @Override
+            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+            }    
+});
+```
+
 ---
 言語 :
 > [![en](../../lang/en.png)](../../java/README.md)

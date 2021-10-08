@@ -1,5 +1,13 @@
 # Update History
 
+### Version 2.3.1
+<hr/>
+Release Date : 2021/10/11
+
+* Fix lifecycle issue(Add new API)
+* Fix logic for openPortal API
+* Fix claim API java compatibility
+
 ### Version 2.3.0
 <hr/>
 Release Date : 2021/09/21
