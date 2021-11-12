@@ -1,5 +1,11 @@
 # Update History
 
+### Version 2.3.2
+<hr/>
+Release Date: 2021/11/12
+
+* Fix UI problems
+
 ### Version 2.3.1
 <hr/>
 Release Date : 2021/10/11
