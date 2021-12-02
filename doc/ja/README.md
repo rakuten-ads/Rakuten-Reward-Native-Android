@@ -33,6 +33,7 @@
 |2.3.0|API16 (4.1)|API 29|
 |2.3.1|API16 (4.1)|API 29|
 |2.3.2|API16 (4.1)|API 29|
+|2.3.3|API16 (4.1)|API 29|
 
 * アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
 
@@ -48,11 +49,11 @@ Gradleの依存設定でアプリにインポートすることが出来ます�
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://github.com/rakuten-ads/rakuten-ads-android/raw/master/maven"
-        }
         maven { 
             url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
+        }
+        maven {
+            url "https://raw.github.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
         }
     }
 }
@@ -61,12 +62,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:2.3.2'
+  implementation 'com.rakuten.android:rewardsdknative-ui:2.3.3'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:2.3.2'
+  implementation 'com.rakuten.android:rewardsdknative-core:2.3.3'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  

@@ -1,5 +1,13 @@
 # Update History
 
+### Version 2.3.3
+<hr/>
+Release Date: 2021/12/02
+
+* Update Traditional Chinese labels
+* Display global logo for Taiwan region
+* Remove Mission Achievement toggle in SDK Portal
+
 ### Version 2.3.2
 <hr/>
 Release Date: 2021/11/12
