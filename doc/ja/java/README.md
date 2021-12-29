@@ -10,7 +10,7 @@
 ---
 # Javaアプリケーション開発者様)
 このSDKは100%Kotlinで作られています。<br/>
-KotlinのObjecgt、Extension、Companion Object を Java からアクセスするには
+KotlinのObject、Extension、Companion Object を Java からアクセスするには
 工夫が必要です。<br/>
 
 ## APIへのアクセス方法
@@ -30,6 +30,20 @@ RakutenReward.init(this, "<Appcode>");
 
 ```java
 RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE);
+```
+SDK 2.4.0 から
+```java
+boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE);
+boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE, <requestCcode>);
+```
+
+### RakutenReward.openAdPortal()
+こちらは uiモジュールのメソッドですが、 Kotlin の Extension を使用しています。<br/>
+こちらは以下のように呼び出す必要があります。<br/>
+
+```java
+RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>);
+RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>, <request code>);
 ```
 
 ## プロパティーについて
@@ -57,108 +71,108 @@ RakutenReward.INSTANCE.logAction("", () -> { return Unit.INSTANCE; }, (RakutenRe
 #### loginActionJava(Kotlin : loginAction)
 ```java
 RakutenReward.logActionJava("", new LogActionCallback() {
-            @Override
-            public void success() {
-                
-            }
+    @Override
+    public void success() {
+        
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 #### memberInfoJava (Kotlin : memberInfo)
 ```java
 RakutenReward.memberInfoJava(new MemberInfoCallback() {
-            @Override
-            public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
-                
-            }
+    @Override
+    public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
+        
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 
 #### getMissionsJava (Kotioln: getMissions)
 ```java
 RakutenReward.getMissionsJava(new GetMissionsCallback() {
-            @Override
-            public void success(@NonNull List<MissionData> list) {
-                
-            }
+    @Override
+    public void success(@NonNull List<MissionData> list) {
+        
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 #### getUnclaimedItemsJava (Kotlin: getUnclaimedItems)
 ```java
 RakutenReward.getUnclaimedItemsJava(new UnclaimedItemCallback() {
-            @Override
-            public void success(@NonNull List<MissionAchievementData> list) {
-                
-            }
+    @Override
+    public void success(@NonNull List<MissionAchievementData> list) {
+        
+    }
 
-            @Override
-            public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 #### getPointHistoryJava (Kotlin: getPointHistory)
 ```java
 RakutenReward.getPointHistoryJava(new PointHistoryCallback() {
-            @Override
-            public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
+    @Override
+    public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
 
-            }
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 ### RakutenAuth
 #### getUserInfoJava (getUserInfo)
 ```java
 RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
-            @Override
-            public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
-                
-            }
+    @Override
+    public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
+        
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }
-        });
+    }
+});
 ```
 
 ### MissionAchievementData
 #### claimJava()
 ```java
 missionAchievementData.claimJava(new CustomClaimCallback() {
-            @Override
-            public void success(@NonNull MissionAchievementData missionData) {
-                
-            }
+    @Override
+    public void success(@NonNull MissionAchievementData missionData) {
+        
+    }
 
-            @Override
-            public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
 
-            }    
+    }    
 });
 ```
 

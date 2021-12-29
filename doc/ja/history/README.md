@@ -1,5 +1,15 @@
 # 更新履歴
 
+### バージョン 2.4.0
+<hr/>
+Release Date: 2021/12/29
+
+* コンパイル Android SDK バージョンを API 30にアップデート
+* 広告ポータル機能の追加
+* 廃止予定のPreferenceManagerクラスから AndroidX の PreferenceManagerにアップデート
+* openSdkPortal APIに関するロジックの修正
+* いくつのバグを修正
+
 ### バージョン 2.3.3
 <hr/>
 リリース日: 2021/12/02

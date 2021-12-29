@@ -36,6 +36,7 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | --- | --- | ---
 | バージョンの取得 |  リワードSDKのバージョンを取得する | `RakutenReward.version`
 | SDK ポータルを開く | SDKポータルを開く | `RakutenReward.openSDKPortal()`
+| 広告ポータルを開く | 広告ポータルを開く | `RakutenReward.openAdPortal(activity: Activity, reqCode: Int)`
 | ヘルプページを開く | ヘルプページをSDKのミニブラウザーで開く | `RakutenReward.openHelpPage()`
 | 利用規約を開く | 利用規約をSDKのミニブラウザーで開く | `RakutenReward.openTCPage()`
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | `RakutenReward.openPrivacyPage()`

@@ -1,5 +1,15 @@
 # Update History
 
+### Version 2.4.0
+<hr/>
+Release Date: 2021/12/29
+
+* Upgrade to Android SDK version API 30
+* New Ad Portal feature
+* Update deprecated PreferenceManager class to AndroidX PreferenceManager
+* Fix logic for openSdkPortal API
+* Several bug fixes
+
 ### Version 2.3.3
 <hr/>
 Release Date: 2021/12/02

@@ -276,17 +276,57 @@ actionCode は開発者ポータルより取得します
 RakutenReward.openSDKPortal()
 ```
 
+### **Version 2.4.0 から**
+このポータル表示のAPIがポータルを表示したかどうかの結果を返します
+
+ポータルを閉じたイベントを知る必要がある場合、このAPIを呼んで、特定のリクエストコードを提供してください。
+ ```kotlin
+ val success: Boolean = RakutenReward.openSDKPortal(101)
+ ```
+ポータルを閉じたイベントが onActivityResult で取得できます
+ ```kotlin
+ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == 101) {
+        // handle SDK Portal closed event here
+    }
+}
+ ```
+
 こちらがSDKポータルのイメージになります
 
-![Portal1](Portal1.png)
+![Portal1](Portal1.png)  ![Portal2](Portal2.png)
 
-![Portal2](Portal2.png)
-
-![Portal3](Portal3.png)
-
-![Portal4](Portal4.png)
+![Portal3](Portal3.png)  ![Portal4](Portal4.png)
 
 ![Portal5](Portal5.png)
+
+## Ad Portal (Version 2.4.0 から)
+**\*このAPIは 2.4.0 からとリージョン選択を Japan にした場合のみ利用可能です。**
+
+
+広告ポータルを表示するにはこの広告ポータル表示のAPIを呼んでください。Activityのcontextが必要です。このAPIは広告ポータルが表示したかどうかの結果を返します。
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity)
+```
+
+広告ポータルを閉じたイベントを知る必要がある場合、このAPIを呼んで、特定のリクエストコードを提供してください。
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity, 100)
+```
+広告ポータルを閉じたイベントが onActivityResult で取得できます
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == 100) {
+        // handle Ad Portal closed event here
+    }
+}
+```
+
+こちらが広告ポータルのイメージになります
+
+![AdPortal1](AdPortal1.jpeg)  ![AdPortal2](AdPortal2.jpeg)
 
 ---
 言語 :

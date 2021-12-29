@@ -263,17 +263,57 @@ We provide User Portal UI for developers. To call Open SDK Portal API, developer
 RakutenReward.openSDKPortal()
 ```
 
+### **From version 2.4.0**
+ The open SDK portal API will return a boolean flag to indicate whether SDK portal is launched or not.
+
+ If you need to handle the SDK Portal close event, use the following API and provide a specific request code.
+ ```kotlin
+ val success: Boolean = RakutenReward.openSDKPortal(101)
+ ```
+ SDK Portal closed event can be detected at onActivityResult
+ ```kotlin
+ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == 101) {
+        // handle SDK Portal closed event here
+    }
+}
+ ```
+
 This is UI Image
 
-![Portal1](Portal1.png)
+![Portal1](Portal1.png)  ![Portal2](Portal2.png)
 
-![Portal2](Portal2.png)
-
-![Portal3](Portal3.png)
-
-![Portal4](Portal4.png)
+![Portal3](Portal3.png)  ![Portal4](Portal4.png)
 
 ![Portal5](Portal5.png)
+
+## Ad Portal (From version 2.4.0)
+**\*Ad Portal API is available from version 2.4.0 and is only available for *JP* region**
+
+
+Use the following API to launch the Ad Portal screen. Activity context is needed to start the activity. The API return a boolean to indicate whether Ad Portal is launched successfully or not.
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity)
+```
+
+If you need to handle Ad Portal close event, use the following API and provide a specific request code.
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity, 100)
+```
+Ad Portal closed event can be detected at onActivityResult
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == 100) {
+        // handle Ad Portal closed event here
+    }
+}
+```
+
+Ad Portal screen
+
+![AdPortal1](AdPortal1.jpeg)  ![AdPortal2](AdPortal2.jpeg)
 
 ---
 LANGUAGE :
