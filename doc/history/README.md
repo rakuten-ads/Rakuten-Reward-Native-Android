@@ -1,5 +1,13 @@
 # Update History
 
+### Version 2.4.1
+<hr/>
+Release Date: 2022/01/14
+
+* Improve SDK portal mission icons' memory manangement
+* Limit to display maximum 15 unclaim items in SDK Portal
+* New openLoginPage API with Fragment reference as argument
+
 ### Version 2.4.0
 <hr/>
 Release Date: 2021/12/29

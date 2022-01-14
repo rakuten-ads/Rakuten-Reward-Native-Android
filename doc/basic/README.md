@@ -9,7 +9,8 @@ Table of Contents
 * [Initialize SDK](#initialize-sdk)<br>
 * [Getting User Information](#getting-user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
-* [SDK Portal](#sdk-portal)<br><br>
+* [SDK Portal](#sdk-portal)<br>
+* [Ad Portal](#ad-portal-from-version-2.4.0)<br><br>
 
 ---
 # Region Setting
@@ -85,6 +86,9 @@ If you use Rakuten Login SDK, you don't need to use this option.
 RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
 ```
 
+![Login](Login.jpg)
+
+
 ### 2. Get result from `onActivityResult()`
 ```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -113,7 +117,9 @@ private fun handleActivityResult(data: Intent?) {
     }
 ```
 
-![Login](Login.jpg)
+### **Call the API in Fragment class**
+From version 2.4.1 onwards, you can call `RakutenAuth.openLoginPage()` API in Fragment class by providing the Fragment reference instead of Activity reference. 
+`onActivityResult()` will be triggered in the Fragment class. 
 
 
 # Log out

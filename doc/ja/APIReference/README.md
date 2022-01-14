@@ -54,6 +54,7 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | API 名 | 説明 | 使用例 |
 | --- | --- | --- |
 | ログイン | ログインページを開く | `RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)` |
+| ログイン | ログインページを開く | `RakutenAuth.openLoginPage(fragment: androidx.fragment.app.Fragment, requestCode: Int)` |
 | ログイン状態の確認 | ログインしているかどうか状態を取得する  | `RakutenAuth.hasUserSignedIn()` |
 | ログアウト |  ログアウトする  | `RakutenAuth.logout(object : LogoutResultCallback)` |
 | 楽天会員名を取得 | 楽天会員名を取得する | `RakutenAuth.getUserName(context: Context)` |

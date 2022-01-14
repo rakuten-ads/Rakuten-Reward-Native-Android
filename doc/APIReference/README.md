@@ -55,6 +55,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | API Name | Description | Example |
 | --- | --- | --- |
 | Log In | Open Log In page | `RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)` |
+| Log In | Open Log In page | `RakutenAuth.openLoginPage(fragment: androidx.fragment.app.Fragment, requestCode: Int)` |
 | Check Log In | Check if user is logged in with internal system (token not expired)  | `RakutenAuth.hasUserSignedIn()` |
 | Log Out |  Log out from Rakuten Auth, you might force removing session even if server sync up failed  | `RakutenAuth.logout(object : LogoutResultCallback)` |
 | Get Rakuten Member name | Get Rakuten Member name | `RakutenAuth.getUserName(context: Context)` |
