@@ -36,6 +36,7 @@
 |2.3.3|API16 (4.1)|API 29|
 |2.4.0|API16 (4.1)|API 30|
 |2.4.1|API16 (4.1)|API 30|
+|1.1.4|API16 (4.1)|API 30|
 
 * SDK functions only work with API 21 and above
 
@@ -85,7 +86,7 @@ vectorDrawables.useSupportLibrary = true
 
 If you need to use under 2.0.0, Plesae use following
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative:1.1.3'
+  implementation 'com.rakuten.android:rewardsdknative:1.1.4'
 ```
 
 ## Usage

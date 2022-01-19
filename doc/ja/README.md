@@ -36,6 +36,7 @@
 |2.3.3|API16 (4.1)|API 29|
 |2.4.0|API16 (4.1)|API 30|
 |2.4.1|API16 (4.1)|API 30|
+|1.1.4|API16 (4.1)|API 30|
 
 * アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
 
@@ -87,7 +88,7 @@ vectorDrawables.useSupportLibrary = true
 
 バージョン2.0以下をご利用の場合以下のようになります。
 ```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.3'
+  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.4'
 ```
 
 ## 使用方法の説明

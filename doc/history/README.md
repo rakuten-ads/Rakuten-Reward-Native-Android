@@ -1,5 +1,12 @@
 # Update History
 
+### Version 1.1.4
+<hr/>
+Release Date: 2022/01/19
+
+* Upgrade to Android SDK version API 30
+* Upgrade sdk core library
+
 ### Version 2.4.1
 <hr/>
 Release Date: 2022/01/14
