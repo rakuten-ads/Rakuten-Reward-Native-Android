@@ -1,5 +1,14 @@
 # 更新履歴
 
+### バージョン 3.0.0
+<hr/>
+リリース日: 2022/01/27
+
+* SDKポータルのUIを改善
+* SDK Core ライブラリのアップデート
+* Android SDK の最小バージョンを21にアップデート
+* `RakutenRewardBaseActivity`クラスを`FragmentActivity`クラスから拡張するように変更
+
 ### バージョン 1.1.4
 <hr/>
 リリース日: 2022/01/19

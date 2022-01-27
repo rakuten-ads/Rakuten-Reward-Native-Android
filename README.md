@@ -14,7 +14,7 @@
 ## Prerequisites
 
 * Use Android Studio 1.0 or higher
-* Target Android API level 16 or higher
+* Target Android API level 21 or higher
 * Support Android X
 * Use Rakuten IDSDK or Use built-in Login
 
@@ -37,8 +37,8 @@
 |2.4.0|API16 (4.1)|API 30|
 |2.4.1|API16 (4.1)|API 30|
 |1.1.4|API16 (4.1)|API 30|
+|3.0.0|API21 (5.0)|API 30|
 
-* SDK functions only work with API 21 and above
 
 <div id="import_sdk"></div>
 
@@ -65,11 +65,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:2.4.1'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.0.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:2.4.1'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.0.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle

@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.0.0
+<hr/>
+Release Date: 2022/01/27
+
+* Update SDK portal UI
+* Upgrade sdk core library
+* Update minimum supported Android version to 21
+* Update `RakutenRewardBaseActivity` to extend from `FragmentActivity` instead of `Activity` 
+
 ### Version 1.1.4
 <hr/>
 Release Date: 2022/01/19

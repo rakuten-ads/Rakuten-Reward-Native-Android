@@ -14,7 +14,7 @@
 ## 前提
 
 * Android Studio 1.0 以上
-* Android API level 16 以上
+* Android API level 21 以上
 * Android X をサポート
 * 楽天 IDSDK もしくは SDKが用意するログインを使用する
 
@@ -37,8 +37,8 @@
 |2.4.0|API16 (4.1)|API 30|
 |2.4.1|API16 (4.1)|API 30|
 |1.1.4|API16 (4.1)|API 30|
+|3.0.0|API21 (5.0)|API 30|
 
-* アプリ開発者は Android 4.x でのSDKの実装は可能です。ただし、SDK の昨日はAndroid 5以上でサポートしています
 
 <div id="import_sdk"></div>
 
@@ -65,12 +65,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:2.4.1'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.0.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:2.4.1'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.0.0'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
