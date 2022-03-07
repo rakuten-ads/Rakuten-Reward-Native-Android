@@ -48,6 +48,8 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Close Claim flow UI | Close Claim flow UI forcibly | `RakutenReward.forceClaimClose()`
 | Set Rp cookie | Set Rp cookie from App |  `RakutenReward.setRp(rp: String)`
 | Set Rz cookie | Set Rz cookie from App |  `RakutenReward.setRz(rz: String)`
+| Add RakutenRewardListener | Add RakutenRewardListener |  `RakutenReward.addRakutenRewardListener(listener)`
+| Remove RakutenRewardListener | Remove RakutenRewardListener |  `RakutenReward.removeRakutenRewardListener(listener)`
 
 
 ## RakutenAuth

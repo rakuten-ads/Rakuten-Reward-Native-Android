@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.1.0
+<hr/>
+Release Date: 2022/03/07
+
+* Update kotlin version
+* Add Event Ananlytics function
+* Rakuten Ichiba App support
+* Open Ad in external browser feature
+* Introduce `RakutenReward.addRakutenRewardListener` and `RakutenReward.removeRakutenRewardListener` to replace deprecated `RakutenReward.listener`
+
 ### Version 3.0.0
 <hr/>
 Release Date: 2022/01/27

@@ -47,6 +47,8 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | `RakutenReward.lastFailed`
 | Rp クッキーをセット | Rp クッキーをセットする |  `RakutenReward.setRp(rp: String)`
 | Rz クッキーをセット | Rz クッキーをセットする |  `RakutenReward.setRz(rz: String)`
+| RakutenRewardListenerを加える | RakutenRewardListenerを加える |  `RakutenReward.addRakutenRewardListener(listener)`
+| RakutenRewardListenerを取り除く | RakutenRewardListenerを取り除く |  `RakutenReward.removeRakutenRewardListener(listener)`
 
 
 ## RakutenAuth

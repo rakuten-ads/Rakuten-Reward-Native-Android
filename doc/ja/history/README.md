@@ -1,5 +1,15 @@
 # 更新履歴
 
+### バージョン 3.1.0
+<hr/>
+リリース日: 2022/03/07
+
+* kotlin のアップデート
+* Event Ananlytics 機能を追加
+* 楽天市場アプリのサポート
+* 広告を外部ブラウザで開くの機能を追加
+* `RakutenReward.addRakutenRewardListener`と`RakutenReward.removeRakutenRewardListener` APIを追加
+
 ### バージョン 3.0.0
 <hr/>
 リリース日: 2022/01/27
