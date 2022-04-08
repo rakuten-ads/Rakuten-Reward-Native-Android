@@ -48,10 +48,12 @@ RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>
 
 ## プロパティーについて
 
-Kotlin はプロパティーに直接アクセスできますが、Javaでは　getXxx というスタイルで呼び出す必要があります<br/>
+Kotlin はプロパティーに直接アクセスできますが、Javaでは　getXxx と setXxx というスタイルで呼び出す必要があります<br/>
 
 ```java
 String version = RakutenReward.INSTANCE.getVersion();
+
+RakutenRewardConfig.INSTANCE.setRegion(RakutenRewardRegion.JP);
 ```
 
 ## Kotlinコールバック

@@ -65,4 +65,4 @@ RakutenMissionEvent.logAction("actionname", map, {}, {})
 
 ---
 LANGUAGE :
-> [![en](../lang/en.png)](../../EventAnalytics/README.md)
+> [![ja](../../lang/en.png)](../../EventAnalytics/README.md)

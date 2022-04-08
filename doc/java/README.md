@@ -48,10 +48,12 @@ RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>
 
 ## Properties
 Kotlin can access property directory but in Java case, need to call
-using getXxx
+using getXxx and setXxx
 
 ```java
 String version = RakutenReward.INSTANCE.getVersion();
+
+RakutenRewardConfig.INSTANCE.setRegion(RakutenRewardRegion.JP);
 ```
 
 ## Callback Kotlin

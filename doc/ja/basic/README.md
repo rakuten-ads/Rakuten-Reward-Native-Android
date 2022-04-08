@@ -10,7 +10,8 @@
 * [ユーザー情報を取得する](#ユーザー情報を取得する)<br>
 * [ミッションの達成](#ミッションの達成)<br>
 * [楽天リワードSDKポータル](#楽天リワードSDKポータル)<br>
-* [広告ポータル](#広告ポータルバージョン-2.4.0-から)<br><br>
+* [広告ポータル](#広告ポータルバージョン-2.4.0-から)<br>
+* [SDKデバッグログ](#SDKデバッグログ)<br><br>
 
 ---
 
@@ -63,6 +64,10 @@ RakutenReward.setRIdToken("token")
 
 ログインの実装方法についてはID　SDK の詳細をご参照ください。
 
+> :grey_exclamation:  **バージョン3.1.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶ必要があります。**
+
+[ログアウト](#ログアウト) に参照
+
 ### RAE
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RAE
@@ -74,6 +79,10 @@ RakutenReward.setRaeToken("token")
 ```
 
 ログインの実装方法についてはID　SDK の詳細をご参照ください。
+
+> :grey_exclamation:  **バージョン3.1.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶ必要があります。**
+
+[ログアウト](#ログアウト) に参照
 
 # ログイン
 
@@ -333,6 +342,21 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 こちらが広告ポータルのイメージになります
 
 ![AdPortal1](AdPortal1.jpeg)  ![AdPortal2](AdPortal2.jpeg)
+
+
+## SDKデバッグログ
+
+バージョン3.1.1以降、SDKデバッグログをできようになります。ApplicationクラスでこのAPIを使ってください。
+```kotlin
+override fun onCreate() {
+    if (BuildConfig.DEBUG) {
+        RakutenRewardConfig.isDebuggable()
+    }
+}
+```
+**DEBUGモードだけにこのAPIを使ってください。**
+
+このAPIを使って、SDKロゴを見られます。タグは `RakutenRewardSDK`。
 
 ---
 言語 :

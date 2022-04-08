@@ -10,7 +10,8 @@ Table of Contents
 * [Getting User Information](#getting-user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Portal](#sdk-portal)<br>
-* [Ad Portal](#ad-portal-from-version-2.4.0)<br><br>
+* [Ad Portal](#ad-portal-from-version-2.4.0)<br>
+* [SDK Debugging Log](#sdk-debugging-log)<br><br>
 
 ---
 # Region Setting
@@ -65,6 +66,10 @@ RakutenReward.setRIdToken("token")
 
 For login implementation, please read SDK login documentation.
 
+> :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
+
+Refer to [Log Out](#log-out)
+
 ### RAE
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RAE
@@ -76,6 +81,10 @@ RakutenReward.setRaeToken("token")
 ```
 
 For login implementation, please read SDK login documentation.
+
+> :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
+
+Refer to [Log Out](#log-out)
 
 # Log in
 ### 1. Show Login Page
@@ -320,6 +329,22 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 Ad Portal screen
 
 ![AdPortal1](AdPortal1.jpeg)  ![AdPortal2](AdPortal2.jpeg)
+
+
+## SDK Debugging Log
+
+From version 3.1.1, SDK provide an option to enable SDK debugging logs. Use the following API in your Application class.
+```kotlin
+override fun onCreate() {
+    if (BuildConfig.DEBUG) {
+        RakutenRewardConfig.isDebuggable()
+    }
+}
+```
+**It's recommended to enable the debug log in DEBUG mode only**
+
+After enable the debug log, you can see the SDK logs with the tag `RakutenRewardSDK`.
+
 
 ---
 LANGUAGE :

@@ -72,6 +72,7 @@ RakutenRewardConfig is user setting class.
 | Set Optout | Set Optout status | `RakutenRewardConfig.setOptedOut(context, true)`
 | isUiEnabled |  Get whether Notification UI is enabled or not | `RakutenRewardConfig.isUiEnabled()`
 | setUiEnabled | Set whether Notification UI is enabled or not | `RakutenRewardConfig.setUiEnabled(context, true)`
+| isDebuggable | Set Reward SDK to be debuggable | `RakutenRewardConfig.isDebuggable()`
 
 ## Open Reward Web page
 ---
@@ -155,7 +156,7 @@ RakutenAuth class provides login and logout functions and access to basic user i
 | --- | --- | ---
 | Open Login Page |  Start and show login page | `RakutenAuth.openLoginPage(activity: Activity, requestCode: Int)`
 | Handle Activity Result | Parse activity result from login page  | `RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)`
-| Logout | Log user out from Rakuten Auth | `RakutenAuth.logout(callback: LogoutResultCallback)`
+| Logout | Log user out | `RakutenAuth.logout(callback: LogoutResultCallback)`
 | Has User Logged In | Check if user has logged in with Rakuten Auth | `RakutenAuth.hasUserSignedIn(): Boolean`
 | Get User Name | Get Rakuten Auth user's full name | `RakutenAuth.getUserName(context: Context): String`
 | Get User Info | Get user's points and rank | `RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)`

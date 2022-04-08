@@ -2,7 +2,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-Android-brightgreen.svg?style=flat)](https://developer.android.com)
 [![Language](http://img.shields.io/badge/language-Kotlin-green.svg?style=flat)](https://github.com/JetBrains/kotlin)
-[![Android](http://img.shields.io/badge/support-API_Level_16+-blue.svg?style=flat)](https://developer.android.com)
+[![Android](http://img.shields.io/badge/support-API_Level_21+-blue.svg?style=flat)](https://developer.android.com)
 
 # Rakuten Reward SDK ネイティブ
 
@@ -39,6 +39,7 @@
 |1.1.4|API16 (4.1)|API 30|
 |3.0.0|API21 (5.0)|API 30|
 |3.1.0|API21 (5.0)|API 30|
+|3.1.1|API21 (5.0)|API 30|
 
 <div id="import_sdk"></div>
 
@@ -65,12 +66,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.1.1'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.1.1'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
@@ -94,7 +95,7 @@ vectorDrawables.useSupportLibrary = true
 ## 使用方法の説明
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)  
-[イベントアナリティクス](./doc/EventAnalytics/README.md)  
+[イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)
 
 ## 更新履歴

@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.1.1
+<hr/>
+Release Date: 2022/04/08
+
+* Improve LogAction API
+* SDK Debug Log feature
+* UI bug fix
+* Update Log Out API
+    * Clients who are using ID SDK or User SDK login options are required to call Log Out API when user log out
+
 ### Version 3.1.0
 <hr/>
 Release Date: 2022/03/07

@@ -2,7 +2,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-Android-brightgreen.svg?style=flat)](https://developer.android.com)
 [![Language](http://img.shields.io/badge/language-Kotlin-green.svg?style=flat)](https://github.com/JetBrains/kotlin)
-[![Android](http://img.shields.io/badge/support-API_Level_16+-blue.svg?style=flat)](https://developer.android.com)
+[![Android](http://img.shields.io/badge/support-API_Level_21+-blue.svg?style=flat)](https://developer.android.com)
 
 # Rakuten Reward SDK Native
 
@@ -39,6 +39,7 @@
 |1.1.4|API16 (4.1)|API 30|
 |3.0.0|API21 (5.0)|API 30|
 |3.1.0|API21 (5.0)|API 30|
+|3.1.1|API21 (5.0)|API 30|
 
 <div id="import_sdk"></div>
 
@@ -65,11 +66,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.1.1'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.1.1'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
