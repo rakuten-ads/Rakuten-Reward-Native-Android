@@ -1,5 +1,13 @@
 # Update History
 
+### Version 3.1.2
+<hr/>
+Release Date: 2022/05/04
+
+* Display loading icon in claim UI
+* Fix Cookie setting
+* Rakuten Ichiba App support
+
 ### Version 3.1.1
 <hr/>
 Release Date: 2022/04/08
