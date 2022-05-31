@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.2.0
+<hr/>
+Release Date: 2022/05/31
+
+* Improve global ad
+* Minor UI bug fix
+* Improve LogAction API validation
+* Fix database access concurrency issue
+
 ### Version 3.1.2
 <hr/>
 Release Date: 2022/05/04
