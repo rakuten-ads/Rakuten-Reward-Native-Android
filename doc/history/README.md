@@ -1,5 +1,12 @@
 # Update History
 
+### Version 3.2.1
+<hr/>
+Release Date: 2022/06/16
+
+* Upgrade SDK Core library
+* Rakuten Ichiba App support
+
 ### Version 3.2.0
 <hr/>
 Release Date: 2022/05/31
