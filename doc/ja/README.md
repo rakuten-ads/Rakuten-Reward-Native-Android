@@ -43,6 +43,7 @@
 |3.1.2|API21 (5.0)|API 30|
 |3.2.0|API21 (5.0)|API 30|
 |3.2.1|API21 (5.0)|API 30|
+|3.2.2|API21 (5.0)|API 30|
 
 <div id="import_sdk"></div>
 
@@ -69,12 +70,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.2.1'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.2.2'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.2.1'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.2.2'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  

@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.2.2
+<hr/>
+Release Date: 2022/07/07
+
+* Update help page URL
+* Update claim UI flow in SDK portal
+* Upgrade SDK Core library
+* Minor bug fix
+
 ### Version 3.2.1
 <hr/>
 Release Date: 2022/06/16
