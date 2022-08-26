@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.3.0
+<hr/>
+Release Date: 2022/08/26
+
+* Manual initialization no longer needed. Instead please set your AppCode in AndroidManifest.xml. Please refer [here](../basic/README.md#from-version-330-onward-manual-initialization-is-no-longer-needed).
+* Coroutine Support. Please refer [here](../basic/README.md#coroutine-support)
+* Rakuten Ichiba App support
+* Improve get mission list API validation
+* Improve LogAction and Claim API
+
 ### Version 3.2.2
 <hr/>
 Release Date: 2022/07/07

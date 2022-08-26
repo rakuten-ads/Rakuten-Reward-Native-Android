@@ -2,6 +2,7 @@
 
 コンテンツ
 * [RakutenReward](#rakutenreward)<br>
+* [RakutenRewardCoroutine](#rakutenrewardcoroutine)<br>
 * [RakutenAuth](#rakutenauth)<br>
 * [RakutenRewardConfig](#rakutenrewardconfig)<br>
 * [楽天リワードのページを開く](#楽天リワードのページを開く)<br>
@@ -51,6 +52,18 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | RakutenRewardListenerを取り除く | RakutenRewardListenerを取り除く |  `RakutenReward.removeRakutenRewardListener(listener)`
 
 
+## RakutenRewardCoroutine
+---
+`RakutenRewardCoroutine` クラスは suspend 関数の API を提供しています
+
+| API 名 | 説明 | 使用例
+| --- | --- | ---
+| ミッションリストを取得する | ミッションリストを取得する | `RakutenRewardCoroutine.getMissions()`
+| ポイント履歴を取得する | 3ヶ月前までのポイント履歴を取得する | `RakutenRewardCoroutine.getPointHistory()`
+| アクションを送信する | ミッションを達成するためにアクションを送信する | `RakutenRewardCoroutine.logAction("xxxxxx")`
+| 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | `RakutenRewardCoroutine.getUnclaimedItems()`
+
+
 ## RakutenAuth
 ---
 | API 名 | 説明 | 使用例 |
@@ -59,7 +72,7 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | ログイン | ログインページを開く | `RakutenAuth.openLoginPage(fragment: androidx.fragment.app.Fragment, requestCode: Int)` |
 | ログイン状態の確認 | ログインしているかどうか状態を取得する  | `RakutenAuth.hasUserSignedIn()` |
 | ログアウト |  ログアウトする  | `RakutenAuth.logout(object : LogoutResultCallback)` |
-| 楽天会員名を取得 | 楽天会員名を取得する | `RakutenAuth.getUserName(context: Context)` |
+| 楽天会員名を取得 | 楽天会員名を取得する | `RakutenAuth.getUserName()` |
 | 楽天ランクとポイントを取得する | 楽天ランクとポイントを取得する  | `RakutenAuth.RakutenAuth.getUserInfo(success = { userInfo <br>-> <br>}, {<br> // Error <br>})` |
 
 
@@ -157,7 +170,7 @@ RakutenAuth は　楽天のログインに関するAPIを提供しておりま�
 | ログインの結果処理 | ログインの結果を処理  | `RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)`
 | ログアウト | ログアウトする | `RakutenAuth.logout(callback: LogoutResultCallback)`
 | ログインチェック | ログインの状態を確認する | `RakutenAuth.hasUserSignedIn(): Boolean`
-| ユーザー名取得　 | 楽天会員の名前を取得 | `RakutenAuth.getUserName(context: Context): String`
+| ユーザー名取得　 | 楽天会員の名前を取得 | `RakutenAuth.getUserName(): String`
 | ユーザー情報取得 | ユーザーの楽天ポイントメンバーシップランクを取得する | `RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)`
 
 ## LoginResultCallback

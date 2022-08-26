@@ -43,7 +43,7 @@
 |3.1.2|API21 (5.0)|API 30|
 |3.2.0|API21 (5.0)|API 30|
 |3.2.1|API21 (5.0)|API 30|
-|3.2.2|API21 (5.0)|API 30|
+|3.3.0|API21 (5.0)|API 30|
 
 <div id="import_sdk"></div>
 
@@ -70,12 +70,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.2.2'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.3.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.2.2'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.3.0'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
@@ -86,10 +86,6 @@ buildFeatures {
         dataBinding true
 }
 ```
-※ もしアプリケーションが Android 4 をサポートの場合、(SDKは Android 4.1 サポートのアプリでも組み込みことが可能ですが、Android 4 ではSDKの機能は動作しないつくりとなっております
-```groovy
-vectorDrawables.useSupportLibrary = true
-```
 
 バージョン2.0以下をご利用の場合以下のようになります。
 ```groovy
@@ -99,6 +95,7 @@ vectorDrawables.useSupportLibrary = true
 ## 使用方法の説明
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)  
+[移行ガイド](./migration/README.md)  
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)  
 [KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.1.2/index.html)

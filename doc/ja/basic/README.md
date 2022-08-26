@@ -6,12 +6,13 @@
   * [ログインオプション](#ログインオプション)<br>
   * [ログイン](#ログイン)<br>
   * [ログアウト](#ログアウト)<br>
-* [SDKの初期化](#SDKの初期化)<br>
+* [SDKの初期化](#sdkの初期化)<br>
 * [ユーザー情報を取得する](#ユーザー情報を取得する)<br>
 * [ミッションの達成](#ミッションの達成)<br>
 * [楽天リワードSDKポータル](#楽天リワードSDKポータル)<br>
 * [広告ポータル](#広告ポータルバージョン-2.4.0-から)<br>
-* [SDKデバッグログ](#SDKデバッグログ)<br><br>
+* [SDKデバッグログ](#SDKデバッグログ)<br>
+* [コルーチン サポート](#コルーチン-サポート)<br><br>
 
 ---
 
@@ -165,7 +166,18 @@ class App: Application() {
 | パラメータ名        | 説明           
 | --- | --- 
 | AppCode |  アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます)
+<br/><br/>
 
+### **\*バージョン 3.3.0 から、手動初期化は必要ないようになりました。**
+アプリケーションのAndroidManifest.xmlに`App Code`を設定してくだたさい。
+```xml
+<application>
+    <!-- Reward SDK Application Key -->
+    <meta-data
+        android:name="com.rakuten.gap.ads.mission_core.appKey"
+        android:value="{Application Key}"/>
+</application>
+```
   
 <br><br/>
 
@@ -357,6 +369,30 @@ override fun onCreate() {
 **DEBUGモードだけにこのAPIを使ってください。**
 
 このAPIを使って、SDKロゴを見られます。タグは `RakutenRewardSDK`。
+
+
+## コルーチン サポート
+
+**バージョン3.3.0**以降, SDK は suspend 関数の API を提供しています。
+suspend 関数の API は `RakutenRewardCoroutine`クラスにあります。[ここ](../APIReference/README.md#rakutenrewardcoroutine)に参照してください。
+
+suspend 関数の API を使う場合、コルーチンのスコープで呼んでください。例えば、 `viewModelScope` もしくわ `lifecycleScope`。
+```kotlin
+lifecycleScope.launch { 
+    val result = RakutenRewardCoroutine.getMissions()
+    when (result) {
+        is Failed -> {
+            // 失敗ケース
+            result.error // エラーコード
+        }
+        is Success -> {
+            // 成功ケース
+            val missionList = result.data
+        }
+    }
+}
+```
+
 
 ---
 言語 :

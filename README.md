@@ -44,6 +44,7 @@
 |3.2.0|API21 (5.0)|API 30|
 |3.2.1|API21 (5.0)|API 30|
 |3.2.2|API21 (5.0)|API 30|
+|3.3.0|API21 (5.0)|API 30|
 
 <div id="import_sdk"></div>
 
@@ -70,11 +71,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.2.2'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.3.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.2.2'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.3.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
@@ -83,10 +84,6 @@ buildFeatures {
         viewBinding true
         dataBinding true
 }
-```
-※ And if your app supports under Android 5, add vectorDrawable support (Can integrate Android 4 but all functions are available over Android 5)
-```groovy
-vectorDrawables.useSupportLibrary = true
 ```
 
 If you need to use under 2.0.0, Plesae use following
@@ -97,9 +94,11 @@ If you need to use under 2.0.0, Plesae use following
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
 [API Reference](./doc/APIReference/README.md)  
+[Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.1.2/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.1.2/index.html)  
+[FAQ](./doc/faq/README.md)
 
 ## Version History
 [Version History](./doc/history/README.md)

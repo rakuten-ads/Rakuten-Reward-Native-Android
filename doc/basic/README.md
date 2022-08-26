@@ -11,7 +11,8 @@ Table of Contents
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Portal](#sdk-portal)<br>
 * [Ad Portal](#ad-portal-from-version-2.4.0)<br>
-* [SDK Debugging Log](#sdk-debugging-log)<br><br>
+* [SDK Debugging Log](#sdk-debugging-log)<br>
+* [Coroutine Support](#coroutine-support)<br><br>
 
 ---
 # Region Setting
@@ -167,6 +168,19 @@ class App: Application() {
 | AppCode | Application Key (This is from Rakuten Reward Developer Portal)
 
 If you use RAE, RID option, you need to set token to activate SDK.
+<br/><br/>
+
+### **\*From version 3.3.0 onward, manual initialization is no longer needed.**
+Set your `App Code` in your application's AndroidManifest.xml as follow:
+```xml
+<application>
+    <!-- Reward SDK Application Key -->
+    <meta-data
+        android:name="com.rakuten.gap.ads.mission_core.appKey"
+        android:value="{Application Key}"/>
+</application>
+```
+
 
 <br><br/>
 ### To start SDK in your Activity, we provide several ways:
@@ -345,6 +359,29 @@ override fun onCreate() {
 
 After enable the debug log, you can see the SDK logs with the tag `RakutenRewardSDK`.
 
+
+## Coroutine Support
+
+From **version 3.3.0**, SDK provide API in suspend function.
+The suspend function API are available in `RakutenRewardCoroutine`. Please refer [here](../APIReference/README.md#rakutenrewardcoroutine) for the available API.
+
+Please call the suspend function API in a Coroutine Scope, for eg. `viewModelScope` or `lifecycleScope`.
+```kotlin
+lifecycleScope.launch { 
+    // call the API in a Coroutine scope
+    val result = RakutenRewardCoroutine.getMissions()
+    when (result) {
+        is Failed -> {
+            // error case
+            result.error // error code
+        }
+        is Success -> {
+            // success case
+            val missionList = result.data
+        }
+    }
+}
+```
 
 ---
 LANGUAGE :

@@ -2,6 +2,7 @@
 
 Table of Contents
 * [RakutenReward](#rakutenreward)<br>
+* [RakutenRewardCoroutine](#rakutenrewardcoroutine)<br>
 * [RakutenAuth](#rakutenauth)<br>
 * [Rakuten Reward Config](#rakutenrewardconfig)<br>
 * [Open Reward Web Page](#open-reward-web-page)<br>
@@ -52,6 +53,18 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Remove RakutenRewardListener | Remove RakutenRewardListener |  `RakutenReward.removeRakutenRewardListener(listener)`
 
 
+## RakutenRewardCoroutine
+---
+`RakutenRewardCoroutine` class provide API in suspend function
+
+| API Name | Description | Example
+| --- | --- | ---
+| Get Missions | Get missions | `RakutenRewardCoroutine.getMissions()`
+| Get Point history | Get 3 month user's point history | `RakutenRewardCoroutine.getPointHistory()`
+| Log Action | Post user action | `RakutenRewardCoroutine.logAction("xxxxxx")`
+| Get Unclaimed Items | Get Unclaim item list | `RakutenRewardCoroutine.getUnclaimedItems()`
+
+
 ## RakutenAuth
 ---
 | API Name | Description | Example |
@@ -60,7 +73,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Log In | Open Log In page | `RakutenAuth.openLoginPage(fragment: androidx.fragment.app.Fragment, requestCode: Int)` |
 | Check Log In | Check if user is logged in with internal system (token not expired)  | `RakutenAuth.hasUserSignedIn()` |
 | Log Out |  Log out from Rakuten Auth, you might force removing session even if server sync up failed  | `RakutenAuth.logout(object : LogoutResultCallback)` |
-| Get Rakuten Member name | Get Rakuten Member name | `RakutenAuth.getUserName(context: Context)` |
+| Get Rakuten Member name | Get Rakuten Member name | `RakutenAuth.getUserName()` |
 | Get Rakuten Point & Rank | Load latest point & rank from server  | `RakutenAuth.RakutenAuth.getUserInfo(success = { userInfo <br>-> <br>}, {<br> // Error <br>})` |
 
 ## RakutenRewardConfig
@@ -69,9 +82,9 @@ RakutenRewardConfig is user setting class.
 | API Name | Description | Example 
 | --- | --- | ---
 | Get Optout | Get Optout status <br>true : Optout (Reward SDK function does not work) | `RakutenRewardConfig.isOptedOut()`
-| Set Optout | Set Optout status | `RakutenRewardConfig.setOptedOut(context, true)`
+| Set Optout | Set Optout status | `RakutenRewardConfig.setOptedOut(true)`
 | isUiEnabled |  Get whether Notification UI is enabled or not | `RakutenRewardConfig.isUiEnabled()`
-| setUiEnabled | Set whether Notification UI is enabled or not | `RakutenRewardConfig.setUiEnabled(context, true)`
+| setUiEnabled | Set whether Notification UI is enabled or not | `RakutenRewardConfig.setUiEnabled(true)`
 | isDebuggable | Set Reward SDK to be debuggable | `RakutenRewardConfig.isDebuggable()`
 
 ## Open Reward Web page
@@ -158,7 +171,7 @@ RakutenAuth class provides login and logout functions and access to basic user i
 | Handle Activity Result | Parse activity result from login page  | `RakutenAuth.handleActivityResult(data: Intent?, callback: LoginResultCallback)`
 | Logout | Log user out | `RakutenAuth.logout(callback: LogoutResultCallback)`
 | Has User Logged In | Check if user has logged in with Rakuten Auth | `RakutenAuth.hasUserSignedIn(): Boolean`
-| Get User Name | Get Rakuten Auth user's full name | `RakutenAuth.getUserName(context: Context): String`
+| Get User Name | Get Rakuten Auth user's full name | `RakutenAuth.getUserName(): String`
 | Get User Info | Get user's points and rank | `RakutenAuth.getUserInfo((success: (userInfo: RakutenAuthUserInfo) -> Unit, failed: (e: RakutenRewardAPIError) -> Unit)`
 
 ## LoginResultCallback
