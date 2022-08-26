@@ -98,7 +98,7 @@ buildFeatures {
 [移行ガイド](./migration/README.md)  
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.1.2/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.3.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)

@@ -97,7 +97,7 @@ If you need to use under 2.0.0, Plesae use following
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.1.2/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.3.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History
