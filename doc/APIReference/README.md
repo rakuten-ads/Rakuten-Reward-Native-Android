@@ -207,7 +207,7 @@ API list are in RakutenReward class
 | iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | Mission Instruction | 1日1回プレイする
 | condition | Mission condition | 毎日10回達成可能
-| notificationtype | Mission Notification type | NONE, BANNER, MODAL, CUSTOM
+| notificationtype | Mission Notification type | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
 | point | Point for this mission | 10
 | enddatestr | This mission's end date (String style) <br> Daily : Today<br> Weekly : End of this week<br> Monthly : End of this month<br> Custom : Custom date<br> | 20190403
 | till | The rest days of this mission | 残り3日

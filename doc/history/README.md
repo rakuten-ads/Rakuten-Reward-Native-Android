@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.4.0
+<hr/>
+Release Date: 2022/09/28
+
+* Upgrade to Android SDK version API 31
+* Support new mission achieved notification
+* Remove `onBackPressed()` and `KeyEvent.KEYCODE_BACK` usage
+* Bug fix
+
 ### Version 3.3.0
 <hr/>
 Release Date: 2022/08/26

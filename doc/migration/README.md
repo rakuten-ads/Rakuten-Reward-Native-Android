@@ -1,7 +1,7 @@
 [TOP](../../README.md#top)　>　Migration Guide
 
 Table of Contents
-* [Migration to version 3.3.0](#migrate-to-version-x00)
+* [Migration to version 3.3.0](#migrate-to-version-330)
     * [SDK Initialization](#sdk-initialization)
     * [Deprecated Methods](#deprecated-methods)
 * [Migrate to version 3.1.0](#migrate-to-version-310)

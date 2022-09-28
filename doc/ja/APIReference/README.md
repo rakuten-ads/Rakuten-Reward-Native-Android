@@ -202,7 +202,7 @@ RakutenAuth は　楽天のログインに関するAPIを提供しておりま�
 | iconurl | ミッションアイコンのURL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | ミッションの説明文 | 1日1回プレイする
 | condition | ミッションの達成条件 | 毎日10回達成可能
-| notificationtype | ミッションのノーティフィケーションタイプ | NONE, BANNER, MODAL, CUSTOM
+| notificationtype | ミッションのノーティフィケーションタイプ | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
 | point | ミッションのポイント | 10
 | enddatestr | ミッションの終了日 <br> 日次の場合 : Today<br> 週次 : 週の終わり<br> 月次 : 月の終わり<br> カスタム : 指定された日時<br> | 20190403
 | till | ミッション終了日までの残り日数 | 残り3日
