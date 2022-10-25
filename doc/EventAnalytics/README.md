@@ -17,7 +17,7 @@ We provide following function<br>
 # Import Event Analytics Module
 To use Event Analytics function, please import following module
 ```groovy
-implementation 'com.rakuten.android:rewardsdknative-event:1.0.0'
+implementation 'com.rakuten.android:rewardsdknative-event:1.0.1'
 ```
 At the same time, Analytics SDK is required to import <br>
 Please check [Rakuten Analytics SDK for Android](https://github.com/rakutentech/android-analytics)

@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.4.1
+<hr/>
+Release Date: 2022/10/25
+
+* Upgrade to Android SDK version API 33
+* Rakuten Ichiba App support
+* Remove Taiwan Region support
+* Bug fix
+
 ### Version 3.4.0
 <hr/>
 Release Date: 2022/09/28

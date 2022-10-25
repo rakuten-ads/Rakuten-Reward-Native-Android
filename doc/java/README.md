@@ -53,7 +53,7 @@ using getXxx and setXxx
 ```java
 String version = RakutenReward.INSTANCE.getVersion();
 
-RakutenRewardConfig.INSTANCE.setRegion(RakutenRewardRegion.JP);
+RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RID);
 ```
 
 ## Callback Kotlin

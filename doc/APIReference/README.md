@@ -23,7 +23,6 @@ Table of Contents
 * [Last Failed Method](#last-failed-method)<br>
 * [RakutenRewardClaimStatus](#rakutenrewardclaimstatus)<br>
 * [Get current user action status](#get-current-user-action-status)<br>
-* [RakutenRewardAdConfiguration](#rakutenrewardadconfiguration)<br>
 * [How to create custom mission UI](#how-to-create-custom-mission-ui)<br>
 * [Set Rakuten cookie](#set-rakuten-cookie)<br>
 * [Close Claim UI by back button](#close-claim-ui-by-back-button)<br><br>
@@ -282,31 +281,6 @@ RakutenReward.getMissions({ missions ->
             // Failed
         })
 ```
-
-## RakutenRewardAdConfiguration
----
-This configuration is only for TW region.
-```kotlin
-RakutenRewardAdConfiguration.propertyname
-```
-| Property Name | Description | Example 
-| --- | --- | ---
-| bcat | Blocked advertiser categories using the IAB content | RakutenRewardAdConfiguration.bcat
-| badv | Block list of advertisers by their domains | RakutenRewardAdConfiguration.badv
-| appDomain |  Domain of the app | RakutenRewardAdConfiguration.appDomain
-| storeUrl | App store URL | RakutenRewardAdConfiguration.storeUrl
-| privacyPolicy | Indicates if the app has a privacy policy, where 0 = no, 1 = yes | RakutenRewardAdConfiguration.privacyPolicy
-| paid | Indicates if the app is free or paid, where 0 = free, 1 = paid | RakutenRewardAdConfiguration.paid
-| keywords | Keywords about the app | RakutenRewardAdConfiguration.keywords
-| test | To enable Ads testing. Set to true if debug only. | RakutenRewardAdConfiguration.test
-<br>
-
-| Method | Description | Example 
-| --- | --- | ---
-| addBlockCategory | Append block category string to bcat array<br>Format: IAB(Number)-(Number).| addBlockCategory(str: "IAB7-17")
-| addBlockDomain | Append domain string to badv array. | addBlockDomain(str: "www.example.com")
-| addKeywords | Append keyword string to keywords array. | addKeywords(str: "productivity")
-<br>
 
 ## How to support custom view after mission achievement
 Use RakutenRewardListener to receive mission achievement callback

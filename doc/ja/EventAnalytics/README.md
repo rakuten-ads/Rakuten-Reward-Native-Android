@@ -19,7 +19,7 @@
 # イベントアナリティクスモジュールの導入
 こちらの機能を使用するには以下のモジュールを追加します
 ```groovy
-implementation 'com.rakuten.android:rewardsdknative-event:1.0.0'
+implementation 'com.rakuten.android:rewardsdknative-event:1.0.1'
 ```
 合わせて、Rakuten Analytics SDK 導入する必要があります詳しくはこちら<br>
 [Rakuten Analytics SDK for Android](https://github.com/rakutentech/android-analytics) をご参照ください。<br>

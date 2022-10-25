@@ -53,7 +53,7 @@ Kotlin はプロパティーに直接アクセスできますが、Javaでは　
 ```java
 String version = RakutenReward.INSTANCE.getVersion();
 
-RakutenRewardConfig.INSTANCE.setRegion(RakutenRewardRegion.JP);
+RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RID);
 ```
 
 ## Kotlinコールバック

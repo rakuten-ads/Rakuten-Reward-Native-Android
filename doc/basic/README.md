@@ -1,7 +1,6 @@
 [TOP](../../README.md#top)　>　Basic Guide
 
 Table of Contents
-* [Region Setting](#region-setting)<br>
 * [Authentication](#authentication)<br>
   * [Login Options](#login-options)<br>
   * [Log in](#log-in)<br>
@@ -15,24 +14,6 @@ Table of Contents
 * [Coroutine Support](#coroutine-support)<br><br>
 
 ---
-# Region Setting
-From Version 2.1, SDK support multiple regions.
-We support Japan, Taiwan(2021/02).
-
-For Japan
-```kotlin
-RakutenRewardConfig.region = RakutenRewardRegion.JP
-```
-
-For Taiwan
-```kotlin
-RakutenRewardConfig.region = RakutenRewardRegion.TW
-```
-
-Do not use multiple setting in same app.  
-We expect one application use one region.  
-Each Region has differrent functions, and we cannot support each country mixed.
-
 # Authentication
 
 ## Login Options
@@ -322,7 +303,7 @@ This is UI Image
 ![Portal5](Portal5.png)
 
 ## Ad Portal (From version 2.4.0)
-**\*Ad Portal API is available from version 2.4.0 and is only available for *JP* region**
+**\*Ad Portal API is available from version 2.4.0**
 
 
 Use the following API to launch the Ad Portal screen. Activity context is needed to start the activity. The API return a boolean to indicate whether Ad Portal is launched successfully or not.
