@@ -1,5 +1,16 @@
 # 更新履歴
 
+### バージョン 3.4.2
+<hr/>
+リリース日: 2022/12/02
+
+* ミニブラウザーを改善
+* 新しい`RakutenReward.startSession` APIを提供する
+* `Activity.onActivityResult`で結果を得るの代わりに、Activity Result Callbackを使って新しいAPIを提供する
+    * `RakutenAuth.openLoginPage`
+    * `RakutenReward.openSDKPortal`
+    * `RakutenReward.openAdPortal`
+
 ### バージョン 3.4.1
 <hr/>
 リリース日: 2022/10/25

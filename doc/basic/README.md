@@ -83,20 +83,43 @@ RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
 ### 2. Get result from `onActivityResult()`
 ```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
-            if (resultCode == RESULT_OK) {
-                handleActivityResult(data)
-            } else {
-                //login canceled by user
-            }
+    if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
+        if (resultCode == RESULT_OK) {
+            handleActivityResult(data)
+        } else {
+            //login canceled by user
         }
     }
+}
 ```
 
 ### 3. Process result intent to complete login flow by calling `RakutenAuth.handleActivityResult()`
 ```kotlin
 private fun handleActivityResult(data: Intent?) {
-        RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+    RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+        override fun loginSuccess() {
+            //✅ login completed
+        }
+
+        override fun loginFailed(e: RakutenRewardAPIError) {
+            //⛔ login failed
+        }
+    })
+}
+```
+
+### **Call the API in Fragment class**
+From version 2.4.1 onwards, you can call `RakutenAuth.openLoginPage()` API in Fragment class by providing the Fragment reference instead of Activity reference. 
+`onActivityResult()` will be triggered in the Fragment class. 
+
+### **From version 3.4.2**
+Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
+
+Use the following API and provide a `ActivityResultCallback<ActivityResult>`
+```kotlin
+RakutenAuth.openLoginPage(context) { result ->
+    if (result.resultCode == RESULT_OK) {
+        RakutenAuth.handleActivityResult(result.data, object : LoginResultCallback {
             override fun loginSuccess() {
                 //✅ login completed
             }
@@ -106,12 +129,9 @@ private fun handleActivityResult(data: Intent?) {
             }
         })
     }
+}
 ```
-
-### **Call the API in Fragment class**
-From version 2.4.1 onwards, you can call `RakutenAuth.openLoginPage()` API in Fragment class by providing the Fragment reference instead of Activity reference. 
-`onActivityResult()` will be triggered in the Fragment class. 
-
+> This API can be call in Activity or Fragment class, but require Activity context.
 
 # Log out
 Logging user out: 
@@ -119,14 +139,14 @@ Logging user out:
 ```kotlin
 private fun logout() {
     RakutenAuth.logout(object : LogoutResultCallback {
-            override fun logoutSuccess() {
-                //logout completed
-            }
+        override fun logoutSuccess() {
+            //logout completed
+        }
 
-            override fun logoutFailed(e: RakutenRewardAPIError) {
-                //login failed
-            }
-        })
+        override fun logoutFailed(e: RakutenRewardAPIError) {
+            //login failed
+        }
+    })
 }
 ```
 
@@ -294,6 +314,16 @@ RakutenReward.openSDKPortal()
 }
  ```
 
+### **From version 3.4.2**
+Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
+
+Use the following API and provide a `ActivityResultCallback<ActivityResult>`
+```kotlin
+val success: Boolean = RakutenReward.openSDKPortal {
+    // handle SDK Portal closed event here
+}
+```
+
 This is UI Image
 
 ![Portal1](Portal1.png)  ![Portal2](Portal2.png)
@@ -322,6 +352,16 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
     if (requestCode == 100) {
         // handle Ad Portal closed event here
     }
+}
+```
+
+### **From version 3.4.2**
+Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
+
+Use the following API and provide a `ActivityResultCallback<ActivityResult>`
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity) {
+    // handle Ad Portal closed event here
 }
 ```
 

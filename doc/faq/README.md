@@ -15,6 +15,7 @@ Table of Contents
     * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)
     * [How do I implement onSDKStatusChanged or onUnclaimedAchievement?](#how-do-i-implement-onsdkstatuschanged-or-onunclaimedachievement)
     * [Is it possible to detect SDK Portal closed event?](#is-it-possible-to-detect-sdk-portal-closed-event)
+    * [After I set token using RakutenReward.setRaeToken / RakutenReward.setRIdToken but SDK status is still offline.](#after-i-set-token-using-rakutenrewardsetraetoken--rakutenrewardsetridtoken-but-sdk-status-is-still-offline)
 
 ---
 # FAQ
@@ -336,4 +337,28 @@ class SampleActivity : RakutenRewardBaseActivity() {
 ```
 > :grey_exclamation:  **`RakutenReward.openSDKPortal()` API can be call in `Fragment` class as well, however `onActivityResult` will be triggered in Fragment class's parent activity instead**
 
+</details>
+
+<br>
+
+### After I set token using `RakutenReward.setRaeToken` / `RakutenReward.setRIdToken` but SDK status is still offline.
+<details>
+    <summary>Answer</summary>
+After setting the token, need to manually trigger to start SDK session by calling the following API. <br>
+<code>RakutenReward.startSession()</code><br><br>
+
+Sample implementation
+
+
+```kotlin
+class SampleActivity : RakutenRewardBaseActivity() {
+    ....
+
+    private fun setToken() {
+        RakutenReward.setRaeToken("token")
+        // this API is available since v3.4.2
+        RakutenReward.startSession()
+    }
+}
+```
 </details>

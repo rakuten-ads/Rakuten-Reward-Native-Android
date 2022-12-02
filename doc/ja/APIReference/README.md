@@ -50,6 +50,7 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | Rz クッキーをセット | Rz クッキーをセットする |  `RakutenReward.setRz(rz: String)`
 | RakutenRewardListenerを加える | RakutenRewardListenerを加える |  `RakutenReward.addRakutenRewardListener(listener)`
 | RakutenRewardListenerを取り除く | RakutenRewardListenerを取り除く |  `RakutenReward.removeRakutenRewardListener(listener)`
+| セッションを開始 | SDK セッションを開始 | `RakutenReward.startSession()`
 
 
 ## RakutenRewardCoroutine

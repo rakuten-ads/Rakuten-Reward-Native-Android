@@ -81,20 +81,47 @@ RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
 ### 2.  ログイン終了の結果を受け取る `onActivityResult()`
 ```kotlin
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
-            if (resultCode == RESULT_OK) {
-                handleActivityResult(data)
-            } else {
-                // ユーザーがログインをキャンセルした
-            }
+    if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
+        if (resultCode == RESULT_OK) {
+            handleActivityResult(data)
+        } else {
+            // ユーザーがログインをキャンセルした
         }
     }
+}
 ```
 
 ### 3. ログインの最終的なプロセスを受け取る `RakutenAuth.handleActivityResult()`
 ```kotlin
 private fun handleActivityResult(data: Intent?) {
-        RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+    RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
+        override fun loginSuccess() {
+            //✅ ログイン成功
+        }
+
+        override fun loginFailed(e: RakutenRewardAPIError) {
+            //⛔ ログイン失敗
+        }
+    })
+}
+```
+
+ログインの画面終了後、APIへのアクセスに必要なデータ処理を行います。楽天へのログインは2で終了しておりますが、　　  
+データ処理をを受け取るにはこちらのようなコールバックを待っていただく必要があります。
+
+### **FragmentクラスでAPIを使える**
+バージョン２.４.１からFragmentクラスで `RakutenAuth.openLoginPage()` APIを使えるようになりました。Activityの参照の代りにFragmentの参照を提供してください。
+Fragmentクラス内の `onActivityResult()` でログイン終了の結果を受け取る。
+
+
+### **バージョン 3.4.2 から**
+Androidx Activity Result APIを使っている新しいAPIを提供する。
+
+以下のAPIを使って、`ActivityResultCallback<ActivityResult>`を提供してください。
+```kotlin
+RakutenAuth.openLoginPage(context) { result ->
+    if (result.resultCode == RESULT_OK) {
+        RakutenAuth.handleActivityResult(result.data, object : LoginResultCallback {
             override fun loginSuccess() {
                 //✅ ログイン成功
             }
@@ -104,14 +131,8 @@ private fun handleActivityResult(data: Intent?) {
             }
         })
     }
+}
 ```
-
-ログインの画面終了後、APIへのアクセスに必要なデータ処理を行います。楽天へのログインは2で終了しておりますが、　　  
-データ処理をを受け取るにはこちらのようなコールバックを待っていただく必要があります。
-
-### **FragmentクラスでAPIを使える**
-バージョン２.４.１からFragmentクラスで `RakutenAuth.openLoginPage()` APIを使えるようになりました。Activityの参照の代りにFragmentの参照を提供してください。
-Fragmentクラス内の `onActivityResult()` でログイン終了の結果を受け取る。
 <br><br>
 
 # ログアウト
@@ -119,14 +140,14 @@ Fragmentクラス内の `onActivityResult()` でログイン終了の結果を�
 ```kotlin
 private fun logout() {
     RakutenAuth.logout(object : LogoutResultCallback {
-            override fun logoutSuccess() {
-                //ログアウト 完了
-            }
+        override fun logoutSuccess() {
+            //ログアウト 完了
+        }
 
-            override fun logoutFailed(e: RakutenRewardAPIError) {
-                //ログアウト失敗
-            }
-        })
+        override fun logoutFailed(e: RakutenRewardAPIError) {
+            //ログアウト失敗
+        }
+    })
 }
 ```
 
@@ -307,6 +328,16 @@ RakutenReward.openSDKPortal()
 }
  ```
 
+ ### **バージョン 3.4.2 から**
+Androidx Activity Result APIを使っている新しいAPIを提供する。
+
+以下のAPIを使って、`ActivityResultCallback<ActivityResult>`を提供してください。
+```kotlin
+val success: Boolean = RakutenReward.openSDKPortal {
+    // handle SDK Portal closed event here
+}
+```
+
 こちらがSDKポータルのイメージになります
 
 ![Portal1](Portal1.png)  ![Portal2](Portal2.png)
@@ -335,6 +366,16 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
     if (requestCode == 100) {
         // handle Ad Portal closed event here
     }
+}
+```
+
+ ### **バージョン 3.4.2 から**
+Androidx Activity Result APIを使っている新しいAPIを提供する。
+
+以下のAPIを使って、`ActivityResultCallback<ActivityResult>`を提供してください。
+```kotlin
+val success: Boolean = RakutenReward.openAdPortal(activity) {
+    // handle Ad Portal closed event here
 }
 ```
 

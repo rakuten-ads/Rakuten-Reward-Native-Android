@@ -50,6 +50,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Set Rz cookie | Set Rz cookie from App |  `RakutenReward.setRz(rz: String)`
 | Add RakutenRewardListener | Add RakutenRewardListener |  `RakutenReward.addRakutenRewardListener(listener)`
 | Remove RakutenRewardListener | Remove RakutenRewardListener |  `RakutenReward.removeRakutenRewardListener(listener)`
+| Start Session | Start SDK Session | `RakutenReward.startSession()`
 
 
 ## RakutenRewardCoroutine
