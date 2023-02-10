@@ -86,6 +86,7 @@ RakutenRewardConfig is user setting class.
 | isUiEnabled |  Get whether Notification UI is enabled or not | `RakutenRewardConfig.isUiEnabled()`
 | setUiEnabled | Set whether Notification UI is enabled or not | `RakutenRewardConfig.setUiEnabled(true)`
 | isDebuggable | Set Reward SDK to be debuggable | `RakutenRewardConfig.isDebuggable()`
+| isUsingSdkPortal | Set whether using SDK Portal or not (only available in UI module) | `RakutenRewardConfig.isUsingSdkPortal(true)`
 
 ## Open Reward Web page
 ---

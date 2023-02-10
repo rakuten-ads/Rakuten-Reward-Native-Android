@@ -83,11 +83,12 @@ RakutenRewardConfig　はユーザー設定を管理するクラスです
 
 | API 名 | 説明 | Example 
 | --- | --- | ---
-| オプトアウトの取得 | オプトアウトの状態を取得する <br>true : オプトアウト (リワードSDKは動作しません) | RakutenRewardConfig.isOptedOut()
-| オプトアウトの設定 | オプトアウトの状態を設定する | RakutenRewardConfig.setOptedOut(context, true)
-| UI設定の取得 |  ミッションのUIのオン・オフ設定設定を取得する | RakutenRewardConfig.isUiEnabled()
-| UI設定 | ミッションのUIのオン・オフ設定 | RakutenRewardConfig.setUiEnabled(context, true)
+| オプトアウトの取得 | オプトアウトの状態を取得する <br>true : オプトアウト (リワードSDKは動作しません) | `RakutenRewardConfig.isOptedOut()`
+| オプトアウトの設定 | オプトアウトの状態を設定する | `RakutenRewardConfig.setOptedOut(context, true)`
+| UI設定の取得 |  ミッションのUIのオン・オフ設定設定を取得する | `RakutenRewardConfig.isUiEnabled()`
+| UI設定 | ミッションのUIのオン・オフ設定 | `RakutenRewardConfig.setUiEnabled(context, true)`
 | デバッグオプション | SDKデバッグができるように設定する | `RakutenRewardConfig.isDebuggable()`
+| SDKポータルを使うの設定 | SDKポータルを使う、使わないを設定する (UIモジュールのみ) | `RakutenRewardConfig.isUsingSdkPortal(true)`
 
 ## 楽天リワードのページを開く
 

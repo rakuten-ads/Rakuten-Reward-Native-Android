@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.5.0
+<hr/>
+Release Date: 2023/02/10
+
+* Introduce Poikatsu in SDK Portal
+* Update Claim UI
+* Upgrade SDK Core library
+* Bug fix
+
 ### Version 3.4.2
 <hr/>
 Release Date: 2022/12/02
