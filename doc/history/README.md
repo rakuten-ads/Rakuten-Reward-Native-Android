@@ -1,5 +1,11 @@
 # Update History
 
+### Version 3.5.1
+<hr/>
+Release Date: 2023/03/22
+
+* Bug fix
+
 ### Version 3.5.0
 <hr/>
 Release Date: 2023/02/10
