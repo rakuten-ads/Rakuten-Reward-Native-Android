@@ -1,5 +1,12 @@
 # Update History
 
+### Version 3.6.0
+<hr/>
+Release Date: 2023/04/12
+
+* Upgrade to JAVA 11
+* Upgrade to Android Gradle Plugin 7.1.0
+
 ### Version 3.5.1
 <hr/>
 Release Date: 2023/03/22

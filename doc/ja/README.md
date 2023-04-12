@@ -49,6 +49,7 @@
 |3.4.2|API21 (5.0)|API 33|
 |3.5.0|API21 (5.0)|API 33|
 |3.5.1|API21 (5.0)|API 33|
+|3.6.0|API21 (5.0)|API 33|
 
 <div id="import_sdk"></div>
 
@@ -75,12 +76,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.5.1'
+  implementation 'com.rakuten.android:rewardsdknative-ui:3.6.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.5.1'
+  implementation 'com.rakuten.android:rewardsdknative-core:3.6.0'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
@@ -97,13 +98,22 @@ buildFeatures {
   implementation 'com.rakuten.android.ads:rewardsdknative:1.1.4'
 ```
 
+### Android Gradle Plugin 7.0
+バージョン 3.６.０ 以降、Reward SDKのAndroid Gradle Plugin (AGP)はバージョン７.１にアップグレードしました。  
+アプリのAGPをバージョン７.０以降にアップグレードしてください。
+```groovy
+dependencies {
+    classpath "com.android.tools.build:gradle:7.0.3"
+}
+```
+
 ## 使用方法の説明
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)  
 [移行ガイド](./migration/README.md)  
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.5.1/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.6.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
