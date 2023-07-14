@@ -4,6 +4,8 @@ Table of Contents
 * [General](#general)
     * [Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?](#reward-sdk-is-written-in-java-or-kotlin-my-applcation-is-written-in-java-fully-is-there-any-problem-using-the-reward-sdk)
     * [Can we access the staging environment for development / testing?](#can-we-access-the-staging-environment-for-development--testing)
+    * [Does Reward SDK collect end user's Advertising ID (ADID)?](#does-reward-sdk-collect-end-users-advertising-id-adid)
+    * [How to opt out collecting end user's Advertising ID (ADID)?](#how-to-opt-out-collecting-end-users-advertising-id-adid)
 * [Login Related](#login-related)
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
     * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
@@ -39,6 +41,44 @@ Please refer [here](../java/README.md) for the full description.
 <details>
     <summary>Answer</summary>
 No, currently we do not provide staging environment for developers. Please use development mode or test account for development / testing.
+
+</details>
+
+<br>
+
+### Does Reward SDK collect end user's Advertising ID (ADID)?
+<details>
+    <summary>Answer</summary>
+Yes, Reward SDK do collect user's Advertising ID (ADID).  
+
+Reward SDK uses the ADID for Advertisement Optimization. 
+
+</details>
+
+<br>
+
+### How to opt out collecting end user's Advertising ID (ADID)?
+<details>
+    <summary>Answer</summary>
+Reward SDK uses Google Play library Ads Identifier to collect user ADID. In order to stop collecting user ADID add the following changes:
+
+Add the following in app/build.gradle file to remove Ads Identifier library.
+```groovy
+implementation ('com.rakuten.android:rewardsdknative-ui:x.x.x') {
+    exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
+} 
+```
+
+Add the following in AndroidManifest file to disable ADID permission.
+```xml
+<uses-permission 
+    android:name="com.google.android.gms.permission.AD_ID"
+    tools:node="remove" />
+```
+
+To verify Reward SDK does not collect user ADID anymore, check for the following log:
+
+![logcat](log.png)
 
 </details>
 

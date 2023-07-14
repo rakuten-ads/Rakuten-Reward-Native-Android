@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.7.0
+<hr/>
+Release Date: 2023/07/14
+
+* SDK Portal UI Update
+    * Introduce Unclaimed List sorting feature
+    * Tap on mission item to show mission details
+* Marked `RakutenReward.openAdPortal()` as deprecated API
+* Update [FAQ page](../faq/README.md)
+
 ### Version 3.6.0
 <hr/>
 Release Date: 2023/04/12
