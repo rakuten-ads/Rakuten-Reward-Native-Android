@@ -52,6 +52,7 @@
 |3.5.1|API21 (5.0)|API 33|
 |3.6.0|API21 (5.0)|API 33|
 |3.7.0|API21 (5.0)|API 33|
+|4.0.0|API21 (5.0)|API 33|
 
 <div id="import_sdk"></div>
 
@@ -78,11 +79,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:3.7.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:4.0.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:3.7.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:4.0.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
@@ -98,7 +99,7 @@ If you need to use under 2.0.0, Plesae use following
   implementation 'com.rakuten.android:rewardsdknative:1.1.4'
 ```
 
-### Android Gradle Plugin 7.0
+# Android Gradle Plugin 7.0
 Since version 3.6.0, Reward SDK modules has upgrade Android Gradle Plugin (AGP) to version 7.1.  
 Please upgrade your application's AGP to version 7.0 or later.
 ```groovy
@@ -107,13 +108,19 @@ dependencies {
 }
 ```
 
+# User Consent 
+Since version 4.0.0, end users have to provide consent for Reward terms of use and privacy policy before they can access any Reward SDK features.
+
+Follow the guide below on how to request user consent.
+
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
 [API Reference](./doc/APIReference/README.md)  
+[User Consent](./doc/consent/README.md)  
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/3.7.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.0.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History

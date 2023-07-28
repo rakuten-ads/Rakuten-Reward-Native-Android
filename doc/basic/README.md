@@ -41,7 +41,7 @@ RakutenReward.tokenType = RakutenRewardTokentype.RAKUTEN_AUTH
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RID
 ```
-To use SDK API, need to set API)(API-C) token by developers  
+To use SDK API, need to set API (API-C) token by developers  
 ```kotlin
 RakutenReward.setRIdToken("token")
 ```
@@ -184,6 +184,7 @@ Set your `App Code` in your application's AndroidManifest.xml as follow:
 
 
 <br><br/>
+
 ### To start SDK in your Activity, we provide several ways:
 
 ### Option 1. Extends RakutenRewardBaseActivity

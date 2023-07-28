@@ -1,5 +1,11 @@
 # Update History
 
+### Version 4.0.0
+<hr/>
+Release Date: 2023/07/28
+
+* Introduce request user consent feature
+
 ### Version 3.7.0
 <hr/>
 Release Date: 2023/07/14

@@ -10,7 +10,7 @@ Table of Contents
 * [RakutenAuthUserInfo](#rakutenauthuserinfo)
 * [Rank](#rank)<br>
 * [RakutenRewardListener](#rakutenrewardlistener)<br>
-* [RakutenRewardStatus](#rakutenrewardstatus)<br>
+* [RakutenRewardStatus](#rakutenrewardsdkstatus)<br>
 * [RakutenAuth](#rakutenauth)<br>
 * [LoginResultCallback](#loginresultcallback)<br>
 * [LogoutResultCallback](#logoutresultcallback)<br>
@@ -51,6 +51,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Add RakutenRewardListener | Add RakutenRewardListener |  `RakutenReward.addRakutenRewardListener(listener)`
 | Remove RakutenRewardListener | Remove RakutenRewardListener |  `RakutenReward.removeRakutenRewardListener(listener)`
 | Start Session | Start SDK Session | `RakutenReward.startSession()`
+| Request for consent | Request User Consent (Since v4.0.0) | `RakutenReward.requestForConsent { status -> // Consent status }` 
 
 
 ## RakutenRewardCoroutine
@@ -147,11 +148,12 @@ RakutenRewardListener is Rakuten Reward SDK basic function status change listene
 | fun onUserUpdated(user : RakutenRewardUser) | When the user data is updated
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | When the SDK status changed
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed
+| fun onSDKConsentClosed() | When consent dialog is closed (Since v4.0.0)
 
 For usage, please take a look sample application codes.
 
 
-### RakutenRewardSDKStatus
+## RakutenRewardSDKStatus
 ---
 RakutenRewardSDKStatus is Reward SDK Status  
 
@@ -161,6 +163,7 @@ RakutenRewardSDKStatus is Reward SDK Status
 | OFFLINE | SDK is not ready. And initialization API is failed
 | APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)
 | TOKENEXPIRED | APIs returns Token Expired
+| USER_NOT_CONSENT | User have not provide consent yet (Since v4.0.0)
 
 ## RakutenAuth
 ---

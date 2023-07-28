@@ -10,7 +10,7 @@
 * [RakutenAuthUserInfo](#rakutenauthuserinfo)
 * [Rank](#rank)
 * [RakutenRewardListener](#rakutenrewardlistener)
-* [RakutenRewardStatus](#rakutenrewardstatus)<br>
+* [RakutenRewardSDKStatus](#rakutenrewardsdkstatus)<br>
 * [RakutenAuth](#rakutenauth)
 * [LoginResultCallback](#loginresultcallback)
 * [LogoutResultCallback](#logoutresultcallback)
@@ -51,6 +51,7 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | RakutenRewardListenerを加える | RakutenRewardListenerを加える |  `RakutenReward.addRakutenRewardListener(listener)`
 | RakutenRewardListenerを取り除く | RakutenRewardListenerを取り除く |  `RakutenReward.removeRakutenRewardListener(listener)`
 | セッションを開始 | SDK セッションを開始 | `RakutenReward.startSession()`
+| 利用規約への同意をリクエスト | 利用規約への同意をリクエスト | `RakutenReward.requestForConsent { status -> //consent status }`
 
 
 ## RakutenRewardCoroutine
@@ -149,7 +150,8 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onUnclaimedAchievement(achievement : MissionAchievementData) | ユーザーがミッションを達成した　
 | fun onUserUpdated(user : RakutenRewardUser) | ユーザーデータが更新された
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | SDKの状態が変更された
-| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた
+| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた 
+| fun onSDKConsentClosed() | 同意ダイアログを閉めした 
 
 ### RakutenRewardSDKStatus
 ---
@@ -161,6 +163,8 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 | OFFLINE | SDKの初期化が未完了または失敗
 | APPCODEINVALID | アプリケーションキーが間違っている
 | TOKENEXPIRED | トークンの期限切れ |
+| USER_NOT_CONSENT | ユーザーまだ利用規約に同意しない |
+
 
 ## RakutenAuth
 ---
