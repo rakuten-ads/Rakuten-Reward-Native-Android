@@ -5,6 +5,7 @@ Table of Contents
     * [SDK Initialization](#sdk-initialization)
     * [Deprecated Methods](#deprecated-methods)
 * [Migrate to version 3.1.0](#migrate-to-version-310)
+* [Migrate from V1 SDK](#migrate-from-v1-sdk)
 ---
 # Migrate to version 3.3.0
 ### SDK Initialization
@@ -64,7 +65,10 @@ override fun onPause() {
     super.onPause()
     RakutenReward.removeRakutenRewardListener(listener)
 }
-```
+```  
+
+# Migrate from V1 SDK
+Please refer the guide [here](migrate-from-v1.md) for migration from V1 SDK.  
 
 ---
 LANGUAGE :
