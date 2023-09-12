@@ -1,14 +1,14 @@
-[TOP](../../README.md#top)　>　Event Ananlytics
+[TOP](../../README.md#top)　>　Event Analytics
 
 Table of Contents
-* [Event Ananlytics function Overview](#event-ananlytics-function-overview)
+* [Event Analytics function Overview](#event-analytics-function-overview)
 * [Import Event Analytics Module](#import-event-analytics-module)
 * [Enable Event Analytics function](#enable-event-analytics-function)
 * [Convert Analytics SDK Event to Mission Event](#convert-analytics-sdk-event-to-mission-event)
 
 ---
-# Event Ananlytics function Overview
-Mission SDK provides new function named "Event Analytics" with Ananlytics SDK.<br>
+# Event Analytics function Overview
+Mission SDK provides new function named "Event Analytics" with Analytics SDK.<br>
 This function main purpose is to enhance App Event Analysis function + Encourage Mission SDK use.<br>
 We provide following function<br>
 * Can see Event Analytics Dashboard in Mission SDK Dashboard (Enhance App Event Analytics)

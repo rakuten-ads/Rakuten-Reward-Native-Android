@@ -2,7 +2,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-Android-brightgreen.svg?style=flat)](https://developer.android.com)
 [![Language](http://img.shields.io/badge/language-Kotlin-green.svg?style=flat)](https://github.com/JetBrains/kotlin)
-[![Android](http://img.shields.io/badge/support-API_Level_21+-blue.svg?style=flat)](https://developer.android.com)
+[![Android](http://img.shields.io/badge/support-API_Level_24+-blue.svg?style=flat)](https://developer.android.com)
 
 # Rakuten Reward SDK Native
 
@@ -18,41 +18,42 @@
 * Support Android X
 * Use Rakuten IDSDK or Use built-in Login
 
-| Version        | Minimum SDK           | Compile SDK
---- | --- | ---
-|1.0.0|API16 (4.1)|API 29|
-|1.1.0|API16 (4.1)|API 29|
-|1.1.1|API16 (4.1)|API 29|
-|1.1.2|API16 (4.1)|API 29|
-|1.1.3|API16 (4.1)|API 29|
-|2.0.0|API16 (4.1)|API 29|
-|2.1.0|API16 (4.1)|API 29|
-|2.2.0|API16 (4.1)|API 29|
-|2.2.1|API16 (4.1)|API 29|
-|2.2.2|API16 (4.1)|API 29|
-|2.3.0|API16 (4.1)|API 29|
-|2.3.1|API16 (4.1)|API 29|
-|2.3.2|API16 (4.1)|API 29|
-|2.3.3|API16 (4.1)|API 29|
-|2.4.0|API16 (4.1)|API 30|
-|2.4.1|API16 (4.1)|API 30|
-|1.1.4|API16 (4.1)|API 30|
-|3.0.0|API21 (5.0)|API 30|
-|3.1.0|API21 (5.0)|API 30|
-|3.1.1|API21 (5.0)|API 30|
-|3.1.2|API21 (5.0)|API 30|
-|3.2.0|API21 (5.0)|API 30|
-|3.2.1|API21 (5.0)|API 30|
-|3.2.2|API21 (5.0)|API 30|
-|3.3.0|API21 (5.0)|API 30|
-|3.4.0|API21 (5.0)|API 31|
-|3.4.1|API21 (5.0)|API 33|
-|3.4.2|API21 (5.0)|API 33|
-|3.5.0|API21 (5.0)|API 33|
-|3.5.1|API21 (5.0)|API 33|
-|3.6.0|API21 (5.0)|API 33|
-|3.7.0|API21 (5.0)|API 33|
-|4.0.0|API21 (5.0)|API 33|
+| Version | Minimum SDK | Compile SDK |
+|---------|-------------|-------------|
+| 1.0.0   | API16 (4.1) | API 29      |
+| 1.1.0   | API16 (4.1) | API 29      |
+| 1.1.1   | API16 (4.1) | API 29      |
+| 1.1.2   | API16 (4.1) | API 29      |
+| 1.1.3   | API16 (4.1) | API 29      |
+| 2.0.0   | API16 (4.1) | API 29      |
+| 2.1.0   | API16 (4.1) | API 29      |
+| 2.2.0   | API16 (4.1) | API 29      |
+| 2.2.1   | API16 (4.1) | API 29      |
+| 2.2.2   | API16 (4.1) | API 29      |
+| 2.3.0   | API16 (4.1) | API 29      |
+| 2.3.1   | API16 (4.1) | API 29      |
+| 2.3.2   | API16 (4.1) | API 29      |
+| 2.3.3   | API16 (4.1) | API 29      |
+| 2.4.0   | API16 (4.1) | API 30      |
+| 2.4.1   | API16 (4.1) | API 30      |
+| 1.1.4   | API16 (4.1) | API 30      |
+| 3.0.0   | API21 (5.0) | API 30      |
+| 3.1.0   | API21 (5.0) | API 30      |
+| 3.1.1   | API21 (5.0) | API 30      |
+| 3.1.2   | API21 (5.0) | API 30      |
+| 3.2.0   | API21 (5.0) | API 30      |
+| 3.2.1   | API21 (5.0) | API 30      |
+| 3.2.2   | API21 (5.0) | API 30      |
+| 3.3.0   | API21 (5.0) | API 30      |
+| 3.4.0   | API21 (5.0) | API 31      |
+| 3.4.1   | API21 (5.0) | API 33      |
+| 3.4.2   | API21 (5.0) | API 33      |
+| 3.5.0   | API21 (5.0) | API 33      |
+| 3.5.1   | API21 (5.0) | API 33      |
+| 3.6.0   | API21 (5.0) | API 33      |
+| 3.7.0   | API21 (5.0) | API 33      |
+| 4.0.0   | API21 (5.0) | API 33      |
+| 4.1.0   | API24 (7.0) | API 33      |
 
 <div id="import_sdk"></div>
 
@@ -79,11 +80,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:4.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:4.1.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:4.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:4.1.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
@@ -120,7 +121,7 @@ Follow the guide below on how to request user consent.
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.0.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.1.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History

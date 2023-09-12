@@ -1,5 +1,14 @@
 # Update History
 
+### Version 4.1.0
+<hr/>
+Release Date: 2023/09/12
+
+* Increase min SDK support to Android 7.0 (API level 24)
+* Support Ra cookie set function
+* Upgrade to Android Gradle Plugin 7.3.1
+* Upgrade to Kotlin 1.6.21
+
 ### Version 4.0.0
 <hr/>
 Release Date: 2023/07/28

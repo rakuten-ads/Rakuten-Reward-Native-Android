@@ -9,7 +9,7 @@ Table of Contents
 * [Getting User Information](#getting-user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Portal](#sdk-portal)<br>
-* [Ad Portal](#ad-portal-from-version-2.4.0)<br>
+* [Ad Portal](#ad-portal-from-version-240)<br>
 * [SDK Debugging Log](#sdk-debugging-log)<br>
 * [Coroutine Support](#coroutine-support)<br><br>
 
@@ -20,11 +20,11 @@ Table of Contents
 There are 3 types of login. According to your environment, please select proper one. 
 <br>
 
-| Login Option        | Description | Support |
-| --- | --- | --- |
-| RakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan |
-| RID | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
-| RAE | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
+| Login Option | Description                                                                             | Support       |
+|--------------|-----------------------------------------------------------------------------------------|---------------|
+| RakutenAuth  | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan         | 
+| RID          | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK              | Japan         |  
+| RAE          | Rakuten ID SDK with RAE, Login covers by User SDK, and use token for SDK                | Japan         |
 <br>
 
 ### Switch Login Option
@@ -164,9 +164,9 @@ class App: Application() {
 }
 ```
 
-| Parameter name        | Description           
-| --- | --- 
-| AppCode | Application Key (This is from Rakuten Reward Developer Portal)
+| Parameter name | Description                                                    |
+|----------------|----------------------------------------------------------------|
+| AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |
 
 If you use RAE, RID option, you need to set token to activate SDK.
 <br/><br/>
@@ -282,14 +282,14 @@ There  are 6 types of Mission Achievement UI. Modal, Banner, Small Ad Banner, Bi
 
 You can decide type by Developer Portal 
 
-| Notification Type        | UI
-| --- | ---
-| Modal | Show Modal UI provided by SDK
-| Banner | Show Banner UI provided by SDK
-| Small Ad Banner | Show Ad Banner UI provided by SDK
-| Big Ad Banner | Show Ad Banner UI provided by SDK
-| Custom | Developer can create UI by themselves
-| No UI | Not show any UI
+| Notification Type | UI                                    |
+|-------------------|---------------------------------------|
+| Modal             | Show Modal UI provided by SDK         |
+| Banner            | Show Banner UI provided by SDK        |
+| Small Ad Banner   | Show Ad Banner UI provided by SDK     |
+| Big Ad Banner     | Show Ad Banner UI provided by SDK     |
+| Custom            | Developer can create UI by themselves |
+| No UI             | Not show any UI                       |
 
 ## SDK Portal
 We provide User Portal UI for developers. To call Open SDK Portal API, developers can see user status (mission, unclaim list, current point, point history etc...)

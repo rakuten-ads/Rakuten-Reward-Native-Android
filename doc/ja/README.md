@@ -2,7 +2,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-Android-brightgreen.svg?style=flat)](https://developer.android.com)
 [![Language](http://img.shields.io/badge/language-Kotlin-green.svg?style=flat)](https://github.com/JetBrains/kotlin)
-[![Android](http://img.shields.io/badge/support-API_Level_21+-blue.svg?style=flat)](https://developer.android.com)
+[![Android](http://img.shields.io/badge/support-API_Level_24+-blue.svg?style=flat)](https://developer.android.com)
 
 # Rakuten Reward SDK ネイティブ
 
@@ -18,40 +18,41 @@
 * Android X をサポート
 * 楽天 IDSDK もしくは SDKが用意するログインを使用する
 
-| バージョン        | OS           | コンパイル OS
---- | --- | ---
-|1.0.0|API16 (4.1)|API 29|
-|1.1.0|API16 (4.1)|API 29|
-|1.1.1|API16 (4.1)|API 29|
-|1.1.2|API16 (4.1)|API 29|
-|1.1.3|API16 (4.1)|API 29|
-|2.0.0|API16 (4.1)|API 29|
-|2.1.0|API16 (4.1)|API 29|
-|2.2.0|API16 (4.1)|API 29|
-|2.2.1|API16 (4.1)|API 29|
-|2.2.2|API16 (4.1)|API 29|
-|2.3.0|API16 (4.1)|API 29|
-|2.3.1|API16 (4.1)|API 29|
-|2.3.2|API16 (4.1)|API 29|
-|2.3.3|API16 (4.1)|API 29|
-|2.4.0|API16 (4.1)|API 30|
-|2.4.1|API16 (4.1)|API 30|
-|1.1.4|API16 (4.1)|API 30|
-|3.0.0|API21 (5.0)|API 30|
-|3.1.0|API21 (5.0)|API 30|
-|3.1.1|API21 (5.0)|API 30|
-|3.1.2|API21 (5.0)|API 30|
-|3.2.0|API21 (5.0)|API 30|
-|3.2.1|API21 (5.0)|API 30|
-|3.3.0|API21 (5.0)|API 30|
-|3.4.0|API21 (5.0)|API 31|
-|3.4.1|API21 (5.0)|API 33|
-|3.4.2|API21 (5.0)|API 33|
-|3.5.0|API21 (5.0)|API 33|
-|3.5.1|API21 (5.0)|API 33|
-|3.6.0|API21 (5.0)|API 33|
-|3.7.0|API21 (5.0)|API 33|
-|4.0.0|API21 (5.0)|API 33|
+| バージョン | OS          | コンパイル OS |
+|-------|-------------|----------|
+| 1.0.0 | API16 (4.1) | API 29   |
+| 1.1.0 | API16 (4.1) | API 29   |
+| 1.1.1 | API16 (4.1) | API 29   |
+| 1.1.2 | API16 (4.1) | API 29   |
+| 1.1.3 | API16 (4.1) | API 29   |
+| 2.0.0 | API16 (4.1) | API 29   |
+| 2.1.0 | API16 (4.1) | API 29   |
+| 2.2.0 | API16 (4.1) | API 29   |
+| 2.2.1 | API16 (4.1) | API 29   |
+| 2.2.2 | API16 (4.1) | API 29   |
+| 2.3.0 | API16 (4.1) | API 29   |
+| 2.3.1 | API16 (4.1) | API 29   |
+| 2.3.2 | API16 (4.1) | API 29   |
+| 2.3.3 | API16 (4.1) | API 29   |
+| 2.4.0 | API16 (4.1) | API 30   |
+| 2.4.1 | API16 (4.1) | API 30   |
+| 1.1.4 | API16 (4.1) | API 30   |
+| 3.0.0 | API21 (5.0) | API 30   |
+| 3.1.0 | API21 (5.0) | API 30   |
+| 3.1.1 | API21 (5.0) | API 30   |
+| 3.1.2 | API21 (5.0) | API 30   |
+| 3.2.0 | API21 (5.0) | API 30   |
+| 3.2.1 | API21 (5.0) | API 30   |
+| 3.3.0 | API21 (5.0) | API 30   |
+| 3.4.0 | API21 (5.0) | API 31   |
+| 3.4.1 | API21 (5.0) | API 33   |
+| 3.4.2 | API21 (5.0) | API 33   |
+| 3.5.0 | API21 (5.0) | API 33   |
+| 3.5.1 | API21 (5.0) | API 33   |
+| 3.6.0 | API21 (5.0) | API 33   |
+| 3.7.0 | API21 (5.0) | API 33   |
+| 4.0.0 | API21 (5.0) | API 33   |
+| 4.1.0 | API24 (7.0) | API 33   |
 
 <div id="import_sdk"></div>
 
@@ -78,12 +79,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:4.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:4.1.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:4.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:4.1.0'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
@@ -119,7 +120,7 @@ dependencies {
 [移行ガイド](./migration/README.md)  
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.0.0/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.1.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)

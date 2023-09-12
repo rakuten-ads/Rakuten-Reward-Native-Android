@@ -2,7 +2,7 @@
 
 Table of Contents
 * [For Java Developers](#for-java-developers)<br>
-* [How to access API](#how-to-access-aPI)<br>
+* [How to access API](#how-to-access-api)<br>
 * [Properties](#properties)<br/>
 * [Callback Kotlin](#callback-kotlin)<br/>
 * [Callback Java Style](#callback-java-style)<br><br>
