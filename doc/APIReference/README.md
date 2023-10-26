@@ -142,22 +142,13 @@ This is only for Japan
 ---
 RakutenRewardListener is Rakuten Reward SDK basic function status change listener
 
-<<<<<<< HEAD
-| Name | Description
-| --- | ---
-| fun onUnclaimedAchievement(achievement : MissionAchievementData) | When the user achieved the mission
-| fun onUserUpdated(user : RakutenRewardUser) | When the user data is updated
-| fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | When the SDK status changed
-| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed
-| fun onSDKConsentClosed() | When consent dialog is closed (Since v4.0.0)
-=======
 | Name                                                                                                   | Description                        |
 |--------------------------------------------------------------------------------------------------------|------------------------------------|
 | fun onUnclaimedAchievement(achievement : MissionAchievementData)                                       | When the user achieved the mission |
 | fun onUserUpdated(user : RakutenRewardUser)                                                            | When the user data is updated      |
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | When the SDK status changed        |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed           |
->>>>>>> origin/update/gradle_plugin
+| fun onSDKConsentClosed                                                                                 | When consent dialog is closed (Since v4.0.0)|
 
 For usage, please take a look sample application codes.
 
@@ -166,22 +157,13 @@ For usage, please take a look sample application codes.
 ---
 RakutenRewardSDKStatus is Reward SDK Status  
 
-<<<<<<< HEAD
-| Name | Description
-| --- | ---
-| ONLINE | SDK is ready. SDK Member Information(get point, unclaimed number correctly)
-| OFFLINE | SDK is not ready. And initialization API is failed
-| APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)
-| TOKENEXPIRED | APIs returns Token Expired
-| USER_NOT_CONSENT | User have not provide consent yet (Since v4.0.0)
-=======
 | Name           | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
 | ONLINE         | SDK is ready. SDK Member Information(get point, unclaimed number correctly) |
 | OFFLINE        | SDK is not ready. And initialization API is failed                          |
 | APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)    |
 | TOKENEXPIRED   | APIs returns Token Expired                                                  |
->>>>>>> origin/update/gradle_plugin
+| USER_NOT_CONSENT| User have not provide consent yet (Since v4.0.0)                           |
 
 ## RakutenAuth
 ---

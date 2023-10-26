@@ -144,44 +144,25 @@ RakutenRewardUser ユーザデータのクラスです
 ---
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです
 
-<<<<<<< HEAD
-| 名前 | 説明 |
-| --- | ---
-| fun onUnclaimedAchievement(achievement : MissionAchievementData) | ユーザーがミッションを達成した　
-| fun onUserUpdated(user : RakutenRewardUser) | ユーザーデータが更新された
-| fun onSDKStatusChanged(status : RakutenRewardSDKStatus) | SDKの状態が変更された
-| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた 
-| fun onSDKConsentClosed() | 同意ダイアログを閉めした 
-=======
 | 名前                                                                                                     | 説明               |
 |--------------------------------------------------------------------------------------------------------|------------------|
 | fun onUnclaimedAchievement(achievement : MissionAchievementData)                                       | ユーザーがミッションを達成した　 |
 | fun onUserUpdated(user : RakutenRewardUser)                                                            | ユーザーデータが更新された    |
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された     |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた       |
->>>>>>> origin/update/gradle_plugin
+| fun onSDKConsentClosed()                                                                               | 同意ダイアログを閉めした |
 
 ### RakutenRewardSDKStatus
 ---
 RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです  
 
-<<<<<<< HEAD
-| 名前 | 説明　|
-| --- | ---
-| ONLINE | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
-| OFFLINE | SDKの初期化が未完了または失敗
-| APPCODEINVALID | アプリケーションキーが間違っている
-| TOKENEXPIRED | トークンの期限切れ |
-| USER_NOT_CONSENT | ユーザーまだ利用規約に同意しない |
-
-=======
 | 名前             | 説明　                                              |
 |----------------|--------------------------------------------------|
 | ONLINE         | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数) |
 | OFFLINE        | SDKの初期化が未完了または失敗                                 |
 | APPCODEINVALID | アプリケーションキーが間違っている                                |
 | TOKENEXPIRED   | トークンの期限切れ                                        |
->>>>>>> origin/update/gradle_plugin
+| USER_NOT_CONSENT | ユーザーまだ利用規約に同意しない |
 
 ## RakutenAuth
 ---
