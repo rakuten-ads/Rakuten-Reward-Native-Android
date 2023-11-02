@@ -53,6 +53,7 @@
 | 3.7.0 | API21 (5.0) | API 33   |
 | 4.0.0 | API21 (5.0) | API 33   |
 | 4.1.0 | API24 (7.0) | API 33   |
+| 5.0.0 | API24 (7.0) | API 34   |
 
 <div id="import_sdk"></div>
 
@@ -65,10 +66,7 @@ Gradleの依存設定でアプリにインポートすることが出来ます�
 
 allprojects {
     repositories {
-        jcenter()
-        maven { 
-            url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
-        }
+        mavenCentral()
         maven {
             url "https://raw.github.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
         }
@@ -79,12 +77,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:4.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:5.0.0'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:4.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:5.0.0'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
@@ -120,7 +118,7 @@ dependencies {
 [移行ガイド](./migration/README.md)  
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.1.0/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/5.0.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)

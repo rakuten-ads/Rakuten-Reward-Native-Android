@@ -1,5 +1,14 @@
 # Update History
 
+### Version 5.0.0
+<hr/>
+Release Date: 2023/11/02
+
+* Android 14 (API 34) support
+* Remove SDK Core library dependency
+* Improve SDK Portal performance
+* Update Unclaim info message in SDK Portal
+
 ### Version 4.1.0
 <hr/>
 Release Date: 2023/09/12

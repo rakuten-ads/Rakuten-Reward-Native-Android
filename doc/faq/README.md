@@ -10,6 +10,7 @@ Table of Contents
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
     * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
     * [Can RakutenAuth.openLoginPage API be call in Fragment class?](#can-rakutenauthopenloginpage-api-be-call-in-fragment-class)
+    * [There are issue using the access token from ID SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-id-sdk-what-could-be-the-cause)
 * [Implementation Related](#implementation-related)
     * [The API always return SDKNOTACTIVE error. What could be the cause?](#the-api-always-return-sdknotactive-error-what-could-be-the-cause)
     * [I have a daily launch app mission. How should I implement it?](#i-have-a-daily-launch-app-mission-how-should-i-implement-it)
@@ -158,6 +159,35 @@ class TestLoginFragment : Fragment() {
     }
 }
 ```
+
+</details>
+
+<br>
+
+### There are issue using the access token from ID SDK. What could be the cause?
+<details>
+    <summary>Answer</summary>
+If there are issue using the access token from ID SDK, it could be due to you have not add `mission-sdk` scope to your client ID.  
+
+Please check that have you done the following points:  
+
+* Create a ticket in [ID Client Support](https://confluence.rakuten-it.com/confluence/display/id/ID+Client+Support+Ticket+Creation) to request to add CAT audience (https://prod.api-catalogue.gateway-api.global.rakuten.com) and register <b>mission-sdk</b> scope to your client.  
+* Add <b>mission-sdk</b> scope on API Catalogue dashboard
+* In the code, add the scope when retrieving exchange token.
+```kotlin
+val artifactResponse = session.artifacts {
+    +exchangeToken {
+        this.audience = audience
+        scope = setOf("mission-sdk")
+    }
+}
+
+val exchangeToken = artifactResponse.exchangeToken(audience) 
+```
+* Call this endpoint to get the access token: https://gateway-api.global.rakuten.com/RWDSDK/rpg-api/access_token
+
+
+If the issue persist, please contact the developer team.
 
 </details>
 

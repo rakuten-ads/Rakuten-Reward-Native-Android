@@ -54,6 +54,7 @@
 | 3.7.0   | API21 (5.0) | API 33      |
 | 4.0.0   | API21 (5.0) | API 33      |
 | 4.1.0   | API24 (7.0) | API 33      |
+| 5.0.0   | API24 (7.0) | API 34      |
 
 <div id="import_sdk"></div>
 
@@ -66,10 +67,7 @@ Apps can import Reward SDK modules with a Gradle dependency. In order to use tha
 
 allprojects {
     repositories {
-        jcenter()
-        maven { 
-            url 'https://raw.github.com/rakuten-ads/rakuten-ads-android/master/maven' 
-        }
+        mavenCentral()
         maven {
             url "https://raw.github.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
         }
@@ -80,11 +78,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:4.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:5.0.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:4.1.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:5.0.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
@@ -121,7 +119,7 @@ Follow the guide below on how to request user consent.
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/4.1.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/5.0.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History
