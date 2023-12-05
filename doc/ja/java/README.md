@@ -17,11 +17,11 @@ KotlinのObject、Extension、Companion Object を Java からアクセスする
 ### RakutenReward
 RakutenReward クラスはKotlinのobjectです, このobjectにあるメソッドをコールするには、INSTANCE を呼び出す必要があります。
 ```java
-RakutenReward.INSTANCE.init(this, "<Appcode>");
+RakutenReward.INSTANCE.init("<Appcode>");
 ```
 SDK 2.3.0 からは　INSTANCE を呼び出す必要はありません。
 ```java
-RakutenReward.init(this, "<Appcode>");
+RakutenReward.init("<Appcode>");
 ```
 
 ### RakutenReward.openSDKPortal()
@@ -35,15 +35,6 @@ SDK 2.4.0 から
 ```java
 boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE);
 boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE, <requestCcode>);
-```
-
-### RakutenReward.openAdPortal()
-こちらは uiモジュールのメソッドですが、 Kotlin の Extension を使用しています。<br/>
-こちらは以下のように呼び出す必要があります。<br/>
-
-```java
-RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>);
-RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>, <request code>);
 ```
 
 ## プロパティーについて

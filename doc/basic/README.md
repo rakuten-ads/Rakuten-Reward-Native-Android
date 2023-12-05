@@ -6,10 +6,9 @@ Table of Contents
   * [Log in](#log-in)<br>
   * [Log out](#log-out)<br>
 * [Initialize SDK](#initialize-sdk)<br>
-* [Getting User Information](#getting-user-information)<br>
+* [User Information](#user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
-* [SDK Portal](#sdk-portal)<br>
-* [Ad Portal](#ad-portal-from-version-240)<br>
+* [SDK Built-in UI](#sdk-built-in-ui)<br>
 * [SDK Debugging Log](#sdk-debugging-log)<br>
 * [Coroutine Support](#coroutine-support)<br><br>
 
@@ -20,14 +19,14 @@ Table of Contents
 There are 3 types of login. According to your environment, please select proper one. 
 <br>
 
-| Login Option | Description                                                                             | Support       |
-|--------------|-----------------------------------------------------------------------------------------|---------------|
-| RakutenAuth  | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan         | 
-| RID          | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK              | Japan         |  
-| RAE          | Rakuten ID SDK with RAE, Login covers by User SDK, and use token for SDK                | Japan         |
+| Login Option | Description                                                                             |
+|--------------|-----------------------------------------------------------------------------------------|
+| RakutenAuth  | This is default option, provide login by SDK, SDK handled all login and user identifier |
+| RID          | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK              |  
+| RAE          | Rakuten ID SDK with RAE, Login covers by User SDK, and use token for SDK                |
 <br>
 
-### Switch Login Option
+## Switch Login Option
 By default, login option is RakutenAuth
 <br>
 
@@ -35,106 +34,75 @@ By default, login option is RakutenAuth
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RAKUTEN_AUTH
 ```
-<br>
+<details>
+    <summary>JAVA</summary>
+
+```java
+RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAKUTEN_AUTH);
+```    
+</details>
+<br>   
 
 ### RID
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RID
 ```
+<details>
+    <summary>JAVA</summary>
+
+```java
+RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RID);
+```    
+</details>
 To use SDK API, need to set API (API-C) token by developers  
+
 ```kotlin
 RakutenReward.setRIdToken("token")
 ```
 
-For login implementation, please read SDK login documentation.
+For login implementation, please read ID SDK login documentation.
 
 > :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
 
-Refer to [Log Out](#log-out)
+Refer to [Log Out](#log-out)  
+
+<br>
 
 ### RAE
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RAE
 ```
+<details>
+    <summary>JAVA</summary>
 
-To use SDK API, need to set access API token by developers
+```java
+RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAE);
+```    
+</details>
+To use SDK API, need to set access API token by developers  
+
 ```kotlin
 RakutenReward.setRaeToken("token")
 ```
 
-For login implementation, please read SDK login documentation.
+For login implementation, please read User SDK login documentation.
 
 > :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
 
-Refer to [Log Out](#log-out)
+Refer to [Log Out](#log-out)  
+
+<br>
 
 # Log in
-### 1. Show Login Page
-This is for external login options,
-If you use Rakuten Login SDK, you don't need to use this option.
+Refer [here](./LOGIN.md) to show login page.  
+If you use Rakuten Login SDK, you don't need to use this option.  
 
-```kotlin
-RakutenAuth.openLoginPage(context, REQUEST_THIRD_PARTY_LOGIN)
-```
+<br>  
 
-![Login](Login.jpg)
-
-
-### 2. Get result from `onActivityResult()`
-```kotlin
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    if (requestCode == REQUEST_THIRD_PARTY_LOGIN) {
-        if (resultCode == RESULT_OK) {
-            handleActivityResult(data)
-        } else {
-            //login canceled by user
-        }
-    }
-}
-```
-
-### 3. Process result intent to complete login flow by calling `RakutenAuth.handleActivityResult()`
-```kotlin
-private fun handleActivityResult(data: Intent?) {
-    RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
-        override fun loginSuccess() {
-            //✅ login completed
-        }
-
-        override fun loginFailed(e: RakutenRewardAPIError) {
-            //⛔ login failed
-        }
-    })
-}
-```
-
-### **Call the API in Fragment class**
-From version 2.4.1 onwards, you can call `RakutenAuth.openLoginPage()` API in Fragment class by providing the Fragment reference instead of Activity reference. 
-`onActivityResult()` will be triggered in the Fragment class. 
-
-### **From version 3.4.2**
-Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
-
-Use the following API and provide a `ActivityResultCallback<ActivityResult>`
-```kotlin
-RakutenAuth.openLoginPage(context) { result ->
-    if (result.resultCode == RESULT_OK) {
-        RakutenAuth.handleActivityResult(result.data, object : LoginResultCallback {
-            override fun loginSuccess() {
-                //✅ login completed
-            }
-
-            override fun loginFailed(e: RakutenRewardAPIError) {
-                //⛔ login failed
-            }
-        })
-    }
-}
-```
-> This API can be call in Activity or Fragment class, but require Activity context.
 
 # Log out
-Logging user out: 
+Logging user out.  
+> Developers require to call this API whenever user log out regardless of login options to properly clear token and data.  
 
 ```kotlin
 private fun logout() {
@@ -148,18 +116,36 @@ private fun logout() {
         }
     })
 }
-```
+```  
+<details>
+    <summary>JAVA</summary>
 
+```java
+RakutenAuth.logout(new LogoutResultCallback() {
+    @Override
+    public void logoutSuccess() {
+        //logout completed
+    }
+
+    @Override
+    public void logoutFailed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+        //logout failed
+    }
+});
+```    
+</details>  
+
+<br>
 
 # Initialize SDK
-### Initialize SDK in your Application class with your `App Code`.
+## Initialize SDK in your Application class with your `App Code`.
 ```kotlin
 class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
         //init sdk with your App Code
-        RakutenReward.init(this, "<AppCode>")
+        RakutenReward.init("<AppCode>")
     }
 }
 ```
@@ -182,10 +168,9 @@ Set your `App Code` in your application's AndroidManifest.xml as follow:
 </application>
 ```
 
+<br>
 
-<br><br/>
-
-### To start SDK in your Activity, we provide several ways:
+## To start SDK in your Activity, we provide several ways:
 
 ### Option 1. Extends RakutenRewardBaseActivity
 ```kotlin
@@ -226,169 +211,58 @@ class YourActivity : AppCompatActivity() {
         RakutenRewardManager.bindRakutenRewardIn(this, this)
     }
 }
-```
+```  
 
----
-# Getting user information
+<br>
 
-List of available api to retrieve user information
+# User Information  
+Refer [here](./UserInfo.md) for the available API.  
+> These API are eligible for `RAKUTEN_AUTH` login options only.   
 
-## Check if user is signed in
-```kotlin
-RakutenAuth.hasUserSignedIn(): Boolean
-```
+<br>
 
-## Get user's full name
-```kotlin
-RakutenAuth.getUserName(context: Context): String
-```
-
-## Get user's current point and rank
-```kotlin
-RakutenAuth.getUserInfo(
-    success = { userInfo ->
-        //get point
-        userInfo.points
-        
-        //get rank
-        userInfo.rank
-    }, 
-    failed = {
-        //fail to get user info
-    }
-)
-```
----
 # Mission Achievement 
-To achieve mission, developers need to call post action API.  
-After avhieving the mission, notification will be shown.  
+Refer [here](./MissionAchivement.md) to achieve a mission.  
 
-## Post Action
-```kotlin
-RakutenReward.logAction("<actionCode>", {}, {})
-```
-actionCode is provided by Reward SDK Developer Portal.  
+<br>
 
-## Notification UI
-The user achieved the mission, notification UI is shown.  
-Reward SDK provides Modal and Banner UI
+# SDK Built-in UI  
+Refer [here](./SdkPortal.md) for the available UI.  
 
-![Modal](Modal.jpeg)     ![Banner](Banner.jpeg)
+<br>
 
-![Small Ad Banner](AdBannerSmall.png)     ![Big Ad Banner](AdBannerBig.png)
-
-### Notification Type
-There  are 6 types of Mission Achievement UI. Modal, Banner, Small Ad Banner, Big Ad Banner, and No UI, and Custom which developed by developers.
-
-You can decide type by Developer Portal 
-
-| Notification Type | UI                                    |
-|-------------------|---------------------------------------|
-| Modal             | Show Modal UI provided by SDK         |
-| Banner            | Show Banner UI provided by SDK        |
-| Small Ad Banner   | Show Ad Banner UI provided by SDK     |
-| Big Ad Banner     | Show Ad Banner UI provided by SDK     |
-| Custom            | Developer can create UI by themselves |
-| No UI             | Not show any UI                       |
-
-## SDK Portal
-We provide User Portal UI for developers. To call Open SDK Portal API, developers can see user status (mission, unclaim list, current point, point history etc...)
-
-```kotlin
-RakutenReward.openSDKPortal()
-```
-
-### **From version 2.4.0**
- The open SDK portal API will return a boolean flag to indicate whether SDK portal is launched or not.
-
- If you need to handle the SDK Portal close event, use the following API and provide a specific request code.
- ```kotlin
- val success: Boolean = RakutenReward.openSDKPortal(101)
- ```
- SDK Portal closed event can be detected at onActivityResult
- ```kotlin
- override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    if (requestCode == 101) {
-        // handle SDK Portal closed event here
-    }
-}
- ```
-
-### **From version 3.4.2**
-Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
-
-Use the following API and provide a `ActivityResultCallback<ActivityResult>`
-```kotlin
-val success: Boolean = RakutenReward.openSDKPortal {
-    // handle SDK Portal closed event here
-}
-```
-
-This is UI Image
-
-![Portal1](Portal1.png)  ![Portal2](Portal2.png)
-
-![Portal3](Portal3.png)  ![Portal4](Portal4.png)
-
-![Portal5](Portal5.png)
-
-## Ad Portal (From version 2.4.0)
-**\*Ad Portal API is available from version 2.4.0**
-
-
-Use the following API to launch the Ad Portal screen. Activity context is needed to start the activity. The API return a boolean to indicate whether Ad Portal is launched successfully or not.
-```kotlin
-val success: Boolean = RakutenReward.openAdPortal(activity)
-```
-
-If you need to handle Ad Portal close event, use the following API and provide a specific request code.
-```kotlin
-val success: Boolean = RakutenReward.openAdPortal(activity, 100)
-```
-Ad Portal closed event can be detected at onActivityResult
-```kotlin
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    if (requestCode == 100) {
-        // handle Ad Portal closed event here
-    }
-}
-```
-
-### **From version 3.4.2**
-Androidx Activity Result API is used to get Activity result, instead of using deprecated `startActivityForResult` and `onActivityResult`.
-
-Use the following API and provide a `ActivityResultCallback<ActivityResult>`
-```kotlin
-val success: Boolean = RakutenReward.openAdPortal(activity) {
-    // handle Ad Portal closed event here
-}
-```
-
-Ad Portal screen
-
-![AdPortal1](AdPortal1.jpeg)  ![AdPortal2](AdPortal2.jpeg)
-
-
-## SDK Debugging Log
-
-From version 3.1.1, SDK provide an option to enable SDK debugging logs. Use the following API in your Application class.
+# SDK Debugging Log  
+[![support version](http://img.shields.io/badge/core-3.1.1+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220408_v3_1_1)  
+SDK provide an option to enable SDK debugging logs. Use the following API in your Application class.
 ```kotlin
 override fun onCreate() {
     if (BuildConfig.DEBUG) {
         RakutenRewardConfig.isDebuggable()
     }
 }
-```
+```  
+<details>
+    <summary>JAVA</summary>
+
+```java
+@Override
+public void onCreate() {
+    if (BuildConfig.DEBUG) {
+        RakutenRewardConfig.isDebuggable();
+    }
+}
+```    
+</details>   
+
 **It's recommended to enable the debug log in DEBUG mode only**
 
-After enable the debug log, you can see the SDK logs with the tag `RakutenRewardSDK`.
+After enable the debug log, you can see the SDK logs with the tag `RakutenRewardSDK`.  
 
+<br>
 
-## Coroutine Support
-
-From **version 3.3.0**, SDK provide API in suspend function.
+# Coroutine Support  
+[![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
+SDK provide API in suspend function.
 The suspend function API are available in `RakutenRewardCoroutine`. Please refer [here](../APIReference/README.md#rakutenrewardcoroutine) for the available API.
 
 Please call the suspend function API in a Coroutine Scope, for eg. `viewModelScope` or `lifecycleScope`.
@@ -407,7 +281,8 @@ lifecycleScope.launch {
         }
     }
 }
-```
+```  
+<br>
 
 ---
 LANGUAGE :

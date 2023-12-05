@@ -36,7 +36,6 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 |-------------------------------|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | Get version                   | Get Rakuten Reward SDK Version                              | `RakutenReward.version`                                                                                     |
 | Open SDK Portal               | Open SDK Portal                                             | `RakutenReward.openSDKPortal()`                                                                             |
-| Open Ad Portal                | Open Ad Portal                                              | `RakutenReward.openAdPortal(activity: Activity, reqCode: Int)`                                              |
 | Open Help Page                | Open Reward SDK Help page with mini browser                 | `RakutenReward.openHelpPage()`                                                                              |
 | Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `RakutenReward.openTCPage()`                                                                                |
 | Open Privacy Policy Page      | Open Reward SDK Privacy Policy Page with mini browser       | `RakutenReward.openPrivacyPage()`                                                                           |

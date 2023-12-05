@@ -13,48 +13,57 @@
 
 ## Prerequisites
 
-* Use Android Studio 1.0 or higher
-* Target Android API level 21 or higher
+* Use Android Studio Arctic Fox or higher
+* Target Android API level 24 or higher
 * Support Android X
 * Use Rakuten IDSDK or Use built-in Login
 
 | Version | Minimum SDK | Compile SDK |
 |---------|-------------|-------------|
-| 1.0.0   | API16 (4.1) | API 29      |
-| 1.1.0   | API16 (4.1) | API 29      |
-| 1.1.1   | API16 (4.1) | API 29      |
-| 1.1.2   | API16 (4.1) | API 29      |
-| 1.1.3   | API16 (4.1) | API 29      |
-| 2.0.0   | API16 (4.1) | API 29      |
-| 2.1.0   | API16 (4.1) | API 29      |
-| 2.2.0   | API16 (4.1) | API 29      |
-| 2.2.1   | API16 (4.1) | API 29      |
-| 2.2.2   | API16 (4.1) | API 29      |
-| 2.3.0   | API16 (4.1) | API 29      |
-| 2.3.1   | API16 (4.1) | API 29      |
-| 2.3.2   | API16 (4.1) | API 29      |
-| 2.3.3   | API16 (4.1) | API 29      |
-| 2.4.0   | API16 (4.1) | API 30      |
-| 2.4.1   | API16 (4.1) | API 30      |
-| 1.1.4   | API16 (4.1) | API 30      |
-| 3.0.0   | API21 (5.0) | API 30      |
-| 3.1.0   | API21 (5.0) | API 30      |
-| 3.1.1   | API21 (5.0) | API 30      |
-| 3.1.2   | API21 (5.0) | API 30      |
-| 3.2.0   | API21 (5.0) | API 30      |
-| 3.2.1   | API21 (5.0) | API 30      |
-| 3.2.2   | API21 (5.0) | API 30      |
-| 3.3.0   | API21 (5.0) | API 30      |
-| 3.4.0   | API21 (5.0) | API 31      |
-| 3.4.1   | API21 (5.0) | API 33      |
-| 3.4.2   | API21 (5.0) | API 33      |
-| 3.5.0   | API21 (5.0) | API 33      |
-| 3.5.1   | API21 (5.0) | API 33      |
-| 3.6.0   | API21 (5.0) | API 33      |
-| 3.7.0   | API21 (5.0) | API 33      |
-| 4.0.0   | API21 (5.0) | API 33      |
-| 4.1.0   | API24 (7.0) | API 33      |
+| 5.1.0   | API24 (7.0) | API 34      |
 | 5.0.0   | API24 (7.0) | API 34      |
+| 4.1.0   | API24 (7.0) | API 33      |
+| 4.0.0   | API21 (5.0) | API 33      |
+| 3.7.0   | API21 (5.0) | API 33      |
+| 3.6.0   | API21 (5.0) | API 33      |
+| 3.5.1   | API21 (5.0) | API 33      |
+| 3.5.0   | API21 (5.0) | API 33      |
+
+<details>
+    <summary>Older Verions</summary>
+
+| Version | Minimum SDK | Compile SDK |
+|---------|-------------|-------------|
+| 3.4.2   | API21 (5.0) | API 33      |
+| 3.4.1   | API21 (5.0) | API 33      |
+| 3.4.0   | API21 (5.0) | API 31      |
+| 3.3.0   | API21 (5.0) | API 30      |
+| 3.2.2   | API21 (5.0) | API 30      |
+| 3.2.1   | API21 (5.0) | API 30      |
+| 3.2.0   | API21 (5.0) | API 30      |
+| 3.1.2   | API21 (5.0) | API 30      |
+| 3.1.1   | API21 (5.0) | API 30      |
+| 3.1.0   | API21 (5.0) | API 30      |
+| 3.0.0   | API21 (5.0) | API 30      |
+| 1.1.4   | API16 (4.1) | API 30      |
+| 2.4.1   | API16 (4.1) | API 30      |
+| 2.4.0   | API16 (4.1) | API 30      |
+| 2.3.3   | API16 (4.1) | API 29      |
+| 2.3.2   | API16 (4.1) | API 29      |
+| 2.3.1   | API16 (4.1) | API 29      |
+| 2.3.0   | API16 (4.1) | API 29      |
+| 2.2.2   | API16 (4.1) | API 29      |
+| 2.2.1   | API16 (4.1) | API 29      |
+| 2.2.0   | API16 (4.1) | API 29      |
+| 2.1.0   | API16 (4.1) | API 29      |
+| 2.0.0   | API16 (4.1) | API 29      |
+| 1.1.3   | API16 (4.1) | API 29      |
+| 1.1.2   | API16 (4.1) | API 29      |
+| 1.1.1   | API16 (4.1) | API 29      |
+| 1.1.0   | API16 (4.1) | API 29      |
+| 1.0.0   | API16 (4.1) | API 29      |
+
+</details>
 
 <div id="import_sdk"></div>
 
@@ -78,11 +87,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:5.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:5.1.0'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:5.0.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:5.1.0'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
@@ -114,12 +123,13 @@ Follow the guide below on how to request user consent.
 
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
-[API Reference](./doc/APIReference/README.md)  
+[Core API](./doc/core/README.md)  
+[API Data](./doc/apiData/README.md)  
 [User Consent](./doc/consent/README.md)  
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/5.0.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/5.1.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History

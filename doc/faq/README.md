@@ -5,12 +5,14 @@ Table of Contents
     * [Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?](#reward-sdk-is-written-in-java-or-kotlin-my-applcation-is-written-in-java-fully-is-there-any-problem-using-the-reward-sdk)
     * [Can we access the staging environment for development / testing?](#can-we-access-the-staging-environment-for-development--testing)
     * [Does Reward SDK collect end user's Advertising ID (ADID)?](#does-reward-sdk-collect-end-users-advertising-id-adid)
-    * [How to opt out collecting end user's Advertising ID (ADID)?](#how-to-opt-out-collecting-end-users-advertising-id-adid)
+    * [How to opt out collecting end user's Advertising ID (ADID)?](#how-to-opt-out-collecting-end-users-advertising-id-adid)  
+    * [Build Error - unable to find valid certification path to requested target](#build-error---unable-to-find-valid-certification-path-to-requested-target)  
 * [Login Related](#login-related)
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
     * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
     * [Can RakutenAuth.openLoginPage API be call in Fragment class?](#can-rakutenauthopenloginpage-api-be-call-in-fragment-class)
-    * [There are issue using the access token from ID SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-id-sdk-what-could-be-the-cause)
+    * [There are issue using the access token from ID SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-id-sdk-what-could-be-the-cause)  
+    * [There are issue using the access token from User SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-user-sdk-what-could-be-the-cause)  
 * [Implementation Related](#implementation-related)
     * [The API always return SDKNOTACTIVE error. What could be the cause?](#the-api-always-return-sdknotactive-error-what-could-be-the-cause)
     * [I have a daily launch app mission. How should I implement it?](#i-have-a-daily-launch-app-mission-how-should-i-implement-it)
@@ -24,7 +26,7 @@ Table of Contents
 # FAQ
 
 ## General 
----
+
 ### Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?
 <details>
     <summary>Answer</summary>
@@ -85,8 +87,64 @@ To verify Reward SDK does not collect user ADID anymore, check for the following
 
 <br>
 
+### Build Error - unable to find valid certification path to requested target  
+I got build error on importing Reward SDK dependency. How to resolve this error?  
+![error-log](build_error_log.png)  
+
+<details>
+    <summary>Answer</summary>  
+
+There are 2 approaches to fix this issue.  
+
+<details>
+    <summary>1. Update Gradle JDK</summary>
+
+Update the Gradle JDK in Android Studio. 
+
+First open Project Structure and click on Gradle Settings.  
+![project-structure](jdk1.png)  
+
+For the JDK, do not use Android Studio default JDK. If there is other JDK please choose that JDK. Else download a new JDK.  
+![add-jdk](jdk2.png)  
+![jdk](jdk3.png)  
+
+After download the new JDK, choose that JDK version to click OK.  
+
+Gradle sync the project again.  
+
+</details>
+
+<details>
+    <summary>2. Import CA Certificate</summary>
+
+First download the CA certificate from raw.githubusercontent.com  
+Open the link https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven/com/rakuten/android/rewardsdknative-ui/3.4.2/rewardsdknative-ui-3.4.2.pom in Google Chrome.   
+Then click on the lock icon to download the CA certificate.  
+![ca-cert](ca-cert1.png)  
+
+Next is to import the CA certificate to JAVA trust store.  
+First check where is the Android Studio Gradle JDK location.  
+![jdk-location](ca-cert2.png)  
+
+Then run the following script where `JDK-location` is the jdk path above.   
+```bash
+cd <JDK-location>/Contents/Home
+```  
+
+Then import the cert to JAVA trust store where `cert-path` is the path of the downloaded CA certificate.    
+```bash
+./bin/keytool -importcert -keystore lib/security/cacerts -storepass changeit -file <cert-path> -alias "github_cert"
+```  
+
+After accepting the cert to the trust store, restart Android Studio and Gradle sync again.  
+
+</details>  
+
+If both the approach above doesn't help, please contact the developer team. 
+</details>
+
 ## Login Related
----
+
 ### What is Rakuten Auth login for?
 <details>
     <summary>Answer</summary>
@@ -191,10 +249,38 @@ If the issue persist, please contact the developer team.
 
 </details>
 
+<br>  
+
+### There are issue using the access token from User SDK. What could be the cause?  
+<details>
+    <summary>Answer</summary>  
+
+If there are issue using the access token from User SDK, it could be due to you have not add `mission-sdk` scope to RAE.  
+
+Please check whether you have done the following points:  
+
+* Register `mission-sdk` scope to RAE. Refer to the guide [here](https://confluence.rakuten-it.com/confluence/x/z5nNkQ).  
+* In the code, during `LoginManager` initialization add `mission-sdk` to the scope.  
+```kotlin
+LoginManager.initialize(context)
+    .addAuthProvider(
+        AUTH_NAME,
+        AuthProviderRAE.createJapanIdProvider()
+            .domain(domain())
+            .client(CLIENT, secret())
+            .scopes("...,mission-sdk") // append mission-sdk scope here
+            .build())
+    .apply()
+```  
+
+If the issue persist, please contact the developer team.  
+
+</details>  
+
 <br>
 
 ## Implementation Related
----
+
 ### The API always return `SDKNOTACTIVE` error. What could be the cause?
 <details>
     <summary>Answer</summary>
@@ -203,7 +289,7 @@ This error means Reward SDK is not yet started and haven't sync up data.
 
 First check is the init API called in the Application class and check is the provided App Key correct.
 ``` kotlin
-RakutenReward.init(context, <AppKey>)
+RakutenReward.init(<AppKey>)
 ```
 >**\*From version 3.3.0 onward, manual initialization is no longer needed.**
 >

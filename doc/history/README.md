@@ -1,5 +1,12 @@
 # Update History
 
+### Version 5.1.0
+<hr/>
+Release Date: 2023/12/05
+
+* Remove deprecated API
+* Minor bug fix
+
 ### Version 5.0.0
 <hr/>
 Release Date: 2023/11/02

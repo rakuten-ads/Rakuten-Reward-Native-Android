@@ -128,7 +128,7 @@ class TestLoginFragment : Fragment() {
 
 まずはApplicationクラスで初期化APIを呼ぶのかチェックして、提供したApp Codeが正しいか確認してください。
 ``` kotlin
-RakutenReward.init(context, <AppCode>)
+RakutenReward.init(<AppCode>)
 ```
 
 次はAPIを呼ぶのActivityクラスで[ここ](../basic/README.md#楽天リワードSDKポータル)のオプションを使うのかとチェックしてください。

@@ -17,11 +17,11 @@ need some techniques.<br/>
 ### RakutenReward
 RakutenReward class is object in Kotlin, need to call INSTANCE
 ```java
-RakutenReward.INSTANCE.init(this, "<Appcode>");
+RakutenReward.INSTANCE.init("<Appcode>");
 ```
 From SDK 2.3.0, INSTANCE is not required.
 ```java
-RakutenReward.init(this, "<Appcode>");
+RakutenReward.init("<Appcode>");
 ```
 
 ### RakutenReward.openSDKPortal()
@@ -35,15 +35,6 @@ From SDK 2.4.0, boolean value is returned
 ```java
 boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE);
 boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE, <requestCcode>);
-```
-
-### RakutenReward.openAdPortal()
-This is kotlin extension in mission-ui.<br/>
-To access the API from JAVA, need to use Extension call<br/>
-
-```java
-RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>);
-RakutenRewardExtensionKt.openAdPortal(RakutenReward.INSTANCE, <activity context>, <request code>);
 ```
 
 ## Properties
