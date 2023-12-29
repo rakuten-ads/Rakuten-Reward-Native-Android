@@ -9,6 +9,7 @@ Table of Contents
 * [Sample Use Case](#sample-use-case)
     * [When to request user consent](#when-to-request-user-consent)
     * [Log Mission Action](#log-mission-action)
+* [How to Test](#how-to-test)
 
 ---
 # Request User Consent feature Overview
@@ -96,6 +97,8 @@ The code above will above will display the consent dialog if user haven't provid
 
 Even if user already provided consent, it is still safe to call `RakutenReward.requestForConsent()` API as consent dialog will not be shown and `CONSENT_PROVIDED` status will be return in the callback.
 
+# How to Test
+Currently this feature is not enabled yet. To test the feature in development phase, please create a ticket [here](https://confluence.rakuten-it.com/confluence/x/8Hx3sw) and provide a list of test account's Easy ID for us to whitelist these accounts.   
 
 ---
 LANGUAGE :
