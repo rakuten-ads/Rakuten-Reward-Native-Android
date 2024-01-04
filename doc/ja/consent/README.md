@@ -100,7 +100,7 @@ fun logMissionAction() {
 ユーザーがすでに利用規約を同意していた場合でも、`RakutenReward.requestForConsent()`APIを呼び出せます。ダイアログを表示せずに、`CONSENT_PROVIDED`ステータスがコールバックに返します。
 
 # テストに関する
-この機能はまだ有効になっていません。開発段階でこの機能をテストしたい場合、[ここ](https://confluence.rakuten-it.com/confluence/x/8Hx3sw)でチケットをテスト アカウントの Easy ID を提供して作成してください。 
+この機能はまだ有効になっていません。開発段階でこの機能をテストしたい場合、[ここ](https://confluence.rakuten-it.com/confluence/x/8Hx3sw)でチケットをテスト アカウントの Easy ID を提供して作成してください。  
 
 ---
 言語 :

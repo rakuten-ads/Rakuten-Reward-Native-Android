@@ -20,14 +20,14 @@
 `RakutenReward` クラスはリワードSDKのメインの設定や機能を提供しています。    
 
 ## プロパティ  
-| プロパティ名 | 説明                |
-|---------------|----------------------------|
-| appCode       | アプリケーションキー |
-| [lastFailed](../apiData/README.md#last-failed-method)    | 最後にエラーの発生したダイナミックAPIの情報を取得する   |
-| status        | リワードSDKの状態          |
-| tokenType     | ログインオプションを切り替える         |
-| user          | ユーザーデータ                  |
-| version       | リワードSDKのバージョン         |  
+| プロパティ名                                                | 説明                           |
+|-------------------------------------------------------|------------------------------|
+| appCode                                               | アプリケーションキー                   |
+| [lastFailed](../apiData/README.md#last-failed-method) | 最後にエラーの発生したダイナミックAPIの情報を取得する |
+| status                                                | リワードSDKの状態                   |
+| tokenType                                             | ログインオプションを切り替える              |
+| user                                                  | ユーザーデータ                      |
+| version                                               | リワードSDKのバージョン                |  
 
 <details>
     <summary>JAVA</summary>
@@ -44,28 +44,28 @@ RakutenReward.INSTANCE.getAppCode();
 <br>
 
 ## 公開メソッド  
-| メソッド名                 | 説明                                              |
-|-----------------------------|----------------------------------------------------------|
-| [addRakutenRewardListener](#rakutenrewardlistener)    | RakutenRewardListenerを加える |
-| clearAccessToken            | トークンを取り除く|
-| forceClaimClose             | ポイントクレイムUI強制的に閉じる|
-| [getMissions](#ミッションリスト)| ミッションリストを取得する |
-| [getPointHistory](#ポイント履歴)| 3ヶ月前までのポイント履歴を取得する|
-| [getUnclaimedItems](#未獲得ミッションリスト)| 未獲得ミッションリストを取得する|
-| [init](#init-api)           | リワードSDKの初期化|
-| [logAction](#アクションを送信する)| ミッションを達成するためにアクションを送信する  |
-| [memberInfo](#会員情報)| 最新の会員情報を取得する|
-| [openHelpPage](#楽天リワードのページを開く)| ヘルプページをSDKのミニブラウザーで開く|
-| [openPrivacyPage](#楽天リワードのページを開く)| プライバシーポリシーをSDKのミニブラウザーで開く|
-| [openTCPage](#楽天リワードのページを開く)| 利用規約をSDKのミニブラウザーで開く|
-| [removeRakutenRewardListener](#rakutenrewardlistener) | RakutenRewardListenerを取り除く|
-| [requestForConsent](#利用規約への同意をリクエスト)           | 利用規約への同意をリクエスト |
-| [setRa](#クッキーをセットする)| Ra クッキーをセットする |
-| setRaeToken                 | RAE トークンをセットする|
-| setRidToken                 | RID トークンをセットする|
-| [setRp](#クッキーをセットする)| Rp クッキーをセットする|
-| [setRz](#クッキーをセットする)| Rz クッキーをセットする|
-| [startSession](#SDK-セッションを開始)                | SDK セッションを開始 |  
+| メソッド名                                                 | 説明                         |
+|-------------------------------------------------------|----------------------------|
+| [addRakutenRewardListener](#rakutenrewardlistener)    | RakutenRewardListenerを加える  |
+| clearAccessToken                                      | トークンを取り除く                  |
+| forceClaimClose                                       | ポイントクレイムUI強制的に閉じる          |
+| [getMissions](#ミッションリスト)                              | ミッションリストを取得する              |
+| [getPointHistory](#ポイント履歴)                            | 3ヶ月前までのポイント履歴を取得する         |
+| [getUnclaimedItems](#未獲得ミッションリスト)                     | 未獲得ミッションリストを取得する           |
+| [init](#init-api)                                     | リワードSDKの初期化                |
+| [logAction](#アクションを送信する)                              | ミッションを達成するためにアクションを送信する    |
+| [memberInfo](#会員情報)                                   | 最新の会員情報を取得する               |
+| [openHelpPage](#楽天リワードのページを開く)                        | ヘルプページをSDKのミニブラウザーで開く      |
+| [openPrivacyPage](#楽天リワードのページを開く)                     | プライバシーポリシーをSDKのミニブラウザーで開く  |
+| [openTCPage](#楽天リワードのページを開く)                          | 利用規約をSDKのミニブラウザーで開く        |
+| [removeRakutenRewardListener](#rakutenrewardlistener) | RakutenRewardListenerを取り除く |
+| [requestForConsent](#利用規約への同意をリクエスト)                  | 利用規約への同意をリクエスト             |
+| [setRa](#クッキーをセットする)                                  | Ra クッキーをセットする              |
+| setRaeToken                                           | RAE トークンをセットする             |
+| setRidToken                                           | RID トークンをセットする             |
+| [setRp](#クッキーをセットする)                                  | Rp クッキーをセットする              |
+| [setRz](#クッキーをセットする)                                  | Rz クッキーをセットする              |
+| [startSession](#SDK-セッションを開始)                         | SDK セッションを開始               |  
 
 ### RakutenRewardListener
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです  
@@ -76,11 +76,11 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onUserUpdated(user : RakutenRewardUser)                                                            | ユーザーデータが更新された    |
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された     |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた       |
-| fun onSDKConsentClosed()                                                                               | 同意ダイアログを閉めした | 
+| fun onSDKConsentClosed()                                                                               | 同意ダイアログを閉めした     | 
 <br>
 
 **RakutenRewardListenerを加える**  
-[![support version](http://img.shields.io/badge/core-2.4.1+-green.svg?style=flat)](/doc/history//README.md#version-310)  
+[![support version](http://img.shields.io/badge/core-2.4.1+-green.svg?style=flat)](/doc/history/README.md#version-310)  
 
 ```kotlin
 RakutenReward.addRakutenRewardListener(this)
@@ -89,7 +89,7 @@ RakutenReward.addRakutenRewardListener(this)
 > ActivityかFragmentクラスでこのメソッドを使用する場合、Activityが破壊される時メモリリークを防ぐに取り除くAPIを使用してください。  
 
 **RakutenRewardListenerを取り除く**   
-[![support version](http://img.shields.io/badge/core-2.4.1+-green.svg?style=flat)](/doc/history//README.md#version-310)  
+[![support version](http://img.shields.io/badge/core-2.4.1+-green.svg?style=flat)](/doc/history/README.md#version-310)  
 
 ```kotlin
 RakutenReward.removeRakutenRewardListener(this)
@@ -257,6 +257,13 @@ RakutenReward.logActionJava("actionCode", new LogActionCallback() {
 ```kotlin
 val result : RewardApiResult<Unit> = RakutenRewardCoroutine.logAction("actionCode")
 ```   
+
+<br>  
+
+#### ミッション達成が上限に達した  
+
+[![support version](http://img.shields.io/badge/core-5.2.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240101_v5.2.0)    
+ミッション達成がもう上限に達したの場合、`logAction` APIが `MISSION_REACHED_CAP` のエラーコードを戻す。  
 
 <br>  
 

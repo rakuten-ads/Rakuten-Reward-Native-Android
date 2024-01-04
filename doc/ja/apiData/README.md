@@ -83,13 +83,13 @@
 ### RakutenRewardSDKStatus  
 RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 
-| 名前             | 説明　                                              |
-|----------------|--------------------------------------------------|
-| ONLINE         | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数) |
-| OFFLINE        | SDKの初期化が未完了または失敗                                 |
-| APPCODEINVALID | アプリケーションキーが間違っている                                |
-| TOKENEXPIRED   | トークンの期限切れ                                        |
-| USER_NOT_CONSENT | ユーザーまだ利用規約に同意しない |
+| 名前               | 説明　                                              |
+|------------------|--------------------------------------------------|
+| ONLINE           | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数) |
+| OFFLINE          | SDKの初期化が未完了または失敗                                 |
+| APPCODEINVALID   | アプリケーションキーが間違っている                                |
+| TOKENEXPIRED     | トークンの期限切れ                                        |
+| USER_NOT_CONSENT | ユーザーまだ利用規約に同意しない                                 |
 ---  
 
 <br>
@@ -107,11 +107,11 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 
 ### RakutenRewardConsentStatus
 
-| RakutenRewardConsentStatus | 説明 |
-| --- | --- |
-| CONSENT_PROVIDED | 同意しました |
-| CONSENT_NOT_PROVIDED | 同意していません |
-| CONSENT_FAILED | APIエラーが発生しました |
+| RakutenRewardConsentStatus              | 説明                         |
+|-----------------------------------------|----------------------------|
+| CONSENT_PROVIDED                        | 同意しました                     |
+| CONSENT_NOT_PROVIDED                    | 同意していません                   |
+| CONSENT_FAILED                          | APIエラーが発生しました              |
 | CONSENT_PROVIDED_RESTART_SESSION_FAILED | 同意しましたが、SDKセッションの再開に失敗しました | 
 ---  
 
@@ -121,14 +121,14 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 `RakutenRewardCoroutine`の戻る値  
 
 #### Success  
-| パラメータ名 | 説明 |
-| --- | --- |
-| data | API data object |
+| パラメータ名 | 説明              |
+|--------|-----------------|
+| data   | API data object |
 
 #### Failed  
-| パラメータ名 | 説明 |
-| --- | --- |
-| error | `RakutenRewardAPIError` |  
+| パラメータ名 | 説明                      |
+|--------|-------------------------|
+| error  | `RakutenRewardAPIError` |  
 
 ---  
 
@@ -136,15 +136,16 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 
 ### RakutenRewardAPIError  
 
-| Enum             | 説明                                              |
-|------------------|-------------------------------------------------|
-| NETWORKERROR     | ネットワークエラー(接続失敗)                                 |
-| APIRESPONSEERROR | ネットワークのレスポンスに問題があった(基本的には起こりません)                |
-| TOKENEMPTY       | 	アクセストークンがセットされていない                             |
-| SDKNOTACTIVE     | SDKが初期化されていません                                  |
-| TOKENEXPIRE      | アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください |
-| UNKNOWN          | 不明なエラー(基本的には起こりません)                             | 
-| USER_NOT_CONSENT| ユーザーまだ利用規約に同意しない                                             |  
+| Enum                | 説明                                              |
+|---------------------|-------------------------------------------------|
+| NETWORKERROR        | ネットワークエラー(接続失敗)                                 |
+| APIRESPONSEERROR    | ネットワークのレスポンスに問題があった(基本的には起こりません)                |
+| TOKENEMPTY          | 	アクセストークンがセットされていない                             |
+| SDKNOTACTIVE        | SDKが初期化されていません                                  |
+| TOKENEXPIRE         | アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください |
+| UNKNOWN             | 不明なエラー(基本的には起こりません)                             | 
+| USER_NOT_CONSENT    | ユーザーまだ利用規約に同意しない                                | 
+| MISSION_REACHED_CAP | ミッション達成がもう上限に達した                                |  
 ---  
 
 <br>
@@ -153,22 +154,22 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 SDKはアプリケーションでエラーを処理できるようにAPIが失敗した場合にその詳細を提供します    
 
 #### RakutenRewardAPILastCalled  
-| Property Name | Description |
-| --- | --- |
-| method | The last failed API in `RakutenRewardAPI` enum |
-| parameters | Parameters for the API call |  
+| Property Name | Description                                    |
+|---------------|------------------------------------------------|
+| method        | The last failed API in `RakutenRewardAPI` enum |
+| parameters    | Parameters for the API call                    |  
 
 #### RakutenRewardAPI enum  
 
-| 名前           | 説明(関数名)       |
-|----------------|--------------------------------|
-| MEMBERINFO     | memberInfo                     |
-| LOGACTION      | logAction                      |
-| GETUNCLAIM     | getUnclaimedItems              |
-| POINTHISTORY   | getPointHistory                |
-| CLAIM          | claim (MissionAchievementData) |
-| GETMISSIONLIST | getMissions                    |  
-| PROVIDE_CONSENT | provideConsent |
+| 名前              | 説明(関数名)                        |
+|-----------------|--------------------------------|
+| MEMBERINFO      | memberInfo                     |
+| LOGACTION       | logAction                      |
+| GETUNCLAIM      | getUnclaimedItems              |
+| POINTHISTORY    | getPointHistory                |
+| CLAIM           | claim (MissionAchievementData) |
+| GETMISSIONLIST  | getMissions                    |  
+| PROVIDE_CONSENT | provideConsent                 |
 
 
 ---  

@@ -229,8 +229,14 @@ If there are issue using the access token from ID SDK, it could be due to you ha
 
 Please check that have you done the following points:  
 
-* Create a ticket in [ID Client Support](https://confluence.rakuten-it.com/confluence/display/id/ID+Client+Support+Ticket+Creation) to request to add CAT audience (https://prod.api-catalogue.gateway-api.global.rakuten.com) and register <b>mission-sdk</b> scope to your client.  
-* Add <b>mission-sdk</b> scope on API Catalogue dashboard
+* [Add a client](https://confluence.rakuten-it.com/confluence/display/ACUS/Add+a+Client) on API Catalogue Dashboard.
+* Raise a configuration update ticket ([link](https://confluence.rakuten-it.com/confluence/x/lAwPo)) to add <b>mission-sdk</b> scope to CAT audience as the following:  
+
+| CAT Audience | Scope |
+| --- | --- |
+| https://prod.api-catalogue.gateway-api.global.rakuten.com | mission-sdk |  
+
+* ~~Add <b>mission-sdk</b> scope on API Catalogue dashboard~~
 * In the code, add the scope when retrieving exchange token.
 ```kotlin
 val artifactResponse = session.artifacts {

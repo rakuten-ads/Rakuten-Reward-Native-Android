@@ -97,14 +97,14 @@ To use the button, add it in the layout XML.
 | setCustomImage (@DrawableRes resourceId: Int)  | Set custom button image                    |  
 
 #### RewardButtonStyle  
-| RewardButtonStyle | Dark | Light |
-| :--- | :----: | :----: |
-| Sample | ![dark](./button/dark.png) | ![light](./button/light.png) |  
+| RewardButtonStyle |            Dark            |            Light             |
+|:------------------|:--------------------------:|:----------------------------:|
+| Sample            | ![dark](./button/dark.png) | ![light](./button/light.png) |  
 
 #### BadgePosition  
-| BadgePosition | TOP_LEFT | TOP_RIGHT | CENTER | BOTTOM_LEFT | BOTTOM_RIGHT |
-| :--- | :----: | :----: | :----: | :----: | :----: |
-| Sample | ![topleft](./button/top_left.png) | ![topright](./button/top_right.png) | ![center](./button/center.png) | ![bottomleft](./button/bottom_left.png) | ![bottomright](./button/bottom_right.png) |        
+| BadgePosition |             TOP_LEFT              |              TOP_RIGHT              |             CENTER             |               BOTTOM_LEFT               |               BOTTOM_RIGHT                |
+|:--------------|:---------------------------------:|:-----------------------------------:|:------------------------------:|:---------------------------------------:|:-----------------------------------------:|
+| Sample        | ![topleft](./button/top_left.png) | ![topright](./button/top_right.png) | ![center](./button/center.png) | ![bottomleft](./button/bottom_left.png) | ![bottomright](./button/bottom_right.png) |        
 
 <br>  
 

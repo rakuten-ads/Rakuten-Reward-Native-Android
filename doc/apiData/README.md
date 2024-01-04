@@ -82,13 +82,13 @@ RakutenRewardUser is user data class.
 
 ### RakutenRewardSDKStatus  
 
-| Name           | Description                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-| ONLINE         | SDK is ready. SDK Member Information(get point, unclaimed number correctly) |
-| OFFLINE        | SDK is not ready. And initialization API is failed                          |
-| APPCODEINVALID | Application Key was invalid. initialization API return 400 (bad request)    |
-| TOKENEXPIRED   | APIs returns Token Expired                                                  |
-| USER_NOT_CONSENT| User have not provide consent yet (Since v4.0.0)                           |  
+| Name             | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| ONLINE           | SDK is ready. SDK Member Information(get point, unclaimed number correctly) |
+| OFFLINE          | SDK is not ready. And initialization API is failed                          |
+| APPCODEINVALID   | Application Key was invalid. initialization API return 400 (bad request)    |
+| TOKENEXPIRED     | APIs returns Token Expired                                                  |
+| USER_NOT_CONSENT | User have not provide consent yet (Since v4.0.0)                            |  
 ---  
 
 <br>
@@ -106,11 +106,11 @@ RakutenRewardUser is user data class.
 
 ### RakutenRewardConsentStatus
 
-| RakutenRewardConsentStatus | Description |
-| --- | --- |
-| CONSENT_PROVIDED | User already provide consent |
-| CONSENT_NOT_PROVIDED | User have not provide consent |
-| CONSENT_FAILED | There is some error with API request |
+| RakutenRewardConsentStatus              | Description                                             |
+|-----------------------------------------|---------------------------------------------------------|
+| CONSENT_PROVIDED                        | User already provide consent                            |
+| CONSENT_NOT_PROVIDED                    | User have not provide consent                           |
+| CONSENT_FAILED                          | There is some error with API request                    |
 | CONSENT_PROVIDED_RESTART_SESSION_FAILED | User provided consent but failed to restart SDK session |  
 ---  
 
@@ -120,14 +120,14 @@ RakutenRewardUser is user data class.
 Reward API result which return in `RakutenRewardCoroutine`.  
 
 #### Success  
-| Property Name | Description |
-| --- | --- |
-| data | API data object |
+| Property Name | Description     |
+|---------------|-----------------|
+| data          | API data object |
 
 #### Failed  
-| Property Name | Description |
-| --- | --- |
-| error | `RakutenRewardAPIError` |  
+| Property Name | Description             |
+|---------------|-------------------------|
+| error         | `RakutenRewardAPIError` |  
 
 ---  
 
@@ -135,15 +135,16 @@ Reward API result which return in `RakutenRewardCoroutine`.
 
 ### RakutenRewardAPIError  
 
-| Enum           | Description                                                               |
-|----------------|---------------------------------------------------------------------------|
-| NETWORKERROR   | Network connection error                                                  |
-| INVALIDREQUEST | Parameter is invalid                                                      |
-| TOKENEMPTY     | 	Access token is not set                                                  |
-| SDKNOTACTIVE   | SDK is not initialized yet                                                |
-| TOKENEXPIRE    | Access token expired to access API <br> Need to refresh this access token |
-| UNKNOWN        | Unknown error, basically not happen                                       |  
-| USER_NOT_CONSENT| User haven't provide consent                                             |  
+| Enum                | Description                                                               |
+|---------------------|---------------------------------------------------------------------------|
+| NETWORKERROR        | Network connection error                                                  |
+| INVALIDREQUEST      | Parameter is invalid                                                      |
+| TOKENEMPTY          | Access token is not set                                                   |
+| SDKNOTACTIVE        | SDK is not initialized yet                                                |
+| TOKENEXPIRE         | Access token expired to access API <br> Need to refresh this access token |
+| UNKNOWN             | Unknown error, basically not happen                                       |  
+| USER_NOT_CONSENT    | User haven't provide consent                                              |  
+| MISSION_REACHED_CAP | Mission achievement already reached cap                                   |  
 ---  
 
 <br>
@@ -152,22 +153,22 @@ Reward API result which return in `RakutenRewardCoroutine`.
 SDK provides information about failed method to handle error easily.  
 
 #### RakutenRewardAPILastCalled  
-| Property Name | Description |
-| --- | --- |
-| method | The last failed API in `RakutenRewardAPI` enum |
-| parameters | Parameters for the API call |  
+| Property Name | Description                                    |
+|---------------|------------------------------------------------|
+| method        | The last failed API in `RakutenRewardAPI` enum |
+| parameters    | Parameters for the API call                    |  
 
 #### RakutenRewardAPI enum  
 
-| Name           | Description(method name)       |
-|----------------|--------------------------------|
-| MEMBERINFO     | memberInfo                     |
-| LOGACTION      | logAction                      |
-| GETUNCLAIM     | getUnclaimedItems              |
-| POINTHISTORY   | getPointHistory                |
-| CLAIM          | claim (MissionAchievementData) |
-| GETMISSIONLIST | getMissions                    |  
-| PROVIDE_CONSENT | provideConsent |
+| Name            | Description(method name)       |
+|-----------------|--------------------------------|
+| MEMBERINFO      | memberInfo                     |
+| LOGACTION       | logAction                      |
+| GETUNCLAIM      | getUnclaimedItems              |
+| POINTHISTORY    | getPointHistory                |
+| CLAIM           | claim (MissionAchievementData) |
+| GETMISSIONLIST  | getMissions                    |  
+| PROVIDE_CONSENT | provideConsent                 |
 
 
 ---
