@@ -1,8 +1,14 @@
 # Update History
 
+### Version 5.2.1
+<hr/>
+Release Date: 2024/02/05
+
+* Bug fix
+
 ### Version 5.2.0
 <hr/>
-Release Date: 2024/01/04
+Release Date: 2024/01/09
 
 * Remove poikatsu tab in SDK Portal
 * Introduce `MISSION_REACHED_CAP` error code [refer here](../core/RakutenReward.md#mission-achievement-reached-cap)

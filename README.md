@@ -20,6 +20,7 @@
 
 | Version | Minimum SDK | Compile SDK |
 |---------|-------------|-------------|
+| 5.2.1   | API24 (7.0) | API 34      |
 | 5.2.0   | API24 (7.0) | API 34      |
 | 5.1.0   | API24 (7.0) | API 34      |
 | 5.0.0   | API24 (7.0) | API 34      |
@@ -88,11 +89,11 @@ allprojects {
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:5.2.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:5.2.1'
 ```
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:5.2.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:5.2.1'
 ```
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
