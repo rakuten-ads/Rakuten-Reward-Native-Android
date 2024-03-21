@@ -1,5 +1,11 @@
 # Update History
 
+### Version 5.3.0
+<hr/>
+Release Date: 2024/03/21
+
+* Introduce Consent notification banner API [refer here](../consent/README.md#show-consent-notification-banner)
+
 ### Version 5.2.1
 <hr/>
 Release Date: 2024/02/05

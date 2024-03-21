@@ -13,6 +13,7 @@
   * [楽天リワードのページを開く](#楽天リワードのページを開く)  
   * [クッキーをセットする](#クッキーをセットする)  
   * [利用規約への同意をリクエスト](#利用規約への同意をリクエスト)  
+  * [通知バナーを表示する](#通知バナーを表示する)  
   * [SDK セッションを開始](#SDK-セッションを開始)  
 
 ---  
@@ -66,6 +67,7 @@ RakutenReward.INSTANCE.getAppCode();
 | [setRp](#クッキーをセットする)                                  | Rp クッキーをセットする              |
 | [setRz](#クッキーをセットする)                                  | Rz クッキーをセットする              |
 | [startSession](#SDK-セッションを開始)                         | SDK セッションを開始               |  
+| [showConsentBanner](#通知バナーを表示する) | 通知バナーを表示する |
 
 ### RakutenRewardListener
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです  
@@ -346,7 +348,7 @@ RakutenReward.setRa("cookie")
 [![support version](http://img.shields.io/badge/core-4.0.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20230728_v4.0.0)   
 
 ユーザーがまだ、利用規約に同意していない場合に、同意ダイアログを表示します。  
-ユーザーがすでに利用規約を同意していた場合、ダイアログを表示せずに`CONSENT_PROVIDED`ステータスがコールバックに返します。詳細については[ここ](../consent/README.md#request-user-consent-api)に参考してください。      
+ユーザーがすでに利用規約を同意していた場合、ダイアログを表示せずに`CONSENT_PROVIDED`ステータスがコールバックに返します。詳細については[ここ](../consent/README.md#利用規約への同意をリクエストする-api)に参考してください。      
 
 このコールバックは[`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus)を戻る。    
 
@@ -363,6 +365,29 @@ RakutenReward.requestForConsentJava(rakutenRewardConsentStatus -> {
     // check consent status
 });
 ```  
+
+### 通知バナーを表示する  
+[![support version](http://img.shields.io/badge/core-5.3.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240321_v5.3.0)  
+
+ユーザーがまだ、利用規約に同意していない場合に、通知バナーを表示します。ユーザーが上のバナーをタップして、同意ダイアログを表示される。    
+ユーザーがすでに利用規約を同意していた場合、バナーを表示せずに`CONSENT_PROVIDED`ステータスがコールバックに返します。詳細については[ここ](../consent/README.md#通知バナーを表示する)に参考してください。      
+
+このコールバックは[`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus)を戻る。    
+ 
+
+Kotlin 
+```kotlin
+RakutenReward.showConsentBanner {
+    // check consent status
+}
+```  
+
+JAVA
+```java
+RakutenReward.showConsentBannerJava(rakutenRewardConsentStatus -> {
+    // check consent status
+});
+```
 
 ### SDK セッションを開始  
 [![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)  

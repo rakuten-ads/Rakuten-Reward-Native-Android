@@ -13,6 +13,7 @@ Table of Contents
   * [Open Reward Web Page](#open-reward-web-page)  
   * [Set Rakuten Cookie](#set-rakuten-cookie)  
   * [Request for Consent](#request-for-consent)  
+  * [User Consent Notification Banner](#user-consent-notification-banner)  
   * [Start SDK Session](#start-sdk-session)  
 
 ---  
@@ -66,6 +67,7 @@ RakutenReward.INSTANCE.getAppCode();
 | [setRp](#set-rakuten-cookie)                          | Set Rp cookie                                            |
 | [setRz](#set-rakuten-cookie)                          | Set Rz cookie                                            |
 | [startSession](#start-sdk-session)                    | Start SDK session                                        |  
+| [showConsentBanner]                                   | Show User consent notification banner                    |
 
 ### RakutenRewardListener
 RakutenRewardListener is Rakuten Reward SDK basic function status change listener.  
@@ -347,7 +349,7 @@ RakutenReward.setRa("cookie")
 Request for consent if the user have not provide consent.  
 
 If user have not provide consent, Consent Dialog will be shown to ask for user's consent.  
-Else the callback will be triggered immediately with `CONSENT_PROVIDED` statue. Refer [here](../consent/README.md#request-user-consent-api) for more information.    
+Else the callback will be triggered immediately with `CONSENT_PROVIDED` status. Refer [here](../consent/README.md#request-user-consent-api) for more information.    
 
 The callback return [`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus).  
 
@@ -364,6 +366,30 @@ RakutenReward.requestForConsentJava(rakutenRewardConsentStatus -> {
     // check consent status
 });
 ```  
+
+### User Consent Notification Banner  
+[![support version](http://img.shields.io/badge/core-5.3.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240321_v5.3.0)  
+Show notification banner if user have not provide consent.  
+
+If user have not provide consent, notification banner will be shown. When tap on the banner, consent dialog will be shown.  
+Else the callback will be triggered immediately with `CONSENT_PROVIDED` status. Refer [here](../consent/README.md#show-consent-notification-banner) for more information.  
+
+The callback return [`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus).  
+
+Kotlin 
+```kotlin
+RakutenReward.showConsentBanner {
+    // check consent status
+}
+```  
+
+JAVA
+```java
+RakutenReward.showConsentBannerJava(rakutenRewardConsentStatus -> {
+    // check consent status
+});
+```
+
 
 ### Start SDK Session  
 [![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)  

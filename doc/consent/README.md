@@ -6,6 +6,7 @@ Table of Contents
     * [USER_NOT_CONSENT status](#user_not_consent-status) <br>
     * [New RakutenRewardListener function](#new-rakutenrewardlistener-function) <br>
 * [Request User Consent API](#request-user-consent-api)
+* [Show consent notification banner](#show-consent-notification-banner)  
 * [Sample Use Case](#sample-use-case)
     * [When to request user consent](#when-to-request-user-consent)
     * [Log Mission Action](#log-mission-action)
@@ -47,7 +48,21 @@ Depends on user action, will the following consent status will be return in the 
 | CONSENT_FAILED | There is some error with API request |
 | CONSENT_PROVIDED_RESTART_SESSION_FAILED | User provided consent but failed to restart SDK session |
 
-If user already provided consent, the consent dialog will not be shown and the callback will be triggered with `CONSENT_PROVIDED` status.
+If user already provided consent, the consent dialog will not be shown and the callback will be triggered with `CONSENT_PROVIDED` status.  
+
+# Show consent notification banner
+New API is introduced to show notification banner when user haven't provide consent.  
+
+```kotlin
+RakutenReward.showConsentBanner {
+    // check consent status
+}
+```
+
+![Consent banner](consent-banner.png)  
+
+The banner above will only be shown when user haven't provide consent. When tap on the banner, consent dialog will be shown to request user's consent.   
+If user already provided consent, the banner will not be shown and the callback will be triggered with `CONSENT_PROVIDED` status.  
 
 # Sample Use Case
 ## When to request user consent

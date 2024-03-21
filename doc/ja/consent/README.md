@@ -6,6 +6,7 @@
     * [USER_NOT_CONSENT ステータス](#user_not_consent-ステータス) <br>
     * [新たな RakutenRewardListener 関数](#新しい-rakutenrewardlistener-関数) <br>
 * [利用規約への同意をリクエストする API](#利用規約への同意をリクエストする-api)
+* [通知バナーを表示する](#通知バナーを表示する)  
 * [サンプルの使用例](#サンプルの使用例)
     * [いつ利用規約への同意をリクエストする](#いつ利用規約への同意をリクエストする)
     * [アクションを送信する](#アクションを送信する)
@@ -52,6 +53,21 @@ RakutenReward.requestForConsent { status ->
 | CONSENT_PROVIDED_RESTART_SESSION_FAILED | 同意しましたが、SDKセッションの再開に失敗しました |
 
 ユーザーがすでに利用規約を同意していた場合、ダイアログを表示せずに`CONSENT_PROVIDED`ステータスがコールバックに返します。
+<br><br>  
+
+# 通知バナーを表示する 
+ユーザーがまだ利用規約を同意していない場合通知バナーを表示するAPIを追加した。  
+
+```kotlin
+RakutenReward.showConsentBanner {
+    // check consent status
+}
+```
+
+![通知バナー](consent-banner.png)  
+
+ユーザーが上のバナーをタップして、同意ダイアログを表示される。  
+ユーザーがすでに利用規約を同意していた場合、バナーを表示せずに`CONSENT_PROVIDED`ステータスがコールバックに返します。
 <br><br>
 
 # サンプルの使用例
