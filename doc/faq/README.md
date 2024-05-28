@@ -11,8 +11,6 @@ Table of Contents
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
     * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
     * [Can RakutenAuth.openLoginPage API be call in Fragment class?](#can-rakutenauthopenloginpage-api-be-call-in-fragment-class)
-    * [There are issue using the access token from ID SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-id-sdk-what-could-be-the-cause)  
-    * [There are issue using the access token from User SDK. What could be the cause?](#there-are-issue-using-the-access-token-from-user-sdk-what-could-be-the-cause)  
 * [Implementation Related](#implementation-related)
     * [The API always return SDKNOTACTIVE error. What could be the cause?](#the-api-always-return-sdknotactive-error-what-could-be-the-cause)
     * [I have a daily launch app mission. How should I implement it?](#i-have-a-daily-launch-app-mission-how-should-i-implement-it)
@@ -219,69 +217,6 @@ class TestLoginFragment : Fragment() {
 ```
 
 </details>
-
-<br>
-
-### There are issue using the access token from ID SDK. What could be the cause?
-<details>
-    <summary>Answer</summary>
-If there are issue using the access token from ID SDK, it could be due to you have not add `mission-sdk` scope to your client ID.  
-
-Please check that have you done the following points:  
-
-* [Add a client](https://confluence.rakuten-it.com/confluence/display/ACUS/Add+a+Client) on API Catalogue Dashboard.
-* Raise a configuration update ticket ([link](https://confluence.rakuten-it.com/confluence/x/lAwPo)) to add <b>mission-sdk</b> scope to CAT audience as the following:  
-
-| CAT Audience | Scope |
-| --- | --- |
-| https://prod.api-catalogue.gateway-api.global.rakuten.com | mission-sdk |  
-
-* ~~Add <b>mission-sdk</b> scope on API Catalogue dashboard~~
-* In the code, add the scope when retrieving exchange token.
-```kotlin
-val artifactResponse = session.artifacts {
-    +exchangeToken {
-        this.audience = audience
-        scope = setOf("mission-sdk")
-    }
-}
-
-val exchangeToken = artifactResponse.exchangeToken(audience) 
-```
-* Call this endpoint to get the access token: https://gateway-api.global.rakuten.com/RWDSDK/rpg-api/access_token
-
-
-If the issue persist, please contact the developer team.
-
-</details>
-
-<br>  
-
-### There are issue using the access token from User SDK. What could be the cause?  
-<details>
-    <summary>Answer</summary>  
-
-If there are issue using the access token from User SDK, it could be due to you have not add `mission-sdk` scope to RAE.  
-
-Please check whether you have done the following points:  
-
-* Register `mission-sdk` scope to RAE. Refer to the guide [here](https://confluence.rakuten-it.com/confluence/x/z5nNkQ).  
-* In the code, during `LoginManager` initialization add `mission-sdk` to the scope.  
-```kotlin
-LoginManager.initialize(context)
-    .addAuthProvider(
-        AUTH_NAME,
-        AuthProviderRAE.createJapanIdProvider()
-            .domain(domain())
-            .client(CLIENT, secret())
-            .scopes("...,mission-sdk") // append mission-sdk scope here
-            .build())
-    .apply()
-```  
-
-If the issue persist, please contact the developer team.  
-
-</details>  
 
 <br>
 
