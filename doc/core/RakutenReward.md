@@ -67,18 +67,20 @@ RakutenReward.INSTANCE.getAppCode();
 | [setRp](#set-rakuten-cookie)                          | Set Rp cookie                                            |
 | [setRz](#set-rakuten-cookie)                          | Set Rz cookie                                            |
 | [startSession](#start-sdk-session)                    | Start SDK session                                        |  
-| [showConsentBanner]                                   | Show User consent notification banner                    |
+| [showConsentBanner](#user-consent-notification-banner)| Show User consent notification banner                    |
 
 ### RakutenRewardListener
 RakutenRewardListener is Rakuten Reward SDK basic function status change listener.  
 
 | Name                                                                                                   | Description                                  |
 |--------------------------------------------------------------------------------------------------------|----------------------------------------------|
-| fun onUnclaimedAchievement(achievement : MissionAchievementData)                                       | When the user achieved the mission           |
-| fun onUserUpdated(user : RakutenRewardUser)                                                            | When the user data is updated                |
-| fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | When the SDK status changed                  |
+| fun onUnclaimedAchievement(achievement: MissionAchievementData)                                        | When the user achieved the mission           |
+| fun onUserUpdated(user: RakutenRewardUser)                                                             | When the user data is updated                |
+| fun onSDKStatusChanged(status: RakutenRewardSDKStatus)                                                 | When the SDK status changed                  |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | When the claim UI closed                     |
-| fun onSDKConsentClosed                                                                                 | When consent dialog is closed (Since v4.0.0) |  
+| fun onSDKConsentClosed()                                                                               | When consent dialog is closed (Since v4.0.0) |
+| fun onSDKConsentPresented()                                                                            | When consent dialog is shown (Since v5.4.0)  |
+| fun onSDKClaimPresented(missionAchievementData: MissionAchievementData)                                | When the claim UI is shown (Since v5.4.0)    |      
 <br>
 
 **To add the listener**  

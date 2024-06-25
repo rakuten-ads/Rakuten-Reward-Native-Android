@@ -1,5 +1,12 @@
 # Update History
 
+### Version 5.4.0
+<hr/>
+Release Date: 2024/06/25
+
+* API return `USER_NOT_CONSENT` error when user have not provide consent yet
+* Add consent dialog presented and claim view presented callback in `RakutenRewardListener`
+
 ### Version 5.3.0
 <hr/>
 Release Date: 2024/03/21

@@ -1,7 +1,7 @@
 [TOP](../../README.md#top)　> Core API  
 
 Table of Contents  
-* [RakutenReward](#rakutenauth)  
+* [RakutenReward](#rakutenreward)  
 * [RakutenRewardCoroutine](#rakutenrewardcoroutine)  
 * [RakutenAuth](#rakutenauth)  
 * [RakutenRewardConfig](#rakutenrewardconfig)  

@@ -78,7 +78,9 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onUserUpdated(user : RakutenRewardUser)                                                            | ユーザーデータが更新された    |
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された     |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた       |
-| fun onSDKConsentClosed()                                                                               | 同意ダイアログを閉めした     | 
+| fun onSDKConsentClosed()                                                                               | 同意ダイアログが閉じた      |
+| fun onSDKConsentPresented()                                                                            | 同意ダイアログが提示される  |
+| fun onSDKClaimPresented(missionAchievementData: MissionAchievementData)                                | クレイムUIが提示される    | 
 <br>
 
 **RakutenRewardListenerを加える**  
