@@ -20,6 +20,7 @@
 
 | バージョン | 最小限 OS      | コンパイル OS |
 |-------|-------------|----------|
+| 5.4.1 | API24 (7.0) | API 34   |
 | 5.4.0 | API24 (7.0) | API 34   |
 | 5.3.0 | API24 (7.0) | API 34   |
 | 5.2.1 | API24 (7.0) | API 34   |
@@ -91,12 +92,12 @@ allprojects {
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
 
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-ui:5.4.0'
+  implementation 'com.rakuten.android:rewardsdknative-ui:5.4.1'
 ```
 
 こちらで用意するUIを利用されてない場合は "rewardsdknative-ui"　を入れないことも可能です
 ```groovy
-  implementation 'com.rakuten.android:rewardsdknative-core:5.4.0'
+  implementation 'com.rakuten.android:rewardsdknative-core:5.4.1'
 ```
 
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
