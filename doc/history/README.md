@@ -26,7 +26,7 @@ Release Date: 2024/02/05
 
 * Bug fix
 
-### Version 5.2.0
+### ~Version 5.2.0~ (Deprecated)
 <hr/>
 Release Date: 2024/01/09
 
@@ -34,14 +34,14 @@ Release Date: 2024/01/09
 * Introduce `MISSION_REACHED_CAP` error code [refer here](../core/RakutenReward.md#mission-achievement-reached-cap)
 * Minor bug fix
 
-### Version 5.1.0
+### ~Version 5.1.0~ (Deprecated)
 <hr/>
 Release Date: 2023/12/05
 
 * Remove deprecated API
 * Minor bug fix
 
-### Version 5.0.0
+### ~Version 5.0.0~ (Deprecated)
 <hr/>
 Release Date: 2023/11/02
 
