@@ -92,7 +92,7 @@ allprojects {
 
 次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。 
 
-### Reward Android BoM（部品構成表）  
+<!-- ### Reward Android BoM（部品構成表）  
 Reward Native Android 部品構成表（部品構成表）は、1 つのバージョン（BoM のバージョン）のみを指定することで、すべてのライブラリ バージョンを管理できます。  
 
 アプリで Reward Native BoM を使用する場合、BoM は BoM のバージョンにマッピングされた個々のライブラリ バージョンを自動的に取得します。アプリで BoM のバージョンを更新すると、アプリで使用するすべてのライブラリが、その BoM のバージョンにマッピングされたバージョンに更新されます。  
@@ -110,7 +110,17 @@ dependencies {
   implementation 'com.rakuten.android:rewardsdknative-ui'
 }
 ```  
-BOMに関する問題は[ここ](../faq/README.md#bom)に参考してくっださい。
+BOMに関する問題は[ここ](../faq/README.md#bom)に参考してくっださい。-->  
+
+```groovy
+
+dependencies {
+  // Declare the dependency for the core library
+  implementation 'com.rakuten.android:rewardsdknative-core:6.0.0' 
+  // Declare the dependency for the built-in UI
+  implementation 'com.rakuten.android:rewardsdknative-ui:6.0.0'
+}
+```  
 
 <details>
   <summary>Pre-6.0.0</summary>
