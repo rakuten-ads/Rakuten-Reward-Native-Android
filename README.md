@@ -92,7 +92,7 @@ allprojects {
 
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.  
 
-<!-- ### Reward Android BoM (Bill of Materials)  
+ ### Reward Android BoM (Bill of Materials)  
 The Reward Native Android BoM (Bill of Materials) enables you to manage all the library versions by specifying only one version - the BoM's version.  
 
 When you use the Reward Native BoM in your app, the BoM automatically pulls the individual library versions mapped to BoM's version. When you update the BoM's version in your app, all the libraries that you use in your app will update to the versions mapped to that BoM version.  
@@ -110,17 +110,7 @@ dependencies {
   implementation 'com.rakuten.android:rewardsdknative-ui'
 }
 ``` 
-Refer [here](./doc/faq/README.md#bom) for FAQ about BOM.  -->
-
-```groovy
-
-dependencies {
-  // Declare the dependency for the core library
-  implementation 'com.rakuten.android:rewardsdknative-core:6.0.0' 
-  // Declare the dependency for the built-in UI
-  implementation 'com.rakuten.android:rewardsdknative-ui:6.0.0'
-}
-``` 
+Refer [here](./doc/faq/README.md#bom) for FAQ about BOM.  
 
 <details>
   <summary>Pre-6.0.0</summary>
