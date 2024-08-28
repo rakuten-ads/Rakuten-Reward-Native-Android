@@ -44,7 +44,10 @@ Reward SDK provides Modal, Banner, and Ad Banner UI
 
 ![Modal](Modal.jpeg)     ![Banner](Banner.jpeg)
 
-![Small Ad Banner](AdBannerSmall.png)     ![Big Ad Banner](AdBannerBig.png)
+![Small Ad Banner](AdBannerSmall.png)     ![Big Ad Banner](AdBannerBig.png)  
+
+**Since v6.0.0, Banner UI has been updated to the UI below**  
+<img src="./banner_new.png" alt="New Banner UI" width="300">  
 
 ### Notification Type
 There  are 6 types of Mission Achievement UI. Modal, Banner, Small Ad Banner, Big Ad Banner, and No UI, and Custom which developed by developers.

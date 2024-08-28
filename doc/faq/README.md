@@ -20,7 +20,11 @@ Table of Contents
     * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)
     * [How do I implement onSDKStatusChanged or onUnclaimedAchievement?](#how-do-i-implement-onsdkstatuschanged-or-onunclaimedachievement)
     * [Is it possible to detect SDK Portal closed event?](#is-it-possible-to-detect-sdk-portal-closed-event)
-    * [After I set token using RakutenReward.setRaeToken / RakutenReward.setRIdToken but SDK status is still offline.](#after-i-set-token-using-rakutenrewardsetraetoken--rakutenrewardsetridtoken-but-sdk-status-is-still-offline)
+    * [After I set token using RakutenReward.setRaeToken / RakutenReward.setRIdToken but SDK status is still offline.](#after-i-set-token-using-rakutenrewardsetraetoken--rakutenrewardsetridtoken-but-sdk-status-is-still-offline)  
+* [BOM](#bom)  
+    * [Am I forced to use the BOM?](#am-i-forced-to-use-the-bom)  
+    * [How do I use different library version than what's designated in the BOM?](#how-do-i-use-different-library-version-than-whats-designated-in-the-bom)  
+    * [Does the BOM automatically add all the libraries to my app?](#does-the-bom-automatically-add-all-the-libraries-to-my-app)
 
 ---
 # FAQ
@@ -523,4 +527,31 @@ class SampleActivity : RakutenRewardBaseActivity() {
     }
 }
 ```
-</details>
+</details>  
+<br>
+
+## BOM  
+
+### Am I forced to use the BOM?  
+<details>
+    <summary>Answer</summary>  
+No. You can still choose to add each dependency version manually. However, we recommend using the BOM as it will make it easier to use all of the latest stable versions at the same time.  
+</details>  
+
+<br>  
+
+### How do I use different library version than what's designated in the BOM?  
+<details>
+    <summary>Answer</summary>  
+You can specify your desire library version to override the version designated in the BOM.   
+</details>   
+
+<br>  
+
+### Does the BOM automatically add all the libraries to my app?  
+<details>
+    <summary>Answer</summary>  
+No. To actually add and use Reward Native libraries in your app, you must declare each library as a separate dependency line your gradle file.  
+
+Using the BOM ensures that the versions of any Reward Native libraries in your app are compatible, but the BOM doesn't actually add those libraries to your app.  
+</details>   

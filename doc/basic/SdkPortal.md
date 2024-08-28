@@ -55,6 +55,43 @@ boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE,
 });
 ```
 </details>  
+
+### Detect is Portal launched  
+[![support version](http://img.shields.io/badge/ui-6.0.0+-blue.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_v6_0_0)  
+The above API return a boolean value which indicate whether the portal is launched successfully. However the returned value now may not be correct. 
+
+In order to get the correct event and the error which cause the portal failed to launch, please use the API below.  
+
+```kotlin
+RakutenReward.openSDKPortal({ result -> 
+   when (result) {
+    is Failed -> // Failed to launch. Get the error here `result.error`
+    is Success -> // Portal is launched successfully
+   } 
+}) {
+    // handle Portal closed event here
+}
+```  
+<details>
+    <summary>JAVA</summary>  
+
+```java
+RakutenRewardExtensionKt.openSDKPortalJava(RakutenReward.INSTANCE, new PortalOpenedCallback() {
+    @Override
+    public void success() {
+        // Portal is launched successfully
+    }
+
+    @Override
+    public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+        // Portal failed to launched
+    }
+}, (ActivityResultCallback<ActivityResult>) activityResult -> {
+    // handle Portal closed event here
+});
+```
+</details>  
+
 <br>  
 This is UI Image
 

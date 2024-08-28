@@ -1,5 +1,12 @@
 # Update History
 
+### Version 6.0.0
+<hr/>
+Release Date: 2024/08/28
+
+* Introduce SPS feature [link](../sps/README.md)
+* Use BOM for dependency management
+
 ### Version 5.4.1
 <hr/>
 Release Date: 2024/08/15

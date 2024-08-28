@@ -20,6 +20,7 @@
 
 | バージョン | 最小限 OS      | コンパイル OS |
 |-------|-------------|----------|
+| 6.0.0 | API24 (7.0) | API 34   |
 | 5.4.1 | API24 (7.0) | API 34   |
 | 5.4.0 | API24 (7.0) | API 34   |
 | 5.3.0 | API24 (7.0) | API 34   |
@@ -89,7 +90,30 @@ allprojects {
 }
 ```
 
-次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。
+次に、アプリ直下のbuild.gradleのdependenciesに以下の指定を追加します。 
+
+### Reward Android BoM（部品構成表）  
+Reward Native Android 部品構成表（部品構成表）は、1 つのバージョン（BoM のバージョン）のみを指定することで、すべてのライブラリ バージョンを管理できます。  
+
+アプリで Reward Native BoM を使用する場合、BoM は BoM のバージョンにマッピングされた個々のライブラリ バージョンを自動的に取得します。アプリで BoM のバージョンを更新すると、アプリで使用するすべてのライブラリが、その BoM のバージョンにマッピングされたバージョンに更新されます。  
+
+Reward Native Android 部品構成表を使用して、モジュール（アプリレベル）の Gradle ファイル（通常は app/build.gradle）で依存関係を宣言する方法は次のとおりです。BoM を使用する場合、依存関係の行にライブラリのバージョンを個別に指定しないでください。  
+```groovy
+
+dependencies {
+  // Import the BoM for the Reward Native platform
+  implementation platform('com.rakuten.android:rewardsdknative-bom:6.0.0')
+
+  // Declare the dependency for the core library
+  implementation 'com.rakuten.android:rewardsdknative-core' 
+  // Declare the dependency for the built-in UI
+  implementation 'com.rakuten.android:rewardsdknative-ui'
+}
+```  
+BOMに関する問題は[ここ](../faq/README.md#bom)に参考してくっださい。
+
+<details>
+  <summary>Pre-6.0.0</summary>
 
 ```groovy
   implementation 'com.rakuten.android:rewardsdknative-ui:5.4.1'
@@ -100,6 +124,9 @@ allprojects {
   implementation 'com.rakuten.android:rewardsdknative-core:5.4.1'
 ```
 
+</details>  
+<br>
+
 ※ rewardsdknative-ui モジュールは viewbinding と databinding　を使用いたします。  
 もしこちらのモジュールの場合で上記のご利用がない場合, 下記のような記述を build.gradle　に加えてください
 ```groovy
@@ -107,11 +134,6 @@ buildFeatures {
         viewBinding true
         dataBinding true
 }
-```
-
-バージョン2.0以下をご利用の場合以下のようになります。
-```groovy
-  implementation 'com.rakuten.android.ads:rewardsdknative:1.1.4'
 ```
 
 # Android Gradle Plugin 7.0

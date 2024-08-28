@@ -20,6 +20,7 @@
 
 | Version | Minimum SDK | Compile SDK |
 |---------|-------------|-------------|
+| 6.0.0   | API24 (7.0) | API 34      |
 | 5.4.1   | API24 (7.0) | API 34      |
 | 5.4.0   | API24 (7.0) | API 34      |
 | 5.3.0   | API24 (7.0) | API 34      |
@@ -89,7 +90,32 @@ allprojects {
 }
 ```
 
-Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.
+Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.  
+
+### Reward Android BoM (Bill of Materials)  
+The Reward Native Android BoM (Bill of Materials) enables you to manage all the library versions by specifying only one version - the BoM's version.  
+
+When you use the Reward Native BoM in your app, the BoM automatically pulls the individual library versions mapped to BoM's version. When you update the BoM's version in your app, all the libraries that you use in your app will update to the versions mapped to that BoM version.  
+
+Here's how to use Reward Native Android BoM to declare dependencies. When using the BoM, you don't specify individual library versions in the dependency lines.  
+```groovy
+
+dependencies {
+  // Import the BoM for the Reward Native platform
+  implementation platform('com.rakuten.android:rewardsdknative-bom:6.0.0')
+
+  // Declare the dependency for the core library
+  implementation 'com.rakuten.android:rewardsdknative-core' 
+  // Declare the dependency for the built-in UI
+  implementation 'com.rakuten.android:rewardsdknative-ui'
+}
+``` 
+Refer [here](./doc/faq/README.md#bom) for FAQ about BOM.  
+
+<details>
+  <summary>Pre-6.0.0</summary>
+
+If you want to use SDK version before 6.0.0, please follow the following:  
 
 ```groovy
   implementation 'com.rakuten.android:rewardsdknative-ui:5.4.1'
@@ -97,7 +123,11 @@ Next, open the app-level `build.gradle` file for your app, and look for a "depen
 If you don't use our built-in ui, you can skip "rewardsdknative-ui"
 ```groovy
   implementation 'com.rakuten.android:rewardsdknative-core:5.4.1'
-```
+```  
+
+</details>  
+<br>
+
 ※ rewardsdknative-ui module uses viewbinding and databinding.  
 If your app does not use both, please add following to build.gradle
 ```groovy
@@ -105,11 +135,6 @@ buildFeatures {
         viewBinding true
         dataBinding true
 }
-```
-
-If you need to use under 2.0.0, Plesae use following
-```groovy
-  implementation 'com.rakuten.android:rewardsdknative:1.1.4'
 ```
 
 # Android Gradle Plugin 7.0
@@ -128,6 +153,7 @@ Follow the guide below on how to request user consent.
 
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
+[SPS Feature](./doc/sps/README.md)  
 [Core API](./doc/core/README.md)  
 [API Data](./doc/apiData/README.md)  
 [User Consent](./doc/consent/README.md)  
