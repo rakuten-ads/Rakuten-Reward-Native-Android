@@ -19,14 +19,102 @@
       "attributes": {
         "org.gradle.category": "platform",
         "org.gradle.usage": "java-api"
-      }
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-client",
+          "version": {
+            "requires": "1.0.3"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-common",
+          "version": {
+            "requires": "1.0.1"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-core",
+          "version": {
+            "requires": "6.0.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-event",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-sps",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-ui",
+          "version": {
+            "requires": "6.0.0"
+          }
+        }
+      ]
     },
     {
       "name": "runtimeElements",
       "attributes": {
         "org.gradle.category": "platform",
         "org.gradle.usage": "java-runtime"
-      }
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-client",
+          "version": {
+            "requires": "1.0.3"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-common",
+          "version": {
+            "requires": "1.0.1"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-core",
+          "version": {
+            "requires": "6.0.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-event",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-sps",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.rakuten.android",
+          "module": "rewardsdknative-ui",
+          "version": {
+            "requires": "6.0.0"
+          }
+        }
+      ]
     }
   ]
 }
