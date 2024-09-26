@@ -6,6 +6,7 @@ Release Date: 2024/09/26
 
 * Introduce Missions Lite and Mission Details API [refer here](../core/RakutenReward.md#mission-lite-list)
 * SDK label text improvement
+* Support Korean and Simplified Chinese text
 
 ### Version 6.0.0
 <hr/>
