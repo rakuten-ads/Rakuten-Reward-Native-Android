@@ -3,6 +3,7 @@
 コンテンツ  
 * [MissionAchievementData](#missionachievementdata)  
 * [MissionData](#missiondata)  
+* [MissionLiteData](#missionlitedata)
 * [RakutenRewardPointHistory](#rakutenrewardpointhistory)  
 * [RakutenRewardPoint](#rakutenrewardpoint)  
 * [RakutenRewardUser](#rakutenrewarduser)  
@@ -51,6 +52,24 @@
 | reachedCap       | ミッション達成が上限に達したかどうか？                                                               | true                                                                        |
 | times            | ミッション達成に必要なアクション数                                                                 | 3                                                                           |
 | progress         | 現在のアクションの状態                                                                       | 1                                                                           |
+
+---
+
+## MissionLiteData  
+
+| パラメータ名           | 説明                                                                                | 例                                                                           |
+|------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| name             | ミッション名                                                                            | Mission A                                                                   |
+| actionCode       | アクションコード                                                                          | ZIJCjBeQBHac8nJa                                                            |
+| iconurl          | ミッションアイコンのURL                                                                     | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png |
+| instruction      | ミッションの説明文                                                                         | 1日1回プレイする                                                                   |
+| condition        | ミッションの達成条件                                                                        | 毎日10回達成可能                                                                   |
+| notificationtype | ミッションのノーティフィケーションタイプ                                                              | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250                          |
+| point            | ミッションのポイント                                                                        | 10                                                                          |
+| enddatestr       | ミッションの終了日 <br> 日次の場合 : Today<br> 週次 : 週の終わり<br> 月次 : 月の終わり<br> カスタム : 指定された日時<br> | 20190403                                                                    |
+| till             | ミッション終了日までの残り日数                                                                   | 残り3日                                                                        |
+| ext              | ミッションのための拡張データ                                                                    |                                                                             |
+| times            | ミッション達成に必要なアクション数                                                                 | 3                                                                           |
 
 ---
 

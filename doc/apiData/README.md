@@ -3,6 +3,7 @@
 Table of Contents  
 * [MissionAchievementData](#missionachievementdata)  
 * [MissionData](#missiondata)  
+* [MissionLiteData](#missionlitedata)  
 * [RakutenRewardPointHistory](#rakutenrewardpointhistory)  
 * [RakutenRewardPoint](#rakutenrewardpoint)  
 * [RakutenRewardUser](#rakutenrewarduser)  
@@ -51,6 +52,24 @@ Table of Contents
 | reachedCap       | This mission reached achievement limit of today                                                                                                      | true                                                                        |
 | times            | Required action times                                                                                                                                | 3                                                                           |
 | progress         | Current action progress                                                                                                                              | 1                                                                           |
+
+---
+
+## MissionLiteData  
+
+| Property name    | Description                                                                                                                                          | Example                                                                     |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| name             | Mission name                                                                                                                                         | Mission A                                                                   |
+| actionCode       | Action code                                                                                                                                          | ZIJCjBeQBHac8nJa                                                            |
+| iconurl          | Mission icon URL                                                                                                                                     | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png |
+| instruction      | Mission Instruction                                                                                                                                  | 1日1回プレイする                                                                   |
+| condition        | Mission condition                                                                                                                                    | 毎日10回達成可能                                                                   |
+| notificationtype | Mission Notification type                                                                                                                            | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250                          |
+| point            | Point for this mission                                                                                                                               | 10                                                                          |
+| enddatestr       | This mission's end date (String style) <br> Daily : Today<br> Weekly : End of this week<br> Monthly : End of this month<br> Custom : Custom date<br> | 20190403                                                                    |
+| till             | The rest days of this mission                                                                                                                        | 残り3日                                                                        |
+| ext              | Extension data for mission (future use) Map                                                                                                          |                                                                             |
+| times            | Required action times                                                                                                                                | 3                                                                           |
 
 ---
 

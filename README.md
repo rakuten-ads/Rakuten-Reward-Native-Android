@@ -20,6 +20,7 @@
 
 | Version | Minimum SDK | Compile SDK |
 |---------|-------------|-------------|
+| 6.1.0   | API24 (7.0) | API 34      |
 | 6.0.0   | API24 (7.0) | API 34      |
 | 5.4.1   | API24 (7.0) | API 34      |
 | 5.4.0   | API24 (7.0) | API 34      |
@@ -92,7 +93,7 @@ allprojects {
 
 Next, open the app-level `build.gradle` file for your app, and look for a "dependencies" section.  
 
- ### Reward Android BoM (Bill of Materials)  
+### Reward Android BoM (Bill of Materials)  
 The Reward Native Android BoM (Bill of Materials) enables you to manage all the library versions by specifying only one version - the BoM's version.  
 
 When you use the Reward Native BoM in your app, the BoM automatically pulls the individual library versions mapped to BoM's version. When you update the BoM's version in your app, all the libraries that you use in your app will update to the versions mapped to that BoM version.  
@@ -102,7 +103,7 @@ Here's how to use Reward Native Android BoM to declare dependencies. When using 
 
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:6.0.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:6.1.0')
 
   // Declare the dependency for the core library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -160,7 +161,7 @@ Follow the guide below on how to request user consent.
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/5.2.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/6.1.0/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History

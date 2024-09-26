@@ -1,5 +1,12 @@
 # Update History
 
+### Version 6.1.0
+<hr/>
+Release Date: 2024/09/26
+
+* Introduce Missions Lite and Mission Details API [refer here](../core/RakutenReward.md#mission-lite-list)
+* SDK label text improvement
+
 ### Version 6.0.0
 <hr/>
 Release Date: 2024/08/28

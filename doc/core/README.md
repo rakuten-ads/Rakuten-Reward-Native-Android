@@ -22,6 +22,8 @@ Refer [here](./RakutenReward.md) for the available API.
 | API Name                                                | Description                      |
 |---------------------------------------------------------|----------------------------------|
 | [getMissions](./RakutenReward.md#mission-list)          | Get missions                     |
+| [getMissionsLite](./RakutenReward.md#mission-lite-list) | Get mission lite list            |
+| [getMissionDetails](./RakutenReward.md#mission-details) | Get mission details              |
 | [getPointHistory](./RakutenReward.md#point-history)     | Get 3 month user's point history |
 | [logAction](./RakutenReward.md#post-mission-action)     | Post user action                 |
 | [getUnclaimedItems](./RakutenReward.md#unclaimed-items) | Get Unclaim item list            |

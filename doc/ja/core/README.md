@@ -22,6 +22,8 @@
 | API 名                                               | 説明                      |
 |-----------------------------------------------------|-------------------------|
 | [getMissions](./RakutenReward.md#ミッションリスト)          | ミッションリストを取得する           |
+| [getMissionsLite](./RakutenReward.md#ミッションリストライト版)  | ミッションライト版のリストを取得する      |
+| [getMissionDetails](./RakutenReward.md#ミッションの詳細)    | ミッションの詳細を取得する           |
 | [getPointHistory](./RakutenReward.md#ポイント履歴)        | 3ヶ月前までのポイント履歴を取得する      |
 | [logAction](./RakutenReward.md#アクションを送信する)          | ミッションを達成するためにアクションを送信する |
 | [getUnclaimedItems](./RakutenReward.md#未獲得ミッションリスト) | 未獲得ミッションリストを取得する        |

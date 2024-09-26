@@ -5,6 +5,8 @@ Table of Contents
 * [Public Methods](#public-methods)  
   * [RakutenRewardListener](#rakutenrewardlistener)  
   * [Mission List](#mission-list)  
+  * [Mission Lite List](#mission-lite-list)  
+  * [Mission Details](#mission-details)  
   * [Point History](#point-history)  
   * [Unclaimed Items](#unclaimed-items)  
   * [Init API](#init-api)  
@@ -45,29 +47,31 @@ RakutenReward.INSTANCE.getAppCode();
 <br>
 
 ## Public Methods  
-| Method Name                                           | Description                                              |
-|-------------------------------------------------------|----------------------------------------------------------|
-| [addRakutenRewardListener](#rakutenrewardlistener)    | Add Event Listener                                       |
-| clearAccessToken                                      | Clear Access Token                                       |
-| forceClaimClose                                       | Close claim UI forcibly                                  |
-| [getMissions](#mission-list)                          | Get the mission list                                     |
-| [getPointHistory](#point-history)                     | Get user's last 3 months point history                   |
-| [getUnclaimedItems](#unclaimed-items)                 | Get the list of unclaimed items                          |
-| [init](#init-api)                                     | Initialize Reward SDK                                    |
-| [logAction](#post-mission-action)                     | Post a mission action                                    |
-| [memberInfo](#member-informations)                    | Get the latest member info                               |
-| [openHelpPage](#open-reward-web-page)                 | Open Rakuten Reward Help Page                            |
-| [openPrivacyPage](#open-reward-web-page)              | Open Rakuten Reward Privacy Policy Page                  |
-| [openTCPage](#open-reward-web-page)                   | Open Rakuten Reward T&C Page                             |
-| [removeRakutenRewardListener](#rakutenrewardlistener) | Remove Event Listener                                    |
-| [requestForConsent](#request-for-consent)             | Request for consent if user have not provide consent yet |
-| [setRa](#set-rakuten-cookie)                          | Set Ra cookie                                            |
-| setRaeToken                                           | Set RAE Token                                            |
-| setRidToken                                           | Set RID Token                                            |
-| [setRp](#set-rakuten-cookie)                          | Set Rp cookie                                            |
-| [setRz](#set-rakuten-cookie)                          | Set Rz cookie                                            |
-| [startSession](#start-sdk-session)                    | Start SDK session                                        |  
-| [showConsentBanner](#user-consent-notification-banner)| Show User consent notification banner                    |
+| Method Name                                            | Description                                              |
+|--------------------------------------------------------|----------------------------------------------------------|
+| [addRakutenRewardListener](#rakutenrewardlistener)     | Add Event Listener                                       |
+| clearAccessToken                                       | Clear Access Token                                       |
+| forceClaimClose                                        | Close claim UI forcibly                                  |
+| [getMissions](#mission-list)                           | Get the mission list                                     |
+| [getMissionsLite](#mission-lite-list)                  | Get the mission lite list                                |
+| [getMissionDetails](#mission-details)                  | Get the mission details                                  |
+| [getPointHistory](#point-history)                      | Get user's last 3 months point history                   |
+| [getUnclaimedItems](#unclaimed-items)                  | Get the list of unclaimed items                          |
+| [init](#init-api)                                      | Initialize Reward SDK                                    |
+| [logAction](#post-mission-action)                      | Post a mission action                                    |
+| [memberInfo](#member-informations)                     | Get the latest member info                               |
+| [openHelpPage](#open-reward-web-page)                  | Open Rakuten Reward Help Page                            |
+| [openPrivacyPage](#open-reward-web-page)               | Open Rakuten Reward Privacy Policy Page                  |
+| [openTCPage](#open-reward-web-page)                    | Open Rakuten Reward T&C Page                             |
+| [removeRakutenRewardListener](#rakutenrewardlistener)  | Remove Event Listener                                    |
+| [requestForConsent](#request-for-consent)              | Request for consent if user have not provide consent yet |
+| [setRa](#set-rakuten-cookie)                           | Set Ra cookie                                            |
+| setRaeToken                                            | Set RAE Token                                            |
+| setRidToken                                            | Set RID Token                                            |
+| [setRp](#set-rakuten-cookie)                           | Set Rp cookie                                            |
+| [setRz](#set-rakuten-cookie)                           | Set Rz cookie                                            |
+| [startSession](#start-sdk-session)                     | Start SDK session                                        |  
+| [showConsentBanner](#user-consent-notification-banner) | Show User consent notification banner                    |
 
 ### RakutenRewardListener
 RakutenRewardListener is Rakuten Reward SDK basic function status change listener.  
@@ -134,6 +138,79 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionData>> = RakutenRewardCoroutine.getMissions()
+```  
+
+<br>
+
+### Mission Lite List  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+The following API return a list of [`MissionLiteData`](../apiData/README.md#missionlitedata) object.  
+**Recommend to use this API if you are not displaying mission progress**
+
+Kotlin  
+```kotlin
+RakutenReward.getMissionsLite({ missions ->
+    // get missions success
+}) {
+    // get missions failed
+}
+```  
+
+JAVA
+```java
+RakutenReward.getMissionsLiteJava(new GetMissionsLiteCallback() {
+    @Override
+    public void success(@NonNull List<MissionLiteData> list) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
+
+Coroutine  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+```kotlin
+val result : RewardApiResult<List<MissionLiteData>> = RakutenRewardCoroutine.getMissionsLite()
+```  
+
+<br>
+
+### Mission Details 
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+The following API return the [`MissionData`](../apiData/README.md#missiondata) object of the provided action code.  
+
+Kotlin  
+```kotlin
+RakutenReward.getMissionDetails("<actionCode>", { mission ->
+    // get mission success
+}) {
+    // get mission failed
+}
+```  
+
+JAVA
+```java
+RakutenReward.getMissionDetailsJava("<actionCode>", new GetMissionDetailsCallback() {
+    @Override
+    public void success(@NonNull MissionData missionData) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
+
+Coroutine  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+```kotlin
+val result : RewardApiResult<MissionData> = RakutenRewardCoroutine.getMissionDetails()
 ```  
 
 <br>

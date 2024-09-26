@@ -5,6 +5,8 @@
 * [公開メソッド](#公開メソッド)  
   * [RakutenRewardListener](#rakutenrewardlistener)  
   * [ミッションリスト](#ミッションリスト)  
+  * [ミッションリストライト版](#ミッションリストライト版)  
+  * [ミッションの詳細](#ミッションの詳細)  
   * [ポイント履歴](#ポイント履歴)  
   * [未獲得ミッションリスト](#未獲得ミッションリスト)  
   * [Init API](#init-api)  
@@ -51,6 +53,8 @@ RakutenReward.INSTANCE.getAppCode();
 | clearAccessToken                                      | トークンを取り除く                  |
 | forceClaimClose                                       | ポイントクレイムUI強制的に閉じる          |
 | [getMissions](#ミッションリスト)                              | ミッションリストを取得する              |
+| [getMissionsLite](#ミッションリストライト版)                      | ミッションライト版のリストを取得する         |
+| [getMissionDetails](#ミッションの詳細)                        | ミッションの詳細を取得する              |
 | [getPointHistory](#ポイント履歴)                            | 3ヶ月前までのポイント履歴を取得する         |
 | [getUnclaimedItems](#未獲得ミッションリスト)                     | 未獲得ミッションリストを取得する           |
 | [init](#init-api)                                     | リワードSDKの初期化                |
@@ -67,7 +71,7 @@ RakutenReward.INSTANCE.getAppCode();
 | [setRp](#クッキーをセットする)                                  | Rp クッキーをセットする              |
 | [setRz](#クッキーをセットする)                                  | Rz クッキーをセットする              |
 | [startSession](#SDK-セッションを開始)                         | SDK セッションを開始               |  
-| [showConsentBanner](#通知バナーを表示する) | 通知バナーを表示する |
+| [showConsentBanner](#通知バナーを表示する)                      | 通知バナーを表示する                 |
 
 ### RakutenRewardListener
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです  
@@ -79,8 +83,8 @@ RakutenRewardListener 楽天リワードのイベントに関するリスナー�
 | fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された     |
 | fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた       |
 | fun onSDKConsentClosed()                                                                               | 同意ダイアログが閉じた      |
-| fun onSDKConsentPresented()                                                                            | 同意ダイアログが提示される  |
-| fun onSDKClaimPresented(missionAchievementData: MissionAchievementData)                                | クレイムUIが提示される    | 
+| fun onSDKConsentPresented()                                                                            | 同意ダイアログが提示される    |
+| fun onSDKClaimPresented(missionAchievementData: MissionAchievementData)                                | クレイムUIが提示される     | 
 <br>
 
 **RakutenRewardListenerを加える**  
@@ -134,6 +138,79 @@ RakutenReward.getMissionsJava(new GetMissionsCallback() {
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionData>> = RakutenRewardCoroutine.getMissions()
+```  
+
+<br>
+
+### ミッションリストライト版  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+こちらの API は [`MissionLiteData`](../apiData/README.md#missionlitedata) オブジェクトのリストを戻る。　　
+**ミッションの進捗を表示されないされない場合にはこの　API をおすすめです**
+
+Kotlin  
+```kotlin
+RakutenReward.getMissionsLite({ missions ->
+    // 成功
+}) {
+    // 失敗
+}
+```  
+
+JAVA
+```java
+RakutenReward.getMissionsLiteJava(new GetMissionsLiteCallback() {
+    @Override
+    public void success(@NonNull List<MissionLiteData> list) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
+
+コルーチン  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+```kotlin
+val result : RewardApiResult<List<MissionLiteData>> = RakutenRewardCoroutine.getMissionsLite()
+```  
+
+<br>
+
+### ミッションの詳細　　 
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+こちらの API は提供された　action codeの[`MissionData`](../apiData/README.md#missiondata) オブジェクトを戻る。　　　　
+
+Kotlin  
+```kotlin
+RakutenReward.getMissionDetails("<actionCode>", { mission ->
+    // 成功
+}) {
+    // 失敗
+}
+```  
+
+JAVA
+```java
+RakutenReward.getMissionDetailsJava("<actionCode>", new GetMissionDetailsCallback() {
+    @Override
+    public void success(@NonNull MissionData missionData) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
+
+コルーチン  
+[![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
+```kotlin
+val result : RewardApiResult<MissionData> = RakutenRewardCoroutine.getMissionDetails()
 ```  
 
 <br>
@@ -217,7 +294,7 @@ val result : RewardApiResult<List<MissionAchievementData>> = RakutenRewardCorout
 RakutenReward.init("<appCode>")
 ```  
 
-| パラメータ名  | 説明 |
+| パラメータ名  | 説明                                      |
 |---------|-----------------------------------------|
 | AppCode | アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます) | 
 
