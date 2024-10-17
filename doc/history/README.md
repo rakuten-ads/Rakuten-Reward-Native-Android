@@ -1,5 +1,13 @@
 # Update History
 
+### Version 6.2.0
+<hr/>
+Release Date: 2024/10/xx
+
+* Introduce JS x Native feature [refer here](../extension/README.md)  
+* Bug Fix
+    * Fixed the issue where notification is not shown when LogAction API is called after SDK Portal is closed
+
 ### Version 6.1.0
 <hr/>
 Release Date: 2024/09/26
