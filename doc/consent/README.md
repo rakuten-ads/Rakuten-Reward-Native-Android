@@ -10,7 +10,6 @@ Table of Contents
 * [Sample Use Case](#sample-use-case)
     * [When to request user consent](#when-to-request-user-consent)
     * [Log Mission Action](#log-mission-action)
-* [How to Test](#how-to-test)
 
 ---
 # Request User Consent feature Overview
