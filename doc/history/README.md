@@ -1,5 +1,14 @@
 # Update History
 
+### Version 7.0.0
+<hr/>
+Release Date: 2024/10/30
+
+* Android 15 (API 35) Support  
+* SPS Module : 
+    * Opt Out Mission feature [refer here](../sps/README.md#opt-out-mission-feature)  
+    * SPS Portal support Korean, Traditional and Simplified Chinese text
+
 ### Version 6.2.0
 <hr/>
 Release Date: 2024/10/xx

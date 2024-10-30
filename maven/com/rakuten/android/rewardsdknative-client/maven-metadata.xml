@@ -3,14 +3,15 @@
   <groupId>com.rakuten.android</groupId>
   <artifactId>rewardsdknative-client</artifactId>
   <versioning>
-    <latest>1.0.3</latest>
-    <release>1.0.3</release>
+    <latest>1.1.0</latest>
+    <release>1.1.0</release>
     <versions>
       <version>1.0.0</version>
       <version>1.0.1</version>
       <version>1.0.2</version>
       <version>1.0.3</version>
+      <version>1.1.0</version>
     </versions>
-    <lastUpdated>20240828034931</lastUpdated>
+    <lastUpdated>20241030015947</lastUpdated>
   </versioning>
 </metadata>

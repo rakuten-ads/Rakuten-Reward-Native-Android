@@ -127,4 +127,11 @@ RakutenRewardConfig.setTheme(MissionTheme.Panda)
 
 // or set to Simple theme
 RakutenRewardConfig.setTheme(MissionTheme.Simple)
+```  
+
+# Opt Out Mission Feature  
+If your application is not intended to use any mission features, use the following API to opt out mission feature.  
+```kotlin  
+// set true to opt out. By default the value is false
+RakutenRewardConfig.setOptOutMissionFeatures(true)
 ```
