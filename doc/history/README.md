@@ -1,5 +1,12 @@
 # Update History
 
+### Version 6.0.1
+<hr/>
+Release Date: 2024/11/20
+
+* SPS Module : 
+    * Remove `READ_MEDIA_IMAGES` Permission
+
 ### Version 7.0.0
 <hr/>
 Release Date: 2024/10/30
