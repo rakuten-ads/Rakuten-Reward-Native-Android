@@ -44,13 +44,6 @@
         },
         {
           "group": "com.rakuten.android",
-          "module": "rewardsdknative-event",
-          "version": {
-            "requires": "1.1.0"
-          }
-        },
-        {
-          "group": "com.rakuten.android",
           "module": "rewardsdknative-sps",
           "version": {
             "requires": "1.0.3"
@@ -91,13 +84,6 @@
           "module": "rewardsdknative-core",
           "version": {
             "requires": "6.0.1"
-          }
-        },
-        {
-          "group": "com.rakuten.android",
-          "module": "rewardsdknative-event",
-          "version": {
-            "requires": "1.1.0"
           }
         },
         {
