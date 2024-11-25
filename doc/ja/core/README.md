@@ -1,7 +1,7 @@
 [TOP](../README.md#top)　> コア API  
 
 コンテンツ    
-* [RakutenReward](#rakutenauth)  
+* [RakutenReward](#rakutenreward)  
 * [RakutenRewardCoroutine](#rakutenrewardcoroutine)  
 * [RakutenAuth](#rakutenauth)  
 * [RakutenRewardConfig](#rakutenrewardconfig)  
