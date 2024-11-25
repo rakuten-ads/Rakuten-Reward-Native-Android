@@ -7,7 +7,6 @@ Table of Contents
     * [Does Reward SDK collect end user's Advertising ID (ADID)?](#does-reward-sdk-collect-end-users-advertising-id-adid)
     * [How to opt out collecting end user's Advertising ID (ADID)?](#how-to-opt-out-collecting-end-users-advertising-id-adid)  
     * [Build Error - unable to find valid certification path to requested target](#build-error---unable-to-find-valid-certification-path-to-requested-target)  
-    * [I've integrated Reward SDK version 6.1.0, and the app crash when I enable obfuscation](#ive-integrated-reward-sdk-version-610-and-the-app-crash-when-i-enable-obfuscation)
 * [Login Related](#login-related)
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
     * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
@@ -144,25 +143,6 @@ After accepting the cert to the trust store, restart Android Studio and Gradle s
 </details>  
 
 If both the approach above doesn't help, please contact the developer team. 
-</details>  
-
-### I've integrated Reward SDK version 6.1.0, and the app crash when I enable obfuscation  
-![crash-log](crash-log.png)  
-The following SDK versions are affected with the exception above:  
-* 6.1.0  
-* 6.2.0  
-* 7.0.0
-
-This issue has been fixed in SDK version 7.0.1.  
-<details>
-    <summary>Answer</summary>  
-
-If you cannot upgrade the SDK version, please add the following to your `proguard-rules.pro` file.  
-
-```  
--keep class com.rakuten.gap.ads.mission_remote.** { *; }
-```  
-
 </details>
 
 ## Login Related
@@ -268,7 +248,7 @@ RakutenReward.init(<AppKey>)
 ></application>
 >```
 
-Then check is the Activity class which call the API had use one of the options [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-ways) to start the SDK. 
+Then check is the Activity class which call the API had use one of the options [here](../basic/README.md#initialize-sdk) to start the SDK. 
 
 If both the above are setup correctly, wait for the SDK status changed to <code>ONLINE</code> before calling the API. Status changed will be triggered in the method below.
 ```kotlin
@@ -510,7 +490,3 @@ No. To actually add and use Reward Native libraries in your app, you must declar
 
 Using the BOM ensures that the versions of any Reward Native libraries in your app are compatible, but the BOM doesn't actually add those libraries to your app.  
 </details>   
-
----
-LANGUAGE :
-> [![ja](../lang/ja.png)](../ja/faq/README.md)  

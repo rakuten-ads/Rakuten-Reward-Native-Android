@@ -1,208 +1,73 @@
-[TOP](../README.md#top)　>　FAQ
+[TOP](../../README.md#top)　>　FAQ
 
-コンテンツ
-* [一般](#一般)
-    * [Reward SDKはJAVAまたはKotlinで書かれていますか？私のアプリケーションは完全にJAVAで書かれていますが、Reward SDKを使用するのに問題はありますか？](#reward-sdkはjavaまたはkotlinで書かれていますか私のアプリケーションは完全にjavaで書かれていますがreward-sdkを使用するのに問題はありますか)
-    * [開発/テストのためにステージング環境にアクセスできますか？](#開発テストのためにステージング環境にアクセスできますか)
-    * [Reward SDKはエンドユーザーの広告ID（ADID）を収集しますか？](#reward-sdkはエンドユーザーの広告idadidを収集しますか)
-    * [エンドユーザーの広告ID（ADID）の収集をオプトアウトする方法は？](#エンドユーザーの広告idadidの収集をオプトアウトする方法は)  
-    * [ビルドエラー - 要求されたターゲットへの有効な証明パスが見つかりません](#ビルドエラー---要求されたターゲットへの有効な証明パスが見つかりません)  
-    * [Reward SDKバージョン6.1.0を統合しましたが、難読化を有効にするとアプリがクラッシュします。](#reward-sdkバージョン610を統合しましたが難読化を有効にするとアプリがクラッシュします)
-* [ログイン関連](#ログイン関連)
-    * [Rakuten Authログインとは何ですか？](#rakuten-authログインとは何ですか)
-    * [RID / RAEログインオプションを使用していますが、ユーザーがログアウトしたときに `RakutenAuth.logout` APIを呼び出す必要がありますか？](#rid--raeログインオプションを使用していますがユーザーがログアウトしたときに-rakutenauthlogout-apiを呼び出す必要がありますか)
-    * [`RakutenAuth.openLoginPage` APIは`Fragment`クラスで呼び出すことができますか？](#rakutenauthopenloginpage-apiはfragmentクラスで呼び出すことができますか)
-* [実装関連](#実装関連)
-    * [APIが常に`SDKNOTACTIVE`エラーを返します。原因は何ですか？](#apiが常にsdknotactiveエラーを返します原因は何ですか)
-    * [毎日アプリを起動するミッションがあります。どのように実装すればよいですか？](#毎日アプリを起動するミッションがありますどのように実装すればよいですか)
-    * [カスタム通知UIをどのように実装できますか？](#カスタム通知uiをどのように実装できますか)
-    * [ミッションが達成された後、どのようにミッションをクレームしますか？](#ミッションが達成された後どのようにミッションをクレームしますか)
-    * [`onSDKStatusChanged`や`onUnclaimedAchievement`をどのように実装しますか？](#onsdkstatuschangedやonunclaimedachievementをどのように実装しますか)
-    * [SDKポータルが閉じられたイベントを検出することは可能ですか？](#sdkポータルが閉じられたイベントを検出することは可能ですか)
-    * [`RakutenReward.setRaeToken` / `RakutenReward.setRIdToken`を使用してトークンを設定した後も、SDKのステータスがオフラインのままです。](#rakutenrewardsetraetoken--rakutenrewardsetridtokenを使用してトークンを設定した後もsdkのステータスがオフラインのままです)  
-* [BOM](#bom)  
-    * [BOMを使用する必要がありますか？](#bomを使用する必要がありますか)  
-    * [BOMで指定されたバージョンとは異なるライブラリバージョンを使用するにはどうすればよいですか？](#bomで指定されたバージョンとは異なるライブラリバージョンを使用するにはどうすればよいですか)  
-    * [BOMは自動的にすべてのライブラリをアプリに追加しますか？](#bomは自動的にすべてのライブラリをアプリに追加しますか)
+Table of Contents
+* [General](#general)
+    * [Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?](#reward-sdk-is-written-in-java-or-kotlin-my-applcation-is-written-in-java-fully-is-there-any-problem-using-the-reward-sdk)
+    * [Can we access the staging environment for development / testing?](#can-we-access-the-staging-environment-for-development--testing)
+* [Login Related](#login-related)
+    * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
+    * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
+    * [Can RakutenAuth.openLoginPage API be call in Fragment class?](#can-rakutenauthopenloginpage-api-be-call-in-fragment-class)
+* [Implementation Related](#implementation-related)
+    * [The API always return SDKNOTACTIVE error. What could be the cause?](#the-api-always-return-sdknotactive-error-what-could-be-the-cause)
+    * [I have a daily launch app mission. How should I implement it?](#i-have-a-daily-launch-app-mission-how-should-i-implement-it)
+    * [How can I implement the custom notification UI?](#how-can-i-implement-the-custom-notification-ui)
+    * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)
+    * [How do I implement onSDKStatusChanged or onUnclaimedAchievement?](#how-do-i-implement-onsdkstatuschanged-or-onunclaimedachievement)
+    * [Is it possible to detect SDK Portal closed event?](#is-it-possible-to-detect-sdk-portal-closed-event)
 
 ---
 # FAQ
 
-## 一般 
-
-### Reward SDKはJAVAまたはKotlinで書かれていますか？私のアプリケーションは完全にJAVAで書かれていますが、Reward SDKを使用するのに問題はありますか？
+## 全般的 
+---
+### Reward SDKはJAVAかKotlinで書かれたですか？私のアプリはJAVAで書かれたが、Reward SDKを使うなら何か問題がありますか？
 <details>
     <summary>回答</summary>
-Reward SDKは完全にKotlinで書かれています。
+Reward SDKはKotlinで書かれた。
 
-Reward SDKはJAVAもサポートしていますが、APIの呼び出しにいくつかの違いがあるかもしれません。
+Reward SDKはJAVAでもサポートできますが、APIを呼ぶにはすこし違うところがあります。
 
-詳細については[こちら](../java/README.md)を参照してください。
+詳しいことは[ここ](../java/README.md)に参考してください。
 
 </details>
 
 <br>
 
-### 開発/テストのためにステージング環境にアクセスできますか？
+### 開発/テストのために、ステージング環境にはアクセスできますか？
 <details>
     <summary>回答</summary>
-いいえ、現在、開発者向けにステージング環境は提供していません。開発/テストには開発モードまたはテストアカウントを使用してください。
+現在、開発/テストのために、ステージング環境は提供しておりません。
+開発モードかもしくはテスト用のアカウントをご利用ください。
 
 </details>
 
 <br>
-
-### Reward SDKはエンドユーザーの広告ID（ADID）を収集しますか？
-<details>
-    <summary>回答</summary>
-はい、Reward SDKはユーザーの広告ID（ADID）を収集します。 
-
-Reward SDKは広告の最適化のためにADIDを使用します。  
-
-</details>
-
-<br>
-
-### エンドユーザーの広告ID（ADID）の収集をオプトアウトする方法は？
-<details>
-    <summary>回答</summary>
-Reward SDKはGoogle Playライブラリの広告識別子を使用してユーザーのADIDを収集します。ユーザーのADIDの収集を停止するには、以下の変更を加えてください：
-
-`app/build.gradle` ファイルに以下を追加して、広告識別子ライブラリを削除します。
-```groovy
-implementation ('com.rakuten.android:rewardsdknative-ui:x.x.x') {
-    exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
-} 
-```
-
-`AndroidManifest`ファイルに以下を追加して、ADIDの権限を無効にします。
-```xml
-<uses-permission 
-    android:name="com.google.android.gms.permission.AD_ID"
-    tools:node="remove" />
-```
-
-Reward SDKがユーザーのADIDを収集しなくなったことを確認するには、以下のログをチェックしてください：
-
-![logcat](log.png)
-
-</details>
-
-<br>
-
-### ビルドエラー - 要求されたターゲットへの有効な証明パスが見つかりません  
-Reward SDKの依存関係をインポートする際にビルドエラーが発生しました。このエラーを解決する方法は？ 
-![error-log](build_error_log.png)  
-
-<details>
-    <summary>回答</summary>  
-
-この問題を解決するためのアプローチは2つあります。  
-
-<details>
-    <summary>1. Gradle JDKを更新する</summary>
-
-Android StudioでGradle JDKを更新する方法   
-1. プロジェクト構造を開く:  
-    * File > Project Structureを選択し、Gradle Settingsをクリックします。  
-![project-structure](jdk1.png)  
-
-2. JDKを選択する:  
-    * デフォルトのAndroid Studio JDKを使用しないでください。他のJDKがある場合は、そのJDKを選択します。ない場合は、新しいJDKをダウンロードしてください。 
-![add-jdk](jdk2.png)  
-![jdk](jdk3.png)  
-
-3. 新しいJDKを選択する:  
-    * 新しいJDKをダウンロードした後、そのJDKバージョンを選択してOKをクリックします。    
-
-4. Gradleプロジェクトを再同期する:  
-    * Gradleがプロジェクトを再同期するのを待ちます。  
-
-これで、Gradle JDKの更新が完了し、ビルドエラーが解決されるはずです。  
-
-</details>
-
-<details>
-    <summary>2. CA証明書をインポートする方法</summary>
-
-ステップ1: CA証明書をダウンロードする  
-1. CA証明書をダウンロードする:  
-    * ブラウザで以下のリンクを開きます: https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven/com/rakuten/android/rewardsdknative-ui/3.4.2/rewardsdknative-ui-3.4.2.pom  
-    * Google Chromeでリンクを開き、ロックアイコンをクリックしてCA証明書をダウンロードします。     
-![ca-cert](ca-cert1.png)  
-
-ステップ2: CA証明書をJAVAトラストストアにインポートする  
-1. Android Studio Gradle JDKの場所を確認する:  
-    * Android Studioを開き、File > Project Structure > SDK Locationに移動します。   
-![jdk-location](ca-cert2.png)  
-
-2. スクリプトを実行する:  
-    * `JDK-location`は上記で確認したJDKのパスです。以下のコマンドを実行します：  
-```bash
-cd <JDK-location>/Contents/Home
-```  
-
-3. 証明書をJAVAトラストストアにインポートする:  
-    * `cert-path`はダウンロードしたCA証明書のパスです。以下のコマンドを実行します：      
-```bash
-./bin/keytool -importcert -keystore lib/security/cacerts -storepass changeit -file <cert-path> -alias "github_cert"
-```  
-
-4. 証明書をトラストストアに受け入れる:  
-    * 証明書をトラストストアに受け入れた後、Android Studioを再起動し、Gradleを再同期します。  
-
-これで、CA証明書のインポートが完了し、ビルドエラーが解決されるはずです。  
-
-</details>  
-
-上記のアプローチのどちらも問題を解決しない場合は、開発チームに連絡してください。   
-</details>  
-
-### Reward SDKバージョン6.1.0を統合しましたが、難読化を有効にするとアプリがクラッシュします。  
-![crash-log](crash-log.png)  
-以下のSDKバージョンは、上記の例外の影響を受けます：  
-* 6.1.0  
-* 6.2.0  
-* 7.0.0
-
-この問題はSDKバージョン7.0.1で修正されています。    
-<details>
-    <summary>回答</summary>  
-    
-SDKバージョンをアップグレードできない場合は、以下のルールを`proguard-rules.pro`ファイルに追加してください。  
-
-```  
--keep class com.rakuten.gap.ads.mission_remote.** { *; }
-```  
-
-</details>
 
 ## ログイン関連
-
-### Rakuten Authログインとは何ですか？
+---
+### Rakuten Auth loginとはなんですか？
 <details>
     <summary>回答</summary>
-RakutenAuthログインオプションは、サードパーティ向けのものです。例えば、Rakutenの外部アプリで、RakutenのログインSDK（RIDまたはRAE）を使用していないアプリが対象です。そのため、これらのアプリはRakutenAuthログインオプションを使用できます。  
-
-もしあなたのアプリがすでにRakutenのログインSDKを使用している場合、このログインオプションを使用する必要はありません。 
+RakutenAuth login オプションは楽天のログインをアプリで持っていらっしゃらないアプリケーション向けに提供しております(楽天のアプリケーションでログイン関連のSDKをご利用の場合はこちらを使用しなくても良いです)。
 
 </details>
 
 <br>
 
-### RID / RAEログインオプションを使用していますが、ユーザーがログアウトしたときに `RakutenAuth.logout` APIを呼び出す必要がありますか？
+### 私はRID/RAEのログオンオプションを使っている、ユーザーがログアウト際に`RakutenAuth.logout` APIを呼ぶのは必要ですか？
 <details>
-    <summary>回答</summary>  
-Reward SDKバージョン<strong>3.1.1</strong>以降を使用している場合、どのログインオプションを使用しているかに関わらず、トークンとデータを適切にクリアするためにログアウトAPIを呼び出す必要があります。  
+    <summary>回答</summary>
+Reward SDKバージョン<strong>３.１.１</strong>以上を使っている場合、どんなログインオプションを使うでも`RakutenAuth.logout` APIを呼ぶのは必要です。 
 
 ```kotlin
 RakutenAuth.logout(object : LogoutResultCallback {
     override fun logoutSuccess() {
-        //logout completed
+        //ログアウト成功
     }
 
     override fun logoutFailed(e: RakutenRewardAPIError) {
-        //logout failed
+        //ログアウト失敗
     }
 })
 ```
@@ -211,13 +76,12 @@ RakutenAuth.logout(object : LogoutResultCallback {
 
 <br>
 
-### `RakutenAuth.openLoginPage` APIは`Fragment`クラスで呼び出すことができますか？
+### `RakutenAuth.openLoginPage` API は `Fragment` クラスで呼ぶことができますか?
 <details>
-    <summary>回答</summary>  
+    <summary>回答</summary>
+はい、できます。FragmentクラスでFragmentのインスタンスを提供して、Fragmentクラスの<code>onActivityResult</code> がトリガーされます。
 
-はい、`Fragment`クラスでAPIを呼び出すことができます。`Fragment`インスタンスを提供することで、`onActivityResult`が`Fragment`クラス内でトリガーされます。  
-
-サンプル実装
+Sample implementation
 ```kotlin
 class TestLoginFragment : Fragment() {
     companion object {
@@ -225,11 +89,8 @@ class TestLoginFragment : Fragment() {
     }
      
     private fun login() {
-        // Fragmentインスタンスを提供してログインページを開く
+        // requireActivity()じゃなくて、Fragmentのインスタンスを提供して
         RakutenAuth.openLoginPage(this, LOGIN_REQ_CODE)
-         
-        // これはActivityクラス内でonActivityResultがトリガーされる
-        // RakutenAuth.openLoginPage(requireActivity(), LOGIN_REQ_CODE)
     }
  
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -238,7 +99,7 @@ class TestLoginFragment : Fragment() {
             if (resultCode == RESULT_OK) {
                 RakutenAuth.handleActivityResult(data, object : LoginResultCallback {
                     override fun loginSuccess() {
-                        // login success
+                        // ログイン成功
                     }
  
                     override fun loginFailed(e: RakutenRewardAPIError) {
@@ -257,37 +118,26 @@ class TestLoginFragment : Fragment() {
 
 <br>
 
-## 実装関連
-
-### APIが常に`SDKNOTACTIVE`エラーを返します。原因は何ですか？
+## 開発関連
+---
+### APIはいつも`SDKNOTACTIVE`のエラーを返す。原因は何ですか？
 <details>
     <summary>回答</summary>
 
-このエラーは、Reward SDKがまだ開始されておらず、データの同期が行われていないことを意味します。  
+このエラーはReward SDKがまだアクティブにしてない意味です。
 
-まず、Applicationクラスで初期化APIが呼び出されているか確認し、提供されたApp Keyが正しいかどうかを確認してください。  
+まずはApplicationクラスで初期化APIを呼ぶのかチェックして、提供したApp Codeが正しいか確認してください。
 ``` kotlin
-RakutenReward.init(<AppKey>)
+RakutenReward.init(<AppCode>)
 ```
->**\*バージョン3.3.0以降では、手動での初期化は不要になりました。**
->
->アプリケーションのAndroidManifest.xmlに`App Key`を以下のように設定してください：
->```xml
-><application>
->    <!-- Reward SDK Application Key -->
->    <meta-data
->        android:name="com.rakuten.gap.ads.mission_core.appKey"
->        android:value="{Application Key}"/>
-></application>
->```
 
-次に、APIを呼び出すActivityクラスが、[こちら](../basic/README.md#activity-と紐づけてsdk機能をアクティブにする)のオプションのいずれかを使用してSDKを開始しているか確認してください。  
+次はAPIを呼ぶのActivityクラスで[ここ](../basic/README.md#楽天リワードSDKポータル)のオプションを使うのかとチェックしてください。
 
-上記の設定が正しく行われている場合、APIを呼び出す前にSDKのステータスが`ONLINE`に変更されるのを待ちます。ステータスの変更は以下のメソッドでトリガーされます：  
+もし以上のセットアップが正しくしたら、APIを呼ぶ前にSDKのステータスが<code>ONLINE</code>に変えるまでに待ってください。 
 ```kotlin
 override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
     if (status == RakutenRewardSDKStatus.ONLINE) {
-        // SDKがアクティブになりました。ここでAPIを呼び出します。
+        // SDKはもうアクティブになった、ここでAPIを呼ぶ
     }
 }
 ```
@@ -295,20 +145,20 @@ override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
 
 <br>
 
-### 毎日アプリを起動するミッションがあります。どのように実装すればよいですか？
+### I have a daily launch app mission. How should I implement it?
 <details>
-    <summary>回答</summary>
+    <summary>Answer</summary>
 
-ユーザーがアプリを起動するたびにミッションのアクションコードをログに記録するには、まずSDKのステータスが`ONLINE`に変更されるのを待つ必要があります。これは、Reward SDKがデータを同期するために時間が必要なためです。   
+To log the mission's action code everytime user launch the app, you should wait the SDK status changed to <code>ONLINE</code> first. This is due to Reward SDK require some time to sync up data. 
 
-ステータスの変更は以下のメソッドでトリガーされます：  
+The status changed will be triggered in the method below.
 ```kotlin
 override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
     if (status == RakutenRewardSDKStatus.ONLINE) {
         RakutenReward.logAction(<ActionCode>, {
-            // アクションのログ記録に成功
+            // log action success
         }) {
-            // アクションのログ記録に失敗
+            // log action failed
         }
     }
 }
@@ -317,27 +167,27 @@ override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
 
 <br>
 
-### カスタム通知UIをどのように実装できますか？  
+### カステムでミッションのノーティフィケーションを作りたい
 <details>
     <summary>回答</summary>
-例えば、ミッションAは3回のアクションログが必要です。
+例えば、 Mission A は 3 回のアクションを必要とします。
 
 ```kotlin
 RakutenReward.logAction(<ActionCode>, {
-    // アクションのログ記録に成功
+    // ログアクション成功
 }) {
-    // アクションのログ記録に失敗
+    // ログアクション失敗
 }
 ```
-上記の`logAction` APIが3回成功すると、ミッションAが達成され、`RakutenRewardListener`の`onUnclaimedAchievement`メソッドがトリガーされます。  
+logAction API が3回呼ばれると Mission A は達成します。そして、<code>RakutenRewardListener</code>の<code>onUnclaimedAchievement</code>がトリガーされます。
 
-カスタムUIを表示するためのサンプル実装  
+カスタムノーティフィケーションを表示する例
 ```kotlin
 override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
-    if (achievement.custom // 通知タイプがCUSTOMかどうかを確認
-        && RakutenRewardConfig.isUiEnabled() // ユーザーがUI設定を有効にしているかどうかを確認
+    if (achievement.custom // タイプを確認
+        && RakutenRewardConfig.isUiEnabled() // ユーザのUI設定を確認
     ) {
-        // メインスレッドでカスタムUIを表示
+        // UIを Main スレッドで表示する
     }
 }
 ```
@@ -346,50 +196,49 @@ override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
 
 <br>
 
-### ミッションが達成された後、どのようにミッションをクレームしますか？  
+### How do I claim mission after a mission is achieved?
 <details>
-    <summary>回答</summary>  
-
-クレームAPIは`MissionAchievementData`オブジェクトで利用できます。   
+    <summary>Answer</summary>
+Claim API is available in the <code>MissionAchievementData</code> object. 
 
 ```kotlin
 achievement.claim({
-    // クレーム成功
+    // claim success
 }) {
-    // クレーム失敗
+    // claim failed
 }
 ```
 
-`MissionAchievementData`オブジェクトを取得する方法は2つあります。  
+There are 2 ways to get <code>MissionAchievementData</code> object. 
 
-1つ目は、ユーザーがCUSTOM通知タイプのミッションを達成したときに`onUnclaimedAchievement`がトリガーされる場合です。  
+First is when user achieved a CUSTOM notification type mission, <code>onUnclaimedAchievement</code> will be triggered.
 
 ```kotlin
 override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
-    if (achievement.custom // 通知タイプがCUSTOMかどうかを確認
-        && RakutenRewardConfig.isUiEnabled() // ユーザーがUI設定を有効にしているかどうかを確認
+    if (achievement.custom // check is notification type CUSTOM
+        && RakutenRewardConfig.isUiEnabled() // check if user enable the UI setting
     ) {
-        // メインスレッドでカスタムUIを表示し、以下を呼び出してミッションをクレーム
+        // Show custom UI in MAIN thread and call the following to claim mission
         achievement.claim({
-            // クレーム成功
+            // claim success
         }) {
-            // クレーム失敗
+            // claim failed
         }
     }
 }
 ```
 
-2つ目は、未クレームアイテムを取得するAPIを呼び出す方法です。  
+Second is by calling get unclaim items API.
 
 ```kotlin
 RakutenReward.getUnclaimedItems({ unclaimList ->
     unclaimList[0].claim({
-        // クレーム成功
+        // claim success
     }) {
-        // クレーム失敗
+        // claim failed
     }
 }) {
-    // 未クレームアイテムの取得に失敗
+    // get unclaim items failed
 }
 ```
 
@@ -397,35 +246,34 @@ RakutenReward.getUnclaimedItems({ unclaimList ->
 
 <br>
 
-### `onSDKStatusChanged`や`onUnclaimedAchievement`をどのように実装しますか？
+### How do I implement `onSDKStatusChanged` or `onUnclaimedAchievement`?
 <details>
-    <summary>回答</summary>
-
-`onSDKStatusChanged`や`onUnclaimedAchievement`は、`RakutenRewardListener`のメソッドです。`RakutenRewardListener`の新しいオブジェクトを作成し、各メソッドに対する実装を提供します。  
+    <summary>Answer</summary>
+onSDKStatusChanged, onUnclaimAchievement are methods in RakutenRewardListener. Create a new object of RakutenRewardListener and provide your implementation for each methods.
 
 ```kotlin
 val listener = object : RakutenRewardListener {
     override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
-        // ユーザーがミッションを達成しました。これは主にCUSTOM通知タイプに使用されます。
+        // user achieved a mission. This is mainly used for CUSTOM notification type.
     }
  
     override fun onUserUpdated(user: RakutenRewardUser) {
-        // ユーザーデータが更新されました
+        // user data is updated
     }
  
     override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
-        // Reward SDKのステータスが変更されました
+        // Reward SDK status changed
     }
  
     override fun onSDKClaimClosed(
         missionAchievementData: MissionAchievementData,
         status: RakutenRewardClaimStatus
     ) {
-        // クレームビューが閉じられました
+        // claim view is closed
     }
 }
-```  
-次に、リスナーオブジェクトを追加または削除するために以下のAPIを呼び出します。メモリリークを防ぐために、リスナーを削除するAPIが必要です。  
+```
+Then call the following APIs to add or remove the listener object. Remove listener API is required to prevent memory leak.
 
 ```kotlin
 override fun onResume() {
@@ -438,19 +286,18 @@ override fun onPause() {
     RakutenReward.removeRakutenRewardListener(listener)
 }
 ```
-> :grey_exclamation:  **`RakutenRewardBaseActivity`を使用してSDKを開始している場合、上記の手順は不要です。`RakutenRewardBaseActivity`クラスが既にこれを処理しているため、必要なメソッドをオーバーライドして独自の実装を提供するだけで済みます。**
+> :grey_exclamation:  **If you are using `RakutenRewardBaseActivity` to start the SDK, the above are not needed as `RakutenRewardBaseActivity` class already handled it. You can simply override the method which you needed and provide you own implementation**
 
 </details>
 
 <br>
 
-### SDKポータルが閉じられたイベントを検出することは可能ですか？
+### Is it possible to detect SDK Portal closed event?
 <details>
-    <summary>回答</summary>
+    <summary>Answer</summary>
+Yes, it is possible to detect SDK portal closed event. Provide a unique request code to <code>openSDKPortal</code> API and <code>onActivityResult</code> will be triggered when SDK portal is closed.
 
-はい、SDKポータルが閉じられたイベントを検出することは可能です。`openSDKPortal` APIに一意のリクエストコードを提供し、SDKポータルが閉じられたときに`onActivityResult`がトリガーされます。  
-
-サンプル実装  
+Sample implementation
 
 ```kotlin
 class SampleActivity : RakutenRewardBaseActivity() {
@@ -465,69 +312,13 @@ class SampleActivity : RakutenRewardBaseActivity() {
  
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == UNIQUE_REQ_CODE) {
-            // SDKポータルが閉じられたイベントを処理
+            // handle SDK portal closed event
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
 }
 ```
-> :grey_exclamation:  **`RakutenReward.openSDKPortal()` APIは`Fragment`クラスでも呼び出すことができますが、`onActivityResult`は`Fragment`クラスの親アクティビティでトリガーされます。**
+> :grey_exclamation:  **`RakutenReward.openSDKPortal()` API can be call in `Fragment` class as well, however `onActivityResult` will be triggered in Fragment class's parent activity instead**
 
 </details>
-
-<br>
-
-### `RakutenReward.setRaeToken` / `RakutenReward.setRIdToken`を使用してトークンを設定した後も、SDKのステータスがオフラインのままです。  
-<details>
-    <summary>回答</summary>
-トークンを設定した後、以下のAPIを呼び出して手動でSDKセッションを開始する必要があります。 <br>
-<code>RakutenReward.startSession()</code><br><br>
-
-サンプル実装  
-
-```kotlin
-class SampleActivity : RakutenRewardBaseActivity() {
-    ....
-
-    private fun setToken() {
-        RakutenReward.setRaeToken("token")
-        // このAPIはv3.4.2以降で利用可能です
-        RakutenReward.startSession()
-    }
-}
-```
-</details>  
-<br>
-
-## BOM  
-
-### BOMを使用する必要がありますか？    
-<details>
-    <summary>回答</summary>  
- 
-いいえ。各依存関係のバージョンを手動で追加することもできます。ただし、BOMを使用することをお勧めします。これにより、すべての最新の安定バージョンを同時に使用することが容易になります。   
-</details>  
-
-<br>  
-
-### BOMで指定されたバージョンとは異なるライブラリバージョンを使用するにはどうすればよいですか？  
-<details>
-    <summary>回答</summary>  
-
-BOMで指定されたバージョンを上書きするために、希望するライブラリバージョンを指定することができます。   
-</details>   
-
-<br>  
-
-### BOMは自動的にすべてのライブラリをアプリに追加しますか？  
-<details>
-    <summary>回答</summary>  
-いいえ。実際にReward Nativeライブラリをアプリに追加して使用するには、各ライブラリをgradleファイルの個別の依存関係として宣言する必要があります。   
-
-BOMを使用することで、アプリ内のReward Nativeライブラリのバージョンが互換性があることが保証されますが、BOM自体はこれらのライブラリをアプリに追加しません。  
-</details>  
-
----
-言語 :
-> [![en](../../lang/en.png)](../../faq/README.md)   

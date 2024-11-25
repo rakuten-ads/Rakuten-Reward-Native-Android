@@ -1,16 +1,5 @@
 # Update History
 
-### Version 7.0.1
-<hr/>
-Release Date: 2024/11/25
-
-* Add consumer rules to remote module  
-* Fix Portal UI in dark theme app
-* Fix SDK Portal Pages' status bar color in Android 15 device
-* Fix exceptions in SPS module:
-    * Remove `READ_MEDIA_IMAGES` Permission
-    * Exception which occured when Activity memory got cleared in background
-
 ### Version 6.0.1
 <hr/>
 Release Date: 2024/11/20
@@ -29,7 +18,7 @@ Release Date: 2024/10/30
 
 ### Version 6.2.0
 <hr/>
-Release Date: 2024/10/17
+Release Date: 2024/10/xx
 
 * Introduce JS x Native feature [refer here](../extension/README.md)  
 * Bug Fix
