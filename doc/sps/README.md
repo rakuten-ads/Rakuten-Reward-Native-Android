@@ -41,7 +41,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:6.0.1')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:6.0.0')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -130,8 +130,10 @@ RakutenRewardConfig.setTheme(MissionTheme.Simple)
 ```  
 
 # Opt Out Mission Feature  
-If your application is not intended to use any mission features, use the following API to opt out mission feature.  
+If your application is not intended to use any mission features, use the following API to opt out of mission features.  
 ```kotlin  
 // set true to opt out. By default the value is false
 RakutenRewardConfig.setOptOutMissionFeatures(true)
-```
+```  
+
+<img src="img/opt-out-mission-dialog-jp.png" alt="Opt Out Mission Feature Dialog" width="250">

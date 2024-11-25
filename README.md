@@ -20,10 +20,10 @@
 
 | Version | Minimum SDK | Compile SDK |
 |---------|-------------|-------------|
+| 7.0.1   | API24 (7.0) | API 35      |
 | 7.0.0   | API24 (7.0) | API 35      |
 | 6.2.0   | API24 (7.0) | API 34      |
 | 6.1.0   | API24 (7.0) | API 34      |
-| 6.0.1   | API24 (7.0) | API 34      |
 | 6.0.0   | API24 (7.0) | API 34      |
 | 5.4.1   | API24 (7.0) | API 34      |
 | 5.4.0   | API24 (7.0) | API 34      |
@@ -106,7 +106,7 @@ Here's how to use Reward Native Android BoM to declare dependencies. When using 
 
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.0.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.0.1')
 
   // Declare the dependency for the core library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -163,8 +163,9 @@ Follow the guide below on how to request user consent.
 [User Consent](./doc/consent/README.md)  
 [Migration Guide](./doc/migration/README.md)  
 [Event Analytics](./doc/EventAnalytics/README.md)  
+[JavaScript Extension](/doc/extension/README.md)  
 [For Java Developers](./doc/java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/7.0.0/index.html)  
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/7.0.1/index.html)  
 [FAQ](./doc/faq/README.md)
 
 ## Version History
