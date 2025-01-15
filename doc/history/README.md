@@ -1,5 +1,15 @@
 # Update History
 
+### Version 7.1.0
+<hr/>
+Release Date: 2025/01/15
+
+* Remove unnecessary flags when starting external browser
+* SPS module:
+    * Support Coupon Ad
+    * Show both Rakuten Reward and SPS Help menu item
+    * Minor UI Fix
+
 ### Version 7.0.1
 <hr/>
 Release Date: 2024/11/25

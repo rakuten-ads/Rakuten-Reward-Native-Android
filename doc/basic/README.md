@@ -6,6 +6,7 @@ Table of Contents
   * [Log in](#log-in)<br>
   * [Log out](#log-out)<br>
 * [Initialize SDK](#initialize-sdk)<br>
+* [SDK Status](#sdk-status)<br>
 * [User Information](#user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Built-in UI](#sdk-built-in-ui)<br>
@@ -214,6 +215,27 @@ class YourActivity : AppCompatActivity() {
 ```  
 
 <br>
+
+# SDK Status  
+In order to use the API, need to ensure SDK Status is switched to ONLINE first.   
+There are 2 ways to get the SDK status: 
+
+## RakutenReward.status  
+Directly access `RakutenReward.status` to get the current SDk Status.  
+
+## RakutenRewardListener  
+Add [`RakutenRewardListener`](../core/RakutenReward.md#rakutenrewardlistener) to get notified when SDK status has changed.  
+```kotlin  
+RakutenReward.addRakutenRewardListener(object : RakutenRewardListener {
+    override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
+        if (status == RakutenRewardSDKStatus.ONLINE) {
+            // SDK status is ONLINE
+        }
+    }
+})
+```  
+***Note: If using [Option 1](#option-1-extends-rakutenrewardbaseactivity), then don't have to add RakutenRewardListener. You can directly override the method.***
+
 
 # User Information  
 Refer [here](./UserInfo.md) for the available API.  

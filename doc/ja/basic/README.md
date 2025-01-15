@@ -6,6 +6,7 @@
   * [ログイン](#ログイン)<br>
   * [ログアウト](#ログアウト)<br>
 * [SDKの初期化](#sdkの初期化)<br>
+* [SDKステータス](#sdkステータス)<br>
 * [ユーザー情報を取得する](#ユーザー情報を取得する)<br>
 * [ミッションの達成](#ミッションの達成)<br>
 * [SDK用意するUI](#sdk用意するui)<br>
@@ -227,6 +228,27 @@ class YourActivity : AppCompatActivity() {
 
 ---  
 <br>  
+
+# SDKステータス  
+APIを使用するには、まずSDKステータスがONLINEに切り替わっていることを確認する必要があります。   
+SDKステータスを取得する方法は2つあります: 
+
+## RakutenReward.status  
+`RakutenReward.status` に直接アクセスして現在のSDKステータスを取得します。  
+
+## RakutenRewardListener  
+[`RakutenRewardListener`](../core/RakutenReward.md#rakutenrewardlistener) を追加して、SDKステータスが変更されたときに通知を受け取ります。  
+```kotlin  
+RakutenReward.addRakutenRewardListener(object : RakutenRewardListener {
+    override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
+        if (status == RakutenRewardSDKStatus.ONLINE) {
+            // SDKステータスがONLINEです
+        }
+    }
+})
+```  
+***注意: [Option 1](#1-rakutenrewardlightbaseactivity-を拡張した-activity-クラスを作る)を使用している場合、RakutenRewardListenerを追加する必要はありません。メソッドを直接オーバーライドできます。***
+
 
 # ユーザー情報を取得する  
 [ここ](./UserInfo.md)に参考してください。  
