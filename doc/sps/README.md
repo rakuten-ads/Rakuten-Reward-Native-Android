@@ -10,6 +10,7 @@ Table of Contents
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
 * [Theme Setting Screen](#theme-setting-screen)
+* [Opt Out Mission Feature](#opt-out-mission-feature)
 
 ---  
 
