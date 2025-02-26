@@ -10,7 +10,6 @@ Table of Contents
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
 * [Theme Setting Screen](#theme-setting-screen)
-* [Opt Out Mission Feature](#opt-out-mission-feature)
 
 ---  
 
@@ -42,7 +41,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.1.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.1.1')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 

@@ -1,5 +1,15 @@
 # Update History
 
+### Version 7.1.1
+<hr/>
+Release Date: 2025/02/26
+
+* `RakutenReward.setRaeToken` is deprecated  
+***Note: RAE will be abolished by 2025. Please make a plan to migrate to other authentication solution. This API will be removed in future release.***
+* SPS module:
+    * Minor UI Fixes
+    * Minor Bug Fixes
+
 ### Version 7.1.0
 <hr/>
 Release Date: 2025/01/15

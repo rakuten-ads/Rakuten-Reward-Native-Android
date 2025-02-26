@@ -18,7 +18,9 @@ Table of Contents
 
 ## Login Options
 There are 3 types of login. According to your environment, please select proper one. 
-<br>
+<br>  
+
+***Note: RAE will be abolished by end of 2025***
 
 | Login Option | Description                                                                             |
 |--------------|-----------------------------------------------------------------------------------------|
@@ -69,7 +71,8 @@ Refer to [Log Out](#log-out)
 
 <br>
 
-### RAE
+### RAE  
+***This API is deprecated.***  
 ```kotlin
 RakutenReward.tokenType = RakutenRewardTokentype.RAE
 ```
