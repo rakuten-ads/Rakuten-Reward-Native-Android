@@ -8,7 +8,7 @@
 * SPSモジュール : 
     * `RakutenMissionSps`クラスを`object`クラスにリファクタリングする ([移行ガイド](../../sps/README.md#migrate-to-720))
     * `ACCESS_FINE_LOCATION`と`CAMERA`の権限を削除する
-    * モード設定画面でのモード選択トーストを修正する
+    * モード設定画面でのモード選択トーストを改善する
 
 ### バージョン 7.1.1
 <hr/>
