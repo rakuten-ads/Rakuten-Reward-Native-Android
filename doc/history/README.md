@@ -8,7 +8,7 @@ Release Date: 2025/04/08
 * SPS module:
     * Refactor `RakutenMissionSps` class to be `object` class ([migration guide](../sps/README.md#migrate-to-720))
     * Remove `ACESS_FINE_LOCATION` and `CAMERA` permissions
-    * Fix mode selection toast in Mode Settings screen
+    * Improve mode selection toast in Mode Settings screen
 
 ### Version 7.1.1
 <hr/>
