@@ -9,7 +9,9 @@ Table of Contents
 * [Initialize SPS](#initialize-sps)  
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
-* [Theme Setting Screen](#theme-setting-screen)
+* [Theme Setting Screen](#theme-setting-screen)  
+* [Migration Guide](#migration-guide)
+    * [7.2.0](#migrate-to-720)
 
 ---  
 
@@ -41,7 +43,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.1.1')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.2.0')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -113,7 +115,7 @@ Currently we support 2 themes:
 
 If your application also provide theme options and would like to sync the selected theme, you can implement the listener to SDK.    
 ```kotlin
-RakutenMissionSps.INSTANCE.setSpsMissionListener(object: SpsMissionListener {
+RakutenMissionSps.setSpsMissionListener(object: SpsMissionListener {
     override fun onThemeChanged(theme: MissionTheme) {
         // it will be triggered when user changed the theme in the Mode settings screen
     }
@@ -135,5 +137,16 @@ If your application is not intended to use any mission features, use the followi
 // set true to opt out. By default the value is false
 RakutenRewardConfig.setOptOutMissionFeatures(true)
 ```  
+<img src="img/opt-out-mission-dialog-jp.png" alt="Opt Out Mission Feature Dialog" width="250">  
+  
 
-<img src="img/opt-out-mission-dialog-jp.png" alt="Opt Out Mission Feature Dialog" width="250">
+<br/>
+
+# Migration Guide  
+## Migrate to 7.2.0  
+In version 7.2.0, `RakutenMissionSps` class is refactored to be `object` class. So `RakutenMissionSps.INSTANCE` variable is not available anymore.  
+| AS-IS | TO-BE |
+|---|---|
+| RakutenMissionSps.INSTANCE.setPlatform() | RakutenMissionSps.setPlatform() |
+| RakutenMissionSps.INSTANCE.setSpsMissionListener() | RakutenMissionSps.setSpsMissionListener() |
+| RakutenMissionSps.INSTANCE.setLocation() | RakutenMissionSps.setLocation() |  

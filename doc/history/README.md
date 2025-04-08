@@ -1,5 +1,15 @@
 # Update History
 
+### Version 7.2.0
+<hr/>
+Release Date: 2025/04/08
+
+* Upgrade to Android Gradle Plugin 8.7.3
+* SPS module:
+    * Refactor `RakutenMissionSps` class to be `object` class ([migration guide](../sps/README.md#migrate-to-720))
+    * Remove `ACESS_FINE_LOCATION` and `CAMERA` permissions
+    * Fix mode selection toast in Mode Settings screen
+
 ### Version 7.1.1
 <hr/>
 Release Date: 2025/02/26
