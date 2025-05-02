@@ -43,7 +43,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.2.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.2.1')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
