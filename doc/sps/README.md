@@ -43,7 +43,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.2.1')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.3.0')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -81,7 +81,7 @@ The following API will display SPS Portal as shown below.
 <img src="img/sps_osusume.png" alt="SPS Osusume Ad" width="250">  
 
 ```kotlin
-RakutenReward.openSpsPortal({ result ->
+RakutenReward.openSpsPortal("<rzCookie>", { result ->
    when (result) {
       is Failed -> // Failed to open Portal. Get the error here `result.error`
       is Success -> // SDK Portal opened successfully
@@ -90,6 +90,17 @@ RakutenReward.openSpsPortal({ result ->
     // handle portal closed event
 }
 ```  
+Below are the possible error code returned
+| RakutenRewardAPIError | Reason |
+| --- | --- |
+| SDKNOTACTIVE | Reward SDK is not initialized yet |  
+| USER_NOT_CONSENT | User haven't agree on TOS |  
+| NOTSUPPORT | SPS feature is not enabled (Please inform SDK developer) |  
+| NETWORKERROR | Network calls failed or user closed registration screen |
+| INVALIDREQUEST | No context reference to open the Activity class. Please refer [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-waysk) to start SDK session  |
+
+***Since 7.3.0 rz cookie parameter is added to `openSpsPortal` for better personalized experience in the portal***  
+
 Screenshots of the SPS Portal  
 
 <img src="img/sps_portal_home.png" alt="SPS Home Page" width="250">  <img src="img/sps_portal_mission.png" alt="Mission Page" width="250">  

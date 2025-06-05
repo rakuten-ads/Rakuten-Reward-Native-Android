@@ -1,5 +1,14 @@
 # Update History
 
+### Version 7.3.0
+<hr/>
+Release Date: 2025/06/05
+
+* SPS module:
+    * Ensure label text size is the same regardless of device font size setting
+    * Update `openSpsPortal()` API ([more details](../sps/README.md#show-sps-portal))
+    * Fix the occurance of error page when user stay at portal home page for more than an hour  
+
 ### Version 7.2.1
 <hr/>
 Release Date: 2025/05/02
