@@ -164,6 +164,7 @@ Reward API result which return in `RakutenRewardCoroutine`.
 | UNKNOWN             | Unknown error, basically not happen                                       |  
 | USER_NOT_CONSENT    | User haven't provide consent                                              |  
 | MISSION_REACHED_CAP | Mission achievement already reached cap                                   |  
+| UNDER_MAINTENNANCE  | Feature is under maintenance                                              |  
 ---  
 
 <br>

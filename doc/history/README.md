@@ -1,5 +1,14 @@
 # Update History
 
+### Version 7.4.0
+<hr/>
+Release Date: 2025/07/14
+
+* Removed RenderScript library which does not support 16 KB page size
+* SPS module:
+    * Introduce Maintenance Mode
+    * Minor UI Updates
+
 ### Version 7.3.0
 <hr/>
 Release Date: 2025/06/05

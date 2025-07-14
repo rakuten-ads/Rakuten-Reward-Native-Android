@@ -10,6 +10,7 @@ Table of Contents
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
 * [Theme Setting Screen](#theme-setting-screen)  
+* [Maintenance Screen](#maintenance-screen)  
 * [Migration Guide](#migration-guide)
     * [7.2.0](#migrate-to-720)
 
@@ -43,7 +44,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.3.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.4.0')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -98,6 +99,7 @@ Below are the possible error code returned
 | NOTSUPPORT | SPS feature is not enabled (Please inform SDK developer) |  
 | NETWORKERROR | Network calls failed or user closed registration screen |
 | INVALIDREQUEST | No context reference to open the Activity class. Please refer [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-waysk) to start SDK session  |
+| UNDER_MAINTENANCE | SPS feature is under maintenance (added in v7.3.1) |
 
 ***Since 7.3.0 rz cookie parameter is added to `openSpsPortal` for better personalized experience in the portal***  
 
@@ -150,6 +152,12 @@ RakutenRewardConfig.setOptOutMissionFeatures(true)
 ```  
 <img src="img/opt-out-mission-dialog-jp.png" alt="Opt Out Mission Feature Dialog" width="250">  
   
+
+# Maintenance Screen 
+Since v7.4.0 when SPS service is under maintenance, users will not be able to access the SPS feature and a maintenance page will be shown. 
+
+<img src="img/saas_maintenance.png" alt="SaaS Maintenance Page" width="250">
+
 
 <br/>
 

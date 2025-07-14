@@ -165,6 +165,7 @@ RakutenRewardSDKStatus は Reward SDK の状態を管理するクラスです
 | UNKNOWN             | 不明なエラー(基本的には起こりません)                             | 
 | USER_NOT_CONSENT    | ユーザーまだ利用規約に同意しない                                | 
 | MISSION_REACHED_CAP | ミッション達成がもう上限に達した                                |  
+| UNDER_MAINTENNANCE  | 機能はメンテナンス中です                                             |  
 ---  
 
 <br>

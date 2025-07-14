@@ -20,6 +20,7 @@
 
 | バージョン | 最小限 OS      | コンパイル OS |
 |-------|-------------|----------|
+| 7.4.0 | API24 (7.0) | API 35   |
 | 7.3.0 | API24 (7.0) | API 35   |
 | 7.2.1 | API24 (7.0) | API 35   |
 | 7.2.0 | API24 (7.0) | API 35   |
@@ -112,7 +113,7 @@ Reward Native Android 部品構成表を使用して、モジュール（アプ�
 
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:7.3.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:7.4.0')
 
   // Declare the dependency for the core library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -167,7 +168,7 @@ dependencies {
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [JavaScript 拡張機能](./extension/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/7.3.0/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/7.4.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
