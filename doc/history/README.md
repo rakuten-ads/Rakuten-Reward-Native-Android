@@ -1,5 +1,13 @@
 # Update History
 
+
+### Version 7.4.1
+<hr/>
+Release Date: 2025/08/07
+
+* SPS module:
+    * Fix on certain cases SPS Portal could not be launched
+
 ### Version 7.4.0
 <hr/>
 Release Date: 2025/07/14
