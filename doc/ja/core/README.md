@@ -70,6 +70,8 @@ when (result) {
 | setUiEnabled     | ミッションのUIのオン・オフを設定する                                      |
 | isDebuggable     | SDKデバッグができるように設定する                                       | 
 | isUsingSdkPortal | SDKポータルを使う、使わないを設定する (UIモジュールのみ)                         |  
+| setAppLocale      | [SupportedLocale](../apiData/README.md#supportedlocale) でアプリのロケールを設定します         |  
+| getAppLocale      | 現在のアプリのロケールを取得します。デフォルトはnullです                                 |
 
 <br>  
 

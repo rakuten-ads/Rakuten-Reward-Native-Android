@@ -11,7 +11,8 @@
 * [ミッションの達成](#ミッションの達成)<br>
 * [SDK用意するUI](#sdk用意するui)<br>
 * [SDKデバッグログ](#SDKデバッグログ)<br>
-* [コルーチン サポート](#コルーチン-サポート)<br><br>
+* [コルーチン サポート](#コルーチン-サポート)<br>
+* [アプリのロケールを設定する](#アプリのロケールを設定する)<br><br>
 
 ---
 
@@ -324,6 +325,30 @@ lifecycleScope.launch {
 }
 ```
 <br>
+
+# アプリのロケールを設定する
+[![support version](http://img.shields.io/badge/core-7.5.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20250904_v7_5_0)  
+
+Rakuten Reward SDKは5つの言語に対応しています：日本語、英語、韓国語、簡体字中国語、繁体字中国語
+| 日本語 | 英語 | 韓国語 | 簡体字中国語 | 繁体字中国語 |
+| --- | --- | --- | --- | --- |
+| <img src="../../img/sdk-ja.png" alt="Japanese" width="250"> | <img src="../../img/sdk-en.png" alt="English" width="250"> |  <img src="../../img/sdk-ko.png" alt="Korean" width="250"> |  <img src="../../img/sdk-zh-cn.png" alt="Simplified Chinese" width="250"> |  <img src="../../img/sdk-zh-tw.png" alt="Traditional Chinese" width="250"> |  
+
+SDKポータルは、デバイスのロケールに従って言語を表示します。   
+ただし、クライアントアプリが日本語のみ対応している場合、エンドユーザーのデバイスロケールが英語だと、クライアントアプリの画面は日本語で表示されるのに、SDKポータル画面は英語で表示されるため、ユーザー体験が一貫しない可能性があります。  
+
+より良いユーザー体験のために、アプリのロケールを指定できるAPIを提供しています。これにより、SDKの画面も指定したロケールの言語で表示されます。 
+[対応ロケール一覧](../apiData/README.md#supportedlocale)
+
+```kotlin
+RakutenRewardConfig.setAppLocale(Japanese)
+```  
+
+もしクライアントアプリがSDKで対応していない他の言語に対応している場合は、ISO 639言語コードを指定して`OtherLocale`としてアプリのロケールを設定できます。 
+```kotlin
+RakutenRewardConfig.setAppLocale(OtherLocale("ta")) // タイ語
+```  
+SDKがそのロケールに対応していない場合は、日本語で表示されます。 
 
 ---
 言語 :

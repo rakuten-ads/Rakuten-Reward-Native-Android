@@ -14,6 +14,7 @@ Table of Contents
   * [RewardApiResult](#rewardapiresult)  
   * [RakutenRewardAPIError](#rakutenrewardapierror)  
   * [Last Failed Method](#last-failed-method)  
+  * [SupportedLocale](#supportedlocale)
 
 ---  
 
@@ -190,6 +191,16 @@ SDK provides information about failed method to handle error easily.
 | GETMISSIONLIST  | getMissions                    |  
 | PROVIDE_CONSENT | provideConsent                 |
 
+
+### SupportedLocale  
+| SupportedLocale sealed class | Description |
+| --- | --- |
+| Japanese | Japanese language |
+| English | English language |
+| Korean | Korean languauge |
+| ChineseTraditional | Traditional Chinese languauge | 
+| ChineseSimplified | Simplified Chinese languauge |
+| OtherLocale | Create other locale by providing the ISO 639 languauge code | 
 
 ---
 LANGUAGE :

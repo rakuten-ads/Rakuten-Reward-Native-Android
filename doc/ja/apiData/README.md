@@ -14,6 +14,7 @@
   * [RewardApiResult](#rewardapiresult)  
   * [RakutenRewardAPIError](#rakutenrewardapierror)  
   * [Last Failed Method](#last-failed-method)  
+  * [SupportedLocale](#supportedlocale)  
 
 ---  
 
@@ -191,6 +192,15 @@ SDKはアプリケーションでエラーを処理できるようにAPIが失�
 | GETMISSIONLIST  | getMissions                    |  
 | PROVIDE_CONSENT | provideConsent                 |
 
+### SupportedLocale  
+| SupportedLocaleシールドクラス | 説明 |
+| --- | --- |
+| Japanese | 日本語 |
+| English | 英語 |
+| Korean | 韓国語 |
+| ChineseTraditional | 繁体字中国語 |
+| ChineseSimplified | 簡体字中国語 |
+| OtherLocale | ISO 639言語コードを指定して他のロケールを作成 |  
 
 ---  
 言語 :

@@ -11,7 +11,8 @@ Table of Contents
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Built-in UI](#sdk-built-in-ui)<br>
 * [SDK Debugging Log](#sdk-debugging-log)<br>
-* [Coroutine Support](#coroutine-support)<br><br>
+* [Coroutine Support](#coroutine-support)<br>
+* [Set App Locale](#set-app-locale)<br><br>
 
 ---
 # Authentication
@@ -307,7 +308,31 @@ lifecycleScope.launch {
     }
 }
 ```  
-<br>
+<br>  
+
+# Set App Locale
+[![support version](http://img.shields.io/badge/core-7.5.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20250904_v7_5_0)  
+
+Rakuten Reward SDK supports 5 languages: Japanese, English, Korean, Simplified Chinese and Traditional Chinese
+| Japanese | English | Korean | Simplified Chinese | Traditional Chinese |
+| --- | --- | --- | --- | --- |
+| <img src="../img/sdk-ja.png" alt="Japanese" width="250"> | <img src="../img/sdk-en.png" alt="English" width="250"> |  <img src="../img/sdk-ko.png" alt="Korean" width="250"> |  <img src="../img/sdk-zh-cn.png" alt="Simplified Chinese" width="250"> |  <img src="../img/sdk-zh-tw.png" alt="Traditional Chinese" width="250"> |  
+
+The SDK Portal will display the language according to the device locale.   
+However if the client app only support certain languauge like only Japanese, then if the end user's device locale is English, the user experience may not be consistent because the client app's screen is displaying in Japanese, but the SDK Portal screen will be displayed in English.  
+
+In order to have a better user experience, we provide an API to specific the App Locale so that the SDK screens will display to specified locale language. 
+[Supported Locale](../apiData/README.md#supportedlocale)
+
+```kotlin
+RakutenRewardConfig.setAppLocale(Japanese)
+```  
+
+If the client app supports other language than the one available in the SDK, you can set the App Locale as `OtherLocale` by providing the ISO 639 language code. 
+```kotlin
+RakutenRewardConfig.setAppLocale(OtherLocale("ta")) // Thai Language
+```  
+If SDK does not support the locale, it will fallback to show in Japanese. 
 
 ---
 LANGUAGE :

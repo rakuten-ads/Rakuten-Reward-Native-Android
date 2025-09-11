@@ -70,6 +70,8 @@ when (result) {
 | setUiEnabled     | Set whether Notification UI is enabled or not                                  |
 | isDebuggable     | Set Reward SDK to be debuggable                                                | 
 | isUsingSdkPortal | Set whether using SDK Portal or not (only available in UI module)              |  
+| setAppLocale     | Set App Locale with [SupportedLocale](../apiData/README.md#supportedlocale)    |
+| getAppLocale     | Get current App Locale. By default is null                                     |  
 
 <br>  
 

@@ -1,5 +1,16 @@
 # 更新履歴
 
+### バージョン 7.5.0
+<hr/>
+リリース日: 2025/09/11
+
+* `LogAction` APIを改善 - 無効なアクションコードの場合、LogAction APIリクエストをブロックしました
+* `RakutenRewardConfig.setAppLocale` APIを導入 [参照](../basic/README.md#アプリのロケールを設定する)
+* SPSモジュール : 
+    * SPSホームフィードのリフレッシュ回数を削減しました
+* JS拡張モジュール : 
+    * `GetPointHistory` および `GetUserPoint` のJSインターフェースに対応しました
+
 ### バージョン 7.4.1
 <hr/>
 リリース日: 2025/08/07

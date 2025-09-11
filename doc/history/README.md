@@ -1,5 +1,15 @@
 # Update History
 
+### Version 7.5.0
+<hr/>
+Release Date: 2025/09/11
+
+* Improve `LogAction` API - block `LogActon` API request on invalid action code
+* Introduce `RakutenRewardConfig.setAppLocale` API [refer](../basic/README.md#set-app-locale)
+* SPS module:
+    * Reduce SPS home feed refresh
+* JS Extension module:
+    * Support `GetPointHistory` and `GetUserPoint` JS Interface
 
 ### Version 7.4.1
 <hr/>
