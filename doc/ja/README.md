@@ -97,7 +97,7 @@ allprojects {
     repositories {
         mavenCentral()
         maven {
-            url "https://raw.github.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
+            url "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-Android/master/maven"
         }
     }
 }
