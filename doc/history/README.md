@@ -1,5 +1,12 @@
 # Update History
 
+### Version 7.5.1
+<hr/>
+Release Date: 2025/11/20
+
+* SPS module:  
+    * Minor bug fix
+
 ### Version 7.5.0
 <hr/>
 Release Date: 2025/09/11
