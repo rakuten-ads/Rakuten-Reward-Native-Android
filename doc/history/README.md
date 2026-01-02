@@ -1,5 +1,21 @@
 # Update History
 
+### Version 8.0.0
+<hr/>
+Release Date: 2026/01/02
+
+* **Introduce `RewardTokenProvider` for improved token management**
+    * Automatic token expiry handling - no more manual `TOKENEXPIRED` status checks
+    * No need to wait for `ONLINE` status before calling SDK APIs
+    * Deprecated `setRidToken()` and `setRaeToken()` APIs (still supported but recommended to migrate)
+    * Refer to [migration guide](../migration/v8-migration.md) for full details
+* **MemberInfo API timing change**
+    * Now called in `onCreate()` only (previously called in `onStart()`)
+    * Reduces backend API traffic
+    * Developers need to manually call `memberInfo()` in `onStart()` if displaying user data (points/unclaimed count)
+* Android 16 (API 36) support
+* Introduce `rewardnativesdk-java` module providing Java-compatible callback interfaces for easier integration in Java projects
+
 ### Version 7.5.1
 <hr/>
 Release Date: 2025/11/20

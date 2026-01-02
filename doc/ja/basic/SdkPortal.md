@@ -13,13 +13,6 @@
 ```kotlin
 RakutenReward.openSDKPortal()
 ```  
-<details>
-    <summary>JAVA</summary>  
-
-```java
-RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE);
-```
-</details>  
 
 ### ポータルが閉じたイベント  
 [![support version](http://img.shields.io/badge/ui-2.4.0+-blue.svg?style=flat)](/doc/history/README.md#version-240)  
@@ -48,15 +41,6 @@ val success: Boolean = RakutenReward.openSDKPortal {
     // handle SDK Portal closed event here
 }
 ```  
-<details>
-    <summary>JAVA</summary>  
-
-```java
-boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE, result -> {
-    // handle SDK Portal closed event here
-});
-```
-</details>  
 
 ### ポータルが提示されるコールバック  
 [![support version](http://img.shields.io/badge/ui-6.0.0+-blue.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_v6_0_0)  
@@ -65,34 +49,15 @@ boolean success = RakutenRewardExtensionKt.openSDKPortal(RakutenReward.INSTANCE,
 以下のAPIを使って、ポータルが提示されない場合のエラーも返す。  
 
 ```kotlin
-RakutenReward.openSDKPortal({ result -> 
+RakutenReward.openSDKPortal({ result ->
    when (result) {
     is Failed -> // Failed to launch. Get the error here `result.error`
     is Success -> // Portal is launched successfully
-   } 
+   }
 }) {
     // handle Portal closed event here
 }
 ```  
-<details>
-    <summary>JAVA</summary>  
-
-```java
-RakutenRewardExtensionKt.openSDKPortalJava(RakutenReward.INSTANCE, new PortalOpenedCallback() {
-    @Override
-    public void success() {
-        // Portal is launched successfully
-    }
-
-    @Override
-    public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-        // Portal failed to launched
-    }
-}, (ActivityResultCallback<ActivityResult>) activityResult -> {
-    // handle Portal closed event here
-});
-```
-</details>  
 
 <br>  
 こちらがSDKポータルのイメージになります

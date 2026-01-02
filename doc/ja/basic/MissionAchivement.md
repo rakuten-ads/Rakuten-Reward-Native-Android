@@ -6,30 +6,16 @@
 ミッションを達成するには、開発者はアクションAPIをコールします。    
 ミッション達成後、ミッション達成UIが表示されます。   
 
-## アクションを送信する  
-### Kotlin
+## アクションを送信する
 ```kotlin
 RakutenReward.logAction("<actionCode>", {
     // 送信成功
 }, {
     // 送信失敗
 })
-```  
-### JAVA
-```java
-RakutenReward.logActionJava("<actionCode>", new LogActionCallback() {
-    @Override
-    public void success() {
+```
 
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
-### Coroutine  
+Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result = RakutenRewardCoroutine.logAction("<actionCode>")
@@ -86,7 +72,7 @@ override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
 }
 ```
 
-ポイントを獲得するには、`MissionAchievementData` クラスの `claim()` API を使います。    
+ポイントを獲得するには、`MissionAchievementData` クラスの `claim()` API を使います。
 ```kotlin
 achievement.claim({
     // 獲得成功
@@ -94,23 +80,6 @@ achievement.claim({
     // 獲得失敗
 })
 ```  
-<details>
-    <summary>JAVA</summary>  
-
-```java
-achievement.claimJava(new CustomClaimCallback() {
-    @Override
-    public void success(@NonNull MissionAchievementData missionAchievementData) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```
-</details>  
 
 <br>
 
