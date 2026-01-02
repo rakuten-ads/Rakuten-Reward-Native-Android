@@ -6,16 +6,30 @@
 To achieve a mission, developers need to call post action API.  
 After achieving the mission, a notification will be shown.  
 
-## Post Action
+## Post Action  
+### Kotlin
 ```kotlin
 RakutenReward.logAction("<actionCode>", {
     // post action success
 }, {
     // post action failed
 })
-```
+```  
+### JAVA
+```java
+RakutenReward.logActionJava("<actionCode>", new LogActionCallback() {
+    @Override
+    public void success() {
 
-Coroutine  
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
+### Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result = RakutenRewardCoroutine.logAction("<actionCode>")
@@ -77,7 +91,7 @@ override fun onUnclaimedAchievement(achievement: MissionAchievementData) {
 }
 ```
 
-Then call the `claim()` API of the `MissionAchievementData` object return in `onUnclaimedAchievement`.
+Then call the `claim()` API of the `MissionAchievementData` object return in `onUnclaimedAchievement`.   
 ```kotlin
 achievement.claim({
     // claim success
@@ -85,6 +99,23 @@ achievement.claim({
     // claim failed
 })
 ```  
+<details>
+    <summary>JAVA</summary>  
+
+```java
+achievement.claimJava(new CustomClaimCallback() {
+    @Override
+    public void success(@NonNull MissionAchievementData missionAchievementData) {
+        
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```
+</details>  
 
 <br>
 

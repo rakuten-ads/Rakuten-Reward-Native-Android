@@ -58,25 +58,15 @@ RakutenReward.tokenType = RakutenRewardTokentype.RID
 RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RID);
 ```    
 </details>
-To use SDK API, need to set API (API-C) token by developers
+To use SDK API, need to set API (API-C) token by developers  
 
 ```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // Return token from your authentication system
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // Return empty string when user is not logged in
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
+RakutenReward.setRIdToken("token")
 ```
 
 For login implementation, please read ID SDK login documentation.
 
-> :grey_exclamation:  **`logout` API is required to be called whenever user log out to properly clear token and data**
+> :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
 
 Refer to [Log Out](#log-out)  
 
@@ -94,25 +84,15 @@ RakutenReward.tokenType = RakutenRewardTokentype.RAE
 RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAE);
 ```    
 </details>
-To use SDK API, need to set access API token by developers
+To use SDK API, need to set access API token by developers  
 
 ```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // Return token from your authentication system
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // Return empty string when user is not logged in
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
+RakutenReward.setRaeToken("token")
 ```
 
 For login implementation, please read User SDK login documentation.
 
-> :grey_exclamation:  **`logout` API is required to be called whenever user log out to properly clear token and data**
+> :grey_exclamation:  **From version 3.1.1, developers require to call logout API whenever user log out to properly clear token and data**
 
 Refer to [Log Out](#log-out)  
 
@@ -179,7 +159,7 @@ class App: Application() {
 |----------------|----------------------------------------------------------------|
 | AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |
 
-If you use RAE, RID option, you need to set `RewardTokenProvider` to activate SDK.
+If you use RAE, RID option, you need to set token to activate SDK.
 <br/><br/>
 
 ### **\*From version 3.3.0 onward, manual initialization is no longer needed.**
@@ -239,6 +219,27 @@ class YourActivity : AppCompatActivity() {
 ```  
 
 <br>
+
+# SDK Status  
+In order to use the API, need to ensure SDK Status is switched to ONLINE first.   
+There are 2 ways to get the SDK status: 
+
+## RakutenReward.status  
+Directly access `RakutenReward.status` to get the current SDk Status.  
+
+## RakutenRewardListener  
+Add [`RakutenRewardListener`](../core/RakutenReward.md#rakutenrewardlistener) to get notified when SDK status has changed.  
+```kotlin  
+RakutenReward.addRakutenRewardListener(object : RakutenRewardListener {
+    override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
+        if (status == RakutenRewardSDKStatus.ONLINE) {
+            // SDK status is ONLINE
+        }
+    }
+})
+```  
+***Note: If using [Option 1](#option-1-extends-rakutenrewardbaseactivity), then don't have to add RakutenRewardListener. You can directly override the method.***
+
 
 # User Information  
 Refer [here](./UserInfo.md) for the available API.  
@@ -310,7 +311,7 @@ lifecycleScope.launch {
 <br>  
 
 # Set App Locale
-[![support version](http://img.shields.io/badge/core-7.5.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20250911_v7_5_0)  
+[![support version](http://img.shields.io/badge/core-7.5.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20250904_v7_5_0)  
 
 Rakuten Reward SDK supports 5 languages: Japanese, English, Korean, Simplified Chinese and Traditional Chinese
 | Japanese | English | Korean | Simplified Chinese | Traditional Chinese |

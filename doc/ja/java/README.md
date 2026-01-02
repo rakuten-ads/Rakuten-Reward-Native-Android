@@ -2,7 +2,6 @@
 
 コンテンツ
 * [Javaアプリケーション開発者様)](#javaアプリケーション開発者様)<br>
-* [Mission-Javaモジュール](#Mission-Javaモジュール)<br>
 * [APIへのアクセス方法](#APIへのアクセス方法)<br>
 * [プロパティーについて](#プロパティーについて)<br/>
 * [Kotlinコールバック](#Kotlinコールバック)<br/>
@@ -11,22 +10,8 @@
 ---
 # Javaアプリケーション開発者様)
 このSDKは100%Kotlinで作られています。<br/>
-Java開発者様向けに、Java対応のAPIを提供するmission-javaモジュールを用意しています。<br/>
-
-## Mission-Javaモジュール
-Javaプロジェクトでは、Java向けのクリーンなAPIを提供する**mission-java**モジュールの使用を推奨します。Kotlinの知識が不要です。
-
-### 依存関係
-アプリのbuild.gradleにmission-javaの依存関係を追加してください：
-```gradle
-implementation 'com.rakuten.gap:rewardsdknative-java'
-```
-
-### インポート
-```java
-import com.rakuten.gap.ads.mission_java.RakutenRewardJava;
-import com.rakuten.gap.ads.mission_java.listeners.*;
-```
+KotlinのObject、Extension、Companion Object を Java からアクセスするには
+工夫が必要です。<br/>
 
 ## APIへのアクセス方法
 ### RakutenReward
@@ -73,13 +58,12 @@ RakutenReward.INSTANCE.logAction("", () -> { return Unit.INSTANCE; }, (RakutenRe
 ```
 
 ## Javaスタイルのコールバック
-mission-javaモジュールを通じてJava向けのコールバックAPIを提供しています。<br/>
+上記のKotlinスタイルのコールバックを利用しない方法もご用意しています。<br/>
 
-### RakutenRewardJava
-RakutenRewardJavaクラスは「Java」サフィックスを付けないクリーンなJava APIを提供します。<br/>
-#### logAction
+### RakutenReward
+#### loginActionJava(Kotlin : loginAction)
 ```java
-RakutenRewardJava.logAction("action_code", new LogActionCallback() {
+RakutenReward.logActionJava("", new LogActionCallback() {
     @Override
     public void success() {
         
@@ -92,9 +76,9 @@ RakutenRewardJava.logAction("action_code", new LogActionCallback() {
 });
 ```
 
-#### memberInfo
+#### memberInfoJava (Kotlin : memberInfo)
 ```java
-RakutenRewardJava.memberInfo(new MemberInfoCallback() {
+RakutenReward.memberInfoJava(new MemberInfoCallback() {
     @Override
     public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
         
@@ -108,9 +92,9 @@ RakutenRewardJava.memberInfo(new MemberInfoCallback() {
 ```
 
 
-#### getMissions
+#### getMissionsJava (Kotioln: getMissions)
 ```java
-RakutenRewardJava.getMissions(new GetMissionsCallback() {
+RakutenReward.getMissionsJava(new GetMissionsCallback() {
     @Override
     public void success(@NonNull List<MissionData> list) {
         
@@ -123,9 +107,9 @@ RakutenRewardJava.getMissions(new GetMissionsCallback() {
 });
 ```
 
-#### getUnclaimedItems
+#### getUnclaimedItemsJava (Kotlin: getUnclaimedItems)
 ```java
-RakutenRewardJava.getUnclaimedItems(new UnclaimedItemCallback() {
+RakutenReward.getUnclaimedItemsJava(new UnclaimedItemCallback() {
     @Override
     public void success(@NonNull List<MissionAchievementData> list) {
         
@@ -138,9 +122,9 @@ RakutenRewardJava.getUnclaimedItems(new UnclaimedItemCallback() {
 });
 ```
 
-#### getPointHistory
+#### getPointHistoryJava (Kotlin: getPointHistory)
 ```java
-RakutenRewardJava.getPointHistory(new PointHistoryCallback() {
+RakutenReward.getPointHistoryJava(new PointHistoryCallback() {
     @Override
     public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
 
@@ -153,67 +137,10 @@ RakutenRewardJava.getPointHistory(new PointHistoryCallback() {
 });
 ```
 
-#### getMissionsLite
+### RakutenAuth
+#### getUserInfoJava (getUserInfo)
 ```java
-RakutenRewardJava.getMissionsLite(new GetMissionsLiteCallback() {
-    @Override
-    public void success(@NonNull List<MissionLiteData> list) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```
-
-#### getMissionDetails
-```java
-RakutenRewardJava.getMissionDetails("action_code", new GetMissionDetailsCallback() {
-    @Override
-    public void success(@NonNull MissionData mission) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```
-
-#### requestForConsent
-```java
-// コールバックありの場合
-RakutenRewardJava.requestForConsent(new RequestForConsentCallback() {
-    @Override
-    public void onRequestConsentResult(@NonNull RakutenRewardConsentStatus status) {
-
-    }
-});
-
-// コールバックなしの場合
-RakutenRewardJava.requestForConsent();
-```
-
-#### showConsentBanner
-```java
-// コールバックありの場合
-RakutenRewardJava.showConsentBanner(new RequestForConsentCallback() {
-    @Override
-    public void onRequestConsentResult(@NonNull RakutenRewardConsentStatus status) {
-
-    }
-});
-
-// コールバックなしの場合
-RakutenRewardJava.showConsentBanner();
-```
-
-#### getUserInfo
-```java
-RakutenRewardJava.getUserInfo(new AuthMemberInfoCallback() {
+RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
     @Override
     public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
         
@@ -226,9 +153,10 @@ RakutenRewardJava.getUserInfo(new AuthMemberInfoCallback() {
 });
 ```
 
-#### claimMissionItem
+### MissionAchievementData
+#### claimJava()
 ```java
-RakutenRewardJava.claimMissionItem(missionAchievementData, new CustomClaimCallback() {
+missionAchievementData.claimJava(new CustomClaimCallback() {
     @Override
     public void success(@NonNull MissionAchievementData missionData) {
         

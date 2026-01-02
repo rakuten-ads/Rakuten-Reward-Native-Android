@@ -16,21 +16,38 @@ RakutenAuth.hasUserSignedIn()
 RakutenAuth.getUserName(): String
 ```  
 
-## ユーザーの会員ランク楽天ポイントを取得する
+## ユーザーの会員ランク楽天ポイントを取得する  
 ```kotlin
 RakutenAuth.getUserInfo(
     success = { userInfo ->
         //ポイント
         userInfo.points
-
+        
         //ランク
         userInfo.rank
-    },
+    }, 
     failed = {
         //取得に失敗
     }
 )
 ```  
+<details>
+    <summary>JAVA</summary>
+
+```java
+RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
+    @Override
+    public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
+        
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```    
+</details>  
 
 ### RakutenAuthUserInfo  
 | 名前     | 説明           |

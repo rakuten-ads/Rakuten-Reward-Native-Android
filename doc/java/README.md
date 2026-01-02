@@ -2,7 +2,6 @@
 
 Table of Contents
 * [For Java Developers](#for-java-developers)<br>
-* [Mission-Java Module](#mission-java-module)<br>
 * [How to access API](#how-to-access-api)<br>
 * [Properties](#properties)<br/>
 * [Callback Kotlin](#callback-kotlin)<br/>
@@ -11,22 +10,8 @@ Table of Contents
 ---
 # For Java Developers
 This SDK is written by Kotlin.<br/>
-For Java developers, we provide a dedicated mission-java module with Java-friendly APIs.<br/>
-
-## Mission-Java Module
-For Java projects, we recommend using the **mission-java** module which provides clean, Java-friendly APIs without requiring Kotlin syntax knowledge.
-
-### Dependency
-Add the mission-java dependency to your app's build.gradle:
-```gradle
-implementation 'com.rakuten.gap:rewardsdknative-java'
-```
-
-### Import
-```java
-import com.rakuten.gap.ads.mission_java.RakutenRewardJava;
-import com.rakuten.gap.ads.mission_java.listeners.*;
-```
+So, to access Kotlin Object, Extension, Companion Object,
+need some techniques.<br/>
 
 ## How to access API
 ### RakutenReward
@@ -72,13 +57,13 @@ This requires Kotlin standard library.<br/>
 To call lambda Kotlin callback, required Kotlin Standard library.<br/>
 
 ## Callback Java Style
-We provide Java friendly callback style APIs through the mission-java module.<br/>
+We prepared Java friendly callback style for APIs.<br/>
 
-### RakutenRewardJava
-The RakutenRewardJava class provides clean Java APIs without "Java" suffixes.<br/>
-#### logAction
+### RakutenReward
+We prepared same function without Kotlin callback.<br/>
+#### loginActionJava(Kotlin : loginAction)
 ```java
-RakutenRewardJava.logAction("action_code", new LogActionCallback() {
+RakutenReward.logActionJava("", new LogActionCallback() {
     @Override
     public void success() {
         
@@ -91,9 +76,9 @@ RakutenRewardJava.logAction("action_code", new LogActionCallback() {
 });
 ```
 
-#### memberInfo
+#### memberInfoJava (Kotlin : memberInfo)
 ```java
-RakutenRewardJava.memberInfo(new MemberInfoCallback() {
+RakutenReward.memberInfoJava(new MemberInfoCallback() {
     @Override
     public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
         
@@ -107,9 +92,9 @@ RakutenRewardJava.memberInfo(new MemberInfoCallback() {
 ```
 
 
-#### getMissions
+#### getMissionsJava (Kotlin: getMissions)
 ```java
-RakutenRewardJava.getMissions(new GetMissionsCallback() {
+RakutenReward.getMissionsJava(new GetMissionsCallback() {
     @Override
     public void success(@NonNull List<MissionData> list) {
         
@@ -122,9 +107,9 @@ RakutenRewardJava.getMissions(new GetMissionsCallback() {
 });
 ```
 
-#### getUnclaimedItems
+#### getUnclaimedItemsJava (Kotlin: getUnclaimedItems)
 ```java
-RakutenRewardJava.getUnclaimedItems(new UnclaimedItemCallback() {
+RakutenReward.getUnclaimedItemsJava(new UnclaimedItemCallback() {
     @Override
     public void success(@NonNull List<MissionAchievementData> list) {
         
@@ -137,9 +122,9 @@ RakutenRewardJava.getUnclaimedItems(new UnclaimedItemCallback() {
 });
 ```
 
-#### getPointHistory
+#### getPointHistoryJava (Kotlin: getPointHistory)
 ```java
-RakutenRewardJava.getPointHistory(new PointHistoryCallback() {
+RakutenReward.getPointHistoryJava(new PointHistoryCallback() {
     @Override
     public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
 
@@ -152,67 +137,10 @@ RakutenRewardJava.getPointHistory(new PointHistoryCallback() {
 });
 ```
 
-#### getMissionsLite
+### RakutenAuth
+#### getUserInfoJava (getUserInfo)
 ```java
-RakutenRewardJava.getMissionsLite(new GetMissionsLiteCallback() {
-    @Override
-    public void success(@NonNull List<MissionLiteData> list) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```
-
-#### getMissionDetails
-```java
-RakutenRewardJava.getMissionDetails("action_code", new GetMissionDetailsCallback() {
-    @Override
-    public void success(@NonNull MissionData mission) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```
-
-#### requestForConsent
-```java
-// With callback
-RakutenRewardJava.requestForConsent(new RequestForConsentCallback() {
-    @Override
-    public void onRequestConsentResult(@NonNull RakutenRewardConsentStatus status) {
-
-    }
-});
-
-// Without callback
-RakutenRewardJava.requestForConsent();
-```
-
-#### showConsentBanner
-```java
-// With callback
-RakutenRewardJava.showConsentBanner(new RequestForConsentCallback() {
-    @Override
-    public void onRequestConsentResult(@NonNull RakutenRewardConsentStatus status) {
-
-    }
-});
-
-// Without callback
-RakutenRewardJava.showConsentBanner();
-```
-
-#### getUserInfo
-```java
-RakutenRewardJava.getUserInfo(new AuthMemberInfoCallback() {
+RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
     @Override
     public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
                 
@@ -225,9 +153,10 @@ RakutenRewardJava.getUserInfo(new AuthMemberInfoCallback() {
 });
 ```
 
-#### claimMissionItem
+### MissionAchievementData
+#### claimJava()
 ```java
-RakutenRewardJava.claimMissionItem(missionAchievementData, new CustomClaimCallback() {
+missionAchievementData.claimJava(new CustomClaimCallback() {
     @Override
     public void success(@NonNull MissionAchievementData missionData) {
         

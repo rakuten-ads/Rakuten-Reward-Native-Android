@@ -61,27 +61,16 @@ RakutenReward.tokenType = RakutenRewardTokentype.RID
 RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RID);
 ```    
 </details>  
-
-SDK APIを利用するには、開発者がAPI（API-C）トークンを設定する必要があります。
+リワードSDKのAPIを利用するには、トークンの設定が必要です  
 ```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // 認証システムからトークンを返却
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // ユーザーがログインしていない場合は空文字列を返却
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
+RakutenReward.setRIdToken("token")
 ```
 
-ログインの実装方法についてはID SDKのログインドキュメントをご参照ください。
+ログインの実装方法についてはID　SDK の詳細をご参照ください。
 
-> :grey_exclamation:  **ユーザーがログアウトする際は、必ず`logout` APIを呼び出してトークンやデータを正しくクリアしてください。**
+> :grey_exclamation:  **バージョン3.1.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶ必要があります。**
 
-[ログアウト](#ログアウト) を参照  
+[ログアウト](#ログアウト) に参照  
 <br>
 
 ### RAE  
@@ -97,27 +86,16 @@ RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAE);
 ```    
 </details>  
 
-
-SDK APIを利用するには、開発者がAPIトークンを設定する必要があります。
+リワードSDKのAPIを利用するには、トークンの設定が必要です  
 ```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // 認証システムからトークンを返却
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // ユーザーがログインしていない場合は空文字列を返却
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
+RakutenReward.setRaeToken("token")
 ```
 
-ログインの実装方法についてはUser SDKのログインドキュメントをご参照ください。
+ログインの実装方法についてはUser　SDK の詳細をご参照ください。
 
-> :grey_exclamation:  **ユーザーがログアウトする際は、必ず`logout` APIを呼び出してトークンやデータを正しくクリアしてください。**
+> :grey_exclamation:  **バージョン3.1.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶ必要があります。**
 
-[ログアウト](#ログアウト) を参照  
+[ログアウト](#ログアウト) に参照  
 <br>  
 
 # ログイン  
@@ -174,7 +152,7 @@ class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // App CodeでSDKを初期化
+        //init sdk with your App Code
         RakutenReward.init("<AppCode>")
     }
 }
@@ -184,11 +162,10 @@ class App: Application() {
 |---------|-----------------------------------------|
 | AppCode | アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます) |
 
-RAEやRIDオプションを利用する場合は、SDKを有効化するためにトークンを設定する必要があります。
-<br/><br/>
+<br/>
 
-### **\*バージョン 3.3.0 以降、手動初期化は不要です。**
-アプリケーションのAndroidManifest.xmlに`App Code`を設定してください。
+### **\*バージョン 3.3.0 から、手動初期化は必要ないようになりました。**
+アプリケーションのAndroidManifest.xmlに`App Code`を設定してくだたさい。
 ```xml
 <application>
     <!-- Reward SDK Application Key -->
@@ -197,6 +174,7 @@ RAEやRIDオプションを利用する場合は、SDKを有効化するため�
         android:value="{Application Key}"/>
 </application>
 ```
+  
 <br>
 
 ## 楽天のIDSDKを利用する場合  
@@ -254,6 +232,26 @@ class YourActivity : AppCompatActivity() {
 
 ---  
 <br>  
+
+# SDKステータス  
+APIを使用するには、まずSDKステータスがONLINEに切り替わっていることを確認する必要があります。   
+SDKステータスを取得する方法は2つあります: 
+
+## RakutenReward.status  
+`RakutenReward.status` に直接アクセスして現在のSDKステータスを取得します。  
+
+## RakutenRewardListener  
+[`RakutenRewardListener`](../core/RakutenReward.md#rakutenrewardlistener) を追加して、SDKステータスが変更されたときに通知を受け取ります。  
+```kotlin  
+RakutenReward.addRakutenRewardListener(object : RakutenRewardListener {
+    override fun onSDKStatusChanged(status: RakutenRewardSDKStatus) {
+        if (status == RakutenRewardSDKStatus.ONLINE) {
+            // SDKステータスがONLINEです
+        }
+    }
+})
+```  
+***注意: [Option 1](#1-rakutenrewardlightbaseactivity-を拡張した-activity-クラスを作る)を使用している場合、RakutenRewardListenerを追加する必要はありません。メソッドを直接オーバーライドできます。***
 
 
 # ユーザー情報を取得する  

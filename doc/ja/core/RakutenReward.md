@@ -66,11 +66,11 @@ RakutenReward.INSTANCE.getAppCode();
 | [removeRakutenRewardListener](#rakutenrewardlistener) | RakutenRewardListenerを取り除く |
 | [requestForConsent](#利用規約への同意をリクエスト)                  | 利用規約への同意をリクエスト             |
 | [setRa](#クッキーをセットする)                                  | Ra クッキーをセットする              |
-| setRaeToken                                           | ⚠️ 非推奨 - RAE トークンをセットする ([RewardTokenProvider](../migration/v8-migration.md)を使用してください)             |
-| setRidToken                                           | ⚠️ 非推奨 - RID トークンをセットする ([RewardTokenProvider](../migration/v8-migration.md)を使用してください)             |
+| setRaeToken                                           | RAE トークンをセットする             |
+| setRidToken                                           | RID トークンをセットする             |
 | [setRp](#クッキーをセットする)                                  | Rp クッキーをセットする              |
 | [setRz](#クッキーをセットする)                                  | Rz クッキーをセットする              |
-| [startSession](#SDK-セッションを開始)                         | ⚠️ [RewardTokenProvider](../migration/v8-migration.md)使用時は不要 - SDK セッションを開始               |  
+| [startSession](#SDK-セッションを開始)                         | SDK セッションを開始               |  
 | [showConsentBanner](#通知バナーを表示する)                      | 通知バナーを表示する                 |
 
 ### RakutenRewardListener
@@ -117,7 +117,22 @@ RakutenReward.getMissions({ missions ->
 }) {
     // 失敗
 }
-```
+```  
+
+JAVA
+```java
+RakutenReward.getMissionsJava(new GetMissionsCallback() {
+    @Override
+    public void success(@NonNull List<MissionData> list) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -139,7 +154,22 @@ RakutenReward.getMissionsLite({ missions ->
 }) {
     // 失敗
 }
-```
+```  
+
+JAVA
+```java
+RakutenReward.getMissionsLiteJava(new GetMissionsLiteCallback() {
+    @Override
+    public void success(@NonNull List<MissionLiteData> list) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
@@ -160,7 +190,22 @@ RakutenReward.getMissionDetails("<actionCode>", { mission ->
 }) {
     // 失敗
 }
-```
+```  
+
+JAVA
+```java
+RakutenReward.getMissionDetailsJava("<actionCode>", new GetMissionDetailsCallback() {
+    @Override
+    public void success(@NonNull MissionData missionData) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
@@ -180,7 +225,22 @@ RakutenReward.getPointHistory({ pointHistory ->
 }, {
     // 失敗
 })
-```
+```  
+
+JAVA
+```java
+RakutenReward.getPointHistoryJava(new PointHistoryCallback() {
+    @Override
+    public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
+
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -200,7 +260,22 @@ RakutenReward.getUnclaimedItems({ unclaimed ->
 }) {
     // 失敗
 }
-```
+```  
+
+JAVA
+```java
+RakutenReward.getUnclaimedItemsJava(new UnclaimedItemCallback() {
+    @Override
+    public void success(@NonNull List<MissionAchievementData> list) {
+        
+    }
+
+    @Override
+    public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -221,26 +296,12 @@ RakutenReward.init("<appCode>")
 
 | パラメータ名  | 説明                                      |
 |---------|-----------------------------------------|
-| AppCode | アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます) |
+| AppCode | アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます) | 
 
-**RID, RAEログインオプションの場合**
-v8以降では、初期化時に`RewardTokenProvider`を提供することを推奨します：
+**RID, RAEログインオプションの場合**  
+  
 ```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // ユーザーがログインしていない場合は空文字列を返却
-        }
-    }
-}
-RakutenReward.init("<appCode>", tokenProvider)
-```
-
-または非推奨のトークン文字列を使用（引き続きサポートされていますが推奨されません）：
-```kotlin
-RakutenReward.init("<appCode>", "<token>")  // 非推奨
+RakutenReward.init("<appCode>", "<token>")
 ```  
 
 <br>  
@@ -248,13 +309,29 @@ RakutenReward.init("<appCode>", "<token>")  // 非推奨
 ### アクションを送信する  
 こちらの API はアクションを送信する。  
 
+Kotlin
 ```kotlin
 RakutenReward.logAction("actionCode", {
     // 送信成功
 }) {
     // 送信失敗
 }
-```
+```  
+
+JAVA  
+```java
+RakutenReward.logActionJava("actionCode", new LogActionCallback() {
+    @Override
+    public void success() {
+        
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -274,13 +351,29 @@ val result : RewardApiResult<Unit> = RakutenRewardCoroutine.logAction("actionCod
 ### 会員情報  
 こちらの API は [`RakutenRewardUser`](../apiData/README.md#rakutenrewarduser) オブジェクトを戻る。  
 
+Kotlin  
 ```kotlin
 RakutenReward.memberInfo({ user ->
     // 成功
 }) {
     // 失敗
 }
-```
+```  
+
+JAVA  
+```java
+RakutenReward.memberInfoJava(new MemberInfoCallback() {
+    @Override
+    public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
+        
+    }
+
+    @Override
+    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
+
+    }
+});
+```  
 
 コルーチン  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -338,10 +431,18 @@ RakutenReward.setRa("cookie")
 
 このコールバックは[`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus)を戻る。    
 
+Kotlin  
 ```kotlin
 RakutenReward.requestForConsent { status ->
     // check consent status
 }
+```  
+
+JAVA  
+```java
+RakutenReward.requestForConsentJava(rakutenRewardConsentStatus -> {
+    // check consent status
+});
 ```  
 
 ### 通知バナーを表示する  
@@ -353,18 +454,23 @@ RakutenReward.requestForConsent { status ->
 このコールバックは[`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus)を戻る。    
  
 
+Kotlin 
 ```kotlin
 RakutenReward.showConsentBanner {
     // check consent status
 }
+```  
+
+JAVA
+```java
+RakutenReward.showConsentBannerJava(rakutenRewardConsentStatus -> {
+    // check consent status
+});
 ```
 
-### SDK セッションを開始
-[![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)
-
-> **注意:** `RewardTokenProvider`（v8以降）を使用している場合、このAPIは不要です。SDKが自動的にセッションを管理します。詳細については[v8マイグレーションガイド](../migration/v8-migration.md)をご参照ください。
-
-SDK セッションを手動で開始する。ONLINEになった場合、`RakutenRewardListener#onSDKConsentClosed()` の実装を呼び出します。
+### SDK セッションを開始  
+[![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)  
+SDK セッションを手動で開始する。ONLINEになった場合、`RakutenRewardListener#onSDKConsentClosed()` の実装を呼び出します。   
 
 ```kotlin
 RakutenReward.startSession()
