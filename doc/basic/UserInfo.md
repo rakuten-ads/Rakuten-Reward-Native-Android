@@ -16,38 +16,21 @@ RakutenAuth.hasUserSignedIn()
 RakutenAuth.getUserName(): String
 ```  
 
-## Get user's current point and rank  
+## Get user's current point and rank
 ```kotlin
 RakutenAuth.getUserInfo(
     success = { userInfo ->
         //get point
         userInfo.points
-        
+
         //get rank
         userInfo.rank
-    }, 
+    },
     failed = {
         //fail to get user info
     }
 )
 ```  
-<details>
-    <summary>JAVA</summary>
-
-```java
-RakutenAuth.getUserInfoJava(new AuthMemberInfoCallback() {
-    @Override
-    public void success(@NonNull RakutenAuthUserInfo rakutenAuthUserInfo) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```    
-</details>  
 
 ### RakutenAuthUserInfo  
 | Property name | Description                      |

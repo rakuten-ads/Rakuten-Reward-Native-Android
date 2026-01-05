@@ -1,6 +1,7 @@
 [TOP](../../README.md#top)　>　Migration Guide
 
 Table of Contents
+* [Migrate to version 8.0.0](#migrate-to-version-800)
 * [Migrate to version 5.0.0](#migrate-to-version-500)
 * [Migration to version 3.3.0](#migrate-to-version-330)
     * [SDK Initialization](#sdk-initialization)
@@ -8,6 +9,9 @@ Table of Contents
 * [Migrate to version 3.1.0](#migrate-to-version-310)
 * [Migrate from V1 SDK](#migrate-from-v1-sdk)
 ---
+# Migrate to version 8.0.0
+Please refer the guide [here](v8-migration.md) for migration to v8 SDK.    
+
 # Migrate to version 5.0.0
 In version 5.0.0, Mission SDK removed its dependency to RUNA SDK's Core library. If your application does not integrate RUNA SDK, then you can remove the following maven repository in project level `build.gradle` file.  
 ```groovy

@@ -66,11 +66,11 @@ RakutenReward.INSTANCE.getAppCode();
 | [removeRakutenRewardListener](#rakutenrewardlistener)  | Remove Event Listener                                    |
 | [requestForConsent](#request-for-consent)              | Request for consent if user have not provide consent yet |
 | [setRa](#set-rakuten-cookie)                           | Set Ra cookie                                            |
-| setRaeToken                                            | Set RAE Token                                            |
-| setRidToken                                            | Set RID Token                                            |
+| setRaeToken                                            | ⚠️ Deprecated - Set RAE Token (Use [RewardTokenProvider](../migration/v8-migration.md) instead) |
+| setRidToken                                            | ⚠️ Deprecated - Set RID Token (Use [RewardTokenProvider](../migration/v8-migration.md) instead) |
 | [setRp](#set-rakuten-cookie)                           | Set Rp cookie                                            |
 | [setRz](#set-rakuten-cookie)                           | Set Rz cookie                                            |
-| [startSession](#start-sdk-session)                     | Start SDK session                                        |  
+| [startSession](#start-sdk-session)                     | Start SDK session (Not needed with [RewardTokenProvider](../migration/v8-migration.md)) |  
 | [showConsentBanner](#user-consent-notification-banner) | Show User consent notification banner                    |
 
 ### RakutenRewardListener
@@ -117,22 +117,7 @@ RakutenReward.getMissions({ missions ->
 }) {
     // get missions failed
 }
-```  
-
-JAVA
-```java
-RakutenReward.getMissionsJava(new GetMissionsCallback() {
-    @Override
-    public void success(@NonNull List<MissionData> list) {
-
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -154,22 +139,7 @@ RakutenReward.getMissionsLite({ missions ->
 }) {
     // get missions failed
 }
-```  
-
-JAVA
-```java
-RakutenReward.getMissionsLiteJava(new GetMissionsLiteCallback() {
-    @Override
-    public void success(@NonNull List<MissionLiteData> list) {
-
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
@@ -190,22 +160,7 @@ RakutenReward.getMissionDetails("<actionCode>", { mission ->
 }) {
     // get mission failed
 }
-```  
-
-JAVA
-```java
-RakutenReward.getMissionDetailsJava("<actionCode>", new GetMissionDetailsCallback() {
-    @Override
-    public void success(@NonNull MissionData missionData) {
-
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
@@ -225,22 +180,7 @@ RakutenReward.getPointHistory({ pointHistory ->
 }, {
     // error
 })
-```  
-
-JAVA
-```java
-RakutenReward.getPointHistoryJava(new PointHistoryCallback() {
-    @Override
-    public void success(@NonNull RakutenRewardPointHistory rakutenRewardPointHistory) {
-
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -260,22 +200,7 @@ RakutenReward.getUnclaimedItems({ unclaimed ->
 }) {
     // error
 }
-```  
-
-JAVA
-```java
-RakutenReward.getUnclaimedItemsJava(new UnclaimedItemCallback() {
-    @Override
-    public void success(@NonNull List<MissionAchievementData> list) {
-        
-    }
-
-    @Override
-    public void failed(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -296,12 +221,26 @@ RakutenReward.init("<appCode>")
 
 | Parameter name | Description                                                    |
 |----------------|----------------------------------------------------------------|
-| AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |  
+| AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |
 
-**For RID, RAE login options**  
-You can provide access token in the init API.  
+**For RID, RAE login options**
+You can provide `RewardTokenProvider` during initialization (recommended in v8+):
 ```kotlin
-RakutenReward.init("<appCode>", "<token>")
+val tokenProvider = object: RewardTokenProvider {
+    override suspend fun getAccessToken(): String {
+        return if (isUserLoggedIn()) {
+            yourAuthManager.getAccessToken()
+        } else {
+            ""  // Return empty string when not logged in
+        }
+    }
+}
+RakutenReward.init("<appCode>", tokenProvider)
+```
+
+Or using the deprecated token string (still supported but not recommended):
+```kotlin
+RakutenReward.init("<appCode>", "<token>")  // Deprecated
 ```  
 
 <br>  
@@ -309,29 +248,13 @@ RakutenReward.init("<appCode>", "<token>")
 ### Post Mission Action  
 The following API post a mission action.  
 
-Kotlin
 ```kotlin
 RakutenReward.logAction("actionCode", {
     // post action success
 }) {
     // post action failed
 }
-```  
-
-JAVA  
-```java
-RakutenReward.logActionJava("actionCode", new LogActionCallback() {
-    @Override
-    public void success() {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -350,29 +273,13 @@ When a mission achievement is already reached its cap, this `logAction` API will
 ### Member Information
 The following API return a [`RakutenRewardUser`](../apiData/README.md#rakutenrewarduser) object  
 
-Kotlin  
 ```kotlin
 RakutenReward.memberInfo({ user ->
     // success
 }) {
     // error
 }
-```  
-
-JAVA  
-```java
-RakutenReward.memberInfoJava(new MemberInfoCallback() {
-    @Override
-    public void success(@NonNull RakutenRewardUser rakutenRewardUser) {
-        
-    }
-
-    @Override
-    public void fail(@NonNull RakutenRewardAPIError rakutenRewardAPIError) {
-
-    }
-});
-```  
+```
 
 Coroutine  
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
@@ -432,18 +339,10 @@ Else the callback will be triggered immediately with `CONSENT_PROVIDED` status. 
 
 The callback return [`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus).  
 
-Kotlin  
 ```kotlin
 RakutenReward.requestForConsent { status ->
     // check consent status
 }
-```  
-
-JAVA  
-```java
-RakutenReward.requestForConsentJava(rakutenRewardConsentStatus -> {
-    // check consent status
-});
 ```  
 
 ### User Consent Notification Banner  
@@ -455,24 +354,19 @@ Else the callback will be triggered immediately with `CONSENT_PROVIDED` status. 
 
 The callback return [`RakutenRewardConsentStatus`](../apiData/README.md#rakutenrewardconsentstatus).  
 
-Kotlin 
 ```kotlin
 RakutenReward.showConsentBanner {
     // check consent status
 }
-```  
-
-JAVA
-```java
-RakutenReward.showConsentBannerJava(rakutenRewardConsentStatus -> {
-    // check consent status
-});
 ```
 
 
-### Start SDK Session  
-[![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)  
-Manually start SDK session.  When SDK is ONLINE, `onSDKStatusChanged` will be triggered.   
+### Start SDK Session
+[![support version](http://img.shields.io/badge/core-3.4.2+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20221202_v3_4_2)
+
+> **Note:** If you're using `RewardTokenProvider` (v8+), this API is no longer needed. The SDK automatically manages the session for you. See [v8 Migration Guide](../migration/v8-migration.md) for more information.
+
+Manually start SDK session.  When SDK is ONLINE, `onSDKStatusChanged` will be triggered.
 
 ```kotlin
 RakutenReward.startSession()
