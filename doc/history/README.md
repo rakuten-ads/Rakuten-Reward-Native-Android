@@ -1,5 +1,13 @@
 # Update History
 
+### Version 8.1.0
+<hr/>
+Release Date: 2026/03/12
+
+* 軽微なUI修正
+* SPS module:  
+  * 軽微なエラーUI修正
+
 ### Version 8.0.0
 <hr/>
 Release Date: 2026/01/02
