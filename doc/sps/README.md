@@ -44,7 +44,7 @@ Then add the SPS dependency to the app-level build.gradle file
 ```groovy
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:8.1.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:x.x.x')
 
   // Mandatory libraries to support SPS library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -94,12 +94,12 @@ RakutenReward.openSpsPortal("<rzCookie>", { result ->
 Below are the possible error code returned
 | RakutenRewardAPIError | Reason |
 | --- | --- |
-| SDKNOTACTIVE | Reward SDK is not initialized yet |  
-| USER_NOT_CONSENT | User haven't agree on TOS |  
-| NOTSUPPORT | SPS feature is not enabled (Please inform SDK developer) |  
-| NETWORKERROR | Network calls failed or user closed registration screen |
-| INVALIDREQUEST | No context reference to open the Activity class. Please refer [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-waysk) to start SDK session  |
-| UNDER_MAINTENANCE | SPS feature is under maintenance (added in v7.3.1) |
+| `USER_NOT_CONSENT` | User declines the consent dialog, or cancels the SPS member registration screen |
+| `NOTSUPPORT` | SPS feature is not enabled for this app (please contact the SDK team) |
+| `UNDER_MAINTENANCE` | SPS feature is under maintenance |
+| `NETWORKERROR` | Network error while checking SPS membership |
+| `SDKNOTACTIVE` | SDK is opted out |
+| `INVALIDREQUEST` | No Activity reference available to open the portal. Please refer [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-ways) to start the SDK session in your Activity |
 
 ***Since 7.3.0 rz cookie parameter is added to `openSpsPortal` for better personalized experience in the portal***  
 

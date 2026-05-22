@@ -55,9 +55,20 @@ RakutenReward.openSDKPortal({ result ->
 }) {
     // handle Portal closed event here
 }
-```  
+```
 
-<br>  
+<details>
+<summary>Possible Error Codes</summary>
+
+| Error Code | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent or declines the consent dialog |
+| `INVALIDREQUEST` | No Activity reference available to open the portal. Please refer [here](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-ways) to start the SDK session in your Activity |
+
+</details>
+
+<br>
 This is UI Image
 
 ![Portal1](Portal1.png)  ![Portal2](Portal2.png)

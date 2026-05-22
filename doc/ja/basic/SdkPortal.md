@@ -57,9 +57,20 @@ RakutenReward.openSDKPortal({ result ->
 }) {
     // handle Portal closed event here
 }
-```  
+```
 
-<br>  
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない、または同意ダイアログを拒否した |
+| `INVALIDREQUEST` | ポータルを開くためのActivity参照がありません。[こちら](../basic/README.md#to-start-sdk-in-your-activity-we-provide-several-ways)を参照してActivityでSDKセッションを開始してください |
+
+</details>
+
+<br>
 こちらがSDKポータルのイメージになります
 
 ![Portal1](Portal1.png)  ![Portal2](Portal2.png)

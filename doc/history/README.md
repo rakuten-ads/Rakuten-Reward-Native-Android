@@ -1,12 +1,22 @@
 # Update History
 
+### Version 8.2.0
+<hr/>
+Release Date: 2026/05/22
+
+* SPS module:
+   * Support simple-web Ad in entrance screen and claim screen
+   * Return USER_NOT_CONSENT error when user cancels SPS registration
+* Update edge-to-edge UI on Android 15+
+* Deprecated unused environment enum entries 
+
 ### Version 8.1.0
 <hr/>
 Release Date: 2026/03/12
 
-* 軽微なUI修正
-* SPS module:  
-  * 軽微なエラーUI修正
+* Minor UI fix
+* SPS module:    
+  * Minor error UI fix
 
 ### Version 8.0.0
 <hr/>

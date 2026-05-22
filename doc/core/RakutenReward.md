@@ -1,21 +1,21 @@
 [TOP](/README.md#top)　>　[Core API](./README.md)　>  RakutenReward  
 
-Table of Contents  
-* [Properties](#properties)  
-* [Public Methods](#public-methods)  
-  * [RakutenRewardListener](#rakutenrewardlistener)  
-  * [Mission List](#mission-list)  
-  * [Mission Lite List](#mission-lite-list)  
-  * [Mission Details](#mission-details)  
-  * [Point History](#point-history)  
-  * [Unclaimed Items](#unclaimed-items)  
-  * [Init API](#init-api)  
-  * [Post Mission Action](#post-mission-action)  
-  * [Member Information](#member-informations)  
-  * [Open Reward Web Page](#open-reward-web-page)  
-  * [Set Rakuten Cookie](#set-rakuten-cookie)  
-  * [Request for Consent](#request-for-consent)  
-  * [User Consent Notification Banner](#user-consent-notification-banner)  
+Table of Contents
+* [Properties](#properties)
+* [Public Methods](#public-methods)
+  * [RakutenRewardListener](#rakutenrewardlistener)
+  * [Mission List](#mission-list)
+  * [Mission Lite List](#mission-lite-list)
+  * [Mission Details](#mission-details)
+  * [Point History](#point-history)
+  * [Unclaimed Items](#unclaimed-items)
+  * [Init API](#init-api)
+  * [Post Mission Action](#post-mission-action)
+  * [Member Information](#member-informations)
+  * [Open Reward Web Page](#open-reward-web-page)
+  * [Set Rakuten Cookie](#set-rakuten-cookie)
+  * [Request for Consent](#request-for-consent)
+  * [User Consent Notification Banner](#user-consent-notification-banner)
   * [Start SDK Session](#start-sdk-session)  
 
 ---  
@@ -123,7 +123,22 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionData>> = RakutenRewardCoroutine.getMissions()
-```  
+```
+
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | Bad request |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response |
+
+</details>
 
 <br>
 
@@ -145,7 +160,22 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
 ```kotlin
 val result : RewardApiResult<List<MissionLiteData>> = RakutenRewardCoroutine.getMissionsLite()
-```  
+```
+
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | Bad request |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response |
+
+</details>
 
 <br>
 
@@ -166,7 +196,22 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
 ```kotlin
 val result : RewardApiResult<MissionData> = RakutenRewardCoroutine.getMissionDetails()
-```  
+```
+
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | Invalid `actionCode` |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response, or mission data could not be parsed |
+
+</details>
 
 <br>
 
@@ -186,9 +231,24 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<RakutenRewardPointHistory> = RakutenRewardCoroutine.getPointHistory()
-```   
+```
 
-<br>  
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | Bad request |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response |
+
+</details>
+
+<br>
 
 ### Unclaimed Items  
 The following API return a list of [`MissionAchievementData`](../apiData/README.md#missionachievementdata) objects.  
@@ -206,9 +266,24 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionAchievementData>> = RakutenRewardCoroutine.getUnclaimedItems()
-```   
+```
 
-<br>  
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | Bad request |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response |
+
+</details>
+
+<br>
 
 ### Init API  
 Initialize SDK  
@@ -260,7 +335,24 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<Unit> = RakutenRewardCoroutine.logAction("actionCode")
-```   
+```
+
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `SDKNOTACTIVE` | SDK is opted out |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `APPCODEINVLID` | Application key is invalid |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+| `INVALIDREQUEST` | `actionCode` is empty, or is invalid |
+| `MISSION_REACHED_CAP` | Mission has already reached its cap; the action will not be posted |
+| `NETWORKERROR` | Network or other HTTP error |
+| `UNKNOWN` | Unexpected or unparseable server response |
+
+</details>
+
 <br>
 
 #### Mission Achievement Reached Cap  
@@ -285,9 +377,20 @@ Coroutine
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<RakutenRewardUser> = RakutenRewardCoroutine.memberInfo()
-```   
+```
 
-<br>  
+<details>
+<summary>Possible Error Codes</summary>
+
+| RakutenRewardAPIError | Reason |
+|---|---|
+| `APPCODEINVLID` | Application key is invalid |
+| `USER_NOT_CONSENT` | User has not provided consent |
+| `TOKENEXPIRE` | Access token has expired or could not be obtained |
+
+</details>
+
+<br>
 
 ### Open Reward Web Page  
 SDK provide page open with API  

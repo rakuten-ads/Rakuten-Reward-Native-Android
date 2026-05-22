@@ -123,7 +123,22 @@ RakutenReward.getMissions({ missions ->
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionData>> = RakutenRewardCoroutine.getMissions()
-```  
+```
+
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | リクエストが無効 |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス |
+
+</details>
 
 <br>
 
@@ -145,7 +160,22 @@ RakutenReward.getMissionsLite({ missions ->
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
 ```kotlin
 val result : RewardApiResult<List<MissionLiteData>> = RakutenRewardCoroutine.getMissionsLite()
-```  
+```
+
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | リクエストが無効 |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス |
+
+</details>
 
 <br>
 
@@ -166,7 +196,22 @@ RakutenReward.getMissionDetails("<actionCode>", { mission ->
 [![support version](http://img.shields.io/badge/core-6.1.0+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20240926_v6.1.0)  
 ```kotlin
 val result : RewardApiResult<MissionData> = RakutenRewardCoroutine.getMissionDetails()
-```  
+```
+
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | `actionCode` が無効 |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス、またはミッションデータが解析できなかった |
+
+</details>
 
 <br>
 
@@ -186,9 +231,24 @@ RakutenReward.getPointHistory({ pointHistory ->
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<RakutenRewardPointHistory> = RakutenRewardCoroutine.getPointHistory()
-```   
+```
 
-<br>  
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | リクエストが無効 |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス |
+
+</details>
+
+<br>
 
 ### 未獲得ミッションリスト  
 こちらの API は [`MissionAchievementData`](../apiData/README.md#missionachievementdata) オブジェクトのリストを戻る。  
@@ -206,9 +266,24 @@ RakutenReward.getUnclaimedItems({ unclaimed ->
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<List<MissionAchievementData>> = RakutenRewardCoroutine.getUnclaimedItems()
-```   
+```
 
-<br>  
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | リクエストが無効 |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス |
+
+</details>
+
+<br>
 
 ### Init API  
 リワードSDKの初期化  
@@ -260,9 +335,25 @@ RakutenReward.logAction("actionCode", {
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<Unit> = RakutenRewardCoroutine.logAction("actionCode")
-```   
+```
 
-<br>  
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `SDKNOTACTIVE` | SDK はオプトアウトされている |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+| `INVALIDREQUEST` | `actionCode` が空、または無効 |
+| `MISSION_REACHED_CAP` | ミッションはすでに上限に達しています。アクションは送信されません |
+| `NETWORKERROR` | ネットワークまたはその他のHTTPエラー |
+| `UNKNOWN` | 予期しないまたは解析できないサーバーレスポンス |
+
+</details>
+
+<br>
 
 #### ミッション達成が上限に達した  
 
@@ -286,9 +377,20 @@ RakutenReward.memberInfo({ user ->
 [![support version](http://img.shields.io/badge/core-3.3.3+-green.svg?style=flat)](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/releases/tag/rel_20220826_v3_3_0)  
 ```kotlin
 val result : RewardApiResult<RakutenRewardUser> = RakutenRewardCoroutine.memberInfo()
-```   
+```
 
-<br>  
+<details>
+<summary>エラーコード一覧</summary>
+
+| RakutenRewardAPIError | 理由 |
+|---|---|
+| `APPCODEINVLID` | アプリケーションキーが無効 |
+| `USER_NOT_CONSENT` | ユーザーがまだ利用規約に同意していない |
+| `TOKENEXPIRE` | アクセストークンが期限切れ、または取得できなかった |
+
+</details>
+
+<br>
 
 ### 楽天リワードのページを開く  
 SDK は各種SDKのページを開くためのAPIを提供しております  
