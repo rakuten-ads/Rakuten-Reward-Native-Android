@@ -1,5 +1,15 @@
 # Update History
 
+### Version 8.2.1
+<hr/>
+Release Date: 2026/07/30
+
+* Show progress count in mission list screen
+* JavaScript Extension module:
+    * Added new JS interface APIs with unified callback result shape
+    * Added `getMissionLite`, `getMissionDetails`, `getUnclaimList`, and `claimMissionPoint` APIs
+    * `USER_NOT_CONSENT` status will automatically show TOS popup to request user consent
+
 ### Version 8.2.0
 <hr/>
 Release Date: 2026/05/22

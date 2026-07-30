@@ -1,5 +1,15 @@
 # 更新履歴
 
+### バージョン 8.2.1
+<hr/>
+リリース日: 2026/07/30
+
+* ミッション一覧画面に進捗数を表示
+* JavaScript拡張モジュール：
+  * 統一されたコールバック結果形式を持つ新しいJSインターフェースAPIを追加
+  * `getMissionLite`、`getMissionDetails`、`getUnclaimList`、`claimMissionPoint` APIを追加
+  * `USER_NOT_CONSENT`ステータスの場合、ユーザーの同意を求めるTOSポップアップを自動的に表示
+
 ### バージョン 8.2.0
 <hr/>
 リリース日: 2026/05/22
