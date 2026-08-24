@@ -1,16 +1,17 @@
-[TOP](../../README.md#top) > SPS feature  
+[TOP](../../README.md#top) > SPS feature
 
-Table of Contents  
-* [Overview](#overview)  
-* [Import SPS library](#import-sps-library)  
-* [Enable SPS feature](#enable-sps-feature)  
-* [Authentication](#authentication)  
-    * [ID SDK](#id-sdk)  
-* [Initialize SPS](#initialize-sps)  
-* [Show SPS Portal](#show-sps-portal)  
-* [Claim Point Screen](#claim-point-screen)  
-* [Theme Setting Screen](#theme-setting-screen)  
-* [Maintenance Screen](#maintenance-screen)  
+Table of Contents
+* [Overview](#overview)
+* [Import SPS library](#import-sps-library)
+* [Enable SPS feature](#enable-sps-feature)
+* [Authentication](#authentication)
+    * [ID SDK](#id-sdk)
+* [Initialize SPS](#initialize-sps)
+* [Show SPS Portal](#show-sps-portal)
+* [Claim Point Screen](#claim-point-screen)
+* [Theme Setting Screen](#theme-setting-screen)
+* [Maintenance Screen](#maintenance-screen)
+* [Google Interstitial Ad](#google-interstitial-ad)
 * [Migration Guide](#migration-guide)
     * [7.2.0](#migrate-to-720)
 
@@ -107,6 +108,30 @@ Screenshots of the SPS Portal
 
 <img src="img/sps_portal_home.png" alt="SPS Home Page" width="250">  <img src="img/sps_portal_mission.png" alt="Mission Page" width="250">  
 
+## Campagin Deeplink
+<details>
+<summary>Expand</summary>
+
+***Since 8.3.0 deeplink URL parameter is added to `openSpsPortal` to open a specific page.***
+
+```kotlin
+RakutenReward.openSpsPortal(
+    rz = "<rzCookie>",
+    deeplink = "<deeplinkURL>",
+    isPortalOpenedCallback = { result ->
+        when (result) {
+            is Failed -> // Failed to open Portal. Get the error here `result.error`
+            is Success -> // SDK Portal opened successfully
+        }
+    },
+    activityResultCallback = {
+        // handle portal closed event
+    }
+)
+```
+
+</details>
+
 ## Non-SPS member
 If the logged in user is not a SPS member, a member registration screen will be shown first.  
 
@@ -160,6 +185,45 @@ Since v7.4.0 when SPS service is under maintenance, users will not be able to ac
 
 
 <br/>
+
+# Google Interstitial Ad
+
+The SDK supports showing a Google Interstitial Ad after a user earns a point from the SPS landing page. This is an optional feature backed by a separate module — if the module is not included, the SDK behaves as before with no ad shown.
+
+## How it works
+
+When a user completes a point-earning action in the SPS landing page:
+1. The SDK checks whether an interstitial ad provider is registered.
+2. If a provider is registered, a full-screen loading indicator is displayed while the ad is being prepared.
+3. Once the ad is ready, it is displayed as a full-screen interstitial.
+4. After the ad is dismissed, the SDK pre-loads the next ad silently in the background.
+
+If no provider is registered (i.e. the `rewardsdknative-ads` module is not included), steps 2–4 are skipped entirely.
+
+## Integration steps
+
+### 1. Add the `rewardsdknative-ads` dependency
+
+```groovy
+dependencies {
+    implementation 'com.rakuten.android:rewardsdknative-ads'
+}
+```
+
+No further initialisation code is required. The module registers itself automatically at app startup via a `ContentProvider`.
+
+### 2. Set up Google Mobile Ads SDK
+
+Follow the official Google integration guide to complete the required setup in your app:
+https://developers.google.com/admob/android/quick-start
+
+> ⚠️ This step is mandatory. The interstitial ad will not work if the Google Mobile Ads SDK is not properly set up.
+
+### 3. Configure the ad unit ID on the backend
+
+Contact the dev team to configure the ad unit ID for your platform on the backend.
+
+---
 
 # Migration Guide  
 ## Migrate to 7.2.0  

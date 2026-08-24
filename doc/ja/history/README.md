@@ -1,5 +1,17 @@
 # 更新履歴
 
+### バージョン 8.3.0
+<hr/>
+リリース日: 2026/08/24
+
+* SPSモジュール：
+    * エントランスフローを変更
+    * Googleインタースティシャル広告をサポート（[詳細はこちら](../../sps/README.md#google-interstitial-ad)）
+    * `openSpsPortal` によるキャンペーンディープリンクをサポート（[詳細はこちら](../../sps/README.md#campagin-deeplink)）
+* 軽微なUIバグ修正
+* 非推奨のRAE APIを削除 `RakutenReward.setRaeToken`
+* 非推奨の環境 enum エントリを削除
+
 ### バージョン 8.2.1
 <hr/>
 リリース日: 2026/07/30

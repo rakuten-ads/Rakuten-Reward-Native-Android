@@ -58,12 +58,15 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 ---
 `RakutenRewardCoroutine` クラスは suspend 関数の API を提供しています
 
-| API 名         | 説明                      | 使用例                                          |
-|---------------|-------------------------|----------------------------------------------|
-| ミッションリストを取得する | ミッションリストを取得する           | `RakutenRewardCoroutine.getMissions()`       |
-| ポイント履歴を取得する   | 3ヶ月前までのポイント履歴を取得する      | `RakutenRewardCoroutine.getPointHistory()`   |
-| アクションを送信する    | ミッションを達成するためにアクションを送信する | `RakutenRewardCoroutine.logAction("xxxxxx")` |
-| 未獲得ミッションを取得する | 未獲得ミッションリストを取得する        | `RakutenRewardCoroutine.getUnclaimedItems()` |
+| API 名              | 説明                      | 使用例                                                  |
+|--------------------|-------------------------|------------------------------------------------------|
+| ミッションリストを取得する      | ミッションリストを取得する           | `RakutenRewardCoroutine.getMissions()`               |
+| ミッションライトリストを取得する   | ミッションライトリストを取得する        | `RakutenRewardCoroutine.getMissionsLite()`           |
+| ミッション詳細を取得する       | ミッション詳細を取得する            | `RakutenRewardCoroutine.getMissionDetails("xxxxxx")` |
+| ポイント履歴を取得する        | 3ヶ月前までのポイント履歴を取得する      | `RakutenRewardCoroutine.getPointHistory()`           |
+| アクションを送信する         | ミッションを達成するためにアクションを送信する | `RakutenRewardCoroutine.logAction("xxxxxx")`         |
+| 未獲得ミッションを取得する      | 未獲得ミッションリストを取得する        | `RakutenRewardCoroutine.getUnclaimedItems()`         |
+| メンバー情報を取得する        | 最新のメンバー情報を取得する          | `RakutenRewardCoroutine.memberInfo()`                |
 
 ## RakutenAuth
 ---
@@ -89,6 +92,8 @@ RakutenRewardConfig　はユーザー設定を管理するクラスです
 | UI設定          | ミッションのUIのオン・オフ設定                                  | `RakutenRewardConfig.setUiEnabled(context, true)` |
 | デバッグオプション     | SDKデバッグができるように設定する                                | `RakutenRewardConfig.isDebuggable()`              |
 | SDKポータルを使うの設定 | SDKポータルを使う、使わないを設定する (UIモジュールのみ)                  | `RakutenRewardConfig.isUsingSdkPortal(true)`      |
+| アプリロケールの設定    | アプリロケールを設定する                                      | `RakutenRewardConfig.setAppLocale(Japanese)`      |
+| アプリロケールの取得    | 現在のアプリロケールを取得する。デフォルトはnull                        | `RakutenRewardConfig.getAppLocale()`              |
 
 ## 楽天リワードのページを開く
 
@@ -143,13 +148,15 @@ RakutenRewardUser ユーザデータのクラスです
 ---
 RakutenRewardListener 楽天リワードのイベントに関するリスナーです
 
-| 名前                                                                                                     | 説明               |
-|--------------------------------------------------------------------------------------------------------|------------------|
-| fun onUnclaimedAchievement(achievement : MissionAchievementData)                                       | ユーザーがミッションを達成した　 |
-| fun onUserUpdated(user : RakutenRewardUser)                                                            | ユーザーデータが更新された    |
-| fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された     |
-| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた       |
-| fun onSDKConsentClosed()                                                                               | 同意ダイアログを閉めした |
+| 名前                                                                                                     | 説明                          |
+|--------------------------------------------------------------------------------------------------------|-----------------------------|
+| fun onUnclaimedAchievement(achievement : MissionAchievementData)                                       | ユーザーがミッションを達成した             |
+| fun onUserUpdated(user : RakutenRewardUser)                                                            | ユーザーデータが更新された               |
+| fun onSDKStatusChanged(status : RakutenRewardSDKStatus)                                                | SDKの状態が変更された                |
+| fun onSDKClaimClosed(missionAchievementData: MissionAchievementData, status: RakutenRewardClaimStatus) | クレイムUIが閉じた                  |
+| fun onSDKConsentClosed()                                                                               | 同意ダイアログが閉じた (v4.0.0以降)      |
+| fun onSDKConsentPresented()                                                                            | 同意ダイアログが表示された (v5.4.0以降)    |
+| fun onSDKClaimPresented(missionAchievementData: MissionAchievementData)                                | クレイムUIが表示された (v5.4.0以降)     |
 
 ### RakutenRewardSDKStatus
 ---
@@ -240,14 +247,17 @@ RakutenRewardPoint インスタンスのリストになります
 ## API Errors
 RakutenRewardAPIError は enum になります
 
-| Enum             | 説明                                              |
-|------------------|-------------------------------------------------|
-| NETWORKERROR     | ネットワークエラー(接続失敗)                                 |
-| APIRESPONSEERROR | ネットワークのレスポンスに問題があった(基本的には起こりません)                |
-| TOKENEMPTY       | 	アクセストークンがセットされていない                             |
-| SDKNOTACTIVE     | SDKが初期化されていません                                  |
-| TOKENEXPIRE      | アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください |
-| UNKNOWN          | 不明なエラー(基本的には起こりません)                             |
+| Enum                | 説明                                              |
+|---------------------|-------------------------------------------------|
+| NETWORKERROR        | ネットワークエラー(接続失敗)                                 |
+| APIRESPONSEERROR    | ネットワークのレスポンスに問題があった(基本的には起こりません)                |
+| TOKENEMPTY          | アクセストークンがセットされていない                              |
+| SDKNOTACTIVE        | SDKが初期化されていません                                  |
+| TOKENEXPIRE         | アクセストークンの有効期限がきれています <br> アクセストークンをリフレッシュしてください |
+| UNKNOWN             | 不明なエラー(基本的には起こりません)                             |
+| USER_NOT_CONSENT    | ユーザーまだ利用規約に同意しない                                |
+| MISSION_REACHED_CAP | ミッション達成がもう上限に達した                                |
+| UNDER_MAINTENANCE   | 機能はメンテナンス中です                                    |
 
 ## Last Failed Method
 SDKはアプリケーションでエラーを処理できるようにAPIが失敗した場合にその詳細を提供します  

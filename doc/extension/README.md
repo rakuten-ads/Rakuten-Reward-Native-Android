@@ -61,7 +61,7 @@ Since 2.1.1, if the user has not yet accepted the Reward Terms of Service, any A
 ## Version Mapping
 
 | BOM   | JS |
-|-------|----- |
+|-------| --- |
 | 8.2.1 | 1.3.0 |
 | 7.6.0 | 1.2.0 |
 | 7.5.0 | 1.1.0 |
