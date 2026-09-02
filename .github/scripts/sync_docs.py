@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 import sys
 from openai import OpenAI
@@ -159,6 +160,36 @@ def update_page(source_path, target_rel_path):
     print(f"  updated: {target_rel_path}")
 
 
+def update_kdoc_link():
+    """Read the KDoc URL from README.md and update all occurrences in config.mjs."""
+    readme = open("README.md", encoding="utf-8").read()
+    match = re.search(r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"]+', readme)
+    if not match:
+        print("  SKIP: KDoc URL not found in README.md")
+        return
+
+    new_url = match.group(0)
+    config_path = os.path.join(PAGES_REPO_DIR, "docs/.vitepress/config.mjs")
+    if not os.path.exists(config_path):
+        print(f"  SKIP: config.mjs not found at {config_path}")
+        return
+
+    config = open(config_path, encoding="utf-8").read()
+    updated = re.sub(
+        r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"]+',
+        new_url,
+        config
+    )
+
+    if updated == config:
+        print("  KDoc link already up to date in config.mjs")
+        return
+
+    with open(config_path, "w", encoding="utf-8") as f:
+        f.write(updated)
+    print(f"  updated: docs/.vitepress/config.mjs (KDoc → {new_url})")
+
+
 def main():
     changed_files = sys.argv[1:]
     if not changed_files:
@@ -175,6 +206,8 @@ def main():
             print(f"No mapping for: {source_file} — skipping")
             continue
         print(f"Processing: {source_file}")
+        if source_file == "README.md":
+            update_kdoc_link()
         for target in targets:
             if target in seen_targets:
                 print(f"  already updated: {target}")
