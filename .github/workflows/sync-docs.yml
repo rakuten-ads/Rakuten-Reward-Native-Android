@@ -44,6 +44,7 @@ jobs:
         env:
           PAT: ${{ secrets.SDK_PAGES_REPO_PAT }}
         run: |
+          rm -rf /tmp/pages-repo
           git clone https://x-access-token:${PAT}@github.com/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io.git /tmp/pages-repo
 
       - name: Install Python dependencies
