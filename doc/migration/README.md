@@ -38,7 +38,7 @@ maven {
 RakutenReward.init(context, "<AppCode>")
 ```
 
-#### For RAE, RID login options
+#### For RID, RAE login options
 * Remove the following `init` method if you are using it
 ```kotlin
 RakutenReward.init("<AppCode>", "<Token>")

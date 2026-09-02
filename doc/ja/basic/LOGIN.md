@@ -100,7 +100,7 @@ RakutenAuth.openLoginPage(context) { result ->
 ```java
 RakutenAuth.openLoginPage(this, result -> {
     if (result.resultCode == RESULT_OK) {
-        RakutenAuth.handleActivityResult(null, new LoginResultCallback() {
+        RakutenAuth.handleActivityResult(result.getData(), new LoginResultCallback() {
             @Override
             public void loginSuccess() {
                 //✅ ログイン成功

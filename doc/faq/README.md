@@ -2,7 +2,7 @@
 
 Table of Contents
 * [General](#general)
-    * [Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?](#reward-sdk-is-written-in-java-or-kotlin-my-applcation-is-written-in-java-fully-is-there-any-problem-using-the-reward-sdk)
+    * [Reward SDK is written in JAVA or Kotlin? My application is written in JAVA fully, is there any problem using the Reward SDK?](#reward-sdk-is-written-in-java-or-kotlin-my-application-is-written-in-java-fully-is-there-any-problem-using-the-reward-sdk)
     * [Can we access the staging environment for development / testing?](#can-we-access-the-staging-environment-for-development--testing)
     * [Does Reward SDK collect end user's Advertising ID (ADID)?](#does-reward-sdk-collect-end-users-advertising-id-adid)
     * [How to opt out collecting end user's Advertising ID (ADID)?](#how-to-opt-out-collecting-end-users-advertising-id-adid)  
@@ -10,7 +10,7 @@ Table of Contents
     * [I've integrated Reward SDK version 6.1.0, and the app crash when I enable obfuscation](#ive-integrated-reward-sdk-version-610-and-the-app-crash-when-i-enable-obfuscation)
 * [Login Related](#login-related)
     * [What is Rakuten Auth login for?](#what-is-rakuten-auth-login-for)
-    * [I'm using RID / RAE login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid--rae-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
+    * [I'm using RID login option, do I have to call RakutenAuth.logout API when user logged out?](#im-using-rid-login-option-do-i-have-to-call-rakutenauthlogout-api-when-user-logged-out)
     * [Can RakutenAuth.openLoginPage API be call in Fragment class?](#can-rakutenauthopenloginpage-api-be-call-in-fragment-class)
 * [Implementation Related](#implementation-related)
     * [The API always return SDKNOTACTIVE error. What could be the cause?](#the-api-always-return-sdknotactive-error-what-could-be-the-cause)
@@ -19,7 +19,7 @@ Table of Contents
     * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)
     * [How do I implement onSDKStatusChanged or onUnclaimedAchievement?](#how-do-i-implement-onsdkstatuschanged-or-onunclaimedachievement)
     * [Is it possible to detect SDK Portal closed event?](#is-it-possible-to-detect-sdk-portal-closed-event)
-    * [After I set token using RakutenReward.setRaeToken / RakutenReward.setRIdToken but SDK status is still offline.](#after-i-set-token-using-rakutenrewardsetraetoken--rakutenrewardsetridtoken-but-sdk-status-is-still-offline)  
+    * [After I set token using RakutenReward.setRIdToken but SDK status is still offline.](#after-i-set-token-using-rakutenrewardsetridtoken-but-sdk-status-is-still-offline)  
 * [BOM](#bom)  
     * [Am I forced to use the BOM?](#am-i-forced-to-use-the-bom)  
     * [How do I use different library version than what's designated in the BOM?](#how-do-i-use-different-library-version-than-whats-designated-in-the-bom)  
@@ -30,7 +30,7 @@ Table of Contents
 
 ## General 
 
-### Reward SDK is written in JAVA or Kotlin? My applcation is written in JAVA fully, is there any problem using the Reward SDK?
+### Reward SDK is written in JAVA or Kotlin? My application is written in JAVA fully, is there any problem using the Reward SDK?
 <details>
     <summary>Answer</summary>
 Reward SDK is written in Kotlin fully.
@@ -170,7 +170,7 @@ If you cannot upgrade the SDK version, please add the following to your `proguar
 ### What is Rakuten Auth login for?
 <details>
     <summary>Answer</summary>
-The RakutenAuth login option is for third-party. For example, apps outside Rakuten which do not use Rakuten login SDK (RID or RAE). Therefore they can use the RakutenAuth login option.
+The RakutenAuth login option is for third-party. For example, apps outside Rakuten which do not use Rakuten login SDK (RID). Therefore they can use the RakutenAuth login option.
 
 If your app is using Rakuten login SDK already, then you don't need to use this login option.
 
@@ -178,7 +178,7 @@ If your app is using Rakuten login SDK already, then you don't need to use this 
 
 <br>
 
-### I'm using RID / RAE login option, do I have to call `RakutenAuth.logout` API when user logged out?
+### I'm using RID login option, do I have to call `RakutenAuth.logout` API when user logged out?
 <details>
     <summary>Answer</summary>
 If you are using Reward SDK version <strong>3.1.1</strong> and above, then yes you need to call the logout API regardless of which login options to properly clear the token and data.
@@ -462,7 +462,7 @@ class SampleActivity : RakutenRewardBaseActivity() {
 
 <br>
 
-### After I set token using `RakutenReward.setRaeToken` / `RakutenReward.setRIdToken` but SDK status is still offline.
+### After I set token using `RakutenReward.setRIdToken` but SDK status is still offline.
 <details>
     <summary>Answer</summary>
 After setting the token, need to manually trigger to start SDK session by calling the following API. <br>

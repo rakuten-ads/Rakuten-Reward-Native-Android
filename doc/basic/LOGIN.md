@@ -100,7 +100,7 @@ RakutenAuth.openLoginPage(context) { result ->
 RakutenAuth.openLoginPage(this, result -> {
     if (result.resultCode == RESULT_OK) {
         // call handleActivityResult when result code is OK
-        RakutenAuth.handleActivityResult(null, new LoginResultCallback() {
+        RakutenAuth.handleActivityResult(result.getData(), new LoginResultCallback() {
             @Override
             public void loginSuccess() {
                 //✅ login completed

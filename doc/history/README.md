@@ -1,5 +1,17 @@
 # Update History
 
+### Version 8.3.0
+<hr/>
+Release Date: 2026/08/24
+
+* SPS Module:
+    * Entrance flow changed  
+    * Support Google Interstitial Ads (Refer [here](../sps/README.md#google-interstitial-ad))
+    * Support Campaign Deeplink via `openSpsPortal` (Refer [here](../sps/README.md#campagin-deeplink))
+* Minor UI bug fix
+* Removed deprecated RAE API `RakutenReward.setRaeToken`
+* Removed deprecated environment enum entries 
+
 ### Version 8.2.1
 <hr/>
 Release Date: 2026/07/30

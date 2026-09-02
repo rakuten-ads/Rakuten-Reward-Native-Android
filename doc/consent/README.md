@@ -107,7 +107,7 @@ fun logMissionAction() {
 }
 ```
 
-The code above will above will display the consent dialog if user haven't provide consent, and once user provided the consent will proceed to log mission action.
+The code above will display the consent dialog if user haven't provide consent, and once user provided the consent will proceed to log mission action.
 
 Even if user already provided consent, it is still safe to call `RakutenReward.requestForConsent()` API as consent dialog will not be shown and `CONSENT_PROVIDED` status will be return in the callback.
 
