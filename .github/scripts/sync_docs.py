@@ -163,7 +163,7 @@ def update_page(source_path, target_rel_path):
 def update_kdoc_link():
     """Read the KDoc URL from README.md and update all occurrences in config.mjs."""
     readme = open("README.md", encoding="utf-8").read()
-    match = re.search(r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"]+', readme)
+    match = re.search(r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"\']+', readme)
     if not match:
         print("  SKIP: KDoc URL not found in README.md")
         return
@@ -176,7 +176,7 @@ def update_kdoc_link():
 
     config = open(config_path, encoding="utf-8").read()
     updated = re.sub(
-        r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"]+',
+        r'https://rakuten-ads\.github\.io/products/mission/android/kdoc/[^\s\)\"\']+',
         new_url,
         config
     )
