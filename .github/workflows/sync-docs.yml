@@ -15,7 +15,7 @@ on:
 
 jobs:
   sync:
-    runs-on: [self-hosted, macOS, ARM64]
+    runs-on: ra0319-local
     steps:
       - uses: actions/checkout@v4
         with:
