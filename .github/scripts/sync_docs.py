@@ -1,4 +1,5 @@
 import os
+import subprocess
 import sys
 from openai import OpenAI
 
@@ -109,30 +110,37 @@ MAPPING = {
 
 SYSTEM_PROMPT = """You are a technical documentation editor for the Rakuten Reward Android SDK.
 
-You will receive two documents:
-- SOURCE: a raw documentation file from the SDK source repository
+You will receive:
+- DIFF: a git diff showing exactly what changed in a source documentation file from the SDK repository
 - TARGET: the corresponding public-facing documentation page on the GitHub Pages site
 
-The two files cover the same topic but may differ in structure and formatting. The pages site uses a cleaner, more polished format without internal navigation links like [TOP](../../README.md#top).
-
 Your task:
-1. Identify what changed or was added in SOURCE compared to the TARGET's current content.
-2. Apply those changes to TARGET, preserving its formatting, structure, and style.
-3. Do not copy SOURCE verbatim — adapt changes to match the TARGET's tone and format.
+1. Read the DIFF carefully — lines starting with + were added, lines starting with - were removed.
+2. Apply only those specific changes to TARGET, adapting them to match TARGET's tone, formatting, and style.
+3. Do not rewrite or restructure sections that were not touched by the diff.
 4. Return ONLY the complete updated TARGET file content with no explanation or commentary."""
+
+
+def get_diff(source_path):
+    result = subprocess.run(
+        ["git", "diff", "HEAD~1", "HEAD", "--", source_path],
+        capture_output=True, text=True
+    )
+    return result.stdout.strip()
 
 
 def update_page(source_path, target_rel_path):
     target_abs_path = os.path.join(PAGES_REPO_DIR, target_rel_path)
 
-    if not os.path.exists(source_path):
-        print(f"  SKIP: source not found: {source_path}")
-        return
     if not os.path.exists(target_abs_path):
         print(f"  SKIP: target not found: {target_abs_path}")
         return
 
-    source_content = open(source_path, encoding="utf-8").read()
+    diff = get_diff(source_path)
+    if not diff:
+        print(f"  SKIP: no diff found for {source_path}")
+        return
+
     target_content = open(target_abs_path, encoding="utf-8").read()
 
     response = client.chat.completions.create(
@@ -142,7 +150,7 @@ def update_page(source_path, target_rel_path):
             {"role": "system", "content": SYSTEM_PROMPT},
             {
                 "role": "user",
-                "content": f"SOURCE:\n{source_content}\n\nTARGET:\n{target_content}",
+                "content": f"DIFF:\n{diff}\n\nTARGET:\n{target_content}",
             },
         ],
     )
