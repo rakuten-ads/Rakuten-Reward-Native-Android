@@ -2,7 +2,7 @@ name: Sync docs to pages
 
 on:
   push:
-    branches: [master, poc/auto_doc_sync, poc/auto_doc_sync_test3]
+    branches: [master]
     paths:
       - 'README.md'
       - 'doc/**/*.md'
