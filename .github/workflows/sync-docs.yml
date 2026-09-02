@@ -2,10 +2,16 @@ name: Sync docs to pages
 
 on:
   push:
-    branches: [master]
+    branches: [master, poc/auto_doc_sync]
     paths:
       - 'README.md'
       - 'doc/**/*.md'
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'Space-separated source files to sync (e.g. "README.md doc/basic/LOGIN.md")'
+        required: true
+        default: 'README.md'
 
 jobs:
   sync:
@@ -18,10 +24,14 @@ jobs:
       - name: Get changed doc files
         id: changed
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD -- README.md 'doc/**' \
-            | grep '\.md$' \
-            | grep -v 'doc/EventAnalytics\|doc/history\|doc/sps\|doc/java\|doc/lang' \
-            | tr '\n' ' ')
+          if [ -n "${{ github.event.inputs.files }}" ]; then
+            CHANGED="${{ github.event.inputs.files }}"
+          else
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- README.md 'doc/**' \
+              | grep '\.md$' \
+              | grep -v 'doc/EventAnalytics\|doc/history\|doc/sps\|doc/java\|doc/lang' \
+              | tr '\n' ' ')
+          fi
           echo "files=$CHANGED" >> $GITHUB_OUTPUT
 
       - name: Skip if no relevant changes
@@ -44,7 +54,7 @@ jobs:
         if: steps.changed.outputs.files != ''
         env:
           RAKUTEN_AI_API_KEY: ${{ secrets.RAKUTEN_AI_API_KEY }}
-          RAKUTEN_AI_MODEL: ${{ secrets.RAKUTEN_AI_MODEL }}
+          RAKUTEN_AI_MODEL: ${{ vars.RAKUTEN_AI_MODEL }}
           PAGES_REPO_DIR: /tmp/pages-repo
           NODE_EXTRA_CA_CERTS: /Users/zack.keng/Workstation/Github/netskope-root-ca.pem
         run: |
