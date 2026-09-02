@@ -73,7 +73,7 @@ RakutenReward.openSDKPortal({ result ->
 <br>
 こちらがSDKポータルのイメージになります
 
-![Portal1](Portal1.png)  ![Portal2](Portal2.png)
+![Portal1](Portal1.png)  <img src="Portal2.png" alt="Mission List" width="310"> 
 
 ![Portal3](Portal3.png)  ![Portal4](Portal4.png)
 

@@ -165,7 +165,7 @@ Reward API result which return in `RakutenRewardCoroutine`.
 | UNKNOWN             | Unknown error, basically not happen                                       |  
 | USER_NOT_CONSENT    | User haven't provide consent                                              |  
 | MISSION_REACHED_CAP | Mission achievement already reached cap                                   |  
-| UNDER_MAINTENNANCE  | Feature is under maintenance                                              |  
+| UNDER_MAINTENANCE  | Feature is under maintenance                                              |  
 ---  
 
 <br>
@@ -197,10 +197,10 @@ SDK provides information about failed method to handle error easily.
 | --- | --- |
 | Japanese | Japanese language |
 | English | English language |
-| Korean | Korean languauge |
-| ChineseTraditional | Traditional Chinese languauge | 
-| ChineseSimplified | Simplified Chinese languauge |
-| OtherLocale | Create other locale by providing the ISO 639 languauge code | 
+| Korean | Korean language |
+| ChineseTraditional | Traditional Chinese language | 
+| ChineseSimplified | Simplified Chinese language |
+| OtherLocale | Create other locale by providing the ISO 639 language code | 
 
 ---
 LANGUAGE :

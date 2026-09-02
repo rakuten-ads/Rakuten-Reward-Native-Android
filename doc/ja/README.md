@@ -20,6 +20,8 @@
 
 | バージョン | 最小限 OS      | コンパイル OS |
 |-------|-------------|----------|
+| 8.3.0 | API24 (7.0) | API 36   |
+| 8.2.1 | API24 (7.0) | API 36   |
 | 8.2.0 | API24 (7.0) | API 36   |
 | 8.1.0 | API24 (7.0) | API 36   |
 | 8.0.0 | API24 (7.0) | API 36   |
@@ -119,7 +121,7 @@ Reward Native Android 部品構成表を使用して、モジュール（アプ�
 
 dependencies {
   // Import the BoM for the Reward Native platform
-  implementation platform('com.rakuten.android:rewardsdknative-bom:8.2.0')
+  implementation platform('com.rakuten.android:rewardsdknative-bom:8.3.0')
 
   // Declare the dependency for the core library
   implementation 'com.rakuten.android:rewardsdknative-core' 
@@ -174,7 +176,7 @@ dependencies {
 [イベントアナリティクス](./EventAnalytics/README.md)  
 [JavaScript 拡張機能](./extension/README.md)  
 [Java](./java/README.md)  
-[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/8.2.0/index.html)
+[KDoc](https://rakuten-ads.github.io/products/mission/android/kdoc/8.3.0/index.html)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
