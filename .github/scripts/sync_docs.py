@@ -171,12 +171,11 @@ Your task: produce a concise HTML review summary listing what needs to change in
 
 Rules:
 1. Only describe changes derived from the DIFF.
-2. Skip any changes related to RID token, RAE token, or internal Rakuten authentication mechanisms — do not include these.
-3. For each change needed, identify the section and provide the current text and proposed replacement.
-4. Use this HTML structure for each change item:
+2. For each change needed, identify the section and provide the current text and proposed replacement.
+3. Use this HTML structure for each change item:
    <ul><li><strong>Section:</strong> ...<br/><strong>Current:</strong> <code>...</code><br/><strong>Proposed:</strong> <code>...</code></li></ul>
-5. If no changes are needed for this page, return exactly: <p>No changes needed.</p>
-6. Return ONLY the HTML content, no prose explanation."""
+4. If no changes are needed for this page, return exactly: <p>No changes needed.</p>
+5. Return ONLY the HTML content, no prose explanation."""
 
 
 def get_diff(source_path):
