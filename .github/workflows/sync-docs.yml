@@ -49,7 +49,7 @@ jobs:
 
       - name: Install Python dependencies
         if: steps.changed.outputs.files != ''
-        run: pip3 install openai
+        run: pip3 install openai requests
 
       - name: Sync docs via AI
         if: steps.changed.outputs.files != ''
@@ -57,6 +57,7 @@ jobs:
           RAKUTEN_AI_API_KEY: ${{ secrets.RAKUTEN_AI_API_KEY }}
           RAKUTEN_AI_MODEL: ${{ vars.RAKUTEN_AI_MODEL }}
           PAGES_REPO_DIR: /tmp/pages-repo
+          CONFLUENCE_PAT: ${{ secrets.CONFLUENCE_PAT }}
           NODE_EXTRA_CA_CERTS: /Users/zack.keng/Workstation/Github/netskope-root-ca.pem
         run: |
           python3 .github/scripts/sync_docs.py ${{ steps.changed.outputs.files }}
