@@ -48,9 +48,6 @@ MAPPING = {
     "doc/migration/migrate-from-v1.md": [
         "docs/android/migration.md",
     ],
-    "doc/APIReference/README.md": [
-        "docs/android/api-reference.md",
-    ],
     "doc/extension/README.md": [
         "docs/android/js-extension.md",
     ],
@@ -118,7 +115,8 @@ Your task:
 1. Read the DIFF carefully — lines starting with + were added, lines starting with - were removed.
 2. Apply only those specific changes to TARGET, adapting them to match TARGET's tone, formatting, and style.
 3. Do not rewrite or restructure sections that were not touched by the diff.
-4. Return ONLY the complete updated TARGET file content with no explanation or commentary."""
+4. Skip any changes related to RID token, RAE token, or internal Rakuten authentication mechanisms — these are internal details that must not be disclosed publicly.
+5. Return ONLY the complete updated TARGET file content with no explanation or commentary."""
 
 
 def get_diff(source_path):
