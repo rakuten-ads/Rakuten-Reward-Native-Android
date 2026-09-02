@@ -15,7 +15,7 @@ on:
 
 jobs:
   sync:
-    runs-on: ra0319-local
+    runs-on: [self-hosted, macOS, ARM64]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -77,8 +77,9 @@ jobs:
           fi
           git commit -m "sync: android docs from rakuten-ads/Rakuten-Reward-Native-Android@$(echo ${{ github.sha }} | cut -c1-7)"
           git push origin $BRANCH
-          gh pr create \
-            --repo Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io \
-            --title "sync: android docs from $(echo ${{ github.sha }} | cut -c1-7)" \
-            --body "Auto-synced from commit ${{ github.sha }} in [rakuten-ads/Rakuten-Reward-Native-Android](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/commit/${{ github.sha }})." \
-            --base master
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.SDK_PAGES_REPO_PAT }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io/pulls \
+            -d "{\"title\":\"sync: android docs from ${SHORT_SHA}\",\"body\":\"Auto-synced from commit ${{ github.sha }} in [rakuten-ads/Rakuten-Reward-Native-Android](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/commit/${{ github.sha }}).\",\"head\":\"${BRANCH}\",\"base\":\"master\"}"
