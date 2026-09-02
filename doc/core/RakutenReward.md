@@ -66,7 +66,6 @@ RakutenReward.INSTANCE.getAppCode();
 | [removeRakutenRewardListener](#rakutenrewardlistener)  | Remove Event Listener                                    |
 | [requestForConsent](#request-for-consent)              | Request for consent if user have not provide consent yet |
 | [setRa](#set-rakuten-cookie)                           | Set Ra cookie                                            |
-| setRaeToken                                            | ⚠️ Deprecated - Set RAE Token (Use [RewardTokenProvider](../migration/v8-migration.md) instead) |
 | setRidToken                                            | ⚠️ Deprecated - Set RID Token (Use [RewardTokenProvider](../migration/v8-migration.md) instead) |
 | [setRp](#set-rakuten-cookie)                           | Set Rp cookie                                            |
 | [setRz](#set-rakuten-cookie)                           | Set Rz cookie                                            |
@@ -298,7 +297,7 @@ RakutenReward.init("<appCode>")
 |----------------|----------------------------------------------------------------|
 | AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |
 
-**For RID, RAE login options**
+**For RID login options**
 You can provide `RewardTokenProvider` during initialization (recommended in v8+):
 ```kotlin
 val tokenProvider = object: RewardTokenProvider {

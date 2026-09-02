@@ -66,7 +66,6 @@ RakutenReward.INSTANCE.getAppCode();
 | [removeRakutenRewardListener](#rakutenrewardlistener) | RakutenRewardListenerを取り除く |
 | [requestForConsent](#利用規約への同意をリクエスト)                  | 利用規約への同意をリクエスト             |
 | [setRa](#クッキーをセットする)                                  | Ra クッキーをセットする              |
-| setRaeToken                                           | ⚠️ 非推奨 - RAE トークンをセットする ([RewardTokenProvider](../migration/v8-migration.md)を使用してください)             |
 | setRidToken                                           | ⚠️ 非推奨 - RID トークンをセットする ([RewardTokenProvider](../migration/v8-migration.md)を使用してください)             |
 | [setRp](#クッキーをセットする)                                  | Rp クッキーをセットする              |
 | [setRz](#クッキーをセットする)                                  | Rz クッキーをセットする              |
@@ -298,7 +297,7 @@ RakutenReward.init("<appCode>")
 |---------|-----------------------------------------|
 | AppCode | アプリケーションキー (こちらは楽天リワードの開発者ポータルから取得できます) |
 
-**RID, RAEログインオプションの場合**
+**RIDログインオプションの場合**
 v8以降では、初期化時に`RewardTokenProvider`を提供することを推奨します：
 ```kotlin
 val tokenProvider = object: RewardTokenProvider {

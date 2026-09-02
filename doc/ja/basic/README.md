@@ -6,7 +6,6 @@
   * [ログイン](#ログイン)<br>
   * [ログアウト](#ログアウト)<br>
 * [SDKの初期化](#sdkの初期化)<br>
-* [SDKステータス](#sdkステータス)<br>
 * [ユーザー情報を取得する](#ユーザー情報を取得する)<br>
 * [ミッションの達成](#ミッションの達成)<br>
 * [SDK用意するUI](#sdk用意するui)<br>
@@ -21,15 +20,12 @@
 ## ログインオプション
 リワードSDK では3種類のログイン方法を提供しております。  
 ご利用の環境に合わせて、適切なものをご利用ください。  
-初期設定では、RAKUTEN_AUTH　になっております。  
-
-***注意: RAEは2025年までに廃止されます。***
+初期設定では、RAKUTEN_AUTH　になっております。
 
 | ログインオプション    | 説明                                                 |
 |--------------|----------------------------------------------------|
 | RAKUTEN_AUTH | 初期設定、ログインやユーザーの処理を全てリワードSDKが担当します                  |
 | RID          | ログイン部分はID SDKが担当します(RID)。トークンをリワードSDKに渡す必要があります    |  
-| RAE          | ログイン部分はUser SDKが担当します(RAE)。 トークンをリワードSDKに渡す必要があります |  
 <br>
 
 ## ログインオプションを切り替える
@@ -83,42 +79,6 @@ RakutenReward.init("<AppCode>", tokenProvider)
 
 [ログアウト](#ログアウト) を参照  
 <br>
-
-### RAE  
-***このAPIは廃止予定になります***
-```kotlin
-RakutenReward.tokenType = RakutenRewardTokentype.RAE
-```
-<details>
-    <summary>JAVA</summary>
-
-```java
-RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAE);
-```    
-</details>  
-
-
-SDK APIを利用するには、開発者がAPIトークンを設定する必要があります。
-```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // 認証システムからトークンを返却
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // ユーザーがログインしていない場合は空文字列を返却
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
-```
-
-ログインの実装方法についてはUser SDKのログインドキュメントをご参照ください。
-
-> :grey_exclamation:  **ユーザーがログアウトする際は、必ず`logout` APIを呼び出してトークンやデータを正しくクリアしてください。**
-
-[ログアウト](#ログアウト) を参照  
-<br>  
 
 # ログイン  
 [ここ](./LOGIN.md)に参考してください。  
@@ -200,7 +160,7 @@ RAEやRIDオプションを利用する場合は、SDKを有効化するため�
 <br>
 
 ## 楽天のIDSDKを利用する場合  
-楽天のIDSDKを使用し、ログインオプションに 、RID, RAE を選択した場合
+楽天のIDSDKを使用し、ログインオプションに 、RID を選択した場合
 アプリケーションキーの他にトークンを渡す必要があります。
 
 <br><br/>
@@ -348,7 +308,7 @@ RakutenRewardConfig.setAppLocale(Japanese)
 
 もしクライアントアプリがSDKで対応していない他の言語に対応している場合は、ISO 639言語コードを指定して`OtherLocale`としてアプリのロケールを設定できます。 
 ```kotlin
-RakutenRewardConfig.setAppLocale(OtherLocale("ta")) // タイ語
+RakutenRewardConfig.setAppLocale(OtherLocale("th")) // タイ語
 ```  
 SDKがそのロケールに対応していない場合は、日本語で表示されます。 
 

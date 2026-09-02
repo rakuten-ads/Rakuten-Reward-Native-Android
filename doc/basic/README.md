@@ -6,7 +6,6 @@ Table of Contents
   * [Log in](#log-in)<br>
   * [Log out](#log-out)<br>
 * [Initialize SDK](#initialize-sdk)<br>
-* [SDK Status](#sdk-status)<br>
 * [User Information](#user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
 * [SDK Built-in UI](#sdk-built-in-ui)<br>
@@ -19,15 +18,12 @@ Table of Contents
 
 ## Login Options
 There are 3 types of login. According to your environment, please select proper one. 
-<br>  
-
-***Note: RAE will be abolished by end of 2025***
+<br>
 
 | Login Option | Description                                                                             |
 |--------------|-----------------------------------------------------------------------------------------|
 | RakutenAuth  | This is default option, provide login by SDK, SDK handled all login and user identifier |
 | RID          | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK              |  
-| RAE          | Rakuten ID SDK with RAE, Login covers by User SDK, and use token for SDK                |
 <br>
 
 ## Switch Login Option
@@ -75,42 +71,6 @@ RakutenReward.init("<AppCode>", tokenProvider)
 ```
 
 For login implementation, please read ID SDK login documentation.
-
-> :grey_exclamation:  **`logout` API is required to be called whenever user log out to properly clear token and data**
-
-Refer to [Log Out](#log-out)  
-
-<br>
-
-### RAE  
-***This API is deprecated.***  
-```kotlin
-RakutenReward.tokenType = RakutenRewardTokentype.RAE
-```
-<details>
-    <summary>JAVA</summary>
-
-```java
-RakutenReward.INSTANCE.setTokenType(RakutenRewardTokentype.RAE);
-```    
-</details>
-To use SDK API, need to set access API token by developers
-
-```kotlin
-val tokenProvider = object: RewardTokenProvider {
-    override suspend fun getAccessToken(): String {
-        // Return token from your authentication system
-        return if (isUserLoggedIn()) {
-            yourAuthManager.getAccessToken()
-        } else {
-            ""  // Return empty string when user is not logged in
-        }
-    }
-}
-RakutenReward.init("<AppCode>", tokenProvider)
-```
-
-For login implementation, please read User SDK login documentation.
 
 > :grey_exclamation:  **`logout` API is required to be called whenever user log out to properly clear token and data**
 
@@ -179,7 +139,7 @@ class App: Application() {
 |----------------|----------------------------------------------------------------|
 | AppCode        | Application Key (This is from Rakuten Reward Developer Portal) |
 
-If you use RAE, RID option, you need to set `RewardTokenProvider` to activate SDK.
+If you use RID option, you need to set `RewardTokenProvider` to activate SDK.
 <br/><br/>
 
 ### **\*From version 3.3.0 onward, manual initialization is no longer needed.**
@@ -329,7 +289,7 @@ RakutenRewardConfig.setAppLocale(Japanese)
 
 If the client app supports other language than the one available in the SDK, you can set the App Locale as `OtherLocale` by providing the ISO 639 language code. 
 ```kotlin
-RakutenRewardConfig.setAppLocale(OtherLocale("ta")) // Thai Language
+RakutenRewardConfig.setAppLocale(OtherLocale("th")) // Thai Language
 ```  
 If SDK does not support the locale, it will fallback to show in Japanese. 
 
