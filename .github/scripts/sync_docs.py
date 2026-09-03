@@ -406,7 +406,7 @@ def main():
         return
 
     # GitHub Pages sync
-    seen_targets = set()
+    seen_pairs = set()
     for source_file in changed_files:
         targets = MAPPING.get(source_file)
         if not targets:
@@ -416,10 +416,11 @@ def main():
         if source_file == "README.md":
             update_kdoc_link()
         for target in targets:
-            if target in seen_targets:
-                print(f"  already updated: {target}")
+            pair = (source_file, target)
+            if pair in seen_pairs:
+                print(f"  already updated from {source_file}: {target}")
                 continue
-            seen_targets.add(target)
+            seen_pairs.add(pair)
             update_page(source_file, target)
 
     # Confluence review report
