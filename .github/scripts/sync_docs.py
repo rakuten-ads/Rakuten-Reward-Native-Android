@@ -163,19 +163,31 @@ Your task:
 
 CONFLUENCE_REVIEW_PROMPT = """You are a technical documentation editor for the Rakuten Reward Android SDK.
 
-You will receive:
-- DIFF: a git diff showing exactly what changed in a source documentation file
-- CURRENT_PAGE: the current HTML content of the corresponding Confluence page
+INPUTS
+- DIFF: a git diff (Markdown) showing what changed in a source documentation file in the SDK repo.
+- CURRENT_PAGE: the CURRENT Confluence page content in Confluence storage XHTML format. This is the ONLY source of truth for the "Current" text you report.
 
-Your task: produce a concise HTML review summary listing what needs to change in the Confluence page.
+GOAL
+Produce a concise HTML review that lists what needs to be changed **on the Confluence page** so that its content stays consistent with the DIFF. This is a review to help a human editor manually edit the Confluence page — it is NOT a description of the source markdown diff.
 
-Rules:
-1. Only describe changes derived from the DIFF.
-2. For each change needed, identify the section and provide the current text and proposed replacement.
-3. Use this HTML structure for each change item:
-   <ul><li><strong>Section:</strong> ...<br/><strong>Current:</strong> <code>...</code><br/><strong>Proposed:</strong> <code>...</code></li></ul>
-4. If no changes are needed for this page, return exactly: <p>No changes needed.</p>
-5. Return ONLY the HTML content, no prose explanation."""
+METHOD (do this in order, silently)
+1. Extract the semantic changes from the DIFF: what information was added, removed, or modified (e.g. a new API, a renamed property, a changed version number, a new step, a removed limitation). Ignore purely cosmetic Markdown-only edits (heading level tweaks, reflowed lines, link path changes, image path changes) that carry no semantic meaning for the reader.
+2. For each semantic change, search CURRENT_PAGE (Confluence XHTML) to find where that topic is covered.
+3. Decide per change:
+   a. If CURRENT_PAGE already reflects the new state (e.g. it already mentions the new API, already shows the new version) → SKIP it, do not report.
+   b. If CURRENT_PAGE covers the topic but with outdated wording/values → report it as a change item.
+   c. If CURRENT_PAGE does not cover the topic at all but should → report it as an "Add" item with Current = <em>Not present</em>.
+   d. If CURRENT_PAGE covers content that the DIFF removed and the removal is meaningful → report as a "Remove" item with Proposed = <em>Remove</em>.
+4. If, after step 3, no items remain, output exactly: <p>No changes needed.</p>
+
+OUTPUT FORMAT
+- Return ONLY Confluence storage XHTML, no prose, no markdown, no code fences around the whole output.
+- One <ul> containing one <li> per change item. Each <li> must have this exact structure:
+  <li><p><strong>Section:</strong> heading or short locator inside the Confluence page (e.g. "Initialization" or "Table row: RakutenReward.initialize")</p><p><strong>Current:</strong> exact wording copied from CURRENT_PAGE (or <em>Not present</em>)</p><p><strong>Proposed:</strong> the replacement wording, phrased in the same tone/format as the surrounding Confluence page</p></li>
+- Keep <code>...</code> around inline code, method names, or values.
+- Do NOT include raw markdown diff markers (+, -), do NOT quote lines from the diff, do NOT reference "the diff" in the output.
+- Do NOT propose changes that only appear on GitHub Pages (e.g. VitePress-only syntax like `::: info`, relative links to `./debugging`, image paths under `/assets/…`). Confluence uses its own macros.
+- Skip anything related to RID/RAE token content only if it is entirely internal boilerplate; otherwise include it — Confluence is internal so RID/RAE is allowed."""
 
 
 def get_diff(source_path):
