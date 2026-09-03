@@ -45,7 +45,12 @@ jobs:
           PAT: ${{ secrets.SDK_PAGES_REPO_PAT }}
         run: |
           rm -rf /tmp/pages-repo
-          git clone https://x-access-token:${PAT}@github.com/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io.git /tmp/pages-repo
+          cat > /tmp/git-askpass.sh <<'EOF'
+          #!/bin/sh
+          echo "$PAT"
+          EOF
+          chmod +x /tmp/git-askpass.sh
+          GIT_ASKPASS=/tmp/git-askpass.sh GIT_TERMINAL_PROMPT=0 git clone https://github.com/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io.git /tmp/pages-repo
 
       - name: Install Python dependencies
         if: steps.changed.outputs.files != ''
@@ -66,6 +71,7 @@ jobs:
         if: steps.changed.outputs.files != ''
         env:
           GH_TOKEN: ${{ secrets.SDK_PAGES_REPO_PAT }}
+          PAT: ${{ secrets.SDK_PAGES_REPO_PAT }}
         run: |
           cd /tmp/pages-repo
           git config user.email "github-actions@github.com"
@@ -75,10 +81,12 @@ jobs:
           git add -A
           if git diff --staged --quiet; then
             echo "No changes to commit — pages already up to date."
+            rm -f /tmp/git-askpass.sh
             exit 0
           fi
           git commit -m "sync: android docs from rakuten-ads/Rakuten-Reward-Native-Android@$(echo ${{ github.sha }} | cut -c1-7)"
-          git push origin $BRANCH
+          GIT_ASKPASS=/tmp/git-askpass.sh GIT_TERMINAL_PROMPT=0 git push origin $BRANCH
+          rm -f /tmp/git-askpass.sh
           SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
           curl -s -X POST \
             -H "Authorization: Bearer ${{ secrets.SDK_PAGES_REPO_PAT }}" \
