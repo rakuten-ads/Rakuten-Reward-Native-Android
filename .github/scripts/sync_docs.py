@@ -191,10 +191,28 @@ OUTPUT FORMAT
 
 
 def get_diff(source_path):
-    result = subprocess.run(
-        ["git", "diff", "HEAD~1", "HEAD", "--", source_path],
-        capture_output=True, text=True
+    base = None
+    head = "HEAD"
+
+    if os.environ.get("GITHUB_EVENT_NAME") == "push":
+        try:
+            import json
+            with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
+                payload = json.load(f)
+            before = payload.get("before")
+            # 40 zeros = new branch, no valid base to diff from
+            if before and set(before) != {"0"}:
+                base = before
+                head = payload.get("after") or os.environ.get("GITHUB_SHA") or head
+        except Exception:
+            base = None
+
+    cmd = (
+        ["git", "diff", base, head, "--", source_path]
+        if base
+        else ["git", "diff", "HEAD~1", "HEAD", "--", source_path]
     )
+    result = subprocess.run(cmd, capture_output=True, text=True)
     return result.stdout.strip()
 
 
