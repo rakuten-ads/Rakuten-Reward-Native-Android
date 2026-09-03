@@ -93,7 +93,7 @@ jobs:
           GIT_ASKPASS=/tmp/git-askpass.sh GIT_TERMINAL_PROMPT=0 git push origin $BRANCH
           rm -f /tmp/git-askpass.sh
           SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
-          curl -s -X POST \
+          curl -fsS -X POST \
             -H "Authorization: Bearer ${{ secrets.SDK_PAGES_REPO_PAT }}" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io/pulls \
