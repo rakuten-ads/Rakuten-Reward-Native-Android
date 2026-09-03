@@ -1,0 +1,100 @@
+name: Sync docs to pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'README.md'
+      - 'doc/**/*.md'
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'Space-separated source files to sync (e.g. "README.md doc/basic/LOGIN.md")'
+        required: true
+        default: 'README.md'
+
+jobs:
+  sync:
+    runs-on: ra0319-local
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed doc files
+        id: changed
+        run: |
+          if [ -n "${{ github.event.inputs.files }}" ]; then
+            CHANGED="${{ github.event.inputs.files }}"
+          else
+            BEFORE="${{ github.event.before }}"
+            AFTER="${{ github.event.after }}"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              BEFORE="HEAD~1"
+              AFTER="HEAD"
+            fi
+            CHANGED=$(git diff --name-only "$BEFORE" "$AFTER" -- README.md 'doc/**' \
+              | grep '\.md$' \
+              | grep -v 'doc/EventAnalytics\|doc/history\|doc/sps\|doc/java\|doc/lang' \
+              | tr '\n' ' ')
+          fi
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+
+      - name: Skip if no relevant changes
+        if: steps.changed.outputs.files == ''
+        run: |
+          echo "No relevant doc changes, skipping sync."
+
+      - name: Clone pages repo
+        if: steps.changed.outputs.files != ''
+        env:
+          PAT: ${{ secrets.SDK_PAGES_REPO_PAT }}
+        run: |
+          rm -rf /tmp/pages-repo
+          cat > /tmp/git-askpass.sh <<'EOF'
+          #!/bin/sh
+          echo "$PAT"
+          EOF
+          chmod +x /tmp/git-askpass.sh
+          GIT_ASKPASS=/tmp/git-askpass.sh GIT_TERMINAL_PROMPT=0 git clone https://github.com/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io.git /tmp/pages-repo
+
+      - name: Install Python dependencies
+        if: steps.changed.outputs.files != ''
+        run: pip3 install openai requests
+
+      - name: Sync docs via AI
+        if: steps.changed.outputs.files != ''
+        env:
+          RAKUTEN_AI_API_KEY: ${{ secrets.RAKUTEN_AI_API_KEY }}
+          RAKUTEN_AI_MODEL: ${{ vars.RAKUTEN_AI_MODEL }}
+          PAGES_REPO_DIR: /tmp/pages-repo
+          CONFLUENCE_PAT: ${{ secrets.CONFLUENCE_PAT }}
+        run: |
+          python3 .github/scripts/sync_docs.py ${{ steps.changed.outputs.files }}
+
+      - name: Create PR in pages repo
+        if: steps.changed.outputs.files != ''
+        env:
+          GH_TOKEN: ${{ secrets.SDK_PAGES_REPO_PAT }}
+          PAT: ${{ secrets.SDK_PAGES_REPO_PAT }}
+        run: |
+          cd /tmp/pages-repo
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          BRANCH="android-doc-sync-$(echo ${{ github.sha }} | cut -c1-7)"
+          git checkout -b $BRANCH
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit — pages already up to date."
+            rm -f /tmp/git-askpass.sh
+            exit 0
+          fi
+          git commit -m "sync: android docs from rakuten-ads/Rakuten-Reward-Native-Android@$(echo ${{ github.sha }} | cut -c1-7)"
+          GIT_ASKPASS=/tmp/git-askpass.sh GIT_TERMINAL_PROMPT=0 git push origin $BRANCH
+          rm -f /tmp/git-askpass.sh
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.SDK_PAGES_REPO_PAT }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/Rakuten-Reward-SDK/Rakuten-Reward-SDK.github.io/pulls \
+            -d "{\"title\":\"sync: android docs from ${SHORT_SHA}\",\"body\":\"Auto-synced from commit ${{ github.sha }} in [rakuten-ads/Rakuten-Reward-Native-Android](https://github.com/rakuten-ads/Rakuten-Reward-Native-Android/commit/${{ github.sha }}).\",\"head\":\"${BRANCH}\",\"base\":\"master\"}"
