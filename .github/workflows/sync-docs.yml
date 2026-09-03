@@ -69,7 +69,6 @@ jobs:
           RAKUTEN_AI_MODEL: ${{ vars.RAKUTEN_AI_MODEL }}
           PAGES_REPO_DIR: /tmp/pages-repo
           CONFLUENCE_PAT: ${{ secrets.CONFLUENCE_PAT }}
-          NODE_EXTRA_CA_CERTS: /Users/zack.keng/Workstation/Github/netskope-root-ca.pem
         run: |
           python3 .github/scripts/sync_docs.py ${{ steps.changed.outputs.files }}
 
