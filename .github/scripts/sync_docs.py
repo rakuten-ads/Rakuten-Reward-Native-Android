@@ -294,6 +294,7 @@ def get_confluence_page(page_id):
     resp = requests.get(
         url,
         headers={"Authorization": f"Bearer {CONFLUENCE_PAT}", "Accept": "application/json"},
+        timeout=30,
     )
     resp.raise_for_status()
     return resp.json()
@@ -361,6 +362,7 @@ def create_confluence_report_page(version, sections_html):
             "Authorization": f"Bearer {CONFLUENCE_PAT}",
             "Content-Type": "application/json",
         },
+        timeout=30,
     )
     resp.raise_for_status()
     created = resp.json()
