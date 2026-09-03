@@ -243,6 +243,9 @@ def update_page(source_path, target_rel_path):
     )
 
     updated = response.choices[0].message.content
+    if not updated or not updated.strip():
+        print(f"  WARN: empty AI response for {target_rel_path}; skipping write")
+        return
     with open(target_abs_path, "w", encoding="utf-8") as f:
         f.write(updated)
     print(f"  updated: {target_rel_path}")
