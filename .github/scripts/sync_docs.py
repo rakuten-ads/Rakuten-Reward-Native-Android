@@ -146,6 +146,9 @@ CONFLUENCE_MAPPING = {
     "doc/core/RakutenReward.md": [
         {"id": "6863539176", "title": "13 - API Reference (Android)"},
     ],
+    "doc/faq/README.md": [
+        {"id": "6897971829", "title": "14 - FAQ | 🤖 Android"},
+    ],
 }
 
 SYSTEM_PROMPT = """You are a technical documentation editor for the Rakuten Reward Android SDK.
